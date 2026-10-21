@@ -6,6 +6,7 @@ authors:
   - family-names: Habl
     given-names: Felix
 repository-code: "https://github.com/Ne0nk3k/dreikoerper"
+version: "1.0.0"
 license:
   - MIT
   - CC-BY-4.0
