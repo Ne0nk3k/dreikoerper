@@ -7,6 +7,14 @@ authors:
     given-names: Felix
 repository-code: "https://github.com/Ne0nk3k/dreikoerper"
 version: "1.0.0"
+doi: "10.5281/zenodo.23536576"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23536576"
+    description: "Concept DOI, all versions (resolves to the latest)"
+  - type: doi
+    value: "10.5281/zenodo.23536577"
+    description: "Version 1.0.0"
 license:
   - MIT
   - CC-BY-4.0

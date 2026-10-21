@@ -1,5 +1,7 @@
 # dreikoerper — periodic orbits of the planar three-body problem
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23536576.svg)](https://doi.org/10.5281/zenodo.23536576)
+
 A search engine for periodic orbits of the planar three-body problem (zero angular momentum, G = 1), the orbits it found that are in none of the published lists, and a 30-digit verification of each one.
 
 Code comments and working notes are in German. This page, the data package in [`fundbericht/`](fundbericht/README.md) and the output of `bahn-pruefen.mjs` are in English.
@@ -88,7 +90,12 @@ Felix Habl had the idea and directed the work. The code, the computations and th
 
 ## How to cite
 
-GitHub offers a citation under "Cite this repository" on the right of the repository page. The data are in `CITATION.cff`.
+The repository is archived on Zenodo:
+
+- **All versions:** [10.5281/zenodo.23536576](https://doi.org/10.5281/zenodo.23536576). This DOI always resolves to the latest version.
+- **Version 1.0.0:** [10.5281/zenodo.23536577](https://doi.org/10.5281/zenodo.23536577).
+
+GitHub also offers a citation under "Cite this repository" on the right of the repository page. The data are in `CITATION.cff`.
 
 ## License
 
