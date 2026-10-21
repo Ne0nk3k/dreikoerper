@@ -1,0 +1,18 @@
+# Free-group words for orbits-euler-1-1-0.5.txt (same numbering).
+   1  ABabABabABab
+   2  ABabAbaBAbaBab
+   3  ABAbAbABAbaBaBABAbAbaBABaBaB
+   4  ABAbABabABabaBaBABAbAbabABabABaBABabAbABAbaBABaBab
+   5  ABAbAbabABaBAbaBAbaBAbaBAbaBAbaBAbaBAbaBAbaBAbABabaBaB
+   6  ABaBAbaBAbaBAbaBAbaBAbABabABabABabABab
+   7  ABaBAbaBAbaBAbaBabABabABabAbaBAbaBAbaBAbABabABab
+   8  ABaBAbaBAbABabABaBAbaBAbABabAbaBAbaBabABabAbaBAbaBab
+   9  ABAbABAbaBabaBAbaBAbaBABaBAbabAbabaBaBABAbAbabaBabaBAbABAbaBAbaBAbabAbaBABaBABAbAbabaBaB
+  10  ABaBAbaBAbaBAbABabABabAbaBAbaBAbABabABabABaBAbaBAbaBabABab
+  11  ABAbAbabABabABabABabABabABabABabABabABabABAbAbabaBaBABabABabABabABabABabABabABabABabABabaBaB
+  12  ABABaBabABAbAbabABaBabaBAbABabaBaBAbabAbABAbaBaBABAbAbaBABaBabaBAbAbabABaBAbabAbABabaBaBABabAb
+  13  ABabABabABabAbaBAbaBAbaBAbaBabABabAbaBAbaBAbaBAbaBabABabABabABabAbaBAbaBab
+  14  ABABaBaBABAbAbABABaBaBABAbAbABABaBaBABAbAbABABaBaBABAbAbABABaBaBABAbAbABABaBaBABAbAbABABaBaBABAbAb
+  15  ABAbaBAbaBAbaBAbaBAbabABabABabABabABabABabaBAbaBAbaBAbaBAbaBABabABabABabABabABab
+  16  ABaBAbaBAbaBabABabABaBAbaBAbaBabABabAbaBAbaBAbABabABabAbaBAbaBAbABab
+  17  ABAbABAbaBAbabAbabABabABAbABAbaBAbabAbabABabABabABabaBabaBAbaBABaBABabABabaBabaBAbaBABaBABabABabABab

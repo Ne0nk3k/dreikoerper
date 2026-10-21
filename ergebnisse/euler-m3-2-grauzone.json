@@ -1,0 +1,25 @@
+{
+ "lauf": "euler-m3-2",
+ "datum": "2026-10-03T00:27:19.106Z",
+ "schwelle": 0.000001,
+ "faelle": [
+  {
+   "a": 0.7097203761900907,
+   "b": 0.7162525469707424,
+   "T": 52.48145466437979,
+   "liste": "I.B-7",
+   "abweichungDouble": 6.83694044600891e-7,
+   "abweichungGenau": 6.8364409600008e-7,
+   "urteil": "andere Bahn"
+  },
+  {
+   "a": 0.6644291714684487,
+   "b": 0.2939898832977388,
+   "T": 81.4439870485266,
+   "liste": "II.A-2",
+   "abweichungDouble": 7.127734227285742e-7,
+   "abweichungGenau": 7.125226169080179e-7,
+   "urteil": "andere Bahn"
+  }
+ ]
+}

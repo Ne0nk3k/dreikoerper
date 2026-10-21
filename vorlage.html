@@ -1,0 +1,1610 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08151f">
+<title>Dreikörper-Labor</title>
+<!--__SYMBOL__-->
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     Seit v5 (Felix, 02.10.2026: „weniger wie ein Wissenschafts-
+     instrument"): dunkle Bühne und Farben der Werkfamilie bleiben,
+     aber die Oberfläche spricht in Sätzen statt in Kacheln. Sichtbar
+     ist, was man als Nächstes tun kann; Zahlen und Einstellungen
+     liegen eine Klappe tiefer. Links die Karte, rechts das Ergebnis,
+     in der Mitte das, worum es geht: drei Körper.
+     ═══════════════════════════════════════════════════════════════ */
+  :root {
+    color-scheme: dark;
+    --ink: 238,243,250;
+    --acc: 96,214,180;
+    --warn: 248,113,113;
+    --gold: 252,211,77;
+    --grund: #08151f;
+    --k1: #56b4e9; --k2: #e69f00; --k3: #cc79a7;   /* Okabe–Ito: Himmelblau, Orange, Rotviolett */
+    --links: clamp(330px, 26vw, 470px);
+    --rechts: 340px;
+    --disp: ui-sans-serif, "Segoe UI Variable Display", "Segoe UI", Inter, system-ui, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    --e: cubic-bezier(.2,.9,.25,1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--grund);
+    font: 14px/1.45 var(--disp); color: rgba(var(--ink),.88); -webkit-font-smoothing: antialiased; user-select: none; }
+  body { background:
+    radial-gradient(60% 55% at 50% 42%, rgba(38,84,110,.34), rgba(8,21,31,0) 70%),
+    radial-gradient(40% 40% at 82% 88%, rgba(96,214,180,.07), rgba(8,21,31,0) 70%),
+    radial-gradient(45% 45% at 12% 10%, rgba(204,121,167,.07), rgba(8,21,31,0) 70%), var(--grund); }
+  #sterne, #c { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+  #sterne { pointer-events: none; }
+  .scrim { position: fixed; inset: 0; pointer-events: none; z-index: 2; background:
+    linear-gradient(to bottom, rgba(8,21,31,.7) 0, rgba(8,21,31,0) 130px),
+    linear-gradient(to top, rgba(8,21,31,.7) 0, rgba(8,21,31,0) 140px); }
+
+  /* ── Knöpfe ── */
+  button, select, input[type=number], label.datei {
+    pointer-events: auto; font: 500 13px var(--disp); color: rgba(var(--ink),.86);
+    background: rgba(var(--ink),.07); border: 1px solid rgba(var(--ink),.1); border-radius: 12px;
+    padding: 8px 14px; cursor: pointer; transition: background .2s var(--e), color .2s var(--e), border-color .2s var(--e), transform .15s var(--e); }
+  button:hover, select:hover, label.datei:hover { background: rgba(var(--ink),.14); color: #fff; }
+  button:active { transform: scale(.97); }
+  button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid rgba(var(--acc),.85); outline-offset: 2px; }
+  button:disabled { opacity: .4; cursor: default; transform: none; }
+  button.haupt { background: rgb(var(--acc)); border-color: transparent; color: #06241c; font-weight: 650; }
+  button.haupt:hover { background: rgb(132,232,203); color: #06241c; }
+  button.gross { font-size: 15px; padding: 11px 18px; border-radius: 14px; white-space: nowrap; }
+  button.breit { width: 100%; }
+  button.still { background: none; border-color: transparent; color: rgba(var(--ink),.6); padding: 6px 9px; }
+  .zeile > button.an { background: rgba(var(--acc),.22); border-color: rgba(var(--acc),.45); color: #fff; }
+  button.rund { width: 26px; height: 26px; padding: 0; border-radius: 50%; font-weight: 700; font-size: 13px; }
+  kbd { font: 10px var(--mono); opacity: .55; margin-left: 7px; border: 1px solid currentColor; border-radius: 4px; padding: 0 4px; }
+
+  /* ── Kopf und Dock ── */
+  .hud { position: fixed; inset: 0; z-index: 20; pointer-events: none; padding: 16px 22px;
+    display: flex; flex-direction: column; justify-content: space-between; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; }
+  .mark { margin: 0; font-size: 13px; font-weight: 600; color: rgba(var(--ink),.8); display: flex; align-items: center; gap: 9px; width: var(--links); }
+  .mark svg { flex: none; }
+  .mark small { font-weight: 400; color: rgba(var(--ink),.45); font-size: 12px; }
+  .name { flex: 1; min-width: 0; padding-left: 12px; }
+  .name h1 { margin: 0; font-size: clamp(22px, 2.3vw, 36px); font-weight: 650; letter-spacing: -.025em; line-height: 1.1;
+    color: rgba(var(--ink),.97); text-shadow: 0 2px 28px rgba(0,0,0,.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .name p { margin: 5px 0 0; font-size: 13px; color: rgba(var(--ink),.6); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .meta { width: var(--rechts); text-align: right; font-size: 12px; color: rgba(var(--ink),.5); display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+  .meta b { color: rgba(var(--ink),.8); font-weight: 600; }
+  .bottom { display: flex; justify-content: center; }
+  .bar { pointer-events: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; align-items: center;
+    padding: 6px; background: rgba(12,26,38,.78); border: 1px solid rgba(var(--ink),.09); border-radius: 999px;
+    backdrop-filter: blur(20px); box-shadow: 0 16px 44px rgba(0,0,0,.5); max-width: calc(100vw - var(--links) - var(--rechts) - 70px); }
+  .bar .sep { width: 1px; height: 18px; background: rgba(var(--ink),.12); margin: 0 3px; }
+  .bar button { border-radius: 999px; border-color: transparent; background: none; padding: 8px 13px; }
+  .bar button.an { background: rgba(var(--acc),.2); border-color: rgba(var(--acc),.4); color: #fff; }
+
+  /* ── Leisten und Karten ── */
+  .rail { position: fixed; top: 62px; bottom: 76px; z-index: 30; overflow-y: auto; overflow-x: hidden;
+    display: flex; flex-direction: column; gap: 12px; scrollbar-width: thin; scrollbar-color: rgba(var(--ink),.2) transparent; }
+  .rail.left { left: 18px; width: var(--links); }
+  .rail.right { right: 18px; width: var(--rechts); }
+  .card { background: rgba(13,28,41,.82); border: 1px solid rgba(var(--ink),.08); border-radius: 22px;
+    padding: 16px 17px; backdrop-filter: blur(22px); box-shadow: 0 18px 50px rgba(0,0,0,.4); }
+  .kopf { display: flex; align-items: center; gap: 9px; margin: 0 0 8px; }
+  .kopf h2 { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.01em; color: rgba(var(--ink),.96); flex: 1; }
+  .kopf .status { font-size: 12px; color: rgba(var(--ink),.5); }
+  .satz { margin: 0 0 10px; font-size: 13px; line-height: 1.5; color: rgba(var(--ink),.68); }
+  .satz b, .hint b { color: rgba(var(--ink),.95); font-weight: 600; }
+  .hint { font-size: 12.5px; line-height: 1.5; color: rgba(var(--ink),.6); margin: 10px 0 0; }
+  .zeile { display: flex; gap: 8px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+  .zeile label { font-size: 12.5px; color: rgba(var(--ink),.62); min-width: 88px; }
+  .zeile input[type=number] { width: 60px; padding: 6px 7px; cursor: text; font-size: 12.5px; }
+  .zeile input[type=range] { flex: 1; min-width: 80px; accent-color: rgb(var(--acc)); }
+  .zeile output { font-size: 12.5px; color: rgba(var(--ink),.85); min-width: 26px; text-align: right; }
+  .seg { display: inline-flex; padding: 3px; gap: 2px; background: rgba(var(--ink),.06); border-radius: 999px; }
+  .seg button { border: 0; background: none; border-radius: 999px; padding: 6px 12px; color: rgba(var(--ink),.6); font-size: 12.5px; }
+  .seg button.an { background: rgba(var(--acc),.26); color: #fff; }
+
+  /* ── Karte ── */
+  .kartenrahmen { position: relative; width: 100%; aspect-ratio: 1; border-radius: 16px; overflow: hidden;
+    background: #040a10; cursor: crosshair; touch-action: none; box-shadow: inset 0 0 0 1px rgba(var(--ink),.1); }
+  .kartenrahmen canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #karte { image-rendering: pixelated; }
+  .aufKarte { position: absolute; left: 8px; top: 8px; z-index: 3; font-size: 12px; padding: 5px 10px; border-radius: 999px;
+    background: rgba(8,21,31,.72); border-color: rgba(var(--ink),.18); backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity .25s; }
+  .aufKarte.da { opacity: 1; pointer-events: auto; }
+  .zeigerwort { position: absolute; z-index: 3; pointer-events: none; transform: translate(12px, -30px); white-space: nowrap;
+    font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: rgba(8,21,31,.86); color: #fff;
+    border: 1px solid rgba(var(--ink),.18); opacity: 0; transition: opacity .15s; }
+  .zeigerwort.da { opacity: 1; }
+  .legende { display: flex; align-items: center; gap: 9px; margin-top: 9px; font-size: 12px; color: rgba(var(--ink),.6); }
+  .legende i { flex: 1; height: 7px; border-radius: 4px;
+    background: linear-gradient(90deg, rgb(4,5,14), rgb(59,15,112), rgb(140,41,129), rgb(222,73,104), rgb(254,159,109), rgb(252,253,191)); }
+  .balken { height: 3px; background: rgba(var(--ink),.08); border-radius: 2px; overflow: hidden; margin-top: 8px; }
+  .balken i { display: block; height: 100%; width: 0; background: rgb(var(--acc)); transition: width .25s linear; }
+
+  /* ── Klappen ── */
+  details { margin-top: 12px; border-top: 1px solid rgba(var(--ink),.08); padding-top: 4px; }
+  summary { list-style: none; cursor: pointer; pointer-events: auto; padding: 7px 2px; font-size: 13px; font-weight: 600; color: rgba(var(--ink),.72);
+    display: flex; align-items: center; gap: 8px; border-radius: 8px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg); transition: transform .2s var(--e); margin: 0 3px 0 2px; opacity: .7; }
+  details[open] > summary::before { transform: rotate(45deg); }
+  summary:hover { color: #fff; }
+  .technik { font: 10.5px var(--mono); color: rgba(var(--ink),.42); margin-top: 10px; line-height: 1.6; }
+  .technik div { display: flex; justify-content: space-between; gap: 8px; }
+
+  /* ── Ergebnis ── */
+  .urteil { display: flex; gap: 12px; align-items: flex-start; }
+  .urteil .punkt { flex: none; width: 14px; height: 14px; border-radius: 50%; margin-top: 4px; background: rgba(var(--ink),.3); transition: background .3s, box-shadow .3s; }
+  .urteil.gut .punkt { background: rgb(var(--acc)); box-shadow: 0 0 16px rgba(var(--acc),.8); }
+  .urteil.mittel .punkt { background: rgb(var(--gold)); box-shadow: 0 0 16px rgba(var(--gold),.6); }
+  .urteil.schlecht .punkt { background: rgba(var(--ink),.35); }
+  .urteil h3 { margin: 0; font-size: 17px; font-weight: 650; letter-spacing: -.01em; color: rgba(var(--ink),.97); }
+  .urteil p { margin: 4px 0 0; font-size: 13px; line-height: 1.5; color: rgba(var(--ink),.66); }
+  .waerme { display: flex; align-items: center; gap: 9px; margin-top: 12px; font-size: 12.5px; color: rgba(var(--ink),.66); }
+  .waerme .rinne { flex: 1; height: 7px; border-radius: 4px; background: rgba(var(--ink),.1); overflow: hidden; }
+  .waerme .rinne i { display: block; height: 100%; width: 0; border-radius: 4px;
+    background: linear-gradient(90deg, rgb(59,15,112), rgb(222,73,104), rgb(252,253,191)); transition: width .3s var(--e); }
+  .waerme .zahl { font: 10.5px var(--mono); color: rgba(var(--ink),.4); }
+  .fakten { margin: 12px 0 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.5; color: rgba(var(--ink),.8); }
+  .fakten li { padding: 3px 0 3px 18px; position: relative; }
+  .fakten li::before { content: ""; position: absolute; left: 3px; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: rgba(var(--ink),.3); }
+  .fakten li.gold::before { background: rgb(var(--gold)); }
+  .fakten b { color: #fff; font-weight: 600; }
+  .stabilfeld { margin-top: 13px; padding: 12px 13px; border-radius: 16px; background: rgba(var(--ink),.05); transition: background .4s; }
+  .stabilfeld .frage { font-size: 13px; color: rgba(var(--ink),.62); }
+  .stabilfeld .wort { display: block; margin-top: 2px; font-size: 16px; font-weight: 650; color: rgba(var(--ink),.55); }
+  .stabilfeld .wort small { display: block; margin-top: 3px; font-size: 12.5px; font-weight: 400; line-height: 1.45; color: rgba(var(--ink),.66); }
+  .stabilfeld.ja { background: rgba(var(--acc),.13); } .stabilfeld.ja .wort { color: rgb(var(--acc)); }
+  .stabilfeld.nein { background: rgba(var(--warn),.1); } .stabilfeld.nein .wort { color: rgb(var(--warn)); }
+  .stabilfeld.vielleicht { background: rgba(var(--acc),.06); box-shadow: inset 0 0 0 1px rgba(var(--acc),.4); } .stabilfeld.vielleicht .wort { color: rgba(var(--acc),.9); }
+  .stabilfeld.blitz { animation: blitz .9s var(--e); }
+  @keyframes blitz { 0% { box-shadow: 0 0 0 3px rgba(var(--ink),.5); } 100% { box-shadow: 0 0 0 0 rgba(var(--ink),0); } }
+  .messzeit { font-size: 12px; color: rgba(var(--ink),.5); }
+  .kacheln { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 8px; }
+  .kachel { background: rgba(var(--ink),.045); border-radius: 11px; padding: 8px 10px; min-width: 0; }
+  .kachel.breit { grid-column: 1 / -1; }
+  .kachel span { display: block; font-size: 11px; color: rgba(var(--ink),.5); }
+  .kachel b { display: block; margin-top: 2px; font: 600 12.5px var(--mono); color: rgba(var(--ink),.92); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .kachel b.wort { white-space: normal; word-break: break-all; font-weight: 500; font-size: 11px; max-height: 58px; overflow-y: auto; user-select: text; }
+  .kachel small { display: block; margin-top: 2px; font-size: 10.5px; color: rgba(var(--ink),.5); line-height: 1.4; white-space: normal; }
+  .gut-t { color: rgb(var(--acc)) !important; } .warn-t { color: rgb(var(--warn)) !important; } .gold-t { color: rgb(var(--gold)) !important; }
+  .matt-t { color: rgba(var(--ink),.5) !important; font-weight: 500 !important; }
+
+  /* ── Listen ── */
+  .tabs { display: flex; gap: 4px; margin: -2px 0 10px; padding: 3px; background: rgba(var(--ink),.06); border-radius: 999px; }
+  .tabs button { flex: 1 1 auto; border: 0; background: none; border-radius: 999px; padding: 7px 6px; color: rgba(var(--ink),.6); font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+  .tabs button.an { background: rgba(var(--ink),.14); color: #fff; }
+  .tabs button span { font-weight: 500; opacity: .65; margin-left: 3px; }
+  .chips { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+  .chips button { font-size: 12px; padding: 4px 10px; border-radius: 999px; color: rgba(var(--ink),.66); }
+  .chips button.an { background: rgba(var(--acc),.22); border-color: rgba(var(--acc),.45); color: #fff; }
+  .funde { list-style: none; margin: 0; padding: 0; max-height: 30vh; overflow-y: auto; scrollbar-width: thin; }
+  .funde li { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto auto; gap: 9px; align-items: center; padding: 7px 8px; border-radius: 11px; cursor: pointer; font-size: 13px; }
+  .funde li:hover, .funde li.an { background: rgba(var(--ink),.09); }
+  .funde li i { width: 8px; height: 8px; border-radius: 50%; background: rgba(var(--ink),.3); }
+  .funde li i.stabil { background: rgb(var(--acc)); box-shadow: 0 0 8px rgba(var(--acc),.7); }
+  .funde li i.vielleicht { background: none; box-shadow: inset 0 0 0 2px rgb(var(--acc)); }
+  .funde li i.instabil { background: rgba(var(--warn),.75); }
+  .funde li i.kaum { background: none; box-shadow: inset 0 0 0 2px rgba(var(--acc),.3); }
+  .funde li b { font-weight: 500; color: rgba(var(--ink),.92); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .funde li > em { font-style: normal; font-size: 11px; font-weight: 600; color: rgb(var(--gold)); white-space: nowrap; }
+  .funde li > em.grau { color: rgba(var(--ink),.5); }
+  .funde li > em:empty { display: none; }
+  .funde li.gruppe { display: block; padding: 9px 8px 3px; font-size: 11.5px; font-weight: 600; color: rgba(var(--ink),.5); cursor: default; pointer-events: none; }
+  .funde li span { font-size: 11.5px; color: rgba(var(--ink),.5); }
+  .leer { font-size: 13px; color: rgba(var(--ink),.5); padding: 6px 2px; line-height: 1.5; }
+
+  /* ── Start, Hilfe, Meldung, Diagnose ── */
+  .blatt { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; text-align: center; padding: 24px;
+    background: radial-gradient(60% 55% at 50% 46%, rgba(8,21,31,.96), rgba(8,21,31,.84) 70%, rgba(8,21,31,.95));
+    transition: opacity .6s var(--e), visibility 0s; cursor: pointer; }
+  /* verborgen heißt auch: fängt keinen Klick mehr ab — auch kein Kind (das Hilfe-Blatt lag sonst unsichtbar über der Bühne) */
+  .blatt.weg { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .6s var(--e), visibility 0s .6s; }
+  .blatt.weg * { pointer-events: none !important; }
+  .blatt h1 { margin: 0; font-size: clamp(30px, 5vw, 60px); font-weight: 300; letter-spacing: -.035em; color: rgba(var(--ink),.97); }
+  .blatt h1 b { font-weight: 650; }
+  .blatt .unter { margin: 12px auto 0; max-width: 560px; font-size: clamp(13px, 1.25vw, 16px); line-height: 1.55; color: rgba(var(--ink),.7); }
+  .schritte { display: flex; gap: 14px; justify-content: center; margin: 30px auto 0; flex-wrap: wrap; max-width: 900px; }
+  .schritt { width: 250px; padding: 18px 18px 16px; border-radius: 20px; background: rgba(var(--ink),.06); border: 1px solid rgba(var(--ink),.08); text-align: left; }
+  .schritt i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgb(var(--acc)); color: #06241c; font: 700 14px var(--disp); font-style: normal; }
+  .schritt b { display: block; margin: 10px 0 4px; font-size: 15px; color: #fff; }
+  .schritt span { font-size: 13px; line-height: 1.5; color: rgba(var(--ink),.7); }
+  .blatt .los { margin-top: 28px; }
+  .hilfe { cursor: default; text-align: left; }
+  .hilfe .innen { max-width: 760px; max-height: calc(100vh - 60px); overflow-y: auto; padding: 26px 30px; border-radius: 24px;
+    background: rgba(13,28,41,.97); border: 1px solid rgba(var(--ink),.1); box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  .hilfe h2 { margin: 0 0 6px; font-size: 22px; font-weight: 650; color: #fff; }
+  .hilfe h3 { margin: 18px 0 4px; font-size: 15px; font-weight: 650; color: #fff; }
+  .hilfe p, .hilfe li { font-size: 13.5px; line-height: 1.55; color: rgba(var(--ink),.78); margin: 4px 0; }
+  .hilfe ul { margin: 4px 0; padding-left: 20px; }
+  .hilfe b { color: #fff; }
+  .hilfe .zu { float: right; }
+  .toast { position: fixed; left: 50%; bottom: 88px; transform: translateX(-50%) translateY(12px); z-index: 70; pointer-events: none;
+    background: rgba(13,28,41,.96); border: 1px solid rgba(var(--ink),.14); border-radius: 14px; padding: 10px 16px;
+    font-size: 13.5px; color: rgba(var(--ink),.95); opacity: 0; transition: opacity .25s, transform .25s var(--e); max-width: 62vw; text-align: center; }
+  .toast.da { opacity: 1; transform: translateX(-50%); }
+  .f3 { position: fixed; left: calc(var(--links) + 36px); top: 92px; z-index: 40; display: none; pointer-events: none;
+    font: 11px/1.6 var(--mono); color: rgba(var(--ink),.8); background: rgba(4,10,16,.85); border: 1px solid rgba(var(--ink),.12);
+    border-radius: 10px; padding: 8px 11px; white-space: pre; }
+  .f3.da { display: block; }
+  @media (max-width: 1500px) { .bar kbd, .rail kbd { display: none; } .bar button { padding: 7px 8px; font-size: 12.5px; } .bar .sep { margin: 0 1px; } button.gross { font-size: 14px; padding: 10px 12px; } }
+  @media (max-width: 1100px) { :root { --links: 300px; --rechts: 290px; } }
+  @media (max-height: 860px) { .card { padding: 13px 15px; } .satz { margin-bottom: 8px; } .funde { max-height: 22vh; } }
+</style>
+</head>
+<body>
+<canvas id="sterne" aria-hidden="true"></canvas>
+<canvas id="c" role="img" aria-label="Bahnen der drei Körper"></canvas>
+<div class="scrim"></div>
+
+<aside class="rail left" aria-label="Karte">
+  <div class="card">
+    <div class="kopf">
+      <h2>Karte</h2>
+      <span class="status" id="kartenInfo"></span>
+      <button id="hilfe" class="rund" title="Was zeigt die Karte, und wie geht das hier?" aria-label="Hilfe">?</button>
+    </div>
+    <p class="satz">Jeder Punkt ist ein möglicher Start der drei Körper. <b>Wo es hell ist</b>, liegt ganz in der Nähe eine Bahn, die sich schließt.</p>
+    <div class="kartenrahmen" id="rahmen">
+      <canvas id="karte" aria-label="Karte der Starts: hell heißt, eine geschlossene Bahn liegt nah"></canvas>
+      <canvas id="marken" aria-hidden="true"></canvas>
+      <button id="ganz" class="aufKarte" title="zurück zur ganzen Karte">Ganze Karte</button>
+      <span class="zeigerwort" id="zeiger"></span>
+    </div>
+    <div class="legende"><span>nichts in der Nähe</span><i></i><span>Bahn ganz nah</span></div>
+    <div class="balken"><i id="fortschritt"></i></div>
+    <div class="zeile">
+      <button id="verfeinern" class="haupt gross" style="flex:1" title="Sucht von der angeklickten Stelle aus die Bahn, die sich schließt (Taste V)">Bahn finden<kbd>V</kbd></button>
+      <button id="jagd" class="gross" title="Prüft jede helle Stelle im Bild und sammelt die Bahnen rechts in der Liste (Taste J)">Alles absuchen<kbd>J</kbd></button>
+    </div>
+    <div class="zeile">
+      <button id="stabilSuche" class="breit" title="Sucht das ganze Bild ab und misst danach bei jeder gefundenen Bahn die Stabilität">Nach stabilen Bahnen suchen</button>
+    </div>
+    <p class="hint" id="kartenHinweis">Fahr mit der Maus über die Karte, klick auf eine helle Stelle, dann <b>Bahn finden</b>. Das Mausrad vergrößert.</p>
+    <details id="einstellungen">
+      <summary>Einstellungen</summary>
+      <div class="zeile">
+        <label>So starten die drei</label>
+        <div class="seg" role="group" aria-label="Art des Starts">
+          <button id="eEuler" class="an" title="Euler-Ebene: alle drei in einer Reihe, die äußeren fliegen gleich schnell los">in einer Reihe</button><button id="eFall" title="Freier Fall: alle drei ruhen und fallen aufeinander zu">aus der Ruhe</button>
+        </div>
+      </div>
+      <div class="zeile">
+        <label>Die Karte sucht</label>
+        <div class="seg" role="group" aria-label="Art der Karte">
+          <button id="kHalb" class="an" title="Umkehrpunkte: trifft die Bahn zur halben Zeit eine Spiegelstellung? Findet auch sehr empfindliche Bahnen.">Spiegelpunkte</button><button id="kVoll" title="Wiederkehr: wie nah kommen die drei nach einem Umlauf ihrem Anfang? Anschaulicher, findet aber nur zahme Bahnen.">Rückkehr</button>
+        </div>
+      </div>
+      <div class="zeile">
+        <label for="tmax">Verfolgen bis</label>
+        <input type="range" id="tmax" min="8" max="80" step="1" value="30" title="Wie lange jede Bahn verfolgt wird. Mehr zeigt längere Bahnen, rechnet aber länger.">
+        <output id="tmaxAus">30</output>
+      </div>
+      <div class="zeile">
+        <label>Gewichte</label>
+        <input type="number" id="m1" value="1" min="0.05" max="20" step="0.05" aria-label="Gewicht von Körper 1 (blau)" style="border-bottom:2px solid var(--k1)">
+        <input type="number" id="m2" value="1" min="0.05" max="20" step="0.05" aria-label="Gewicht von Körper 2 (orange)" style="border-bottom:2px solid var(--k2)">
+        <input type="number" id="m3" value="1" min="0.05" max="20" step="0.05" aria-label="Gewicht von Körper 3 (rotviolett)" style="border-bottom:2px solid var(--k3)">
+        <button id="massenGleich" title="alle drei gleich schwer">gleich</button>
+      </div>
+      <div class="zeile">
+        <button id="fein" title="Die Karte doppelt so fein zeichnen (dauert viermal so lang)">feiner zeichnen</button>
+        <button id="zeigeListen" title="Zeigt auf der Karte, wo die veröffentlichten Bahnen liegen">Veröffentlichte zeigen</button>
+      </div>
+      <div class="technik">
+        <div><span id="achseL">0</span><span id="achseN">v₁ →</span><span id="achseR">0.75</span></div>
+        <div><span id="skalaL">weit (0,3)</span><span id="skalaText">Wiederkehrabstand</span><span id="skalaR">nah (0,0001)</span></div>
+      </div>
+    </details>
+  </div>
+</aside>
+
+<aside class="rail right" aria-label="Ergebnis und Bahnen">
+  <div class="card">
+    <div class="kopf"><h2>Ergebnis</h2><span class="status" id="befundArt"></span></div>
+    <div class="urteil" id="urteil"><span class="punkt"></span>
+      <div><h3 id="uTitel">Noch nichts gewählt</h3><p id="uText">Klick links auf eine helle Stelle der Karte.</p></div></div>
+    <div class="waerme"><span id="wWort">eiskalt</span><span class="rinne"><i id="wBalken"></i></span><span class="zahl" id="wZahl"></span></div>
+    <ul class="fakten" id="fakten"></ul>
+    <div class="stabilfeld" id="stabilFeld">
+      <span class="frage">Ist die Bahn stabil?</span>
+      <span class="wort" id="stabilWort">noch nicht gemessen</span>
+      <div class="zeile">
+        <button id="messen" class="haupt" title="Rechnet jetzt, ob die Bahn stabil ist (Taste M). Ton aufwärts: stabil. Ton abwärts: instabil. Zweimal derselbe Ton: nicht entscheidbar — die Bahn kann stabil sein.">Stabilität messen<kbd>M</kbd></button>
+        <button id="bTon" title="Ton nach der Messung an oder aus (Taste T)">Ton an</button>
+        <span class="messzeit" id="messzeit"></span>
+      </div>
+    </div>
+    <div class="zeile">
+      <button id="merken" title="Legt die Bahn in deine Liste. Eine bekannte Bahn wandert in den Schaukasten.">Merken</button>
+      <button id="kopieren" title="Alle Angaben zur Bahn als Text in die Zwischenablage">Kopieren</button>
+    </div>
+    <details id="details">
+      <summary>Zahlen und Einzelheiten</summary>
+      <div class="kacheln" id="kacheln"></div>
+    </details>
+  </div>
+  <div class="card">
+    <div class="tabs" role="tablist">
+      <button id="tabMeine" class="an" role="tab" title="Bahnen, die du gefunden hast und die in keiner mitgelieferten Liste stehen">Meine Funde <span id="fundeZahl">0</span></button>
+      <button id="tabFundus" role="tab" title="Was die Suchmaschine in ihren langen Läufen gefunden hat: Bahnen außerhalb der veröffentlichten Listen, die stabil sind oder es sein können">Fundus <span id="fundusZahl">0</span></button>
+      <button id="tabSchau" role="tab" title="Bekannte Bahnen zum Ansehen: die stabilen aus den veröffentlichten Listen und jede bekannte, die du getroffen hast. Sie zählen in keiner Suche mit.">Schaukasten <span id="schauZahl">0</span></button>
+    </div>
+    <div class="chips" id="filter" role="group" aria-label="Liste eingrenzen">
+      <button id="fAlle" class="an">alle</button><button id="fKand" title="stabil oder vielleicht stabil">Kandidaten</button><button id="fStabil">sicher stabil</button>
+    </div>
+    <ul class="funde" id="funde"></ul>
+    <div class="leer" id="fundeLeer">Noch keine. „Merken“ oder „Alles absuchen“ füllt die Liste.</div>
+    <div class="zeile">
+      <button id="alleMessen" title="Misst die Stabilität aller Bahnen der Liste, die noch nicht gemessen sind. Ton aufwärts, wenn eine stabile dabei ist.">Alle messen</button>
+    </div>
+    <p class="hint" id="listenHinweis"></p>
+    <details id="verwalten">
+      <summary>Liste verwalten</summary>
+      <div class="zeile">
+        <label class="datei" title="Ergebnis eines Laufs der Suchmaschine (suche.mjs) laden">Lauf laden<input type="file" id="datei" accept=".json,application/json" style="display:none"></label>
+        <button id="speichern">Als Datei sichern</button>
+        <button id="leeren">Leeren</button>
+      </div>
+    </details>
+  </div>
+</aside>
+
+<div class="hud">
+  <header class="top">
+    <p class="mark"><svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M11 7C8.5 2.5 2 1.5 2 7s6.5 4.5 9 0c2.5-4.5 9-5.5 9 0s-6.5 4.5-9 0z" fill="none" stroke="rgb(96,214,180)" stroke-width="1.6"/><circle cx="2.6" cy="5" r="1.9" fill="#56b4e9"/><circle cx="19.5" cy="8.5" r="1.9" fill="#e69f00"/><circle cx="11" cy="7" r="1.9" fill="#cc79a7"/></svg>Dreikörper-Labor <small id="ebenenName"></small></p>
+    <div class="name"><h1 id="bahnName">—</h1><p id="bahnUnter"></p></div>
+    <div class="meta" id="meta"></div>
+  </header>
+  <footer class="bottom">
+    <div class="bar" role="group" aria-label="Abspielen">
+      <button id="bPause" title="anhalten und weiterlaufen lassen">Pause<kbd>␣</kbd></button>
+      <button id="bLangsam" title="langsamer">−</button><button id="bSchnell" title="schneller">+</button>
+      <span class="sep"></span>
+      <button id="bSpur" class="an" title="Leuchtspur hinter den Körpern">Spur<kbd>S</kbd></button>
+      <button id="bStoer" title="Stößt einen Körper ganz leicht an und zeigt in Weiß, was daraus wird">Anstupsen<kbd>B</kbd></button>
+      <button id="bKugel" title="Formbild: zeigt die Gestalt des Dreiecks, das die drei bilden, als Weg auf einer Kugel">Formbild<kbd>K</kbd></button>
+      <span class="sep"></span>
+      <button id="bBekannt" title="Zeigt nacheinander die berühmten Bahnen: Acht, Schmetterling, Motte …">Berühmte Bahn</button>
+      <button id="bLink" title="Link auf genau diese Bahn kopieren">Link<kbd>L</kbd></button>
+    </div>
+  </footer>
+</div>
+
+<div class="blatt" id="cold"><div>
+  <h1>Dreikörper<b>·Labor</b></h1>
+  <p class="unter">Drei Körper, die einander anziehen, tun fast immer etwas, das sich nie wiederholt. Hier findest du die Ausnahmen.</p>
+  <div class="schritte">
+    <div class="schritt"><i>1</i><b>Karte ansehen</b><span>Links liegt die Karte aller Starts. Wo sie hell ist, lohnt es sich. Fahr mit der Maus darüber und sieh zu, was die drei tun.</span></div>
+    <div class="schritt"><i>2</i><b>Bahn finden</b><span>Klick auf eine helle Stelle, dann „Bahn finden“. Das Labor sucht von dort die Bahn, die sich genau schließt.</span></div>
+    <div class="schritt"><i>3</i><b>Stabilität messen</b><span>Hält die Bahn einen kleinen Stoß aus? Ein Ton sagt es dir: aufwärts heißt stabil, abwärts instabil.</span></div>
+  </div>
+  <div class="los"><button class="haupt gross" id="los">Los geht's</button></div>
+</div></div>
+
+<div class="blatt hilfe weg" id="hilfeBlatt"><div class="innen">
+  <button class="zu" id="hilfeZu">Schließen</button>
+  <h2>So geht's</h2>
+  <p>Drei Körper ziehen einander an. Fast jeder Start endet im Durcheinander. Das Labor sucht die seltenen Starts, bei denen die drei nach einer Weile wieder genau so stehen und laufen wie am Anfang — eine <b>geschlossene Bahn</b>.</p>
+  <h3>Die Karte</h3>
+  <ul>
+    <li>Jeder Punkt ist ein Start. In der Grundeinstellung stehen die drei in einer Reihe; der Punkt legt fest, wie schnell und in welche Richtung die beiden äußeren losfliegen (nach rechts: schneller zur Seite, nach oben: schneller nach oben).</li>
+    <li><b>Hell</b> heißt: ganz in der Nähe liegt eine geschlossene Bahn. <b>Dunkel</b>: hier nicht. Die schwarze Ecke: zu viel Schwung, die drei fliegen auseinander.</li>
+    <li>Maus darüber: Vorschau in der Mitte. Klick: Stelle festhalten. Mausrad: vergrößern. Ziehen: verschieben.</li>
+    <li>Gelber Punkt: eine Bahn von dir, die in keiner mitgelieferten Liste steht — das heißt nicht „neu“. Grüner Punkt: eine bekannte; sie liegt im Schaukasten.</li>
+  </ul>
+  <h3>Die Knöpfe</h3>
+  <ul>
+    <li><b>Bahn finden</b> sucht von der angeklickten Stelle aus die Bahn, die sich schließt.</li>
+    <li><b>Alles absuchen</b> macht das für jede helle Stelle im Bild. Was in keiner Liste steht, kommt in „Meine Funde“; bekannte Bahnen wandern in den Schaukasten.</li>
+    <li><b>Nach stabilen Bahnen suchen</b> sucht alles ab und misst danach jede Bahn, die in keiner Liste steht. Bekannte zählen nicht mit.</li>
+    <li><b>Stabilität messen</b> prüft, ob die Bahn einen kleinen Stoß aushält.</li>
+  </ul>
+  <h3>Die drei Töne</h3>
+  <ul>
+    <li>Zwei Töne <b>aufwärts</b>: sicher stabil.</li>
+    <li>Zwei Töne <b>abwärts</b>: sicher instabil.</li>
+    <li><b>Zweimal derselbe Ton</b>: nicht entscheidbar — die Bahn <b>kann stabil sein</b>. Das ist bei stabilen Bahnen der häufige Fall: sie liegen fast immer hauchdünn an der Grenze, und die schnelle Messung trennt das nicht.</li>
+  </ul>
+  <h3>Die drei Listen</h3>
+  <ul>
+    <li><b>Meine Funde</b>: was du gefunden hast und in keiner mitgelieferten Liste steht. „Ungeprüft“ heißt: das Labor trägt die großen Listen nur zum Teil; erst die Suchmaschine prüft gegen alle.</li>
+    <li><b>Fundus</b>: was die Suchmaschine in ihren langen Läufen außerhalb der veröffentlichten Listen gefunden hat und was stabil ist oder es sein kann. „Ableger“ heißt: die Bahn läuft mehrmals fast den Weg einer bekannten.</li>
+    <li><b>Schaukasten</b>: die bekannten Bahnen, zum Ansehen und Nachmessen. Sie zählen in keiner Suche mit.</li>
+  </ul>
+  <p>Keine Liste beweist, dass eine Bahn neu ist. Sie zeigt nur, wo sie nicht steht.</p>
+  <h3>Tasten</h3>
+  <p>V Bahn finden · J alles absuchen · M Stabilität messen · T Ton · Leertaste Pause · S Spur · B anstupsen · K Formbild · L Link · F3 Diagnose</p>
+</div></div>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="f3" id="f3"></div>
+<script id="kern">
+/*__KERN__*/
+</script>
+<script id="daten">
+const KATALOG = /*__KATALOG__*/null;
+const GROSS = /*__GROSS__*/null;
+const FUNDUS = /*__FUNDUS__*/null;
+const GEPRUEFT = /*__GEPRUEFT__*/null;
+</script>
+<script id="arbeiter" type="text/plain">
+// Rechenfaden: derselbe Jäger wie in der Suchmaschine (kern.js, Abschnitt 11).
+const J = Kern.macheJaeger();
+onmessage = e => {
+  const a = e.data;
+  try {
+    if (a.art === "zeile") {
+      const r = J.zeile(a.ebene, a.m, a.a0, a.a1, a.b, a.n, a.Tmax, a.tol, a.maxSchritte, a.schritt, a.versatz);
+      postMessage({ nr: a.nr, d: r.d, t: r.t, k: r.art }, [r.d.buffer, r.t.buffer, r.art.buffer]);
+    } else if (a.art === "zeileHalb") {
+      const r = J.zeileHalb(a.ebene, a.m, a.a0, a.a1, a.b, a.n, a.Tmax, a.tol, a.maxSchritte, a.baender);
+      postMessage({ nr: a.nr, d: r.d, t: r.t, k: r.art }, [r.d.buffer, r.t.buffer, r.art.buffer]);
+    } else if (a.art === "kandidat") postMessage({ nr: a.nr, erg: J.kandidat(a.ebene, a.m, a.a, a.b, a.T, a.schritt, a.opt) });
+    else if (a.art === "kandidatHalb") postMessage({ nr: a.nr, erg: J.kandidatHalb(a.ebene, a.m, a.a, a.b, a.tau, a.ziel, a.opt) });
+    else if (a.art === "pruefe") postMessage({ nr: a.nr, erg: J.pruefe(a.ebene, a.m, a.a, a.b, a.T, a.opt) });
+    else if (a.art === "stabil") postMessage({ nr: a.nr, erg: J.stabil(a.ebene, a.m, a.a, a.b, a.T) });
+  } catch (err) { postMessage({ nr: a.nr, fehler: String(err && err.stack || err) }); }
+};
+</script>
+<script>
+(() => {
+"use strict";
+const $ = id => document.getElementById(id);
+const K = Kern;
+
+/* ═══════════════════ 1 · Zustand ═══════════════════ */
+const Z = {
+  ebene: "euler", m: [1, 1, 1], sicht: K.EBENEN.euler.sicht.slice(), tmax: 30, N: 256,
+  kartenArt: "halb",   // "halb": Abstand zu den Umkehrpunkten bis tmax/2 · "voll": Wiederkehrabstand bis tmax
+  wahl: null,          // { a, b, T, d, fest }  — der Punkt der Karte, um den es geht
+  befund: null,        // Ergebnis der Prüfkette für die Wahl (oder null)
+  funde: [], zeigeListen: false,
+  pause: false, tempo: 1, spur: true, kugel: false, stoerung: false,
+  jagd: null,          // { offen, gesamt, neu }
+  ton: true,           // Ton nach der Stabilitätsmessung
+  messung: null,       // { offen, gesamt } solange eine Messung läuft
+  liste: "meine",      // welche Liste rechts zu sehen ist: "meine" oder "fundus"
+  filter: "alle",      // "alle" | "kand" (stabil oder vielleicht) | "stabil"
+  danachMessen: false  // „Nach stabilen Bahnen suchen": nach dem Absuchen die Liste messen
+};
+// Der Name des Speichers bleibt der von v1, damit gemerkte Funde nicht
+// verschwinden; ihre alten Stabilitätsurteile werden beim Laden verworfen
+// (siehe „Los"): v1 rechnete sie mit einer falschen Regel.
+const SPEICHER = "dreikoerper-labor-v1", FASSUNG = 3;      // Fassung des Speicherformats (seit v3: Stabilität nur gemessen), nicht die des Labors
+let speicher = null;
+try { speicher = window.localStorage; speicher.getItem(SPEICHER); } catch (e) { speicher = null; }
+const merk = {};       // Ersatz, wenn es keinen Speicher gibt
+function lies() { try { return JSON.parse((speicher ? speicher.getItem(SPEICHER) : merk.v) || "null"); } catch (e) { return null; } }
+function schreib(v) { try { const s = JSON.stringify(v); if (speicher) speicher.setItem(SPEICHER, s); else merk.v = s; } catch (e) { merk.v = null; } }
+
+const HOCH = { "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
+function fmt(x, n) {
+  if (x === null || x === undefined || !Number.isFinite(x)) return "—";
+  if (x === 0) return "0";
+  if (Math.abs(x) >= 1e-3 && Math.abs(x) < 1e5) return x.toPrecision(n === undefined ? 5 : n + 3).replace(".", ",");
+  const [m, e] = x.toExponential(n === undefined ? 1 : n).split("e");
+  return m.replace(".", ",") + " · 10" + String(+e).replace(/./g, c => HOCH[c] || "");
+}
+const dez = (x, n) => Number.isFinite(x) ? x.toFixed(n).replace(".", ",") : "—";
+function toast(t) { const e = $("toast"); e.textContent = t; e.classList.add("da"); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove("da"), 2600); }
+
+/* ═══════════════════ 2 · Rechenfäden ═══════════════════ */
+const POOL = { fad: [], frei: [], schlange: [], offen: new Map(), nr: 0, ohne: false, punkte: 0, seit: performance.now() };
+(function fadenStart() {
+  // Höchstens 42 % der Kerne (5 von 12): mit „alle minus einen" stand die CPU
+  // bei jeder Karte am Anschlag, und der Rechner war für nichts anderes mehr da.
+  const n = Math.max(1, Math.min(12, Math.floor((navigator.hardwareConcurrency || 4) * 0.42)));
+  try {
+    const quelle = $("kern").textContent + "\n" + $("arbeiter").textContent;
+    const url = URL.createObjectURL(new Blob([quelle], { type: "text/javascript" }));
+    for (let i = 0; i < n; i++) {
+      const w = new Worker(url);
+      w.onmessage = e => fertig(w, e.data);
+      w.onerror = e => { console.error("Rechenfaden: " + e.message); };
+      POOL.fad.push(w); POOL.frei.push(w);
+    }
+  } catch (e) { POOL.ohne = true; POOL.jaeger = K.macheJaeger(); }
+})();
+function auftrag(a, vorn, wenn) {
+  a.nr = ++POOL.nr;
+  POOL.offen.set(a.nr, wenn);
+  if (vorn) POOL.schlange.unshift(a); else POOL.schlange.push(a);
+  verteile();
+  return a.nr;
+}
+function verteile() {
+  if (POOL.ohne) { if (!POOL.tick) POOL.tick = setTimeout(ohneFaden, 0); return; }
+  while (POOL.frei.length && POOL.schlange.length) POOL.frei.pop().postMessage(POOL.schlange.shift());
+}
+function fertig(w, d) {
+  POOL.frei.push(w);
+  const f = POOL.offen.get(d.nr); POOL.offen.delete(d.nr);
+  if (d.fehler) console.error(d.fehler);
+  if (f) f(d);
+  verteile();
+}
+function ohneFaden() {       // Notbetrieb ohne Web-Worker: ein Auftrag je Atemzug auf dem Hauptfaden
+  POOL.tick = 0;
+  const a = POOL.schlange.shift(); if (!a) return;
+  const J = POOL.jaeger; let d;
+  try {
+    if (a.art === "zeile") { const r = J.zeile(a.ebene, a.m, a.a0, a.a1, a.b, a.n, a.Tmax, a.tol, a.maxSchritte, a.schritt, a.versatz); d = { nr: a.nr, d: r.d, t: r.t, k: r.art }; }
+    else if (a.art === "zeileHalb") { const r = J.zeileHalb(a.ebene, a.m, a.a0, a.a1, a.b, a.n, a.Tmax, a.tol, a.maxSchritte, a.baender); d = { nr: a.nr, d: r.d, t: r.t, k: r.art }; }
+    else if (a.art === "kandidat") d = { nr: a.nr, erg: J.kandidat(a.ebene, a.m, a.a, a.b, a.T, a.schritt, a.opt) };
+    else if (a.art === "kandidatHalb") d = { nr: a.nr, erg: J.kandidatHalb(a.ebene, a.m, a.a, a.b, a.tau, a.ziel, a.opt) };
+    else if (a.art === "stabil") d = { nr: a.nr, erg: J.stabil(a.ebene, a.m, a.a, a.b, a.T) };
+    else d = { nr: a.nr, erg: J.pruefe(a.ebene, a.m, a.a, a.b, a.T, a.opt) };
+  } catch (e) { d = { nr: a.nr, fehler: String(e) }; }
+  const f = POOL.offen.get(d.nr); POOL.offen.delete(d.nr); if (f) f(d);
+  if (POOL.schlange.length) POOL.tick = setTimeout(ohneFaden, 0);
+}
+function streiche(...arten) { POOL.schlange = POOL.schlange.filter(a => { if (!arten.includes(a.art)) return true; POOL.offen.delete(a.nr); return false; }); }
+
+/* ═══════════════════ 3 · Die Listen der Bekannten ═══════════════════ */
+// KATALOG: Li/Liao und 2013, mit Klassen. GROSS: Hristov u. a., gleiche Massen,
+// je Eintrag zwölf Bytes (a und b als 32-Bit-Bruchteil, T als float32).
+const Listen = (() => {
+  const klein = (KATALOG && KATALOG.bahnen || []).map(z => ({ satz: KATALOG.saetze[z[0]], name: z[1], ruf: z[2], m: KATALOG.massen[z[3]], ebene: z[4] ? "fall" : "euler", a: z[5], b: z[6], T: z[7], Ts: z[8], kennung: z[9] }));
+  const gross = {};
+  if (GROSS) for (const eb of Object.keys(GROSS.ebenen)) {
+    const roh = atob(GROSS.ebenen[eb].daten), n = roh.length / 12, buf = new Uint8Array(roh.length);
+    for (let i = 0; i < roh.length; i++) buf[i] = roh.charCodeAt(i);
+    const dv = new DataView(buf.buffer), a = new Float64Array(n), b = new Float64Array(n), T = new Float32Array(n);
+    for (let i = 0; i < n; i++) { a[i] = dv.getUint32(12 * i, true) / 4294967296; b[i] = dv.getUint32(12 * i + 4, true) / 4294967296; T[i] = dv.getFloat32(12 * i + 8, true); }
+    const C = 0.004, G = Math.ceil(1.05 / C), zelle = i => Math.min(G - 1, Math.floor(a[i] / C)) * G + Math.min(G - 1, Math.floor(b[i] / C));
+    const start = new Int32Array(G * G + 1);
+    for (let i = 0; i < n; i++) start[zelle(i) + 1]++;
+    for (let c = 0; c < G * G; c++) start[c + 1] += start[c];
+    const ord = new Int32Array(n), fl = start.slice(0, G * G);
+    for (let i = 0; i < n; i++) ord[fl[zelle(i)]++] = i;
+    gross[eb] = { n, a, b, T, tGrenze: GROSS.ebenen[eb].tGrenze, naechster(x, y) {
+      x = Math.abs(x); y = Math.abs(y);
+      const ca = Math.floor(x / C), cb = Math.floor(y / C); let best = -1, d = Infinity;
+      for (let p = ca - 1; p <= ca + 1; p++) for (let q = cb - 1; q <= cb + 1; q++) {
+        if (p < 0 || q < 0 || p >= G || q >= G) continue;
+        for (let k = start[p * G + q]; k < start[p * G + q + 1]; k++) { const i = ord[k], e = Math.hypot(a[i] - x, b[i] - y); if (e < d) { d = e; best = i; } }
+      }
+      return best < 0 ? null : { abstand: d, T: T[best] };
+    } };
+  }
+  const gleichM = (x, y) => x.every((v, i) => Math.abs(v - y[i]) < 1e-12);
+  // Vier Stufen wie in der Suchmaschine: ort, lage, klasse, keine
+  function abgleich(f) {
+    const selbe = klein.filter(k => k.ebene === f.ebene && gleichM(k.m, f.m));
+    const A = Math.abs(f.a), B = Math.abs(f.b);
+    let nah = null, dMin = Infinity;
+    for (const k of selbe) { const d = Math.hypot(k.a - A, k.b - B); if (d < dMin) { dMin = d; nah = k; } }
+    const aus = { klein: { stufe: "keine", eintrag: nah, abstand: dMin, gibtEs: selbe.length }, gross: null };
+    const ts = k => Math.abs(k.Ts / f.Ts - 1);
+    // Gleiches T* auf acht Stellen genügt für „dieselbe Bahn, andere Lage", auch
+    // wenn die Klasse anders herauskommt (wie in quellen.mjs seit dem 02.10.2026)
+    const gleichesTs = selbe.filter(k => ts(k) < 2e-8).sort((x, y) => ts(x) - ts(y))[0];
+    if (nah && dMin < 1e-6) aus.klein.stufe = "ort";
+    else if (gleichesTs) { aus.klein.stufe = "lage"; aus.klein.eintrag = gleichesTs; }
+    else if (f.ebene === "euler") {
+      // gleiche Klasse, aber T* nicht auf acht Stellen gleich: eine ANDERE Bahn derselben Familie
+      // (bis v4 hieß das schon bei fünf gleichen Stellen „andere Lage" — so kam eine instabile „Acht (andere Lage)" in die Liste)
+      const kl = selbe.filter(k => k.kennung && k.kennung === f.kennung);
+      if (kl.length) { aus.klein.stufe = "klasse"; aus.klein.eintrag = kl.sort((x, y) => ts(x) - ts(y))[0]; }
+    }
+    const g = gross[f.ebene];
+    if (g && f.m.every(x => x === 1)) {
+      const n = g.naechster(f.a, f.b);
+      aus.gross = { stufe: n && n.abstand < 2e-6 ? "ort" : f.T > g.tGrenze ? "ausserhalb" : "keine", abstand: n ? n.abstand : null, tGrenze: g.tGrenze };
+    }
+    aus.bekannt = aus.klein.stufe === "ort" || aus.klein.stufe === "lage" || (aus.gross && aus.gross.stufe === "ort");
+    return aus;
+  }
+  return { klein, gross, abgleich };
+})();
+
+/* ═══════════════════ 4 · Karte ═══════════════════ */
+const KA = { d: null, t: null, k: null, gen: 0, offen: 0, gesamt: 0, bild: null, neu: false, t0: 0 };
+const cvK = $("karte"), cvM = $("marken"), gK = cvK.getContext("2d"), gM = cvM.getContext("2d");
+const SKALA = [[4, 5, 14], [59, 15, 112], [140, 41, 129], [222, 73, 104], [254, 159, 109], [252, 253, 191]];
+function farbe(v, aus, o) {
+  v = v < 0 ? 0 : v > 1 ? 1 : v;
+  const x = v * 5, i = Math.min(4, Math.floor(x)), f = x - i;
+  for (let c = 0; c < 3; c++) aus[o + c] = SKALA[i][c] + f * (SKALA[i + 1][c] - SKALA[i][c]);
+}
+const NBH = 6, WH = K.ZIELE.length * NBH;          // Halbperioden-Karte: Ziele × Zeitbänder je Punkt
+function halbMoeglich() { return K.startZiel(Z.ebene, Z.m) >= 0; }
+// „Ganze Karte" erscheint auf der Karte, sobald sie vergrößert oder verschoben ist
+// Das Grundfenster der Karte. Bei gleichen Gewichten das feste der Ebene; bei
+// ungleichen liegen die bekannten Bahnen woanders (bei 1/1/4 keine einzige im
+// Fenster 0…0,75) — dann das Rechteck um 95 % der Listenbahnen dieser
+// Gewichte, mit einem Zehntel Rand. Ohne Liste: das feste Fenster.
+function grundSicht(ebene, m) {
+  const s = K.EBENEN[ebene].sicht.slice();
+  if (m.every(x => x === 1)) return s;
+  const k = Listen.klein.filter(q => q.ebene === ebene && q.m.length === m.length && q.m.every((v, i) => Math.abs(v - m[i]) < 1e-12));
+  if (k.length < 5) return s;
+  const A = k.map(q => Math.abs(q.a)).sort((x, y) => x - y), B = k.map(q => Math.abs(q.b)).sort((x, y) => x - y);
+  const q = (l, p) => l[Math.round(p * (l.length - 1))], rund = x => Math.ceil(x * 20) / 20;
+  const a1 = rund(q(A, 0.95) * 1.1), b1 = rund(q(B, 0.95) * 1.1), a0 = q(A, 0.02) > 0.4 * a1 ? Math.floor(q(A, 0.02) * 0.9 * 20) / 20 : 0;
+  return [a0, a1, 0, b1];
+}
+// Das Grundfenster, so erweitert, dass eine bestimmte Bahn darin liegt.
+function sichtFuer(ebene, m, a, b) {
+  const s = grundSicht(ebene, m), A = Math.abs(a), B = Math.abs(b);
+  if (A < s[0]) s[0] = Math.max(0, Math.floor(A * 0.9 * 20) / 20); if (A > s[1]) s[1] = Math.ceil(A * 1.1 * 20) / 20;
+  if (B < s[2]) s[2] = Math.max(0, Math.floor(B * 0.9 * 20) / 20); if (B > s[3]) s[3] = Math.ceil(B * 1.1 * 20) / 20;
+  return s;
+}
+const imBild = (a, b) => Math.abs(a) >= Z.sicht[0] && Math.abs(a) <= Z.sicht[1] && Math.abs(b) >= Z.sicht[2] && Math.abs(b) <= Z.sicht[3];
+function ganzZeigen() { const s = grundSicht(Z.ebene, Z.m); $("ganz").classList.toggle("da", Z.sicht.some((v, i) => Math.abs(v - s[i]) > 1e-9)); }
+function karteNeu() {
+  const N = Z.N;
+  KA.gen++; streiche("zeile", "zeileHalb"); ganzZeigen();
+  KA.halb = Z.kartenArt === "halb" && halbMoeglich();
+  $("kHalb").classList.toggle("an", KA.halb); $("kVoll").classList.toggle("an", !KA.halb);
+  $("skalaText").textContent = KA.halb ? "Abstand zum nächsten Umkehrpunkt" : "Wiederkehrabstand";
+  $("skalaL").textContent = KA.halb ? "weit (0,3)" : "weit (3)"; $("skalaR").textContent = KA.halb ? "nah (0,0001)" : "nah (0,0003)";
+  if (KA.halb) { karteNeuHalb(); return; }
+  KA.d = new Float32Array(N * N).fill(NaN); KA.t = new Float32Array(N * N); KA.k = new Uint8Array(N * N);
+  cvK.width = cvK.height = N; KA.bild = gK.createImageData(N, N);
+  KA.offen = 0; KA.gesamt = 0; KA.t0 = performance.now(); KA.punkteLauf = 0;
+  const gen = KA.gen, [a0, a1, b0, b1] = Z.sicht;
+  KA.stufe = { 8: 0, 4: 0, 2: 0, 1: 0 };      // offene Zeilen je Durchgang
+  // Vier Durchgänge, grob nach fein: jede Zeile bekommt nur die Punkte, die noch fehlen.
+  for (const s of [8, 4, 2, 1]) for (let j = 0; j < N; j += s) {
+    const alt = s < 8 && j % (2 * s) === 0;
+    const schritt = alt ? 2 * s : s, versatz = alt ? s : 0;
+    if (versatz >= N) continue;
+    KA.offen++; KA.gesamt++; KA.stufe[s]++;
+    auftrag({ art: "zeile", ebene: Z.ebene, m: Z.m, a0, a1, b: b0 + (b1 - b0) * (j + 0.5) / N, n: N, Tmax: Z.tmax, tol: 1e-7,
+              maxSchritte: Math.round(3000 * Z.tmax), schritt, versatz }, false, r => {
+      if (gen !== KA.gen || r.fehler) return;
+      for (let k = 0; k < r.d.length; k++) { const i = versatz + k * schritt, o = j * N + i; KA.d[o] = r.d[k]; KA.t[o] = r.t[k]; KA.k[o] = r.k[k]; }
+      KA.offen--; KA.stufe[s]--; KA.neu = true; KA.punkteLauf += r.d.length; POOL.punkte += r.d.length;
+      if (!KA.offen) kartenFertig();
+    });
+  }
+  achsen(); markenZeichnen();
+}
+// Karte der Umkehrpunkte: ganze Zeilen, in grober Reihenfolge zuerst (jede
+// achte, dann jede vierte …), damit das Bild sich von grob nach fein füllt.
+function karteNeuHalb() {
+  const N = Z.N;
+  KA.d = new Float32Array(N * N).fill(NaN); KA.t = new Float32Array(N * N); KA.k = new Uint8Array(N * N);
+  KA.hd = new Float32Array(N * N * WH); KA.ht = new Float32Array(N * N * WH); KA.hq = new Uint8Array(N * N);
+  cvK.width = cvK.height = N; KA.bild = gK.createImageData(N, N);
+  KA.offen = 0; KA.gesamt = 0; KA.t0 = performance.now(); KA.punkteLauf = 0;
+  KA.stufe = { 8: 0, 4: 0, 2: 0, 1: 0 };
+  const gen = KA.gen, [a0, a1, b0, b1] = Z.sicht;
+  for (const s of [8, 4, 2, 1]) for (let j = s === 8 ? 0 : s; j < N; j += s === 8 ? 8 : 2 * s) {
+    KA.offen++; KA.gesamt++; KA.stufe[s]++;
+    auftrag({ art: "zeileHalb", ebene: Z.ebene, m: Z.m, a0, a1, b: b0 + (b1 - b0) * (j + 0.5) / N, n: N, Tmax: Z.tmax / 2, tol: 1e-7,
+              maxSchritte: Math.round(3000 * Z.tmax), baender: NBH }, false, r => {
+      if (gen !== KA.gen || r.fehler) return;
+      KA.hd.set(r.d, j * N * WH); KA.ht.set(r.t, j * N * WH);
+      for (let i = 0; i < N; i++) {
+        let mn = Infinity, q0 = 0;
+        for (let q = 0; q < WH; q++) { const v = r.d[i * WH + q]; if (v < mn) { mn = v; q0 = q; } }
+        const o = j * N + i;
+        KA.d[o] = r.k[i] === 4 ? Infinity : (mn === Infinity ? 9 : mn); KA.t[o] = 2 * r.t[i * WH + q0]; KA.hq[o] = q0; KA.k[o] = r.k[i];
+      }
+      KA.offen--; KA.stufe[s]--; KA.neu = true; KA.punkteLauf += N; POOL.punkte += N;
+      if (!KA.offen) kartenFertig();
+    });
+  }
+  achsen(); markenZeichnen();
+}
+function kartenFertig() {
+  KA.sekunden = (performance.now() - KA.t0) / 1000;      // für F3 und die Prüfskripte
+  $("kartenInfo").textContent = "";
+}
+// Was liegt unter dem Zeiger? In Worten, aus derselben Größe wie die Farbe.
+function ortInWorten(p) {
+  if (!(p.d === p.d)) return "wird noch gezeichnet";
+  if (p.d === Infinity) return "fliegen auseinander";
+  const lg = -Math.log10(p.d < 1e-9 ? 1e-9 : p.d), v = KA.halb ? (lg - 0.5) / 3.5 : (lg + 0.5) / 4;
+  return v < 0.22 ? "hier ist nichts" : v < 0.45 ? "kühl" : v < 0.68 ? "warm" : "heiß — klick hier";
+}
+function karteZeichnen() {
+  if (!KA.neu) return; KA.neu = false;
+  const N = Z.N, px = KA.bild.data, d = KA.d;
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    let w = NaN;
+    if (KA.halb) for (let s = 1; s <= 8 && w !== w; s *= 2) w = d[(j - j % s) * N + i];
+    else for (let s = 1; s <= 8 && w !== w; s *= 2) w = d[(j - j % s) * N + (i - i % s)];
+    const o = ((N - 1 - j) * N + i) * 4;
+    if (w !== w) { px[o] = 6; px[o + 1] = 14; px[o + 2] = 22; }
+    else if (w === Infinity) { px[o] = 14; px[o + 1] = 22; px[o + 2] = 30; }
+    else { const lg = -Math.log10(w < 1e-9 ? 1e-9 : w); farbe(KA.halb ? (lg - 0.5) / 3.5 : (lg + 0.5) / 4, px, o); }
+    px[o + 3] = 255;
+  }
+  gK.putImageData(KA.bild, 0, 0);
+  $("fortschritt").style.width = (KA.gesamt ? 100 * (KA.gesamt - KA.offen) / KA.gesamt : 0) + "%";
+  if (KA.offen) $("kartenInfo").textContent = `wird gezeichnet … ${Math.round(100 * (KA.gesamt - KA.offen) / KA.gesamt)} %`;
+}
+function achsen() {
+  const E = K.EBENEN[Z.ebene], [a0, a1, b0, b1] = Z.sicht, z = v => dez(v, a1 - a0 < 0.02 ? 5 : a1 - a0 < 0.2 ? 4 : 3);
+  $("achseL").textContent = z(a0); $("achseR").textContent = z(a1);
+  $("achseN").textContent = `${E.achseA} →   (${E.achseB} ↑ ${z(b0)} … ${z(b1)})`;
+}
+const zuPix = (a, b) => { const [a0, a1, b0, b1] = Z.sicht, r = cvM.getBoundingClientRect(); return [(Math.abs(a) - a0) / (a1 - a0) * r.width, (1 - (Math.abs(b) - b0) / (b1 - b0)) * r.height]; };
+function markenZeichnen() {
+  const r = cvM.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  if (cvM.width !== Math.round(r.width * dpr)) { cvM.width = Math.round(r.width * dpr); cvM.height = Math.round(r.height * dpr); }
+  gM.setTransform(dpr, 0, 0, dpr, 0, 0); gM.clearRect(0, 0, r.width, r.height);
+  const [a0, a1, b0, b1] = Z.sicht, drin = (a, b) => a >= a0 && a <= a1 && b >= b0 && b <= b1;
+  if (Z.zeigeListen) {
+    const g = Listen.gross[Z.ebene];
+    if (g && Z.m.every(x => x === 1)) {
+      let n = 0; for (let i = 0; i < g.n; i++) if (g.T[i] <= Z.tmax && drin(g.a[i], g.b[i])) n++;
+      const gr = n > 4000 ? 1 : n > 600 ? 1.5 : 2.5;
+      gM.fillStyle = n > 4000 ? "rgba(238,243,250,.28)" : "rgba(238,243,250,.7)";
+      for (let i = 0; i < g.n; i++) if (g.T[i] <= Z.tmax && drin(g.a[i], g.b[i])) { const p = zuPix(g.a[i], g.b[i]); gM.fillRect(p[0] - gr / 2, p[1] - gr / 2, gr, gr); }
+      KA.bekannte = n;
+    }
+    gM.strokeStyle = "rgb(252,211,77)"; gM.lineWidth = 1.3;
+    for (const k of Listen.klein) if (k.ebene === Z.ebene && k.m.every((v, i) => Math.abs(v - Z.m[i]) < 1e-12) && k.T <= Z.tmax && drin(k.a, k.b)) { const p = zuPix(k.a, k.b); gM.beginPath(); gM.arc(p[0], p[1], 4, 0, 6.2832); gM.stroke(); }
+  }
+  for (const f of Z.funde) if (f.ebene === Z.ebene && f.m.every((v, i) => Math.abs(v - Z.m[i]) < 1e-12) && drin(Math.abs(f.a), Math.abs(f.b))) {
+    const p = zuPix(f.a, f.b);
+    gM.fillStyle = istBekannt(f) ? "rgb(96,214,180)" : "rgb(252,211,77)";
+    gM.beginPath(); gM.arc(p[0], p[1], 3, 0, 6.2832); gM.fill();
+    gM.strokeStyle = "rgba(4,10,16,.9)"; gM.lineWidth = 1; gM.stroke();
+  }
+  if (Z.wahl) {
+    const p = zuPix(Z.wahl.a, Z.wahl.b);
+    gM.strokeStyle = "#fff"; gM.lineWidth = 1.2;
+    gM.beginPath(); gM.moveTo(p[0] - 11, p[1]); gM.lineTo(p[0] - 4, p[1]); gM.moveTo(p[0] + 4, p[1]); gM.lineTo(p[0] + 11, p[1]);
+    gM.moveTo(p[0], p[1] - 11); gM.lineTo(p[0], p[1] - 4); gM.moveTo(p[0], p[1] + 4); gM.lineTo(p[0], p[1] + 11); gM.stroke();
+  }
+}
+// Zeiger → Punkt der Ebene und Rasterzelle
+function ort(e) {
+  const r = cvM.getBoundingClientRect(), [a0, a1, b0, b1] = Z.sicht;
+  const x = (e.clientX - r.left) / r.width, y = 1 - (e.clientY - r.top) / r.height;
+  const i = Math.max(0, Math.min(Z.N - 1, Math.floor(x * Z.N))), j = Math.max(0, Math.min(Z.N - 1, Math.floor(y * Z.N)));
+  let o = -1;
+  for (let s = 1; s <= 8 && o < 0; s *= 2) { const q = (j - j % s) * Z.N + (KA.halb ? i : i - i % s); if (KA.d[q] === KA.d[q]) o = q; }
+  const aus = { a: a0 + x * (a1 - a0), b: b0 + y * (b1 - b0), d: o >= 0 ? KA.d[o] : NaN, t: o >= 0 ? KA.t[o] : 0 };
+  if (KA.halb && o >= 0 && KA.d[o] < 9) { const q = KA.hq[o]; aus.halb = { ziel: Math.floor(q / NBH), tau: KA.ht[o * WH + q], d: KA.d[o] }; }
+  return aus;
+}
+let zieh = null, hoverZeit = 0;
+const rahmen = $("rahmen");
+rahmen.addEventListener("pointerdown", e => { rahmen.setPointerCapture(e.pointerId); zieh = { x: e.clientX, y: e.clientY, sicht: Z.sicht.slice(), weit: false }; });
+rahmen.addEventListener("pointermove", e => {
+  if (zieh) {
+    const r = cvM.getBoundingClientRect(), dx = e.clientX - zieh.x, dy = e.clientY - zieh.y;
+    if (Math.hypot(dx, dy) > 5) zieh.weit = true;
+    if (zieh.weit) {
+      const [a0, a1, b0, b1] = zieh.sicht, wa = a1 - a0, wb = b1 - b0;
+      Z.sicht = [a0 - dx / r.width * wa, a1 - dx / r.width * wa, b0 + dy / r.height * wb, b1 + dy / r.height * wb];
+      cvK.style.transform = `translate(${dx}px,${dy}px)`; achsen();
+    }
+    return;
+  }
+  const jetzt = performance.now(); if (jetzt - hoverZeit < 40) return; hoverZeit = jetzt;
+  const p = ort(e); if (!(Z.wahl && Z.wahl.fest)) vorschau(p);
+  const zw = $("zeiger"), r = rahmen.getBoundingClientRect();
+  zw.textContent = ortInWorten(p); zw.classList.add("da");
+  zw.style.left = Math.max(0, Math.min(r.width - 150, e.clientX - r.left)) + "px"; zw.style.top = Math.max(34, e.clientY - r.top) + "px";
+  KA.zeiger = `${dez(p.a, 4)} · ${dez(p.b, 4)}` + (p.d === p.d && p.d < Infinity ? `   d ${fmt(p.d)}  T ${dez(p.t, 2)}` : "");   // die Zahlen dazu stehen in F3
+});
+rahmen.addEventListener("pointerup", e => {
+  const z = zieh; zieh = null; cvK.style.transform = "";
+  if (!z) return;
+  if (z.weit) { karteNeu(); return; }
+  const p = ort(e); waehle(p.a, p.b, p.d < 0.5 && p.t > 0 ? p.t : Math.min(Z.tmax, 12), true, p.halb);
+});
+rahmen.addEventListener("pointerleave", () => { $("zeiger").classList.remove("da"); });
+rahmen.addEventListener("dblclick", e => { e.preventDefault(); verfeinern(); });
+rahmen.addEventListener("wheel", e => {
+  e.preventDefault();
+  const r = cvM.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = 1 - (e.clientY - r.top) / r.height;
+  const f = e.deltaY < 0 ? 0.6 : 1 / 0.6, [a0, a1, b0, b1] = Z.sicht, ca = a0 + x * (a1 - a0), cb = b0 + y * (b1 - b0);
+  if ((a1 - a0) * f < 2e-6) return;
+  Z.sicht = [ca - x * (a1 - a0) * f, ca + (1 - x) * (a1 - a0) * f, cb - y * (b1 - b0) * f, cb + (1 - y) * (b1 - b0) * f];
+  clearTimeout(rahmen.warte); rahmen.warte = setTimeout(karteNeu, 180); achsen();
+}, { passive: false });
+
+/* ═══════════════════ 5 · Wahl, Vorschau, Bahn ═══════════════════ */
+const BAHN = { punkte: null, n: 0, T: 0, kasten: null, zeit: 0, geist: null, kugel: null, periodisch: false, luecke: 0 };
+const u0 = new Float64Array(12);
+const sucher = K.macheSucher();
+function bahnRechnen(a, b, T, genau) {
+  K.EBENEN[Z.ebene].anfang(a, b, Z.m, u0);
+  if (K.energie(u0, Z.m) >= 0) { BAHN.punkte = null; return false; }
+  const N = Math.max(300, Math.min(4000, Math.round(T * 60)));
+  const r = K.abtasten(u0, Z.m, T, genau ? 1e-10 : 1e-7, N);
+  BAHN.punkte = r.punkte; BAHN.n = r.n; BAHN.T = T * r.n / N; BAHN.geist = null;
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  const P = r.punkte, form = new Float32Array((r.n + 1) * 3), fp = [0, 0, 0];
+  for (let k = 0; k <= r.n; k++) {
+    for (let i = 0; i < 3; i++) { const x = P[12 * k + 2 * i], y = P[12 * k + 2 * i + 1]; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    K.formpunkt(P, 12 * k, Z.m, fp); form[3 * k] = fp[0]; form[3 * k + 1] = fp[1]; form[3 * k + 2] = fp[2];
+  }
+  BAHN.kasten = [x0, x1, y0, y1]; BAHN.kugel = form;
+  let l = 0; for (let i = 0; i < 12; i++) l += (P[12 * r.n + i] - P[i]) ** 2;
+  BAHN.luecke = Math.sqrt(l);
+  return true;
+}
+function vorschau(p) {
+  const T = p.d < 0.5 && p.t > 0 ? p.t : Math.min(Z.tmax, 12);
+  Z.wahl = { a: p.a, b: p.b, T, d: p.d, fest: false, halb: p.halb || null }; Z.befund = null;
+  if (bahnRechnen(p.a, p.b, T, false)) { BAHN.zeit = 0; befundZeigen(); }
+  markenZeichnen();
+}
+function waehle(a, b, T, fest, halb) {
+  Z.wahl = { a, b, T, d: NaN, fest, halb: halb || null }; Z.befund = null; Z.stoerung = false; $("bStoer").classList.remove("an");
+  if (!bahnRechnen(a, b, T, true)) { toast("Dort fliegen die drei auseinander."); befundZeigen(); markenZeichnen(); return; }
+  // Wiederkehrabstand genau, im Fenster um T
+  K.EBENEN[Z.ebene].anfang(a, b, Z.m, u0);
+  const s = sucher.lauf(u0, Z.m, 1.25 * T, 1e-10, 2e6, 0.6 * T);
+  Z.wahl.d = s.d; if (s.d < 0.5 && Math.abs(s.t / T - 1) > 1e-6) { Z.wahl.T = s.t; bahnRechnen(a, b, s.t, true); }
+  BAHN.zeit = 0; befundZeigen(); markenZeichnen(); linkSchreiben();
+}
+function verfeinern() {
+  if (!Z.wahl) { toast("Klick erst auf eine Stelle der Karte."); return; }
+  const w = Z.wahl, zelle = Math.max(Z.sicht[1] - Z.sicht[0], Z.sicht[3] - Z.sicht[2]) / Z.N;
+  $("uTitel").textContent = "Suche die Bahn …"; $("verfeinern").disabled = true;
+  const eb = Z.ebene, m = Z.m.slice();
+  // Zweiter Weg: über die ganze Periode (tasten, dann Newton auf den Wiederkehrabstand)
+  const voll = () => auftrag({ art: "kandidat", ebene: eb, m, a: w.a, b: w.b, T: w.T, schritt: zelle / 2, opt: { maxIter: 40, ohneStabil: true } }, true, r => {
+    $("verfeinern").disabled = false;
+    if (r.fehler || !r.erg) { toast("Die Rechnung ist abgebrochen."); befundZeigen(); return; }
+    const p = r.erg;
+    if (!p.ok) { toast("Von hier aus findet sich keine geschlossene Bahn. Versuch eine hellere Stelle."); befundZeigen(); return; }
+    uebernimm(p, true);
+  });
+  // Erster Weg, wenn die Karte ihn kennt: Newton auf den Umkehrpunkt nach der halben Periode
+  if (w.halb && w.halb.d < 0.5) auftrag({ art: "kandidatHalb", ebene: eb, m, a: w.a, b: w.b, tau: w.halb.tau, ziel: w.halb.ziel, opt: { ohneStabil: true } }, true, r => {
+    if (!r.fehler && r.erg && r.erg.ok) { $("verfeinern").disabled = false; uebernimm(r.erg, true); }
+    else voll();
+  });
+  else voll();
+}
+function uebernimm(p, zeigen) {
+  p.listen = Listen.abgleich(p);
+  if (zeigen) {
+    Z.wahl = { a: p.a, b: p.b, T: p.T, d: p.rest, fest: true }; Z.befund = p;
+    bahnRechnen(p.a, p.b, p.T, true); BAHN.zeit = 0; befundZeigen(); markenZeichnen(); linkSchreiben();
+  }
+  return p;
+}
+
+/* ═══════════════════ 6 · Befund ═══════════════════ */
+const ZIELNAME = { A1: "Körper 1 in der Mitte", A2: "Körper 2 in der Mitte", A3: "Körper 3 in der Mitte", B1: "gleichschenklig, Spitze 1", B2: "gleichschenklig, Spitze 2", B3: "gleichschenklig, Spitze 3", C: "alle auf einer Linie", R: "alle in Ruhe" };
+const WAERME = [[0, "eiskalt"], [1, "kalt"], [2, "lauwarm"], [3.5, "warm"], [6, "heiß"], [9, "zurück"]];
+const ADJ = ["Stiller", "Schwarzer", "Wilder", "Kalter", "Trunkener", "Roter", "Später", "Nervöser", "Blinder", "Höflicher", "Zäher", "Feiner", "Bitterer", "Loser", "Runder", "Scharfer", "Müder", "Frecher", "Zarter", "Grauer", "Heißer", "Krummer", "Leiser", "Ewiger"];
+const NOM = ["Reigen", "Wirbel", "Knoten", "Strudel", "Faden", "Schatten", "Bogen", "Kelch", "Kamm", "Ring", "Zopf", "Tanz", "Fächer", "Nebel", "Anker", "Wickel", "Trichter", "Schleier", "Kegel", "Walzer", "Pfad", "Zwirn", "Kranz", "Kreisel"];
+function taufe(p) {
+  const l = p.listen;
+  if (l && (l.klein.stufe === "ort" || l.klein.stufe === "lage") && l.klein.eintrag) return (l.klein.eintrag.ruf || "Bahn " + l.klein.eintrag.name) + (l.klein.stufe === "lage" ? " (andere Lage)" : "");
+  return spitzname(p.kennung, p.Ts);
+}
+// Ein Name für eine Bahn ohne Namen: aus ihrer Klasse und ihrer skalierten Periode, immer derselbe.
+function spitzname(kennung, Ts) {
+  let h = 2166136261; const s = (kennung || "") + Math.round(Ts * 1e4);
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } h >>>= 0;
+  return ADJ[h % ADJ.length] + " " + NOM[(h >>> 5) % NOM.length] + " Nr. " + (h % 9973);
+}
+function listenText(p) {
+  const l = p.listen, t = [];
+  if (!l) return ["—", ""];
+  const k = l.klein;
+  if (k.stufe === "ort") t.push(`${k.eintrag.satz}: ${k.eintrag.name}` + (k.eintrag.ruf ? ` · ${k.eintrag.ruf}` : ""));
+  else if (k.stufe === "lage") t.push(`${k.eintrag.satz}: ${k.eintrag.name}, an anderer Stelle getroffen`);
+  else if (k.stufe === "klasse") t.push(`Klasse von ${k.eintrag.name} (${k.eintrag.satz}), aber andere Bahn`);
+  else t.push(k.gibtEs ? "Klasse nicht bei Li/Liao" : "für diese Massen führt Li/Liao nichts");
+  if (l.gross) t.push(l.gross.stufe === "ort" ? "steht bei Hristov u. a." : l.gross.stufe === "ausserhalb" ? `Hristov u. a. hier nur bis T = ${l.gross.tGrenze} eingebettet` : l.gross.ganz ? "nicht bei Hristov u. a. (ganze Liste, von der Suchmaschine geprüft)" : "nicht bei Hristov u. a.");
+  return [l.bekannt ? "bekannt" : l.ausLauf ? "in keiner Liste" : (l.gross && l.gross.stufe === "ausserhalb") || !l.gross ? "in den eingebetteten Listen nicht" : "in keiner Liste", t.join(" · ")];
+}
+// Ist die Stabilität dieser Bahn gemessen? Das Labor rechnet sie nicht mehr
+// von selbst; „stabil" fehlt dann ganz. null heißt: gemessen, aber offen.
+const gemessen = p => !!p && p.stabil !== undefined;
+function kachel(titel, wert, unter, kl, breit) { return `<div class="kachel${breit ? " breit" : ""}"><span>${titel}</span><b class="${kl || ""}">${wert}</b>${unter ? `<small>${unter}</small>` : ""}</div>`; }
+// Die Listenlage in einem Satz. Zweiter Wert: steht in keiner Liste (gelber Punkt).
+function listenSatz(p) {
+  const l = p.listen; if (!l) return ["", false];
+  const k = l.klein;
+  if ((k.stufe === "ort" || k.stufe === "lage") && k.eintrag) return [`Bekannt${k.eintrag.ruf ? " als <b>" + k.eintrag.ruf + "</b>" : ""}: steht in der Liste von ${k.eintrag.satz}${k.stufe === "lage" ? ", dort an anderer Stelle der Karte" : ""}.`, false];
+  if (l.bekannt) return ["Bekannt: steht in den veröffentlichten Listen.", false];
+  if (listenStand(p) === "bekannt") return ["Bekannt: die Suchmaschine hat diese Bahn in den veröffentlichten Listen gefunden, dort an anderer Stelle der Karte.", false];
+  if (listenStand(p) === "ungeprueft") return [p.m.every(x => x === 1)
+    ? "<b>Ungeprüft.</b> In den mitgelieferten Listen steht sie nicht — aber das Labor trägt die großen Listen nur zum Teil. Erst die Suchmaschine prüft gegen alle."
+    : "<b>Ungeprüft.</b> Für diese Gewichte gibt es keine veröffentlichte Liste zum Vergleichen.", true];
+  const sat = satellitLautSuchmaschine(p);
+  if (sat) return [`Steht in keiner der geprüften Listen, ist aber ein <b>Ableger</b>: sie läuft mehrmals fast den Weg einer bekannten Bahn (${sat}).`, true];
+  return ["Steht in <b>keiner der geprüften Listen</b>. Das heißt nicht „neu“.", true];
+}
+const FUNDUS_URTEIL = { s: "stabil, auf 30 Stellen gerechnet", h: "stabil um Haaresbreite — auf 30 Stellen gerechnet, ein Index liegt weniger als 0,001 unter der Grenze", g: "ein Index liegt exakt auf der Grenze (auf 26 Stellen) — warum, ist nicht geklärt", d: "stabil (schnelle Messung)", l: "stabil laut der veröffentlichten Liste", o: "nicht entschieden, kann stabil sein" };
+// Das Feld „Ist die Bahn stabil?": Wort, ein Satz dazu, Farbe.
+function stabilZeigen(p) {
+  const F = $("stabilFeld"), W = $("stabilWort");
+  F.classList.remove("ja", "nein", "vielleicht");
+  $("messen").disabled = !p || !!Z.messung;
+  if (!p) { W.innerHTML = "erst eine Bahn finden"; return; }
+  const fu = p.fundus ? `<small>Die Suchmaschine sagt: ${FUNDUS_URTEIL[p.fundus.u] || "—"}.</small>` : "";
+  if (!gemessen(p)) W.innerHTML = "noch nicht gemessen" + fu;
+  else if (p.stabilQuelle === "suchmaschine") { F.classList.add(p.stabil ? "ja" : "nein"); W.innerHTML = (p.stabil ? "stabil" : "instabil") + "<small>Für die schnelle Messung zu knapp. Die Suchmaschine hat es auf 30 Stellen entschieden.</small>" + fu; }
+  else if (p.stabil === true) { F.classList.add("ja"); W.innerHTML = "stabil<small>Ein kleiner Stoß wirft sie nicht aus der Bahn.</small>" + fu; }
+  else if (p.stabil === false) { F.classList.add("nein"); W.innerHTML = `instabil<small>Ein kleiner Stoß wächst mit jedem Umlauf auf das ${fmt(p.lambda, 2)}-fache.</small>` + fu; }
+  else if (indexGross(p)) { F.classList.add("vielleicht"); W.innerHTML = "vielleicht stabil<small>Zu knapp für die schnelle Messung. Aber ein Index liegt über 30 — von 325 solchen Bahnen war auf 30 Stellen keine stabil.</small>" + fu; }
+  else { F.classList.add("vielleicht"); W.innerHTML = "vielleicht stabil<small>Zu knapp für die schnelle Messung — die Bahn kann stabil sein.</small>" + fu; }
+}
+// Ein Hauptknopf je Stand: erst finden, dann messen, dann merken.
+function hauptknopf() {
+  const p = Z.befund, schon = p && Z.funde.includes(p);
+  $("verfeinern").classList.toggle("haupt", !p);
+  $("messen").classList.toggle("haupt", !!p && !gemessen(p));
+  $("merken").classList.toggle("haupt", !!p && gemessen(p) && !schon);
+  $("merken").disabled = !p || schon;
+}
+function befundZeigen() {
+  const w = Z.wahl, p = Z.befund, U = $("urteil"), E = K.EBENEN[Z.ebene];
+  if (!w) return;
+  $("messzeit").textContent = p && p.stabilSek !== undefined ? `in ${dez(p.stabilSek, 2)} s` : "";
+  const d = p ? p.rest : (w.d === w.d ? w.d : BAHN.luecke), wert = Math.max(0, -Math.log10(Math.max(d, 1e-14)));
+  let wort = WAERME[0][1]; for (const [g, t] of WAERME) if (wert >= g) wort = t;
+  $("wWort").textContent = wort; $("wBalken").style.width = Math.min(100, wert / 12 * 100) + "%";
+  $("wZahl").textContent = ""; $("wBalken").parentElement.title = "Abstand zum Anfang nach einem Umlauf: " + fmt(d);
+  const fk = [];
+  if (!BAHN.punkte) {
+    U.className = "urteil schlecht"; $("uTitel").textContent = "Fliegen auseinander"; $("uText").textContent = "Mit so viel Schwung bleiben die drei nicht beisammen. Such dir eine Stelle weiter innen.";
+    $("kacheln").innerHTML = ""; $("fakten").innerHTML = ""; $("bahnName").textContent = "—"; $("bahnUnter").textContent = ""; stabilZeigen(null); hauptknopf(); return;
+  }
+  K.EBENEN[Z.ebene].anfang(w.a, w.b, Z.m, u0);
+  const En = K.energie(u0, Z.m), Ts = w.T * Math.pow(Math.abs(En), 1.5);
+  let h = "";
+  if (p) {
+    const scharf = p.rest < 1e-10 && p.gegenprobe < 1e-8, umkehr = !scharf && p.halb && p.halb.rest < 1e-11, belegt = !scharf && belegtLautSuchmaschine(p);
+    U.className = "urteil " + (scharf || umkehr || belegt ? "gut" : "mittel");
+    $("uTitel").textContent = scharf || umkehr ? "Geschlossene Bahn gefunden" : belegt ? "Geschlossene Bahn, auf 30 Stellen belegt" : "Wohl eine geschlossene Bahn";
+    $("uText").textContent = scharf ? "Die drei kommen genau an ihren Anfang zurück — zweimal unabhängig nachgerechnet."
+      : umkehr ? "Zur halben Zeit trifft die Bahn genau eine Spiegelstellung und läuft von dort spiegelbildlich zurück. Den ganzen Umlauf kann das Labor bei so empfindlichen Bahnen nicht mehr nachrechnen; " + (belegt ? "die Suchmaschine hat es auf 30 Stellen getan: er schließt sich." : "das tut die Suchmaschine auf 30 Stellen.")
+      : belegt ? "Die schnelle Rechnung des Labors stößt hier an ihre Grenze. Die Suchmaschine hat die Bahn auf 30 Stellen nachgerechnet: sie schließt sich."
+      : "Die Suche läuft auf eine geschlossene Bahn zu, stößt aber an die Grenze der Rechengenauigkeit. Sicher ist es erst nach der Nachprüfung in der Suchmaschine.";
+    const [lk, lt] = listenText(p), [ls, gelb] = listenSatz(p);
+    fk.push([`Ein Umlauf dauert <b>${dez(p.T, 3)}</b> Zeiteinheiten.`]);
+    if (p.rMin > 0) fk.push([`Näher als <b>${p.rMin >= 0.01 ? dez(p.rMin, 2) : fmt(p.rMin)}</b> kommen sich die Körper nie.`]);
+    if (ls) fk.push([ls, gelb]);
+    h += kachel("Periode T", dez(p.T, 6), `skaliert T* = ${dez(p.Ts, 4)}`);
+    h += kachel("Rest", fmt(p.rest), `Gegenprobe ${fmt(p.gegenprobe)}`, scharf ? "gut-t" : "gold-t");
+    if (p.halb) h += kachel("Umkehrpunkt", `auf ${fmt(p.halb.rest)} getroffen`, `${ZIELNAME[p.halb.ziel] || p.halb.ziel}, nach τ = ${dez(p.halb.tau, 5)} · Periode = ${p.halb.vielfaches} × 2τ`, p.halb.rest < 1e-11 ? "gut-t" : "gold-t", true);
+    // Stabilität: erst auf Knopfdruck gemessen (messen()). Ein Lauf der
+    // Suchmaschine bringt sein Urteil schon mit.
+    const sz = p.stabilSek !== undefined ? ` · gemessen in ${dez(p.stabilSek, 2)} s` : p.stabilQuelle === "labor" ? " · mit der Liste gemessen" : gemessen(p) ? " · aus dem Lauf der Suchmaschine" : "";
+    h += !gemessen(p) ? kachel("Stabilität", "nicht gemessen", "Knopf „Stabilität messen“ oder Taste M", "matt-t")
+      : kachel("Stabilität", p.stabil === true ? "stabil" : p.stabil === false ? "instabil" : "offen",
+        (p.stabilQuelle === "suchmaschine" ? "für die schnelle Messung zu knapp; von der Suchmaschine auf 30 Stellen entschieden" : p.stabil === false ? `Störung wächst je Umlauf um ×${fmt(p.lambda, 2)}` : p.stabil === true ? `Indizes ${dez(p.s1, 4)} und ${dez(p.s2, 4)}, beide unter 2` : "kann stabil sein: zu nah an der Grenze für doppelte Genauigkeit") + sz,
+        p.stabil === true ? "gut-t" : p.stabil === false ? "warn-t" : "gold-t");
+    h += kachel("Engste Begegnung", fmt(p.rMin), `Energie ${dez(p.E, 4)}, Drehimpuls ${fmt(p.L, 1)}`);
+    h += kachel("Listen", { bekannt: "bekannt", ungelistet: "in keiner geprüften Liste", ungeprueft: "ungeprüft" }[listenStand(p)], lt, istBekannt(p) ? "" : "gold-t", true);
+    h += kachel(`Wort (${p.wort.length} Buchstaben)`, p.wort || "—", `Durchgangsfolge ${p.folge.length > 60 ? p.folge.slice(0, 60) + "…" : p.folge}`, "wort", true);
+    h += kachel(E.achseA, dez(p.a, 12)) + kachel(E.achseB, dez(p.b, 12));
+    $("bahnName").textContent = taufe(p);
+    $("bahnUnter").textContent = `Ein Umlauf dauert ${dez(p.T, 2)} · ${!gemessen(p) ? "Stabilität noch nicht gemessen" : p.stabil === true ? "stabil" : p.stabil === false ? "instabil" : "vielleicht stabil"} · ${{ bekannt: "bekannt", ungelistet: "in keiner geprüften Liste", ungeprueft: "ungeprüft" }[listenStand(p)]}`;
+    $("befundArt").textContent = "";
+  } else {
+    const nah = d < 1e-3;
+    U.className = "urteil " + (nah ? "mittel" : "schlecht");
+    $("uTitel").textContent = d < 1e-6 ? "Fast geschlossen" : nah ? "Nah dran" : "Schließt sich nicht";
+    $("uText").textContent = nah ? "Die drei kommen ihrem Anfang schon nahe. „Bahn finden“ sucht von hier die Bahn, die sich genau schließt."
+      : "So gestartet, kommen die drei nicht an ihren Anfang zurück. Hellere Stellen der Karte liegen näher an einer Bahn.";
+    fk.push([w.fest ? "Stelle festgehalten. Weiter mit <b>Bahn finden</b>." : "Vorschau. Ein Klick hält die Stelle fest."]);
+    h += kachel("Wiederkehr nach", dez(w.T, 4), `T* = ${dez(Ts, 3)}`) + kachel("Abstand zum Anfang", fmt(d), w.fest ? "auf 10 Stellen gerechnet" : "aus der Karte");
+    h += kachel(E.achseA, dez(w.a, 6)) + kachel(E.achseB, dez(w.b, 6)) + kachel("Energie", dez(En, 3));
+    $("bahnName").textContent = w.fest ? "Noch keine Bahn" : "Vorschau";
+    $("bahnUnter").textContent = nah ? "kommt ihrem Anfang nahe" : "kommt nicht an ihren Anfang zurück";
+    $("befundArt").textContent = w.fest ? "festgehalten" : "Vorschau";
+  }
+  $("fakten").innerHTML = fk.map(([t, gelb]) => `<li${gelb ? ' class="gold"' : ""}>${t}</li>`).join("");
+  $("kacheln").innerHTML = h;
+  stabilZeigen(p); hauptknopf();
+}
+function befundText() {
+  const p = Z.befund, w = Z.wahl, E = K.EBENEN[Z.ebene];
+  if (!w) return "";
+  const z = [`Dreikörper-Labor · ${E.name} · Massen ${Z.m.join(" / ")}`];
+  if (!p) { z.push(`${E.achseA} = ${w.a}`, `${E.achseB} = ${w.b}`, `Wiederkehr nach T = ${w.T}, Abstand ${w.d}`, "nicht verfeinert"); return z.join("\n"); }
+  const [lk, lt] = listenText(p);
+  z.push(taufe(p), `${E.achseA} = ${p.a}`, `${E.achseB} = ${p.b}`, `T = ${p.T}`, `T* = ${p.Ts}`, `Energie ${p.E}, Drehimpuls ${p.L}`,
+    `Rest ${p.rest} (Taylorreihe), Gegenprobe ${p.gegenprobe} (Dormand–Prince)`,
+    ...(p.halb ? [`Umkehrpunkt ${p.halb.ziel} nach τ = ${p.halb.tau} auf ${p.halb.rest} getroffen; Periode = ${p.halb.vielfaches} × 2τ`] : []),
+    !gemessen(p) ? "Stabilität: nicht gemessen" : `Stabilität: ${p.stabil === true ? "linear stabil" : p.stabil === false ? "instabil" : "offen"}; Indizes ${p.s1}, ${p.sKomplex ? "± " + p.sIm + " i" : p.s2}; |λ|max ${p.lambda}; Symplektikfehler ${p.symplektik}`,
+    `engste Begegnung ${p.rMin}`, `Wort (${p.wort.length}): ${p.wort}`, `Durchgangsfolge: ${p.folge}`, `Listen: ${lk} — ${lt}`,
+    "Doppelte Genauigkeit. Für mehr Stellen: node nachpruefen.mjs im Projekt dreikoerper.");
+  return z.join("\n");
+}
+
+/* ═══════════════════ 7 · Funde ═══════════════════ */
+function merke(p, leise) {
+  if (!p || !p.ok) { if (!leise) toast("Erst eine Bahn finden, dann merken."); return false; }
+  if (Z.funde.some(f => f.ebene === p.ebene && f.m.join() === p.m.join() && Math.hypot(Math.abs(f.a) - Math.abs(p.a), Math.abs(f.b) - Math.abs(p.b)) < 1e-6 && Math.abs(f.T / p.T - 1) < 1e-5)) { if (!leise) toast("Steht schon in der Liste."); return false; }
+  // Dieselbe Bahn, an anderer Stelle der Karte getroffen: gleiche skalierte Periode auf acht Stellen (wie in der Suchmaschine)
+  if (Z.funde.some(f => f.ebene === p.ebene && f.m.join() === p.m.join() && f.Ts > 0 && p.Ts > 0 && Math.abs(f.Ts / p.Ts - 1) < 1e-8)) { if (!leise) toast("Diese Bahn steht schon in der Liste — hier nur an anderer Stelle der Karte getroffen."); return false; }
+  if (!p.listen) p.listen = Listen.abgleich(p);
+  p.name = taufe(p); Z.funde.push(p); return true;
+}
+// Der Fundus: was die Suchmaschine in ihren langen Läufen gefunden hat und was
+// stabil ist oder es sein kann (bauen.mjs trägt ihn aus ergebnisse\ zusammen).
+//   u: s stabil auf 30 Stellen · h dort stabil um Haaresbreite (Abstand unter 0,001)
+//      · g ein Index exakt 2 (30 Stellen) · d stabil (schnelle
+//      Messung) · l stabil laut veröffentlichter Liste · o nicht entschieden
+const Fundus = (FUNDUS && FUNDUS.bahnen || []).map(z => ({ ebene: z[0] ? "fall" : "euler", m: FUNDUS.massen[z[1]], a: z[2], b: z[3], T: z[4], Ts: z[5], u: z[6], gelistet: !!z[7], name: z[8] || spitzname(z[9], z[5]), satellit: z[10] || "" }));
+const fundusStabil = x => x.u === "s" || x.u === "d" || x.u === "l";
+// Wie steht eine Bahn zu den Listen?
+//   bekannt     steht in einer veröffentlichten Liste → Schaukasten
+//   ungelistet  gegen die ganze Liste geprüft und nicht darin
+//   ungeprueft  das Labor kann es nicht entscheiden: bei gleichen Gewichten
+//               trägt es die große Liste nur zum Teil (und nur nach dem Ort),
+//               für manche Gewichte gibt es gar keine. „Neu" steht nirgends.
+function listenStand(p) {
+  const l = p.listen; if (!l) return "ungeprueft";
+  if (l.bekannt) return "bekannt";
+  if (l.ausLauf) return "ungelistet";
+  const g = vonDerSuchmaschineGeprueft(p);
+  if (g !== null) return g ? "bekannt" : "ungelistet";
+  if (p.m.every(x => x === 1)) return "ungeprueft";
+  return l.klein && l.klein.gibtEs ? "ungelistet" : "ungeprueft";
+}
+const istBekannt = f => listenStand(f) === "bekannt";
+// Ein Kandidat für Stabilität: gemessen stabil, oder offen mit beiden Indizes unter 30 —
+// dieselbe Regel wie in der Suchmaschine (nachpruefen.mjs --kandidaten). Offen mit einem
+// Index über 30 ist geeicht hoffnungslos: von 325 solchen Bahnen war auf 30 Stellen
+// keine stabil und keine an der Grenze.
+const indexGross = f => Number.isFinite(f.s1) && Number.isFinite(f.s2) && Math.max(Math.abs(f.s1), Math.abs(f.s2)) >= 30;
+const istKandidat = f => f.stabil === true || (f.stabil === null && !indexGross(f));
+// Der eine Ton am Ende einer Messung über viele Bahnen: aufwärts, wenn eine stabil ist;
+// zweimal gleich, wenn ein Kandidat offen ist; sonst abwärts.
+const sammelTon = liste => (liste.some(f => f.stabil === true) ? "stabil" : liste.some(f => f.stabil === null && istKandidat(f)) ? "offen" : "instabil");
+// Hat die Suchmaschine diese Bahn schon in einem ihrer Läufe gehabt? Dann gilt
+// ihr Urteil: sie vergleicht gegen die ganzen Listen und auch über die
+// skalierte Periode T*, das Labor nur gegen den eingebetteten Teil und nur
+// nach dem Ort. true: gelistet · false: in keiner Liste · null: kennt sie nicht.
+function inGeprueft(p) {
+  if (!GEPRUEFT || !(p.Ts > 0)) return null;
+  const s = GEPRUEFT.find(q => q.m.length === p.m.length && q.m.every((v, i) => Math.abs(v - p.m[i]) < 1e-12));
+  if (!s) return null;
+  let lo = 0, hi = s.t.length - 1;
+  while (lo < hi) { const mi = (lo + hi) >> 1; if (s.t[mi] < p.Ts) lo = mi + 1; else hi = mi; }
+  let best = -1, d = Infinity;
+  for (const k of [lo - 1, lo, lo + 1]) if (k >= 0 && k < s.t.length) { const e = Math.abs(s.t[k] / p.Ts - 1); if (e < d) { d = e; best = k; } }
+  return d < 2e-8 ? { gelistet: s.g[best] === "1", stab: s.s[best], satellit: (s.sat && s.sat[best]) || "" } : null;
+}
+function vonDerSuchmaschineGeprueft(p) { const e = inGeprueft(p); return e ? e.gelistet : null; }
+// Hat die Suchmaschine diese Bahn auf 30 Stellen nachgerechnet? Ja für Bahnen aus dem Fundus
+// mit Urteil s, h oder g, und für jede, zu der sie ein Stabilitätsurteil aus 30 Stellen hat —
+// das rechnet sie nur für Bahnen, deren Umlauf sie zuvor auf 30 Stellen belegt hat.
+function belegtLautSuchmaschine(p) { return !!((p.fundus && "shg".includes(p.fundus.u)) || stabilLautSuchmaschine(p)); }
+// Ist die Bahn laut Suchmaschine ein Satellit (Ableger) einer bekannten Bahn? Text oder "".
+function satellitLautSuchmaschine(p) { const e = inGeprueft(p); return e ? e.satellit : ""; }
+// Das Stabilitätsurteil der Suchmaschine aus 30 Stellen: "s" stabil, "h" stabil um
+// Haaresbreite, "i" instabil, "g" ein Index exakt 2, null: hat sie nicht gerechnet.
+// Übernommen werden nur "s" und "i"; bei "h" und "g" bleibt „vielleicht stabil“ die ehrliche Auskunft.
+function stabilLautSuchmaschine(p) { const e = inGeprueft(p); return e && e.stab !== "-" ? e.stab : null; }
+// Passt ein Eintrag zum gewählten Filter?
+function passt(x, vomFundus) {
+  const f = Z.filter;
+  if (f === "alle") return true;
+  if (vomFundus) return f === "stabil" ? fundusStabil(x) : true;
+  return f === "stabil" ? x.stabil === true : istKandidat(x);
+}
+// Der Schaukasten: die bekannten Bahnen des Fundus und jede bekannte, die du
+// getroffen hast. Trifft beides dieselbe Bahn, steht deine da (sie trägt deine Messung).
+function schauListe() {
+  const meine = Z.funde.map((f, i) => ({ f, i, T: f.T })).filter(q => istBekannt(q.f)), aus = [];
+  Fundus.forEach((x, i) => { if (x.gelistet && !meine.some(({ f }) => f.ebene === x.ebene && f.m.join() === x.m.join() && f.Ts > 0 && Math.abs(f.Ts / x.Ts - 1) < 1e-8)) aus.push({ x, i, T: x.T }); });
+  const gew = q => (q.x || q.f).m, rang = m => (m.every(v => v === 1) ? "" : m.join("/"));
+  return aus.concat(meine).sort((p, q) => rang(gew(p)).localeCompare(rang(gew(q))) || p.T - q.T);
+}
+// Welche eigenen Bahnen misst „Alle messen"? Die der offenen Liste: im
+// Schaukasten die bekannten, sonst die außerhalb der Listen.
+function messbare() {
+  const liste = Z.funde.filter(f => (Z.liste === "schau") === istBekannt(f));
+  return { alle: liste.length, offen: liste.filter(f => !gemessen(f)) };
+}
+function fundeZeigen() {
+  const ul = $("funde"), art = Z.liste; ul.innerHTML = "";
+  for (const [id, l] of [["tabMeine", "meine"], ["tabFundus", "fundus"], ["tabSchau", "schau"]]) $(id).classList.toggle("an", art === l);
+  if (art !== "meine" && Z.filter === "kand") Z.filter = "alle";
+  for (const [id, f] of [["fAlle", "alle"], ["fKand", "kand"], ["fStabil", "stabil"]]) $(id).classList.toggle("an", Z.filter === f);
+  $("fKand").style.display = art === "meine" ? "" : "none";
+  Z.funde.sort((x, y) => x.T - y.T);
+  const zeile = (punkt, name, marke, rechts, titel, klick, an, daten) => {
+    const li = document.createElement("li");
+    li.dataset[daten[0]] = daten[1];             // data-nr: Nummer in Z.funde · data-fundus: Nummer im Fundus
+    li.innerHTML = `<i class="${punkt}"></i><b></b><em></em><span></span>`;
+    li.children[1].textContent = name;
+    if (marke) { li.children[2].textContent = marke[0]; if (marke[1]) li.children[2].className = marke[1]; }
+    li.children[3].textContent = rechts; li.title = titel; if (an) li.classList.add("an");
+    li.addEventListener("click", klick); ul.appendChild(li);
+  };
+  let letzteGewichte = null, mehrere = false;
+  const gruppe = m => {
+    const s = m.join(" · "); if (!mehrere || s === letzteGewichte) return; letzteGewichte = s;
+    const li = document.createElement("li"); li.className = "gruppe"; li.textContent = m.every(v => v === 1) ? "Gleiche Gewichte" : "Gewichte " + s.replace(/\./g, ","); ul.appendChild(li);
+  };
+  const punktVon = f => !gemessen(f) ? "" : f.stabil === true ? "stabil" : f.stabil === false ? "instabil" : indexGross(f) ? "kaum" : "vielleicht";
+  const wortVon = f => !gemessen(f) ? "Stabilität noch nicht gemessen" : f.stabil === true ? "stabil" : f.stabil === false ? "instabil" : indexGross(f) ? "offen, aber ein Index über 30 — kaum stabil" : "vielleicht stabil";
+  const fundusZeile = (x, i) => {
+    const gew = x.m.every(v => v === 1) ? "" : " · Gewichte " + x.m.join(" · ");
+    zeile(fundusStabil(x) ? "stabil" : "vielleicht", x.name, x.satellit && !x.gelistet ? ["Ableger", "grau"] : null, "Umlauf " + dez(x.T, 1), `Suchmaschine: ${FUNDUS_URTEIL[x.u]}${gew}${x.satellit ? " · " + x.satellit : ""}`, () => fundusLaden(i), Z.befund && Z.befund.fundus === x, ["fundus", i]);
+  };
+  const eigene = Z.funde.filter(f => !istBekannt(f)), fundusNeu = Fundus.filter(x => !x.gelistet), schau = schauListe();
+  let gezeigt = 0;
+  mehrere = new Set((art === "fundus" ? fundusNeu : art === "schau" ? schau.map(q => q.x || q.f) : eigene).map(x => x.m.join())).size > 1;
+  if (art === "fundus") Fundus.forEach((x, i) => { if (x.gelistet || !passt(x, true)) return; gezeigt++; gruppe(x.m); fundusZeile(x, i); });
+  else if (art === "schau") for (const q of schau) {
+    if (q.x) { if (!passt(q.x, true)) continue; gezeigt++; gruppe(q.x.m); fundusZeile(q.x, q.i); }
+    else { if (!passt(q.f, false)) continue; gezeigt++; gruppe(q.f.m); zeile(punktVon(q.f), q.f.name || "Bahn", null, "Umlauf " + dez(q.f.T, 1), wortVon(q.f) + " · bekannt · von dir getroffen", () => fundLaden(q.i), Z.befund === q.f, ["nr", q.i]); }
+  }
+  else Z.funde.forEach((f, i) => {
+    if (istBekannt(f) || !passt(f, false)) return; gezeigt++;
+    const ug = listenStand(f) === "ungeprueft", sat = satellitLautSuchmaschine(f);
+    zeile(punktVon(f), f.name || "Bahn", sat ? ["Ableger", "grau"] : ug ? ["ungeprüft", "grau"] : ["nicht gelistet", ""], "Umlauf " + dez(f.T, 1),
+      wortVon(f) + " · " + (sat ? "in keiner Liste, aber ein Ableger: " + sat : ug ? "ungeprüft: das Labor trägt die großen Listen nur zum Teil" : "in keiner der geprüften Listen"), () => fundLaden(i), Z.befund === f, ["nr", i]);
+  });
+  // Anderer Reiter oder Filter: die Liste beginnt wieder oben (sonst bleibt sie verschoben und verdeckt die erste Zwischenzeile)
+  const ansicht = art + "|" + Z.filter; if (ansicht !== fundeZeigen.ansicht) { ul.scrollTop = 0; fundeZeigen.ansicht = ansicht; }
+  $("fundeZahl").textContent = eigene.length; $("fundusZahl").textContent = fundusNeu.length; $("schauZahl").textContent = schau.length;
+  $("fundeLeer").style.display = gezeigt ? "none" : "";
+  $("fundeLeer").textContent = art === "fundus" ? (fundusNeu.length ? "Kein Eintrag passt zu diesem Filter." : "Der Fundus ist leer.")
+    : art === "schau" ? (schau.length ? "Kein Eintrag passt zu diesem Filter." : "Der Schaukasten ist leer.")
+    : eigene.length ? "Keine deiner Bahnen passt zu diesem Filter."
+    : Z.funde.length ? "Noch nichts außerhalb der Listen. Was du bisher gefunden hast, ist bekannt und liegt im Schaukasten."
+    : "Noch keine. „Alles absuchen“ füllt die Liste; bekannte Bahnen wandern in den Schaukasten.";
+  const st = eigene.filter(f => f.stabil === true).length, vl = eigene.filter(f => f.stabil === null && istKandidat(f)).length, kaum = eigene.filter(f => f.stabil === null && indexGross(f)).length, gm = eigene.filter(gemessen).length, ug = eigene.filter(f => listenStand(f) === "ungeprueft").length;
+  $("listenHinweis").innerHTML = art === "fundus"
+    ? `Aus den langen Läufen der Suchmaschine: ${fundusNeu.length} Bahnen außerhalb der veröffentlichten Listen, die stabil sind oder es sein können. Grüner Punkt: stabil. Grüner Ring: noch offen. Keine Liste beweist „neu“.`
+    : art === "schau" ? "Bekannte Bahnen, zum Ansehen und Nachmessen. Sie zählen in keiner Suche mit."
+    : eigene.length ? `Gemessen: ${gm} von ${eigene.length}. <b>${st}</b> stabil, <b>${vl}</b> vielleicht stabil.` + (kaum ? ` ${kaum} weitere offen, aber mit einem Index über 30 — von 325 solchen war auf 30 Stellen keine stabil.` : "") + (ug ? ` <b>${ug}</b> ${ug === 1 ? "ist" : "sind"} ungeprüft: das Labor trägt die großen Listen nur zum Teil.` : "") + " Keine Liste beweist „neu“." : "";
+  // Was es bei leerer Liste nicht zu tun gibt, steht auch nicht da
+  $("filter").style.display = (art === "fundus" ? fundusNeu.length : art === "schau" ? schau.length : eigene.length) ? "" : "none";
+  const zuMessen = messbare();
+  $("alleMessen").style.display = art === "fundus" || !zuMessen.alle ? "none" : "";
+  $("alleMessen").disabled = !zuMessen.offen.length || !!Z.messung;
+  schreib({ fassung: FASSUNG, funde: Z.funde.slice(-400), ton: Z.ton }); markenZeichnen(); hauptknopf();
+}
+// Eine Bahn aus dem Fundus: das Labor rechnet sie selbst nach (ohne Stabilität —
+// die misst der Knopf) und zeigt daneben, was die Suchmaschine über sie weiß.
+function fundusLaden(i) {
+  const x = Fundus[i]; if (!x) return;
+  if (x.ebene !== Z.ebene || x.m.join() !== Z.m.join() || !imBild(x.a, x.b)) { Z.ebene = x.ebene; Z.m = x.m.slice(); einstellungenZeigen(); Z.sicht = sichtFuer(Z.ebene, Z.m, x.a, x.b); karteNeu(); }
+  Z.wahl = { a: x.a, b: x.b, T: x.T, d: NaN, fest: true }; Z.befund = null; Z.stoerung = false; $("bStoer").classList.remove("an");
+  bahnRechnen(x.a, x.b, x.T, true); BAHN.zeit = 0; befundZeigen(); markenZeichnen();
+  $("uTitel").textContent = "Rechne die Bahn nach …";
+  auftrag({ art: "pruefe", ebene: x.ebene, m: x.m.slice(), a: x.a, b: x.b, T: x.T, opt: { maxIter: 0, annahme: 1e-4, ohneStabil: true } }, true, r => {
+    if (r.fehler || !r.erg || !r.erg.ok) { toast("Diese Bahn ist zu empfindlich, um sie hier nachzurechnen. Die Suchmaschine hat sie auf 30 Stellen."); befundZeigen(); return; }
+    r.erg.fundus = x; uebernimm(r.erg, true); fundeZeigen(); linkSchreiben();
+  });
+}
+function fundLaden(i) {
+  const f = Z.funde[i]; if (!f) return;
+  if (f.ebene !== Z.ebene || f.m.join() !== Z.m.join() || !imBild(f.a, f.b)) { Z.ebene = f.ebene; Z.m = f.m.slice(); einstellungenZeigen(); Z.sicht = sichtFuer(Z.ebene, Z.m, f.a, f.b); karteNeu(); }
+  if (!f.listen) f.listen = Listen.abgleich(f);
+  Z.wahl = { a: f.a, b: f.b, T: f.T, d: f.rest, fest: true }; Z.befund = f; Z.stoerung = false; $("bStoer").classList.remove("an");
+  bahnRechnen(f.a, f.b, f.T, true); BAHN.zeit = 0; befundZeigen(); markenZeichnen(); linkSchreiben();
+  fundeZeigen();
+}
+
+/* ═══════════════════ 7a · Stabilität messen, mit Ton ═══════════════════
+   Die Stabilität wird nicht mehr mit jeder Bahn mitgerechnet, sondern erst,
+   wenn jemand den Knopf drückt (Felix, 02.10.2026). Die Messung ist die der
+   Prüfkette: Monodromie aus zwölf Tangenten, Indizes aus zwei Spuren, Urteil
+   nur, wenn der Abstand zur Grenze über dem Fehler liegt. Danach ein Ton:
+     stabil    zwei Töne aufwärts
+     instabil  zwei Töne abwärts, tiefer
+     offen     zweimal derselbe Ton — die Rechnung kann es nicht entscheiden
+   „Offen" ist bei stabilen Bahnen der häufige Fall, nicht die Ausnahme: von
+   113 stabilen Bahnen der Literatur (T < 150) nennt doppelte Genauigkeit 17
+   stabil und 96 offen (pruef-hristov.mjs, Abschnitt C). Der mittlere Ton
+   heißt also „kann stabil sein", nicht „Fehlschlag". */
+let klang = null;
+function ton(art) {
+  Z.letzterTon = art; Z.toene = (Z.toene || 0) + 1;       // auch ohne Lautsprecher prüfbar
+  if (!Z.ton) return;
+  try {
+    klang = klang || new (window.AudioContext || window.webkitAudioContext)();
+    if (klang.state === "suspended") klang.resume();
+    Z.klangZustand = klang.state;
+    const t0 = klang.currentTime + 0.03;
+    const noten = art === "stabil" ? [[659.25, 0, 0.17], [987.77, 0.15, 0.38]]
+                : art === "instabil" ? [[311.13, 0, 0.19], [207.65, 0.17, 0.42]]
+                : [[440, 0, 0.13], [440, 0.21, 0.13]];
+    for (const [hz, ab, dauer] of noten) {
+      const o = klang.createOscillator(), v = klang.createGain();
+      o.type = art === "instabil" ? "triangle" : "sine"; o.frequency.value = hz;
+      v.gain.setValueAtTime(0.0001, t0 + ab);
+      v.gain.exponentialRampToValueAtTime(0.2, t0 + ab + 0.02);
+      v.gain.exponentialRampToValueAtTime(0.0001, t0 + ab + dauer);
+      o.connect(v); v.connect(klang.destination); o.start(t0 + ab); o.stop(t0 + ab + dauer + 0.05);
+    }
+  } catch (e) { /* ohne Ton bleibt die Anzeige */ }
+}
+const urteilVon = p => (p.stabil === true ? "stabil" : p.stabil === false ? "instabil" : "offen");
+function stabilEintragen(p, e, sek) {
+  p.stabil = e.stabil === undefined ? null : e.stabil;
+  for (const k of ["lambda", "s1", "s2", "sKomplex", "sIm", "rand", "symplektik", "maxM"]) p[k] = e[k];
+  p.stabilSek = sek; p.stabilQuelle = "labor";
+  // Wo die schnelle Messung nicht entscheidet, die Suchmaschine es aber auf 30
+  // Stellen entschieden hat, gilt deren Urteil. Es steht dabei, woher es kommt.
+  if (p.stabil === null) { const c = stabilLautSuchmaschine(p); if (c === "s" || c === "i") { p.stabil = c === "s"; p.stabilQuelle = "suchmaschine"; } }
+}
+function messen() {
+  const p = Z.befund;
+  if (!p || !p.ok) { toast("Erst eine Bahn finden — gemessen wird an einer geschlossenen Bahn."); return; }
+  if (Z.messung) return;
+  const t0 = performance.now(), knopf = $("messen");
+  Z.messung = { offen: 1 }; knopf.disabled = true; knopf.firstChild.textContent = "Messe …";
+  auftrag({ art: "stabil", ebene: p.ebene, m: p.m.slice(), a: p.a, b: p.b, T: p.T }, true, r => {
+    Z.messung = null; knopf.disabled = false; knopf.firstChild.textContent = "Stabilität messen";
+    if (r.fehler || !r.erg) { toast("Die Messung ist abgebrochen."); befundZeigen(); return; }
+    const sek = (performance.now() - t0) / 1000;
+    stabilEintragen(p, r.erg, sek);
+    const u = urteilVon(p);
+    if (Z.befund === p) { befundZeigen(); const F = $("stabilFeld"); F.classList.remove("blitz"); void F.offsetWidth; F.classList.add("blitz"); }
+    if (Z.funde.includes(p)) fundeZeigen();
+    ton(u);
+    toast(p.stabilQuelle === "suchmaschine" ? (u === "stabil" ? "Stabil." : "Instabil.") + " Für die schnelle Messung zu knapp — die Suchmaschine hat es auf 30 Stellen entschieden."
+        : u === "stabil" ? "Stabil. Ein kleiner Stoß wirft sie nicht aus der Bahn."
+        : u === "instabil" ? `Instabil. Ein kleiner Stoß wächst je Umlauf auf das ${fmt(p.lambda, 2)}-fache.`
+        : "Nicht entscheidbar — die Bahn kann stabil sein. Zu knapp für die schnelle Messung; die Suchmaschine entscheidet es.");
+  });
+}
+// Alle Bahnen der Liste, die noch kein Urteil haben. Ein Ton am Ende: aufwärts,
+// wenn eine stabile dabei ist; „offen", wenn keine sicher stabil, aber
+// mindestens eine unentschieden ist; abwärts nur, wenn alle instabil sind.
+function alleMessen(kandidatenZeigen) {
+  if (Z.messung) return;
+  if (kandidatenZeigen === true) Z.liste = "meine";
+  const liste = messbare().offen;
+  if (!liste.length) { toast(messbare().alle ? "Alle Bahnen der Liste sind schon gemessen." : "Die Liste ist leer."); return; }
+  const t0 = performance.now(), knopf = $("alleMessen");
+  Z.messung = { offen: liste.length, gesamt: liste.length }; knopf.disabled = true; $("messen").disabled = true;
+  for (const p of liste) auftrag({ art: "stabil", ebene: p.ebene, m: p.m.slice(), a: p.a, b: p.b, T: p.T }, false, r => {
+    const M = Z.messung; M.offen--;
+    if (!r.fehler && r.erg) stabilEintragen(p, r.erg, undefined);
+    knopf.textContent = `Messe ${M.gesamt - M.offen} / ${M.gesamt}`;
+    if (M.offen) return;
+    Z.messung = null; knopf.textContent = "Alle messen"; $("messen").disabled = false;
+    if (kandidatenZeigen === true) { Z.liste = "meine"; Z.filter = "kand"; }
+    const st = liste.filter(f => f.stabil === true).length, inst = liste.filter(f => f.stabil === false).length, of = liste.filter(f => f.stabil === null && istKandidat(f)).length, kaum = liste.length - st - inst - of;
+    fundeZeigen(); if (Z.befund && liste.includes(Z.befund)) befundZeigen();
+    // Vorrang: stabil, dann offen, dann instabil. „Offen" heißt „kann stabil
+    // sein" — der Abwärtston wäre dann die falsche Auskunft.
+    ton(sammelTon(liste));
+    const bek = Z.funde.filter(istBekannt).length;
+    toast(`${liste.length} Bahnen gemessen in ${dez((performance.now() - t0) / 1000, 1)} s: ${st} stabil, ${of} vielleicht stabil, ${kaum ? kaum + " offen mit einem Index über 30, " : ""}${inst} instabil.` + (kandidatenZeigen === true && bek ? ` ${bek} bekannte liegen im Schaukasten.` : ""));
+  });
+}
+
+/* ═══════════════════ 8 · Jagd ═══════════════════ */
+function jagd() {
+  if (Z.jagd) { toast("Die Suche läuft noch."); return; }
+  if (KA.halb) { jagdHalb(); return; }
+  const N = Z.N, d = KA.d, kand = [], [a0, a1, b0, b1] = Z.sicht;
+  // Talsohlen auf der feinsten Stufe, die schon überall da ist
+  let s = 0; for (const q of [8, 4, 2, 1]) { if (KA.stufe[q] > 0) break; s = q; }
+  if (!s) { toast("Die Karte wird noch gezeichnet. Einen Augenblick."); return; }
+  for (let j = s; j < N - s; j += s) for (let i = s; i < N - s; i += s) {
+    const w = d[j * N + i]; if (!(w < 0.6) || !(KA.t[j * N + i] > 0)) continue;
+    let tal = true;
+    for (let q = -s; q <= s && tal; q += s) for (let p = -s; p <= s; p += s) if ((p || q) && d[(j + q) * N + i + p] < w) { tal = false; break; }
+    if (tal) kand.push({ i, j, d: w, T: KA.t[j * N + i] });
+  }
+  kand.sort((x, y) => x.d - y.d); kand.length = Math.min(kand.length, 240);
+  if (!kand.length) { toast("In diesem Ausschnitt ist keine helle Stelle zu sehen."); return; }
+  Z.jagd = { offen: kand.length, gesamt: kand.length, neu: 0, unbek: 0 };
+  const zelle = Math.max(a1 - a0, b1 - b0) / N * s, eb = Z.ebene, m = Z.m.slice();
+  $("jagd").textContent = `Suche: 0 / ${kand.length}`;
+  for (const k of kand) auftrag({ art: "kandidat", ebene: eb, m, a: a0 + (a1 - a0) * (k.i + 0.5) / N, b: b0 + (b1 - b0) * (k.j + 0.5) / N, T: k.T, schritt: zelle / 2, opt: { ohneStabil: true } }, false, r => {
+    const J = Z.jagd; J.offen--;
+    const p = !r.fehler && r.erg && r.erg.ok ? uebernimm(r.erg, false) : null;
+    if (p && merke(p, true)) { J.neu++; if (!istBekannt(p)) J.unbek++; fundeZeigen(); }
+    $("jagd").textContent = `Suche: ${J.gesamt - J.offen} / ${J.gesamt}`;
+    if (!J.offen) { Z.jagd = null; $("jagd").innerHTML = "Alles absuchen<kbd>J</kbd>"; toast(`Suche beendet: ${J.neu} Bahnen gefunden, ${J.unbek} davon außerhalb der Listen. ${J.gesamt} helle Stellen geprüft.`); sucheFertig(); }
+  });
+}
+
+// Jagd auf der Karte der Umkehrpunkte: Talsohlen in jeder Teilkarte (Ziel ×
+// Zeitband) für sich, die tiefsten zuerst.
+function jagdHalb() {
+  if (KA.offen) { toast("Die Karte wird noch gezeichnet. Einen Augenblick."); return; }
+  const N = Z.N, hd = KA.hd, ht = KA.ht, kand = [], [a0, a1, b0, b1] = Z.sicht, ziele = K.erlaubteZiele(Z.m);
+  for (let q = 0; q < WH; q++) {
+    if (!ziele.includes(Math.floor(q / NBH))) continue;
+    for (let j = 1; j < N - 1; j++) for (let i = 1; i < N - 1; i++) {
+      const o = (j * N + i) * WH + q, w = hd[o];
+      if (!(w < 0.3) || !(ht[o] > 0)) continue;
+      let tal = true;
+      for (let v = -1; v <= 1 && tal; v++) for (let p = -1; p <= 1; p++) if ((p || v) && hd[((j + v) * N + i + p) * WH + q] < w) { tal = false; break; }
+      if (tal) kand.push({ i, j, d: w, tau: ht[o], ziel: Math.floor(q / NBH) });
+    }
+  }
+  kand.sort((x, y) => x.d - y.d); const alle = kand.length; kand.length = Math.min(kand.length, 2500);
+  if (!kand.length) { toast("In diesem Ausschnitt ist keine helle Stelle zu sehen."); return; }
+  Z.jagd = { offen: kand.length, gesamt: kand.length, neu: 0, unbek: 0, alle };
+  const eb = Z.ebene, m = Z.m.slice();
+  $("jagd").textContent = `Suche: 0 / ${kand.length}`;
+  for (const k of kand) auftrag({ art: "kandidatHalb", ebene: eb, m, a: a0 + (a1 - a0) * (k.i + 0.5) / N, b: b0 + (b1 - b0) * (k.j + 0.5) / N, tau: k.tau, ziel: k.ziel, opt: { ohneStabil: true } }, false, r => {
+    const J = Z.jagd; J.offen--;
+    const p = !r.fehler && r.erg && r.erg.ok ? uebernimm(r.erg, false) : null;
+    if (p && merke(p, true)) { J.neu++; if (!istBekannt(p)) J.unbek++; if (J.neu % 8 === 0) fundeZeigen(); }
+    if (J.offen % 10 === 0) $("jagd").textContent = `Suche: ${J.gesamt - J.offen} / ${J.gesamt}`;
+    if (!J.offen) { Z.jagd = null; fundeZeigen(); $("jagd").innerHTML = "Alles absuchen<kbd>J</kbd>"; toast(`Suche beendet: ${J.neu} Bahnen gefunden, ${J.unbek} davon außerhalb der Listen. Geprüft wurden die ${J.gesamt} hellsten von ${J.alle} Stellen.`); sucheFertig(); }
+  });
+}
+// „Nach stabilen Bahnen suchen": alles absuchen, danach jede gefundene Bahn
+// messen und die Liste auf die Kandidaten eingrenzen. Die Messung geschieht
+// auch hier nur, weil jemand diesen Knopf gedrückt hat.
+function stabilSuche() {
+  if (Z.jagd || Z.messung) { toast("Es läuft noch eine Suche."); return; }
+  Z.danachMessen = true; Z.liste = "meine";
+  jagd();
+  if (!Z.jagd) Z.danachMessen = false;            // die Suche ist nicht gestartet (Karte noch nicht fertig, nichts Helles im Bild)
+  else $("stabilSuche").disabled = true;
+}
+function sucheFertig() {
+  $("stabilSuche").disabled = false;
+  if (!Z.danachMessen) return;
+  Z.danachMessen = false;
+  Z.liste = "meine";
+  if (messbare().offen.length) { alleMessen(true); return; }
+  // Nichts Ungemessenes außerhalb der Listen. Der Ton sagt trotzdem, wie es um die Kandidaten steht:
+  // aufwärts, wenn ein stabiler in der Liste ist; abwärts, wenn es keinen gibt.
+  const eigene = Z.funde.filter(f => !istBekannt(f)), bek = Z.funde.length - eigene.length;
+  Z.filter = "kand"; fundeZeigen();
+  ton(sammelTon(eigene));
+  toast(eigene.length ? "Nichts dazugekommen. Alle Bahnen deiner Liste sind schon gemessen." : `Nichts außerhalb der Listen gefunden.` + (bek ? ` ${bek} bekannte Bahnen liegen im Schaukasten.` : ""));
+}
+
+/* ═══════════════════ 9 · Bühne ═══════════════════ */
+const cv = $("c"), g = cv.getContext("2d");
+const FARBE = ["#56b4e9", "#e69f00", "#cc79a7"];
+let B = { w: 0, h: 0, dpr: 1, x0: 0, x1: 0 };
+function groesse() {
+  B.dpr = Math.min(2, window.devicePixelRatio || 1); B.w = window.innerWidth; B.h = window.innerHeight;
+  cv.width = Math.round(B.w * B.dpr); cv.height = Math.round(B.h * B.dpr);
+  const css = getComputedStyle(document.documentElement);
+  const lw = document.querySelector(".rail.left").getBoundingClientRect(), rw = document.querySelector(".rail.right").getBoundingClientRect();
+  B.x0 = lw.right + 18; B.x1 = rw.left - 18; KA.neu = true; markenZeichnen(); sterneZeichnen();
+}
+// Ein paar hundert matte Sterne, immer dieselben: die Bühne soll nach Raum aussehen, nicht nach Messplatz.
+function sterneZeichnen() {
+  const cs = $("sterne"), gs = cs.getContext("2d"); cs.width = cv.width; cs.height = cv.height;
+  let s = 20261002; const zuf = () => (s = (Math.imul(s, 1664525) + 1013904223) >>> 0) / 4294967296;
+  for (let i = 0; i < 280; i++) { const x = zuf() * cs.width, y = zuf() * cs.height, r = (0.35 + zuf() * zuf() * 1.3) * B.dpr; gs.fillStyle = `rgba(238,243,250,${(0.10 + zuf() * 0.42).toFixed(2)})`; gs.beginPath(); gs.arc(x, y, r, 0, 6.2832); gs.fill(); }
+}
+window.addEventListener("resize", groesse);
+const KUGEL = { gier: 0.6, neig: 0.35, zieh: null };
+function geistRechnen() {
+  // Dieselbe Bahn, an einem Körper um ein Tausendstel verschoben, über zwölf Umläufe
+  const w = Z.wahl; if (!w || !BAHN.punkte) return;
+  K.EBENEN[Z.ebene].anfang(w.a, w.b, Z.m, u0);
+  const z = K.zuOrten(u0, Z.m, new Float64Array(12)); z[0] += 1e-3; z[1] += 1e-3;
+  const us = K.zuRelativ(z, new Float64Array(12)), Tl = 12 * BAHN.T, N = Math.min(24000, Math.round(Tl * 60));
+  const a = K.abtasten(u0, Z.m, Tl, 1e-9, N), b = K.abtasten(us, Z.m, Tl, 1e-9, N);
+  const n = Math.min(a.n, b.n); let ende = 0, mitte = 0;
+  for (let i = 0; i < 6; i++) ende += (a.punkte[12 * n + i] - b.punkte[12 * n + i]) ** 2;
+  BAHN.geist = { a: a.punkte, b: b.punkte, n, T: Tl * n / N, faktor: Math.sqrt(ende) / (1e-3 * Math.SQRT2) };
+  toast(`Angestupst um ein Tausendstel: nach ${dez(BAHN.geist.T / BAHN.T, 0)} Umläufen ist die weiße Bahn ${BAHN.geist.faktor < 1e4 ? dez(BAHN.geist.faktor, 0) + "-mal" : "über 10 000-mal"} so weit weg.`);
+}
+let letzt = performance.now(), fps = 0, bildMs = 0;
+function bild(jetzt) {
+  const dt = Math.min(0.1, (jetzt - letzt) / 1000); letzt = jetzt; fps += (1 / Math.max(dt, 1e-3) - fps) * 0.05;
+  const tA = performance.now();
+  karteZeichnen();
+  g.setTransform(B.dpr, 0, 0, B.dpr, 0, 0); g.clearRect(0, 0, B.w, B.h);
+  const G = Z.stoerung && BAHN.geist ? BAHN.geist : null;
+  if (BAHN.punkte && BAHN.kasten) {
+    const P = G ? G.a : BAHN.punkte, n = G ? G.n : BAHN.n, T = G ? G.T : BAHN.T;
+    const dauer = Math.max(5, Math.min(40, 4 + BAHN.T * 0.3)) * (G ? 12 : 1);
+    if (!Z.pause) BAHN.zeit = (BAHN.zeit + dt * Z.tempo / dauer) % 1;
+    const [x0, x1, y0, y1] = BAHN.kasten, bw = B.x1 - B.x0, bh = B.h - 190;
+    const sk = Math.min(bw / Math.max(x1 - x0, 1e-6), bh / Math.max(y1 - y0, 1e-6)) * 0.84;
+    const cx = (B.x0 + B.x1) / 2 - (x0 + x1) / 2 * sk, cy = 80 + bh / 2 + (y0 + y1) / 2 * sk;
+    const X = x => cx + x * sk, Y = y => cy - y * sk;
+    const kf = BAHN.n, PB = BAHN.punkte;
+    g.lineJoin = "round"; g.lineCap = "round";
+    // die ganze Bahn, matt
+    for (let i = 0; i < 3; i++) {
+      g.strokeStyle = FARBE[i]; g.globalAlpha = G ? 0.18 : 0.42; g.lineWidth = 1.3; g.beginPath();
+      for (let k = 0; k <= kf; k++) { const x = X(PB[12 * k + 2 * i]), y = Y(PB[12 * k + 2 * i + 1]); if (k) g.lineTo(x, y); else g.moveTo(x, y); }
+      g.stroke();
+    }
+    g.globalAlpha = 1;
+    const kz = BAHN.zeit * n, k0 = Math.floor(kz), fr = kz - k0, k1 = Math.min(n, k0 + 1);
+    const lage = (Q, i) => [X(Q[12 * k0 + 2 * i] + fr * (Q[12 * k1 + 2 * i] - Q[12 * k0 + 2 * i])), Y(Q[12 * k0 + 2 * i + 1] + fr * (Q[12 * k1 + 2 * i + 1] - Q[12 * k0 + 2 * i + 1]))];
+    // Spur
+    if (Z.spur) {
+      const lang = Math.round(n * (G ? 0.02 : 0.16));
+      for (let i = 0; i < 3; i++) {
+        g.strokeStyle = FARBE[i]; g.lineWidth = 2.4;
+        for (let s = 0; s < 6; s++) {
+          const von = k0 - Math.round(lang * (s + 1) / 6), bis = k0 - Math.round(lang * s / 6);
+          g.globalAlpha = 0.9 * (1 - s / 6); g.beginPath();
+          for (let k = von; k <= bis; k++) { const q = ((k % (n + 1)) + n + 1) % (n + 1); const x = X(P[12 * q + 2 * i]), y = Y(P[12 * q + 2 * i + 1]); if (k === von || q === 0) g.moveTo(x, y); else g.lineTo(x, y); }
+          g.stroke();
+        }
+      }
+      g.globalAlpha = 1;
+    }
+    // Anfang als Ringe, damit eine Lücke zu sehen ist
+    if (!Z.befund) for (let i = 0; i < 3; i++) { g.strokeStyle = FARBE[i]; g.globalAlpha = 0.8; g.lineWidth = 1.2; g.beginPath(); g.arc(X(PB[2 * i]), Y(PB[2 * i + 1]), 7, 0, 6.2832); g.stroke(); }
+    g.globalAlpha = 1;
+    if (G) for (let i = 0; i < 3; i++) { const p = lage(G.b, i); g.fillStyle = "rgba(238,243,250,.85)"; g.beginPath(); g.arc(p[0], p[1], 3.2, 0, 6.2832); g.fill(); }
+    for (let i = 0; i < 3; i++) {
+      const p = lage(P, i), r = 4.5 * Math.cbrt(Z.m[i]) + 1.5;
+      g.shadowColor = FARBE[i]; g.shadowBlur = 18; g.fillStyle = FARBE[i]; g.beginPath(); g.arc(p[0], p[1], r, 0, 6.2832); g.fill(); g.shadowBlur = 0;
+      g.fillStyle = "rgba(255,255,255,.9)"; g.beginPath(); g.arc(p[0], p[1], r * 0.4, 0, 6.2832); g.fill();
+    }
+    g.fillStyle = "rgba(238,243,250,.5)"; g.font = "12px ui-sans-serif, Segoe UI, sans-serif"; g.textAlign = "left";
+    g.fillText(`Zeit ${dez(BAHN.zeit * T, 1)} von ${dez(T, 1)}` + (G ? "   ·   weiß: die angestupste Bahn" : ""), B.x0 + 14, B.h - 86);
+    // Formkugel
+    if (Z.kugel && BAHN.kugel) {
+      const R = Math.max(54, Math.min(105, bw * 0.13)), ox = B.x1 - R - 16, oy = B.h - 106 - R;
+      KUGEL.ort = [ox, oy, R];
+      const cg = Math.cos(KUGEL.gier), sg = Math.sin(KUGEL.gier), cn = Math.cos(KUGEL.neig), sn = Math.sin(KUGEL.neig);
+      const pr = (x, y, z) => { const xa = cg * x + sg * y, ya = -sg * x + cg * y; return [ox + R * xa, oy - R * (cn * z + sn * ya), cn * ya - sn * z]; };
+      g.fillStyle = "rgba(10,24,35,.55)"; g.beginPath(); g.arc(ox, oy, R + 6, 0, 6.2832); g.fill();
+      g.strokeStyle = "rgba(238,243,250,.22)"; g.lineWidth = 1; g.beginPath(); g.arc(ox, oy, R, 0, 6.2832); g.stroke();
+      // Äquator: die geraden Aufstellungen
+      for (const hinten of [true, false]) { g.strokeStyle = hinten ? "rgba(238,243,250,.12)" : "rgba(238,243,250,.4)"; g.beginPath(); let zu = true;
+        for (let w = 0; w <= 96; w++) { const a = w / 96 * 6.2832, q = pr(Math.cos(a), Math.sin(a), 0); if ((q[2] > 0) === hinten) { zu = true; continue; } if (zu) g.moveTo(q[0], q[1]); else g.lineTo(q[0], q[1]); zu = false; } g.stroke(); }
+      const F = BAHN.kugel;
+      for (const hinten of [true, false]) { g.strokeStyle = hinten ? "rgba(96,214,180,.22)" : "rgba(96,214,180,.95)"; g.lineWidth = hinten ? 1 : 1.4; g.beginPath(); let zu = true;
+        for (let k = 0; k <= kf; k++) { const q = pr(F[3 * k], F[3 * k + 1], F[3 * k + 2]); if ((q[2] > 0) === hinten) { zu = true; continue; } if (zu) g.moveTo(q[0], q[1]); else g.lineTo(q[0], q[1]); zu = false; } g.stroke(); }
+      // Stoßpunkte
+      const st = [0, 0, 0], zz = new Float64Array(12);
+      for (const [i, j] of [[0, 1], [0, 2], [1, 2]]) { zz.fill(0); const k = 3 - i - j; zz[2 * k] = 1; K.formpunkt(zz, 0, Z.m, st); const q = pr(st[0], st[1], st[2]); g.fillStyle = q[2] > 0 ? "rgba(248,113,113,.35)" : "rgb(248,113,113)"; g.beginPath(); g.arc(q[0], q[1], 3.4, 0, 6.2832); g.fill(); }
+      const kq = Math.min(kf, Math.round((G ? (BAHN.zeit * 12) % 1 : BAHN.zeit) * kf)), q = pr(F[3 * kq], F[3 * kq + 1], F[3 * kq + 2]);
+      g.fillStyle = "#fff"; g.beginPath(); g.arc(q[0], q[1], 3, 0, 6.2832); g.fill();
+      g.fillStyle = "rgba(238,243,250,.5)"; g.font = "10.5px ui-sans-serif, Segoe UI, sans-serif"; g.textAlign = "center";
+      g.textAlign = "right";
+      g.fillText(bw > 820 ? "Formbild · rot: Zusammenstoß · Mittellinie: alle drei in einer Reihe" : "Formbild", ox + R, oy + R + 22);
+    } else KUGEL.ort = null;
+  }
+  bildMs += (performance.now() - tA - bildMs) * 0.05;
+  if (f3An) {
+    const s = (performance.now() - POOL.seit) / 1000;
+    $("f3").textContent = `fps        ${fps.toFixed(0)}\nBildzeit   ${bildMs.toFixed(2)} ms\nLaufzeit   ${s.toFixed(0)} s\nFäden      ${POOL.ohne ? "keine (Hauptfaden)" : POOL.fad.length}\nSchlange   ${POOL.schlange.length}\nPunkte     ${POOL.punkte}  (${(POOL.punkte / Math.max(s, 1e-3)).toFixed(0)}/s)\nRaster     ${Z.N}²  T ≤ ${Z.tmax}\nKarte      ${KA.offen ? "rechnet" : dez(KA.sekunden || 0, 1) + " s"}\nZeiger     ${KA.zeiger || "—"}\nBahn       ${BAHN.n} Stützpunkte`;
+  }
+  const wartet = POOL.schlange.length;
+  if (wartet !== bild.wartet) { bild.wartet = wartet; $("meta").innerHTML = wartet ? `<b>rechnet</b> · noch ${wartet}` : ""; }
+  requestAnimationFrame(bild);
+}
+cv.addEventListener("pointerdown", e => { const o = KUGEL.ort; if (o && Math.hypot(e.clientX - o[0], e.clientY - o[1]) < o[2] + 8) { KUGEL.zieh = [e.clientX, e.clientY, KUGEL.gier, KUGEL.neig]; cv.setPointerCapture(e.pointerId); } });
+cv.addEventListener("pointermove", e => { const z = KUGEL.zieh; if (z) { KUGEL.gier = z[2] + (e.clientX - z[0]) * 0.012; KUGEL.neig = Math.max(-1.5, Math.min(1.5, z[3] + (e.clientY - z[1]) * 0.012)); } });
+cv.addEventListener("pointerup", () => { KUGEL.zieh = null; });
+
+/* ═══════════════════ 10 · Schale: Knöpfe, Tasten, Link, Dateien ═══════════════════ */
+function einstellungenZeigen() {
+  $("eEuler").classList.toggle("an", Z.ebene === "euler"); $("eFall").classList.toggle("an", Z.ebene === "fall");
+  $("ebenenName").textContent = [Z.ebene === "fall" ? "Start aus der Ruhe" : "", Z.m.every(x => x === 1) ? "" : "Gewichte " + Z.m.map(x => String(x).replace(".", ",")).join(" · ")].filter(Boolean).join(" · ");
+  $("m1").value = Z.m[0]; $("m2").value = Z.m[1]; $("m3").value = Z.m[2]; $("tmax").value = Z.tmax; $("tmaxAus").textContent = Z.tmax;
+  $("fein").classList.toggle("an", Z.N === 512);
+}
+function leer() {
+  Z.wahl = null; Z.befund = null; BAHN.punkte = null; BAHN.geist = null; Z.stoerung = false; $("bStoer").classList.remove("an");
+  $("urteil").className = "urteil"; $("uTitel").textContent = "Noch nichts gewählt"; $("uText").textContent = "Klick links auf eine helle Stelle der Karte.";
+  $("kacheln").innerHTML = ""; $("fakten").innerHTML = ""; $("bahnName").textContent = "—"; $("bahnUnter").textContent = ""; $("befundArt").textContent = "";
+  $("wWort").textContent = "eiskalt"; $("wBalken").style.width = "0"; $("wZahl").textContent = ""; $("messzeit").textContent = ""; stabilZeigen(null); hauptknopf();
+}
+function ebeneSetzen(e) { if (Z.ebene === e) return; Z.ebene = e; Z.sicht = grundSicht(e, Z.m); leer(); einstellungenZeigen(); karteNeu(); }
+$("eEuler").onclick = () => ebeneSetzen("euler"); $("eFall").onclick = () => ebeneSetzen("fall");
+$("ganz").onclick = () => { Z.sicht = grundSicht(Z.ebene, Z.m); karteNeu(); };
+$("kHalb").onclick = () => { if (!halbMoeglich()) { toast("Die Suche über Spiegelpunkte geht nur, wenn Körper 1 und 2 gleich schwer sind."); return; } Z.kartenArt = "halb"; karteNeu(); };
+$("kVoll").onclick = () => { Z.kartenArt = "voll"; karteNeu(); };
+$("fein").onclick = () => { Z.N = Z.N === 256 ? 512 : 256; einstellungenZeigen(); karteNeu(); };
+$("tmax").oninput = e => { $("tmaxAus").textContent = e.target.value; };
+$("tmax").onchange = e => { Z.tmax = +e.target.value; karteNeu(); };
+function massenLesen() { const m = ["m1", "m2", "m3"].map(i => +$(i).value); if (m.every(x => x > 0 && Number.isFinite(x))) { Z.m = m; Z.sicht = grundSicht(Z.ebene, Z.m); leer(); karteNeu(); } einstellungenZeigen(); }
+for (const i of ["m1", "m2", "m3"]) $(i).onchange = massenLesen;
+$("massenGleich").onclick = () => { Z.m = [1, 1, 1]; Z.sicht = grundSicht(Z.ebene, Z.m); einstellungenZeigen(); leer(); karteNeu(); };
+$("zeigeListen").onclick = () => { Z.zeigeListen = !Z.zeigeListen; $("zeigeListen").classList.toggle("an", Z.zeigeListen); markenZeichnen(); };
+$("jagd").onclick = jagd; $("verfeinern").onclick = verfeinern;
+$("messen").onclick = messen; $("alleMessen").onclick = () => alleMessen(); $("stabilSuche").onclick = stabilSuche;
+$("tabMeine").onclick = () => { Z.liste = "meine"; fundeZeigen(); };
+$("tabFundus").onclick = () => { Z.liste = "fundus"; fundeZeigen(); };
+$("tabSchau").onclick = () => { Z.liste = "schau"; fundeZeigen(); };
+for (const [id, f] of [["fAlle", "alle"], ["fKand", "kand"], ["fStabil", "stabil"]]) $(id).onclick = () => { Z.filter = f; fundeZeigen(); };
+function hilfe(auf) { $("hilfeBlatt").classList.toggle("weg", !auf); }
+$("hilfe").onclick = () => hilfe(true); $("hilfeZu").onclick = () => hilfe(false);
+$("hilfeBlatt").addEventListener("click", e => { if (e.target === $("hilfeBlatt")) hilfe(false); });
+function tonZeigen() { $("bTon").classList.toggle("an", Z.ton); $("bTon").textContent = Z.ton ? "Ton an" : "Ton aus"; }
+$("bTon").onclick = () => { Z.ton = !Z.ton; tonZeigen(); schreib({ fassung: FASSUNG, funde: Z.funde.slice(-400), ton: Z.ton }); toast(Z.ton ? "Ton an." : "Ton aus."); };
+$("merken").onclick = () => { if (merke(Z.befund)) { fundeZeigen(); toast(istBekannt(Z.befund) ? "Bekannte Bahn — sie liegt jetzt im Schaukasten." : "Gemerkt."); } };
+$("kopieren").onclick = () => { const t = befundText(); if (!t) return; (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Alle Angaben zur Bahn liegen in der Zwischenablage."), () => { window.prompt("Angaben zur Bahn:", t); }); };
+$("leeren").onclick = () => { if (!Z.funde.length || window.confirm(`${Z.funde.length} Bahnen aus deiner Liste nehmen?`)) { Z.funde = []; fundeZeigen(); } };
+$("speichern").onclick = () => {
+  if (!Z.funde.length) { toast("Die Liste ist leer."); return; }
+  const blob = new Blob([JSON.stringify({ labor: "dreikoerper-labor", datum: new Date().toISOString(), funde: Z.funde }, null, 1)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "dreikoerper-funde.json"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+};
+$("datei").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => {
+    const d = JSON.parse(t), liste = d.funde || [];
+    const eb = d.parameter ? d.parameter.ebene : (liste[0] && liste[0].ebene) || Z.ebene, m = d.parameter ? d.parameter.m : (liste[0] && liste[0].m) || Z.m;
+    let n = 0;
+    for (const p of liste) {
+      p.ok = true; p.ebene = p.ebene || eb; p.m = p.m || m.slice();
+      p.listen = p.katalog ? { klein: { stufe: p.katalog.stufe, gibtEs: 1, eintrag: p.katalog.name ? { name: p.katalog.name, ruf: p.katalog.rufname || "", satz: p.katalog.quelle || "Li & Liao" } : null },
+                                gross: p.gross ? { stufe: p.gross.stufe === "keine" ? "keine" : "ort", ganz: true } : null, bekannt: !!p.bekannt, ausLauf: true } : null;
+      if (merke(p, true)) n++;
+    }
+    if (d.parameter) { Z.ebene = eb; Z.m = m.slice(); Z.sicht = d.parameter.sicht.slice(); Z.tmax = Math.min(80, d.parameter.tmax); leer(); einstellungenZeigen(); karteNeu(); }
+    fundeZeigen(); if (n && !Z.wahl) fundLaden(0); toast(`${n} Bahnen aus „${f.name}“ geladen` + (liste.length - n ? `, ${liste.length - n} standen schon da.` : "."));
+  }).catch(() => toast("Diese Datei lässt sich nicht lesen."));
+  e.target.value = "";
+};
+$("bPause").onclick = () => { Z.pause = !Z.pause; $("bPause").classList.toggle("an", Z.pause); };
+$("bLangsam").onclick = () => { Z.tempo = Math.max(0.125, Z.tempo / 2); toast(`Tempo ×${String(Z.tempo).replace(".", ",")}`); };
+$("bSchnell").onclick = () => { Z.tempo = Math.min(16, Z.tempo * 2); toast(`Tempo ×${String(Z.tempo).replace(".", ",")}`); };
+$("bSpur").onclick = () => { Z.spur = !Z.spur; $("bSpur").classList.toggle("an", Z.spur); };
+$("bKugel").onclick = () => { Z.kugel = !Z.kugel; $("bKugel").classList.toggle("an", Z.kugel); };
+$("bStoer").onclick = () => { if (!BAHN.punkte) { toast("Klick erst auf eine Stelle der Karte."); return; } Z.stoerung = !Z.stoerung; $("bStoer").classList.toggle("an", Z.stoerung); BAHN.zeit = 0; if (Z.stoerung && !BAHN.geist) geistRechnen(); };
+let bekanntNr = 0;
+$("bBekannt").onclick = () => {
+  const liste = Listen.klein.filter(k => k.ruf && k.ebene === "euler" && k.m.every(x => x === 1));
+  if (!liste.length) return;
+  const k = liste[bekanntNr++ % liste.length];
+  if (Z.ebene !== "euler" || Z.m.join() !== "1,1,1") { Z.ebene = "euler"; Z.m = [1, 1, 1]; Z.sicht = K.EBENEN.euler.sicht.slice(); einstellungenZeigen(); karteNeu(); }
+  Z.wahl = { a: k.a, b: k.b, T: k.T, d: NaN, fest: true }; Z.befund = null; bahnRechnen(k.a, k.b, k.T, true); BAHN.zeit = 0; befundZeigen(); markenZeichnen();
+  verfeinern(); toast(k.ruf + " — " + k.satz);
+};
+function linkSchreiben() { const w = Z.wahl; if (!w || !w.fest) return; try { history.replaceState(null, "", "#" + [Z.ebene, Z.m.join("_"), w.a, w.b, w.T].join(",")); } catch (e) {} }
+function linkLesen() {
+  try {
+    const t = decodeURIComponent(location.hash.replace(/^#/, "")).split(","); if (t.length !== 5 || !K.EBENEN[t[0]]) return false;
+    const m = t[1].split("_").map(Number), a = +t[2], b = +t[3], T = +t[4];
+    if (m.length !== 3 || ![...m, a, b, T].every(Number.isFinite) || !(T > 0)) return false;
+    Z.ebene = t[0]; Z.m = m; Z.sicht = grundSicht(Z.ebene, m); Z.verknuepft = { a, b, T }; return true;
+  } catch (e) { return false; }
+}
+$("bLink").onclick = () => { linkSchreiben(); (navigator.clipboard ? navigator.clipboard.writeText(location.href) : Promise.reject()).then(() => toast("Link liegt in der Zwischenablage."), () => toast("Der Link steht in der Adresszeile.")); };
+let f3An = false;
+window.addEventListener("keydown", e => {
+  if (e.key === "F3") { e.preventDefault(); f3An = !f3An; $("f3").classList.toggle("da", f3An); return; }
+  if (!$("cold").classList.contains("weg")) { start(); return; }
+  if (!$("hilfeBlatt").classList.contains("weg")) { if (e.key === "Escape") hilfe(false); return; }
+  if (e.target && /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+  const k = e.key.toLowerCase();
+  if (k === " ") { e.preventDefault(); $("bPause").click(); }
+  else if (k === "v") verfeinern(); else if (k === "j") jagd(); else if (k === "s") $("bSpur").click();
+  else if (k === "m") messen(); else if (k === "t") $("bTon").click();
+  else if (k === "k") $("bKugel").click(); else if (k === "b") $("bStoer").click(); else if (k === "l") $("bLink").click();
+  else if (k === "escape" && Z.wahl) { Z.wahl.fest = false; }
+});
+function start() { $("cold").classList.add("weg"); }
+$("cold").addEventListener("click", start);
+
+/* ═══════════════════ 11 · Los ═══════════════════ */
+const alt = lies();
+if (alt && Array.isArray(alt.funde)) {
+  Z.funde = alt.funde.filter(f => f && f.ok && Number.isFinite(f.a));
+  // Funde aus v1 und v2 tragen ein Stabilitätsurteil, das ungefragt mitgerechnet
+  // wurde (in v1 mit der falschen Regel). Es gilt hier als nicht gemessen.
+  if (!(alt.fassung >= FASSUNG)) for (const f of Z.funde) if (!(f.listen && f.listen.ausLauf)) for (const k of ["stabil", "lambda", "s1", "s2", "sKomplex", "sIm", "rand", "symplektik", "maxM"]) delete f[k];
+  if (alt.ton === false) Z.ton = false;
+  // Gemerkte Bahnen neu mit den Listen abgleichen und benennen: bis v4 hieß
+  // „andere Lage" auch, was nur auf fünf Stellen dieselbe Periode hatte. Bahnen
+  // aus einem Lauf der Suchmaschine behalten deren Abgleich (ganze Listen).
+  for (const f of Z.funde) if (!(f.listen && f.listen.ausLauf)) { try { f.listen = Listen.abgleich(f); f.name = taufe(f); } catch (e) { /* ein alter Eintrag ohne alle Felder bleibt, wie er ist */ } }
+}
+tonZeigen();
+const perLink = linkLesen();
+groesse(); einstellungenZeigen(); karteNeu(); fundeZeigen();
+if (perLink) { waehle(Z.verknuepft.a, Z.verknuepft.b, Z.verknuepft.T, true); start(); }
+else {
+  // Zum Einstieg die Acht, die berühmteste der Bahnen
+  const acht = Listen.klein.find(k => k.ruf === "Acht");
+  if (acht) { Z.wahl = { a: acht.a, b: acht.b, T: acht.T, d: NaN, fest: true }; bahnRechnen(acht.a, acht.b, acht.T, true); befundZeigen(); verfeinern(); }
+}
+requestAnimationFrame(bild);
+
+// Debughaken für die Prüfskripte
+window.__d = { Z, KA, BAHN, POOL, Listen, K, listenStand, schauListe, grundSicht, sichtFuer, istKandidat, sammelTon, satellitLautSuchmaschine, belegtLautSuchmaschine, vonDerSuchmaschineGeprueft, stabilLautSuchmaschine, GEPRUEFT, waehle, verfeinern, jagd, merke, fundeZeigen, karteNeu, befundText, ort, messen, alleMessen, ton, gemessen, Fundus, fundusLaden, stabilSuche, hilfe };
+})();
+</script>
+</body>
+</html>

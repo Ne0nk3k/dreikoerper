@@ -1,0 +1,4 @@
+# Free-group words for orbits-euler-1-1-0.75.txt (same numbering).
+   1  ABabAbaBaBAbAbaBab
+   2  ABAbabABAbabABabaBABabaBABab
+   3  ABABaBABAbabABababABabaBABabABABabABAbabABababABabaBABAbABABabaBAbabaBAbabABAbaBABAbaBABabaBAbabaBAbab

@@ -1,0 +1,10 @@
+# Planar three-body problem, G = 1, masses m1/m2/m3 = 1/1/0.75, zero angular momentum.
+# r1 = (-1, 0), r2 = (1, 0), r3 = (0, 0);  v1 = v2 = (a, b);  v3 = -(m1 + m2)/m3 * (a, b).
+# T* = T |E|^1.5.  stab: S stable; S~ stable by a hair (an index less than 1e-3 below 2); B an index equal to 2 to 26 digits (cause not understood); U unstable — from 320-bit fixed-point arithmetic;
+#   S* / U* / ? : from double precision only.  s1, s2: stability indices (lambda + 1/lambda) where computed at 30 digits; |lambda|: largest multiplier in double precision.
+# words: number of letters of the free-group word.  sat: k x NAME = k-th order satellite of the listed orbit NAME (word and T* are k-fold).
+#
+# nr  a                                  b                                  T                                  T*            stab  s1              s2              |lambda|    words  sat
+   1  0.2864181469257135980865001470440  0.3702548495154266164260180937878  22.146872550392096983827722178652    28.9871906  U       -7.756072186   -20.576739387    2.044e+1     18  -
+   2  0.3610815145492332713070823531090  0.1505460293861577398189271419866  29.107051811992290835638900706076    50.2361587  U        2.000000020     1.787989649    1.000e+0     28  -
+   3  0.1577640784932040799103308070951  0.0926531535152266324760002680446  71.210334183568823130616316443527   183.1598233  S        1.373168000    -0.077419889    2.339e+0    102  -

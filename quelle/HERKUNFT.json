@@ -1,0 +1,322 @@
+{
+ "zweck": "Fremde Listen, die dieses Projekt liest, aber nicht weitergibt. daten-holen.mjs lädt sie von hier und prüft jede Datei gegen sha256.",
+ "stand": "Kopien vom 01.10.–02.10.2026; Atlas vom 27.09.2026",
+ "dateien": [
+  {
+   "datei": "quelle/readme.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/README.md",
+   "bytes": 26782,
+   "sha256": "69492d406dd2f1e79ccb361811d83ea01e2b31b0e458b226316aa095ce470c55",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/equal.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/three-body-free-group-word.md",
+   "bytes": 149151,
+   "sha256": "f60c500cbf3b9cc7b92a94c064f8f98ab2cd849927c1336314fa86299ea53aec",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/bilder.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/three-body-pictures.md",
+   "bytes": 303267,
+   "sha256": "f77f7e4f6796c28551c8a5da1cc840174532bcab4cf56fc55ecd55e38a7dea4f",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/ungleich.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/three-body-unequal-mass-free-group-word.md",
+   "bytes": 315289,
+   "sha256": "12c39b1ed274325d294dae30fec29d5c11d6042b160b459c52dd8e8ad4c85f4d",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/ungleich-bilder.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/three-body-unequal-mass-pictures.md",
+   "bytes": 649349,
+   "sha256": "3820d7ded6ac847c5c4876fe491a5e64ade035452f9755061f0b4d335f4123af",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/frei.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/free-fall-3b-free-group-word.md",
+   "bytes": 24250,
+   "sha256": "074da671c0cfe57273f0d4dc9361ce21e140ef0c95891075b1a027ab5ec69139",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/frei-bilder.md",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/free-fall-3b-pictures.md",
+   "bytes": 118767,
+   "sha256": "7fc7b577d609589d0c82ce35cb46964030639d53e8f494a427d66c838d179c81",
+   "wozu": "katalog-bauen.mjs"
+  },
+  {
+   "datei": "quelle/non-hierarchical-3b-supplementary_data.txt",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/non-hierarchical-3b-supplementary_data.txt",
+   "bytes": 14222440,
+   "sha256": "9c06eedc41b537b2ed926217cdf149d9f808a21866148ea3d89b9eb3c6069fd4",
+   "wozu": "werkzeug/nichthierarchisch-pruefen.mjs"
+  },
+  {
+   "datei": "quelle/roadmap/case1_periodic_orbit.dat",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/roadmap/Data/case1_periodic_orbit.dat",
+   "bytes": 3935250,
+   "sha256": "0f0fb087ccf42ce8a25f13a558ff85c15518c5bfa80d4517255cc9e5d1695064",
+   "wozu": "werkzeug/nichthierarchisch-pruefen.mjs"
+  },
+  {
+   "datei": "quelle/roadmap/case2_periodic_orbit.dat",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/roadmap/Data/case2_periodic_orbit.dat",
+   "bytes": 4911554,
+   "sha256": "804af871f27ddec9e10372dc6b5ea5e7db3a0897c9ddbcd079bfe192de27354a",
+   "wozu": "werkzeug/nichthierarchisch-pruefen.mjs"
+  },
+  {
+   "datei": "quelle/roadmap/case1_classification.dat",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/roadmap/Data/case1_classification.dat",
+   "bytes": 703508,
+   "sha256": "c48c05ad2ae06c85dc3fa66586cd505f389486fb2b65b8fb5bceaa8a127acae9",
+   "wozu": "werkzeug/nichthierarchisch-pruefen.mjs"
+  },
+  {
+   "datei": "quelle/roadmap/case2_classification.dat",
+   "url": "https://raw.githubusercontent.com/sjtu-liao/three-body/b96b0193579a9952299d710ed616f529bb7cf898/roadmap/Data/case2_classification.dat",
+   "bytes": 868874,
+   "sha256": "21a4dc09e9cab20243f688c06d0facbaf1fe554894957d7f39802604a669fbec",
+   "wozu": "werkzeug/nichthierarchisch-pruefen.mjs"
+  },
+  {
+   "datei": "quelle/atlas/catalogue.json",
+   "url": "https://data.threebodyorbits.com/catalogue.json",
+   "bytes": 1772587,
+   "sha256": "597c66bd937764825ccaa38da5372d2c71fc6490ab9b09a51902339e5e3c0eb0",
+   "wozu": "werkzeug/atlas-pruefen.mjs",
+   "veraenderlich": true
+  },
+  {
+   "datei": "quelle/hristov/euler/60digits.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/60digits.txt",
+   "bytes": 112095692,
+   "sha256": "13ae312c7071e3b4d4ea3f1c8954eb8f367f43d3e6e5efce9739caeb571d97e9",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/euler/100_12431.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/100_12431.txt",
+   "bytes": 5256367,
+   "sha256": "a9aecab26fd24b2e0d4ef6b892430a25c698edf0b0783665c4c6a0ad77b278fa",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/euler/100_free.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/100_free.txt",
+   "bytes": 14831,
+   "sha256": "37e0234cc3ffd784aeaf95f7890dc936d4dfa34be3f119fdc3cf6d28e767cd12",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/euler/100_stable.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/100_stable.txt",
+   "bytes": 3387,
+   "sha256": "9cf585bb35c6237a0ac9be9753f8aaf650c4d25f372d06e65b0738281e37f88c",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/euler/add_332_100.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/add_332_100.txt",
+   "bytes": 140624,
+   "sha256": "492e8a3a546cdd1103667257f2f6eb56bf8b9e1f0618972c9467b76e9eb9d744",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/euler/eigenvalues_12431.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/eigenvalues_12431.txt",
+   "bytes": 1514832,
+   "sha256": "8010a9c7cc80856bf5df6111d13dcb87944ec521f6b4b34604aa9de21941bd51",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/euler/syz_12431.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyeuler/syz_12431.txt",
+   "bytes": 626849,
+   "sha256": "fcd9b20cacdcc688070c0f8f7f406a9b398d61c3d883127e86aca2aec4e9013d",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/free/res_eigen.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyfree/res_eigen.txt",
+   "bytes": 7428274,
+   "sha256": "140fc45fbc75b1770d717bf3cccd17650dfd03cf094e4b83e2794dc40ad7b907",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/free/res_exponents.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyfree/res_exponents.txt",
+   "bytes": 1936803,
+   "sha256": "b42a567826b744f5e9868a6f9d4d318aef926215c12d21f532ca8ca0082f6b71",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/free/sd_80.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyfree/sd_80.txt",
+   "bytes": 80869,
+   "sha256": "e37786b8a09432c519c07230cd03059651cfcfe3895435c85ba84c6471e7fd8e",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/free/sol_80.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodyfree/sol_80.txt",
+   "bytes": 8425873,
+   "sha256": "81dc1b70828fd5960dec57f64ac88f7945fa5c8eddf1cfb6ea33b3475c55373c",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/stab971/ics_971_100.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/ics_971_100.txt",
+   "bytes": 411278,
+   "sha256": "51695913b9df73996e2108c8106605beb4b3163f2edf9e477691196ff655d76c",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/stab971/ics_971_100_num.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/ics_971_100_num.txt",
+   "bytes": 416996,
+   "sha256": "6da04773f02fb23504a64e5dd41efb3f09c7a0c60d5cfceccba477ac1f22cdb6",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/stab971/res_eig_angles.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/res_eig_angles.txt",
+   "bytes": 499191,
+   "sha256": "33c48a5b0753272d5359a034e5c0f541cc90af0ea70350400006d6888b9b5d77",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/stab971/syzygies971.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/syzygies971.txt",
+   "bytes": 365055,
+   "sha256": "b709ac13f2184bf5aa951510379bb5e8886956605b15cd82b36d2be853aa2425",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/stab971/Broucke_num.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/Broucke_num.txt",
+   "bytes": 43417,
+   "sha256": "8aabec365b38a6ba2610198becafe0e861512f8d66a4b243c2ed153ebbf66bb4",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/stab971/Eight_num.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/Eight_num.txt",
+   "bytes": 148608,
+   "sha256": "24603c8b1f46fe43377aac8a834ce288367bc01da687bfbf7d0ab49ed9570df6",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/stab971/Intermediate_Moth_num.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/Intermediate_Moth_num.txt",
+   "bytes": 63141,
+   "sha256": "4e24a45d21e0068220d0274d0fca49684ca71debe732bea1f73e683f2bc84846",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/stab971/Shubart_S_num.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodystab971/Shubart_S_num.txt",
+   "bytes": 161938,
+   "sha256": "f1e3923a3b67c59cab355e629f2f9be45e1490b963cd26f742340acf7e9ab6c5",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/sym4860/euler_100_4860.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodysym4860/euler_100_4860.txt",
+   "bytes": 2059907,
+   "sha256": "e93d789a7c1dff2931ff2772754d4072d464704ec35cb9f466274bfc5d2977d3",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/sym4860/free_100_4860.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodysym4860/free_100_4860.txt",
+   "bytes": 2054337,
+   "sha256": "74a23a8392a4ec75b3e855973a6d4cfcacc90de84784688f516a366d6185dccb",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/sym4860/res_eigen.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodysym4860/res_eigen.txt",
+   "bytes": 1480117,
+   "sha256": "bf453fbbdefe6d1503528c9c44ca6776d8628eb9edfa8904fd7322e4d47daa59",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/sym4860/syzygies.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodysym4860/syzygies.txt",
+   "bytes": 412281,
+   "sha256": "e863a0382864ac27931410af7fb8889cf6c5caa62e49d576b5fb18bcae5ab812",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/chor164/triv_180.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor164/triv_180.txt",
+   "bytes": 192300,
+   "sha256": "5e8dc615b02f4f3fff8e29fb1d39e1fe6421e958b1cf78abfec795de6bbed7e7",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/chor164/nontriv_180.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor164/nontriv_180.txt",
+   "bytes": 121799,
+   "sha256": "174d6b7651fb74e2bf7b92af1df76f5d954f08a57b69ef54cac4c4bb92b845b7",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/chor164/eig_t.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor164/eig_t.txt",
+   "bytes": 76852,
+   "sha256": "6f9aa60acb3cfcbabe4b3b538905e32bb1fee646a3ba62efabdc2ed97cf65313",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/chor164/eig_nt.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor164/eig_nt.txt",
+   "bytes": 47510,
+   "sha256": "3a522b61f9167eb00b94d93efa19719dff8551eeb59a6c518de4ddf63859f65c",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/chor164/words_triv.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor164/words_triv.txt",
+   "bytes": 37999,
+   "sha256": "78a8167387056a16caccc507fbbb2c05d2c7b44d7dc327588d83f935cd99acab",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/chor164/words_nontriv.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor164/words_nontriv.txt",
+   "bytes": 17956,
+   "sha256": "d9e2e4f93916d82d15b70a26bdc1f8e62bf08452b927ee2377ebb37499db110e",
+   "wozu": "nur zum Nachlesen"
+  },
+  {
+   "datei": "quelle/hristov/chor462/digits180.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3bodychor462/datafiles/digits180.txt",
+   "bytes": 343065,
+   "sha256": "317fccc0c1be53d406f28b3e757754618d03177cbbe36347856758326b0f1503",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/sat821/all_150_digits.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3body821/datafiles/all_150_digits.txt",
+   "bytes": 511107,
+   "sha256": "8d2ee4c7f35fefc2610f6c2c0ae2dbbabd2231f9d34de8fc3c2a8c9890472fe7",
+   "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/hristov/neu123/all_150_digits_123.txt",
+   "url": "https://db2.fmi.uni-sofia.bg/3body123/datafiles/all_150_digits_123.txt",
+   "bytes": 76627,
+   "sha256": "ccc21bd57438ced8b7f55ae5c89976e67dd7726623d8febe6070bbd2843c0869",
+   "wozu": "katalog-gross-bauen.mjs"
+  }
+ ]
+}

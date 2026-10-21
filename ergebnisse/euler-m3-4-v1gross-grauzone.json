@@ -1,0 +1,25 @@
+{
+ "lauf": "euler-m3-4-v1gross",
+ "datum": "2026-10-21T12:09:15.002Z",
+ "schwelle": 0.000001,
+ "faelle": [
+  {
+   "a": 0.9469377902366128,
+   "b": 0.6085795185379508,
+   "T": 84.3966601887642,
+   "liste": "I.A-10",
+   "abweichungDouble": 1.389919692673658e-7,
+   "abweichungGenau": 1.3892955541550123e-7,
+   "urteil": "andere Bahn"
+  },
+  {
+   "a": 1.0758772880091774,
+   "b": 0.5231326180868653,
+   "T": 73.5094036953025,
+   "liste": "I.B-7",
+   "abweichungDouble": 9.69483630486323e-7,
+   "abweichungGenau": 9.694457854259042e-7,
+   "urteil": "andere Bahn"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+node_modules/
+ablage/
+labor/
+*.log
+
+# aus fremden Daten gebaut (node katalog-bauen.mjs, node katalog-gross-bauen.mjs)
+/katalog.json
+/katalog-gross.json
+/katalog-gross-*.bin
+/katalog-gross-*.q
+
+# fremde Daten (node daten-holen.mjs); nur die eigenen Beschreibungen bleiben
+/quelle/*
+!/quelle/HERKUNFT.json
+!/quelle/WEITERE-LISTEN.md
+!/quelle/hristov/
+/quelle/hristov/*
+!/quelle/hristov/LIESMICH.md
