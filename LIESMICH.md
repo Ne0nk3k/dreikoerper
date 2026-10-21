@@ -442,6 +442,15 @@ Bahn aus B (T 39,18) ist dieselbe wie die um Haaresbreite stabile vom
 03.10. (T 32,67, Satellit von I.A-2), in anderer Lage. Im Bereich v₁ über 1
 schließt sich wenig: von 40 000 geprüften Stellen ergaben 38 024 keine Bahn.
 
+Keine der fünf neuen um Haaresbreite ist ein Vielfaches einer Listenbahn
+(`werkzeug/satellit-katalog.mjs`); am nächsten kommt T 73,51 an 4× II.C-1,
+Wort 6 Buchstaben daneben (die Regel lässt 4 zu). Die Störprobe
+(`werkzeug/stoerprobe-lauf.mjs`) sieht bei allen stabilen und Grenzbahnen
+beider Fenster gleichmäßiges Wachstum, Abstand(20)/Abstand(10) = 2,00 bis
+2,36; bei T 74,57 trägt sie nicht (double verliert die Bahn selbst nach 20
+Umläufen um 1,4·10⁻⁵). Um Haaresbreite von genau an der Grenze trennen kann
+sie nicht — das kann nur die Rechnung auf 30 Stellen.
+
 ## Bedienen
 
 ```

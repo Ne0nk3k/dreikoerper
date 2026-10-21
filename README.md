@@ -6,6 +6,10 @@ Code comments and working notes are in German. This page, the data package in [`
 
 ## The main result: a linearly stable orbit at masses 1 : 1 : 4
 
+![One period of the stable orbit at masses 1 : 1 : 4](bilder/bahn-1-1-4.png)
+
+*One period (T = 53.25) computed with `kern.js` from the initial values below. Blue and orange: the two bodies of mass 1. Pink: the body of mass 4. The dots mark the starting configuration. Drawn by `werkzeug/bahnbild.mjs`.*
+
 Euler configuration: r1 = (−1, 0), r2 = (1, 0), r3 = (0, 0); v1 = v2 = (a, b); v3 = −(m1 + m2)/m3 · (a, b).
 
 ```
@@ -48,16 +52,16 @@ It integrates the digits above over one period at 320 and at 448 bits and prints
 You need Node.js 18 or later. No npm packages are required; Playwright is needed only for `pruef-browser.mjs`.
 
 ```
-node bahn-pruefen.mjs            # the stable 1/1/4 orbit, no downloads
-node pruef-genau.mjs             # calibration of the 30-digit arithmetic, no downloads
+node bahn-pruefen.mjs            # the stable 1/1/4 orbit, no downloads (about 4 min)
+node pruef-genau.mjs             # calibration of the 30-digit arithmetic, no downloads (15 checks, 40 s)
 node daten-holen.mjs             # the published lists, about 175 MB, each file checked by SHA-256
 node katalog-bauen.mjs
 node katalog-gross-bauen.mjs
-node pruef-kern.mjs              # calibration of the core, including against the lists
-node bauen.mjs --fassung v9      # the lab, written to labor/dreikoerper-labor-v9.html
+node pruef-kern.mjs              # calibration of the core, including against the lists (56 checks, 1 min)
+node bauen.mjs --fassung v10     # the lab, written to labor/dreikoerper-labor-v10.html
 ```
 
-Every check exits with code 0 only if every line passes.
+Every check exits with code 0 only if every line passes. The times were measured on a machine with 12 logical cores. The large catalogues (`katalog-gross-*`) built from the downloaded lists are byte-identical to the ones used for the results. In `katalog.json`, four orbits of Šuvakov & Dmitrašinović (2013) are refined while the catalogue is built and differ by about 1e-12. The comparison tolerance is 1e-6.
 
 The run that found the orbit above:
 
@@ -81,6 +85,10 @@ The published lists belong to their authors and are not redistributed here. `dat
 ## Authors
 
 Felix Habl had the idea and directed the work. The code, the computations and the documentation were written by Claude, an AI model by Anthropic, in conversation with him. Every number in this repository comes from a computation in this code. The test batteries compare that code against published high-precision data.
+
+## How to cite
+
+GitHub offers a citation under "Cite this repository" on the right of the repository page. The data are in `CITATION.cff`.
 
 ## License
 

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use these orbits or this code, please cite it as below."
+title: "dreikoerper: a search engine for periodic orbits of the planar three-body problem, and its finds"
+type: software
+authors:
+  - family-names: Habl
+    given-names: Felix
+repository-code: "https://github.com/Ne0nk3k/dreikoerper"
+license:
+  - MIT
+  - CC-BY-4.0
+date-released: "2026-10-21"
+keywords:
+  - three-body problem
+  - periodic orbits
+  - linear stability
+  - celestial mechanics
+  - high-precision numerics
+abstract: >-
+  Periodic orbits of the planar three-body problem with zero angular
+  momentum that are in none of the published lists, each verified to
+  30 digits, with linear stability from the monodromy matrix. Among them
+  a linearly stable orbit at masses 1 : 1 : 4 (T = 53.2548543044, stability
+  indices 0.0501 and -0.0599). Includes the search engine, the
+  30-digit verification and test batteries against published
+  high-precision data. Code and computations were written with Claude,
+  an AI model by Anthropic.
