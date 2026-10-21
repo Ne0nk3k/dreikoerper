@@ -47,7 +47,8 @@ const schluss = Math.max(...start.map((v, i) => Math.abs(bahn[bahn.length - 1][i
 if (!(schluss < 1e-8)) throw new Error("die Bahn schließt sich nicht: " + schluss);
 
 /* ── zeichnen: Abdeckung je Körper, dann übereinander ── */
-const BREIT = 1600, HOCH = 900, SS = 2, W = BREIT * SS, H = HOCH * SS, n = W * H;
+// --breit/--hoch: andere Formate, etwa 1080 × 1920 für eine Instagram-Story (21.10.2026)
+const BREIT = +wert("--breit", 1600), HOCH = +wert("--hoch", 900), SS = 2, W = BREIT * SS, H = HOCH * SS, n = W * H;
 const KOERPER = [[86, 180, 233], [230, 159, 0], [204, 121, 167]];
 let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
 for (const p of bahn) for (let c = 0; c < 3; c++) { x0 = Math.min(x0, p[2 * c]); x1 = Math.max(x1, p[2 * c]); y0 = Math.min(y0, p[2 * c + 1]); y1 = Math.max(y1, p[2 * c + 1]); }

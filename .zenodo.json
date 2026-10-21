@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "language": "eng",
   "creators": [
-    { "name": "Habl, Felix" }
+    {
+      "name": "Habl, Felix"
+    }
   ],
-  "description": "<p>A search engine for periodic orbits of the planar three-body problem with zero angular momentum (G = 1), the orbits it found that are in none of the published lists, and a 30-digit verification of each one, with linear stability from the monodromy matrix.</p><p>Main result: a linearly stable orbit at masses 1 : 1 : 4 in the isosceles collinear (Euler) configuration, a = 0.80329455331149897894751545304123, b = 1.43593335078306727053457398659518, T = 53.25485430443248007068935995289679, stability indices 0.0501 and &minus;0.0599. It is not in Li, Jing &amp; Liao (2018) and not a k-fold satellite of any orbit in that list. The data package (fundbericht/) holds 686 orbits outside the lists, each verified to 30 digits. The script bahn-pruefen.mjs re-checks the stable orbit without any downloads.</p><p>The published lists of other authors are not included; daten-holen.mjs fetches them from their sources and checks each file by SHA-256.</p>",
+  "description": "<p>A search engine for periodic orbits of the planar three-body problem with zero angular momentum (G = 1), the orbits it found that are in none of the published lists, and a 30-digit verification of each one, with linear stability from the monodromy matrix.</p><p>Main result: a linearly stable orbit at masses 1 : 1 : 4 in the isosceles collinear (Euler) configuration, a = 0.80329455331149897894751545304123, b = 1.43593335078306727053457398659518, T = 53.25485430443248007068935995289679, stability indices 0.0501 and &minus;0.0599. It is not in Li, Jing &amp; Liao (2018) and not a k-fold satellite of any orbit in that list. It is the continuation in m<sub>3</sub> of the orbit I.A-5 that this list gives at masses 1 : 1 : 2, so it is a new, stable member of a listed family; along the family it is stable for m<sub>3</sub> from about 3.74 to 4.18 (30-digit samples). The data package (fundbericht/) holds 686 orbits outside the lists, each verified to 30 digits. The script bahn-pruefen.mjs re-checks the stable orbit without any downloads.</p><p>The published lists of other authors are not included; daten-holen.mjs fetches them from their sources and checks each file by SHA-256.</p>",
   "keywords": [
     "three-body problem",
     "periodic orbits",

@@ -30,7 +30,9 @@ abstract: >-
   momentum that are in none of the published lists, each verified to
   30 digits, with linear stability from the monodromy matrix. Among them
   a linearly stable orbit at masses 1 : 1 : 4 (T = 53.2548543044, stability
-  indices 0.0501 and -0.0599). Includes the search engine, the
+  indices 0.0501 and -0.0599); it is the continuation in m3 of the orbit
+  I.A-5 listed at masses 1 : 1 : 2, stable for m3 from about 3.74 to 4.18.
+  Includes the search engine, the
   30-digit verification and test batteries against published
   high-precision data. Code and computations were written with Claude,
   an AI model by Anthropic.

@@ -25,6 +25,30 @@ T = 53.25485430443248007068935995289679
 - **Stability:** the stability indices are s1 = 0.050097460726014453493487243479 and s2 = −0.059928082662415128925027567105. Both satisfy |s| < 2, so the orbit is linearly stable, with a margin of 1.94.
 - **Word and closest approach:** the free-group word is `ABABABAbabababABABABAbabababaBABABABabababaB` (44 letters). The closest approach of two bodies is 0.0015.
 - **Comparison with the literature:** the orbit is not in Li, Jing & Liao (2018), the only published list for these masses we know of. It is also not a k-fold satellite of any orbit in that list.
+- **It belongs to a known family.** The orbit is the continuation in m3 of the orbit I.A-5 that the same list gives at masses 1 : 1 : 2. So it is a new, stable member of a listed family, not a new family. See the next section.
+
+## The family I.A-5 and its stability window
+
+We checked the connection in both directions:
+
+- **Downwards from m3 = 4:** continuing this orbit in m3 lands on I.A-5 at m3 = 2, at a distance of 4.8e-11 in (a, b). The list gives ten digits. (`werkzeug/massen-fortsetzung.mjs`)
+- **Upwards from I.A-5:** continuing I.A-5 from m3 = 2 to m3 = 4 in steps of at most 0.005 arrives at this orbit to 5e-13 in a and b and 3e-11 in T. (`werkzeug/fortsetzung-zurueck.mjs`)
+- **Topology:** the free-group word stays the same along the whole path.
+
+At m3 = 4 the branch has left the square a, b < 1, in which 82 of the 85 listed orbits at these masses lie.
+
+Stability along the family, computed at 30 digits at 23 sample masses (`werkzeug/fortsetzung-genau.mjs`, data in `ergebnisse/fortsetzung-1-1-4-genau.json`). Double precision is not reliable on this branch because of the close encounters.
+
+| m3 | verdict at 30 digits |
+|---|---|
+| 2 (I.A-5 itself) | stable by a hair, margin 2.6e-5 |
+| 3.0 | unstable, one index 2.0000004 |
+| 3.4 – 3.5 | stable, margin 0.018 to 0.0037 |
+| 3.6 – 3.725 | unstable |
+| **3.75 – 4.175** | **stable at all 14 samples** (at m3 = 4: margin 1.94) |
+| 4.1875 – 4.25 | unstable |
+
+The stability window around the orbit thus extends from about m3 ≈ 3.74 to 4.18. At m3 = 4.11 one index reaches −1.998, so a very narrow unstable sliver there is not excluded by these samples. Upwards, the branch becomes strongly unstable and the continuation stops near m3 ≈ 5.14; at m3 = 5 it is not in the list.
 
 Check it yourself. No downloads are needed:
 

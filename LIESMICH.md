@@ -356,17 +356,20 @@ Die stabilen und die an der Grenze, alle auf 30 Stellen:
 | 1 / 1 / 0,5 | 0,217583316000 | 0,031719767006 | 80,513066 | Index exakt 2 | 2,000000 und −0,453477 | — | 3,9·10⁻⁵ | keine gelistete Klasse |
 | 1 / 1 / 0,75 | 0,157764078493 | 0,092653153515 | 71,210334 | **stabil** | 1,373168 und −0,077420 | 0,63 | 5,6·10⁻⁵ | Klasse von I.B-60, T* 1,1·10⁻⁶ daneben (andere Bahn) |
 | 1 / 1 / 4 | 0,879470011060 | 0,702980367878 | 32,666697 | stabil um Haaresbreite | 1,999907 und 1,990901 | 9,3·10⁻⁵ | 7,2·10⁻⁴ | Satellit 2. Ordnung von I.A-2 |
-| 1 / 1 / 4 | 0,803294553311 | 1,435933350783 | 53,254854 | **stabil** | 0,050097 und −0,059928 | 1,94 | 0,0015 | keine gelistete Klasse |
+| 1 / 1 / 4 | 0,803294553311 | 1,435933350783 | 53,254854 | **stabil** | 0,050097 und −0,059928 | 1,94 | 0,0015 | keine Klasse der Liste für 1/1/4 — aber Fortsetzung von I.A-5 bei 1/1/2 (siehe unten, 21.10.2026) |
 | 1 / 1 / 4 | 0,998088209318 | 0,274255978635 | 51,024895 | Index exakt 2 | 2,000000 und 0,518556 | — | 2,5·10⁻⁵ | Klasse von I.A-6, anderes T* |
 | 1 / 1 / 4 | 0,972644433301 | 0,960354367676 | 72,822702 | Index exakt 2 | 2,000000 und 0,812431 | — | 2,2·10⁻⁴ | Klasse von II.B-2, anderes T* |
 
 Fett: **deutlich stabil (Abstand zur Grenze über 0,001), kein Satellit** —
 vier Bahnen. Zu unterscheiden sind sie trotzdem:
 
-- **Eine gehört zu keiner gelisteten Familie:** 1/1/4, T = 53,25. Beide
-  Indizes liegen nahe 0, weit innen im stabilen Bereich; ihr T* ist kein
-  Vielfaches einer Listenbahn dieser Gewichte (k = 2 … 10, ±2 %;
-  `werkzeug/satellit-katalog.mjs`).
+- **Eine gehört zu keiner Klasse der Liste für dieselben Gewichte:** 1/1/4,
+  T = 53,25. Beide Indizes liegen nahe 0, weit innen im stabilen Bereich; ihr
+  T* ist kein Vielfaches einer Listenbahn dieser Gewichte (k = 2 … 10, ±2 %;
+  `werkzeug/satellit-katalog.mjs`). **Korrektur vom 21.10.2026:** Sie ist die
+  Fortsetzung der Listenbahn I.A-5 bei 1/1/2 — siehe „Die Familie I.A-5“
+  unten. Bis dahin stand hier „gehört zu keiner gelisteten Familie“; das
+  verglich nur mit der Liste derselben Gewichte.
 - **Drei tragen das Wort einer gelisteten Familie** (I.B-4, I.A-19, I.B-60)
   mit anderem T*: andere Bahnen derselben Familie. Bei I.B-60 liegt das T*
   nur 1,1·10⁻⁶ neben dem der Listenbahn — auf 30 Stellen nachgerechnet eine
@@ -455,6 +458,53 @@ beider Fenster gleichmäßiges Wachstum, Abstand(20)/Abstand(10) = 2,00 bis
 2,36; bei T 74,57 trägt sie nicht (double verliert die Bahn selbst nach 20
 Umläufen um 1,4·10⁻⁵). Um Haaresbreite von genau an der Grenze trennen kann
 sie nicht — das kann nur die Rechnung auf 30 Stellen.
+
+### Die Familie I.A-5: die stabile Bahn ist eine Fortsetzung — 21.10.2026
+
+**Die stabile Bahn bei 1/1/4 (T = 53,25) ist die Fortsetzung der Listenbahn
+I.A-5 bei 1/1/2** (Li, Jing & Liao 2018). Belegt in beiden Richtungen:
+
+- **Abwärts** (`werkzeug/massen-fortsetzung.mjs`): Fortsetzung in m₃ von 4
+  aus, Vorhersage linear, Korrektur mit dem Fundprüfer des Kerns. Bei
+  m₃ = 2 landet der Zweig auf I.A-5, Abstand 4,8·10⁻¹¹ (die Liste gibt zehn
+  Stellen). Kurz darunter, bei m₃ ≈ 1,998, bricht die Fortsetzung ab — dort
+  ist der Zweig steil (|db/dm₃| ≈ 9), vermutlich eine Umkehr.
+- **Aufwärts von I.A-5** (`werkzeug/fortsetzung-zurueck.mjs`): 406 Schritte
+  von höchstens 0,005, Anfang mit 1e-4 wegen der Steilheit; bei m₃ = 4
+  angekommen mit Δa 5·10⁻¹³, Δb 7·10⁻¹³, ΔT 3·10⁻¹¹ zur stabilen Bahn.
+- **Kennung** auf dem ganzen Weg dieselbe (`gqnupb8c33`), dieselbe wie die von
+  I.A-5. Die Kennung allein beweist nichts — verschiedene Bahnen einer Klasse
+  teilen sie —, deshalb die Rückrichtung.
+
+Damit ist sie kein Mitglied einer unbekannten Familie, sondern ein neues,
+stabiles Mitglied einer bekannten: bei 1/1/4 liegt der Zweig mit v₂ = 1,436
+außerhalb des Quadrats [0, 1]², in dem 82 der 85 Listenbahnen dieser Gewichte
+liegen. Aufwärts wird der Zweig ab m₃ ≈ 4,19 stark instabil (bei m₃ = 5 in
+double ein Index um 4,7·10⁴) und bricht bei m₃ ≈ 5,14 ab; bei m₃ = 5 steht er nicht in
+der Liste (35 Bahnen).
+
+**Stabilität entlang der Familie, auf 30 Stellen** (`werkzeug/fortsetzung-genau.mjs`,
+23 Stützstellen; in double ist sie hier unbrauchbar — bei m₃ = 4,0025 meldete
+double einen Index 2,06, bei 4,005 wieder 0,06):
+
+| m₃ | Urteil | Indizes | Abstand zur Grenze |
+|---|---|---|---|
+| 2 (I.A-5) | stabil um Haaresbreite | 1,999974 / 1,479510 | 2,6·10⁻⁵ |
+| 3 | instabil | 2,0000004 / −0,974676 | −3,8·10⁻⁷ |
+| 3,4 – 3,5 | stabil | 1,982 / 1,714 … 1,996 / −0,483 | 0,018 … 0,0037 |
+| 3,6 – 3,725 | instabil | 2,0025 … 2,0085 / … | −0,0025 … −0,0085 |
+| **3,75 – 4,175** | **stabil an allen 14 Stützstellen** | bei 4,0: 0,050 / −0,060 | bis 1,94 |
+| 4,1875 – 4,25 | instabil | 3,38 … 24,5 / … | −1,4 … −22,5 |
+
+Das stabile Fenster um die Bahn reicht also etwa von **m₃ ≈ 3,74 bis 4,18**
+(Grenzen zwischen 3,725 und 3,75 und zwischen 4,175 und 4,1875). Bei
+m₃ = 4,11 erreicht ein Index −1,998: ein sehr schmaler instabiler Streifen
+dort ist mit diesen Stützstellen nicht ausgeschlossen. Wie schon bei den
+Funden liegt ein Index über lange Strecken fast genau bei 2 (m₃ 3,0 bis 3,8).
+
+*Lehre:* „In keiner Liste dieser Massen“ heißt nicht „unbekannte Familie“.
+Wer eine Familie neu nennen will, vergleicht Wörter über alle Massen und setzt
+die Bahn in der Masse fort (`werkzeug/familien-abgleich.mjs`).
 
 ## Bedienen
 
