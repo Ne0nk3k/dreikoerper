@@ -10,7 +10,8 @@ Zwei Teile:
   eine Ebene von Anfangswerten, verfolgt die aussichtsreichen Punkte bis auf
   eine geschlossene Bahn, prüft jeden Fund mit einem zweiten Verfahren,
   gleicht ihn mit den veröffentlichten Listen ab und schreibt einen Bericht.
-- **Das Labor** (`Desktop\werke\dreikoerper-labor-v9.html`, eine Datei).
+- **Das Labor** (`Desktop\werke\dreikoerper-labor-v10.html`, eine Datei; auf
+  einem anderen Rechner baut `node bauen.mjs --fassung v10` es nach `labor\`).
   Dieselbe Rechnung zum Anfassen: Karte, Bahn, Ergebnis. Doppelklick auf die
   Datei öffnet es. Die Verknüpfung **DREIKÖRPER** (eigenes Fenster, eigenes
   Symbol) lag bis zum 03.10.2026 auf dem Desktop und liegt jetzt in `start\`.
@@ -133,6 +134,10 @@ Stellen nachgerechnet hat, heißt im Ergebnis „Geschlossene Bahn, auf 30
 Stellen belegt“ — vorher stand dort „Wohl eine geschlossene Bahn … sicher
 erst nach der Nachprüfung“, auch bei der besten Bahn der Nacht (1/1/4,
 T 53,25).
+
+**v10** (21.10.2026): dieselbe Vorlage, neu gebaut mit den Läufen jenseits
+von v = 1 bei 1/1/4 — Fundus 23 statt 17 Bahnen außerhalb der Listen.
+`pruef-browser` 50 von 50.
 
 Im Probelauf der Browserprüfung (gleiche Gewichte, Spiegelpunkte, Standardfenster):
 78 Bahnen gefunden, 71 davon bekannt (16 nur dank der Tabelle der
@@ -578,7 +583,7 @@ Jede Batterie urteilt im Exit-Code.
 | `pruef-hristov.mjs` | 100-stellige Anfangswerte und 20- bis 40-stellige Eigenwerte von Hristov u. a. | 12 von 12 (am 02.10.): 12 Bahnen auf 29 bis 30 Nachkommastellen; \|λ\| und Urteil an 131 von 131; von 113 stabilen Bahnen der Quelle keine „instabil“ genannt (17 stabil, 96 offen); in Festkomma die Indizes von acht stabilen Bahnen auf 29 Stellen und \|λ\| von sechs instabilen (10² bis 10¹²) auf 16 Stellen, auch über die schnelle Stufe |
 | `pruef-genau.mjs` | √2, Lagrange-Kreisbahn in Festkomma, Rouths Formel bei ungleichen Massen | 15 von 15: Bahn auf 3·10⁻⁴⁰; Stabilitätsindizes bei ungleichen Massen auf 30 Stellen wie Routh |
 | `pruef-katalog.mjs` | alle 2360 Bahnen von Li/Liao | Wörter 1958 von 1963 gleich; zeigt, wo double aufhört |
-| `pruef-browser.mjs` | das ausgelieferte Labor (v9) | 50 von 50: eine Bahn aus dem Fundus heißt „auf 30 Stellen belegt“; bei 1/1/0,5 findet „Nach stabilen Bahnen suchen“ die 3 stabilen außerhalb der Liste, zeigt nur diese 3 als Kandidaten, markiert den Satelliten unter ihnen als „Ableger“ und gibt den Ton aufwärts; der Sammelton an festen Fällen; eine Bahn außerhalb des Grundfensters liegt nach dem Laden auf der Karte; Aufbau (Startblatt, Klappen, Hilfe, ein Hauptknopf); die drei Listen getrennt (keine gelistete Bahn unter den eigenen Funden oder im Fundus, der Schaukasten nur mit bekannten); „Nach stabilen Bahnen suchen“ misst nur, was in keiner Liste steht, übernimmt das 30-Stellen-Urteil der Suchmaschine und widerspricht ihr nirgends; Grundfenster je Gewichtssatz; die Liste beginnt nach dem Reiterwechsel oben; derselbe Kern auf das Bit gleich wie in Node; Stabilität erst auf Knopfdruck (0,01 bis 0,05 s bei T von 6 bis 144); jeder der drei Töne einmal ausgelöst; „Alle messen“ im Schaukasten findet die fünf stabilen der Jagd; keine der 168 Bahnen aus den Läufen der Suchmaschine (Fundus und Schaukasten) misst das Labor instabil (23 stabil, 145 vielleicht) |
+| `pruef-browser.mjs` | das ausgelieferte Labor (v10; v9 ebenso) | 50 von 50: eine Bahn aus dem Fundus heißt „auf 30 Stellen belegt“; bei 1/1/0,5 findet „Nach stabilen Bahnen suchen“ die 3 stabilen außerhalb der Liste, zeigt nur diese 3 als Kandidaten, markiert den Satelliten unter ihnen als „Ableger“ und gibt den Ton aufwärts; der Sammelton an festen Fällen; eine Bahn außerhalb des Grundfensters liegt nach dem Laden auf der Karte; Aufbau (Startblatt, Klappen, Hilfe, ein Hauptknopf); die drei Listen getrennt (keine gelistete Bahn unter den eigenen Funden oder im Fundus, der Schaukasten nur mit bekannten); „Nach stabilen Bahnen suchen“ misst nur, was in keiner Liste steht, übernimmt das 30-Stellen-Urteil der Suchmaschine und widerspricht ihr nirgends; Grundfenster je Gewichtssatz; die Liste beginnt nach dem Reiterwechsel oben; derselbe Kern auf das Bit gleich wie in Node; Stabilität erst auf Knopfdruck (0,01 bis 0,05 s bei T von 6 bis 144); jeder der drei Töne einmal ausgelöst; „Alle messen“ im Schaukasten findet die fünf stabilen der Jagd; keine der 168 Bahnen aus den Läufen der Suchmaschine (Fundus und Schaukasten) misst das Labor instabil (23 stabil, 145 vielleicht) |
 | `werkzeug/lage-eichen.mjs` | den Abgleich selbst | Ortstreffer liegen höchstens 8·10⁻¹¹ vom Listenwert, Nichttreffer mindestens 2·10⁻⁵ |
 | `werkzeug/grauzone.mjs` | die Schwelle 2·10⁻⁸ für „dieselbe Bahn“ | bei 1/1/0,5 sechs Funde mit T* 3,5·10⁻⁸ bis 6,1·10⁻⁷ neben einer Listenbahn: beide auf 30 Stellen verfeinert, der Abstand bleibt derselbe — sechs andere Bahnen. Dieselbe Bahn stimmte auf 10⁻¹² |
 | `werkzeug/stoerprobe-lauf.mjs` | das Stabilitätsurteil, ohne Monodromie | siehe „Weitere Massen“ |

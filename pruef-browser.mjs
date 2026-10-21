@@ -15,7 +15,7 @@ import { pathToFileURL } from "node:url";
 import { HIER, ladeKern, ladeQuellen } from "./quellen.mjs";
 
 const argv = process.argv.slice(2);
-const fassung = argv.includes("--fassung") ? argv[argv.indexOf("--fassung") + 1] : "v9";
+const fassung = argv.includes("--fassung") ? argv[argv.indexOf("--fassung") + 1] : "v10";
 const DESKTOP = join(homedir(), "Desktop"),       // das Projekt liegt seit dem 03.10.2026 in Documents\Projekte
       werke = join(DESKTOP, "werke"),              // ohne Desktop\werke (andere Rechner): labor\, wie bauen.mjs
       datei = join(existsSync(werke) ? werke : join(HIER, "labor"), `dreikoerper-labor-${fassung}.html`);
