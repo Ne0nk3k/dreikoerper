@@ -73,7 +73,7 @@ Calibration: our words reproduce 1346 of the 1349 published words of Li, Jing & 
 
 ## Caveats
 
-- **Unequal masses:** the only list for these masses is Li, Jing & Liao (2018), one orbit per family, from the square 0 < a, b < 1. "Not in the list" says little there; the column `family` says more.
+- **Unequal masses:** the only list for these masses is Li, Jing & Liao (2018), one orbit per family; all but 3 of its 1349 orbits lie in the square 0 < a, b < 1. "Not in the list" says little there; the column `family` says more.
 - **Satellites:** some orbits run k times almost along a listed orbit before closing (word and T* are k-fold). They are orbits of their own, but not unexplained ones; the column `sat` names the base orbit.
 - Only symmetric orbits are found by the half-period search, and only within the search windows and period limits of each run.
 - The comparison covers the lists above. Lists we do not know of are not covered.

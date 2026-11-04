@@ -68,6 +68,12 @@ const lauf5 = lade("euler-m3-5-v2gross.json"), genau5 = lade("euler-m3-5-v2gross
 const FA = lade("familien-abgleich.json"), WE = lade("woerter-eichen.json"), FV = lade("fast-vielfach.json");
 const sofia = JSON.parse(readFileSync(join(HIER, "katalog-gross.json"), "utf8"));
 const sofiaEintraege = Object.values(sofia.ebenen.euler.quellen).reduce((s, q) => s + q.zeilen, 0);
+// Lage der Listenbahnen von Li, Jing & Liao: gezählt aus katalog.json statt „aus dem Quadrat
+// 0 < a, b < 1“ behauptet — das stützte sich auf private Post (04.11.2026, vor dem Release)
+const LJL = JSON.parse(readFileSync(join(HIER, "katalog.json"), "utf8")).bahnen.filter(b => b.satz === "ungleich");
+const imQ = b => b.a > 0 && b.a < 1 && b.b > 0 && b.b < 1;
+const quadrat = { n5: LJL.filter(b => b.m[2] === 5).length, drin5: LJL.filter(b => b.m[2] === 5 && imQ(b)).length, n: LJL.length, drin: LJL.filter(imQ).length };
+const quadratText = `${quadrat.drin5 === quadrat.n5 ? "all" : `${quadrat.drin5} of the`} ${quadrat.n5} orbits they list at these masses lie in the square 0 < a, b < 1 (at all seven masses, ${quadrat.drin === quadrat.n ? "all" : `all but ${quadrat.n - quadrat.drin}`} of ${quadrat.n})`;
 const WH = existsSync(join(HIER, "woerter-hristov.json")) ? JSON.parse(readFileSync(join(HIER, "woerter-hristov.json"), "utf8")) : null;
 const sofiaWoerter = WH ? Object.keys(WH.woerter).length : null, sofiaGerechnet = WH ? WH.gerechnet : null;
 // Li, Li & Liao (2021), github.com/sjtu-liao/three-body: je Zeile m1 m2 m3 x1 v1 v2 T S/U (werkzeug/nichthierarchisch-pruefen.mjs)
@@ -233,14 +239,16 @@ R.push("Felix Habl. Code and computations written with Claude, an AI model by An
   `3. **Not a free-fall orbit.** The kinetic energy never drops below ${fmt(B.kin, 1)} % of |E|; orbits in free-fall lists come to rest once per period (check on ${B.gegenproben} free-fall orbits of Li & Liao 2019: minimum ≈ 1e-12).`,
   `4. **Continuation.** Continued from m3 = ${fmt(B.R.richtungen.abwaerts.bis, 3)} to ${fmt(B.R.richtungen.aufwaerts.bis, 3)}, the family keeps its word. At the other masses on the way for which a list exists (m3 = ${B.R.listen.map(l => l.m3).join(", ")}) it is not in the list either (${B.R.listen.map(l => l.liliao.listeBahnen).join(", ")} orbits).`,
   `5. **Other collections.** The atlas threebodyorbits.com contains, for these masses, exactly the orbits of Li, Jing & Liao (2018). The ${NH.zeilen.toLocaleString("en")} orbits of Li, Li & Liao (2021), ${NH.stabil.toLocaleString("en")} of them stable, have masses between ${NH.min} and ${NH.max}, so none has the ratio 1 : 1 : 5. A literature search (October–November 2026) found no newer list for this configuration.`, "",
-  `**Limits of this claim.** "Not in the lists" means: not in the lists we know and checked. Hristov et al. cover equal masses only (T* < 211). Li, Jing & Liao list one orbit per class, from initial conditions in the square 0 < a, b < 1; family B lies outside that square (at m3 = 5, b = ${fmt(+B.r.b, 3)}). Our search finds symmetric orbits only.`, "",
+  `**Limits of this claim.** "Not in the lists" means: not in the lists we know and checked. Hristov et al. cover equal masses only (T* < 211). Li, Jing & Liao list one orbit per class; ${quadratText}. Family B lies outside that square (at m3 = 5, b = ${fmt(+B.r.b, 3)}). Our search finds symmetric orbits only.`, "",
   "## A second candidate: family A", "",
   "```", `m1 = m2 = 1, m3 = 5`, `a  = ${A.r.a}`, `b  = ${A.r.b}`, `T  = ${A.r.T}`, `T* = ${fmt(A.Ts, 4)}   (E = ${fmt(A.E, 4)})`, "```", "",
+  `![One period of family A at m3 = 5](bilder/family-A-m3-5.png)`, "",
+  `*One period of family A at m3 = 5 (closes to ${A.bild} in double precision); colours as above.*`, "",
   `Stability indices at 30 digits ${fmt(A.g.s1, 10)} and ${fmt(A.g.s2, 10)} (margin ${fmt(A.g.rand, 2)}); return distance of these digits ${exp(A.fuenf.r320)} at 320 bits and ${exp(A.fuenf.r448)} at 448 bits. Word of ${A.fv.buchstaben} letters, in no list; nearest repetition ${A.fv.abweichung} letters off; kinetic energy never below ${fmt(A.kin, 1)} % of |E|. Its bodies come as close as ${fmt(A.rMinVon, 5)}, so double precision cannot judge its stability; at 30 digits it is ${A.proben.length > 1 ? `stable at ${A.proben.filter(p => p.urteil === "stabil").map(p => p.m3).join(", ")}${A.proben.some(p => p.urteil !== "stabil") ? ` and ${A.proben.filter(p => p.urteil !== "stabil").map(p => `${URTEIL[p.urteil]} at ${p.m3}`).join(", ")}` : ""}` : "computed at m3 = 5 only"}. Its stability window is not determined (\`daten/family-A-30digit.csv\`, \`daten/family-A-continuation.csv\`). ${A.symAlle.gut === A.symAlle.n && A.symAlle.tausch ? `Family A has a half-period symmetry too, with the two bodies of mass 1 exchanged (|N² − M| / |M| ≤ ${A.symAlle.qMax.toExponential(1)} at all ${A.symAlle.n} samples, other readings at least ${A.symAlle.andersMin.toFixed(1)}).` : `Half-period symmetry: confirmed at ${A.symAlle.gut} of ${A.symAlle.n} samples.`}`, "",
   "## Check it yourself", "",
   "Node.js 18 or later, no packages:", "",
   "```", `node bahn-pruefen.mjs --m 1,1,5 --a ${B.r.a} --b ${B.r.b} --T ${B.r.T}`, "node alle-pruefen.mjs daten/family-B-30digit.csv", `node halbperiode.mjs --m 1,1,5 --a ${B.r.a} --b ${B.r.b} --T ${B.r.T}`, "```", "",
-  "The first line integrates one period at 320 and at 448 bits and computes both stability indices (about one and a half minutes for family B on one core). The second repeats this for every row of the table and compares verdicts and indices with the table. The third checks the half-period symmetry and M = N² in double precision (a few seconds). The search, the list comparisons and the continuation tools are in the main project (`werkzeug/massen-fortsetzung.mjs`, `werkzeug/familien-abgleich.mjs`, `werkzeug/fast-vielfach.mjs`, `werkzeug/stillstand.mjs`).", "",
+  "The first line integrates one period at 320 and at 448 bits and computes both stability indices (about one and a half minutes for family B on one core). The second repeats this for every row of the table and compares verdicts and indices with the table. The third checks the half-period symmetry and M = N² in double precision (0.3 s for family B, measured). The search, the list comparisons and the continuation tools are in the main project (`werkzeug/massen-fortsetzung.mjs`, `werkzeug/familien-abgleich.mjs`, `werkzeug/fast-vielfach.mjs`, `werkzeug/stillstand.mjs`).", "",
   "## Files", "",
   "| File | Content |", "|---|---|",
   "| `daten/family-B-30digit.csv` | 30-digit initial conditions and stability at every sampled mass |",
@@ -266,7 +274,7 @@ writeFileSync(join(ZIEL, "CITATION.cff"), [
   "abstract: >-", ...(kurz + " Code and computations were written with Claude, an AI model by Anthropic.").match(/.{1,74}(\s|$)/g).map(z => "  " + z.trim()), ""].join("\n"));
 writeFileSync(join(ZIEL, ".zenodo.json"), JSON.stringify({
   upload_type: "dataset", title: titel, version: "1.0.0", language: "eng", creators: [{ name: "Habl, Felix" }],
-  description: `<p>${kurz.replace(/&/g, "&amp;")}</p><p>"Not in the lists" means: not in the lists we know and checked; Hristov et al. cover equal masses only, Li, Jing &amp; Liao list one orbit per class from the square 0 &lt; a, b &lt; 1, outside which family B lies.</p>`,
+  description: `<p>${kurz.replace(/&/g, "&amp;")}</p><p>"Not in the lists" means: not in the lists we know and checked; Hristov et al. cover equal masses only, Li, Jing &amp; Liao list one orbit per class, and ${quadratText.replace(/</g, "&lt;")}, outside which family B lies.</p>`,
   keywords: ["three-body problem", "periodic orbits", "linear stability", "celestial mechanics", "unequal masses"],
   license: "cc-by-4.0",
   notes: "Data and text: CC BY 4.0. Code (bahn-pruefen.mjs, alle-pruefen.mjs, halbperiode.mjs, genau.mjs, kern.js, quellen.mjs): MIT. Felix Habl had the idea and directed the work; the code, the computations and the documentation were written by Claude, an AI model by Anthropic. Every number comes from a computation.",

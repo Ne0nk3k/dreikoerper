@@ -24,6 +24,9 @@ mkdirSync(ziel, { recursive: true });
 for (const n of readdirSync(ziel)) if (/^(orbits|words)-.*\.txt$|^stable\.txt$|^README\.md$/.test(n)) unlinkSync(join(ziel, n));
 
 const kat = ladeKatalog().bahnen;
+// Wie viele Listenbahnen ungleicher Massen liegen im Quadrat 0 < a, b < 1? Gezählt, nicht
+// behauptet (04.11.2026; vorher stand „from the square“, gestützt auf private Post)
+const ungleichListe = kat.filter(b => b.satz === "ungleich"), imQuadrat = ungleichListe.filter(b => b.a > 0 && b.a < 1 && b.b > 0 && b.b < 1).length;
 // Familie über alle Massen (werkzeug/familien-abgleich.mjs, seit 04.11.2026):
 // ob das Wort einer Bahn irgendwo gelistet ist — bei einer anderen Masse, in den
 // Datenbanken aus Sofia, in einer Freifall-Liste — oder nirgends.
@@ -144,7 +147,7 @@ const R = [`# Periodic orbits of the planar three-body problem outside the publi
     return ["| family | orbits |", "|---|---|", ...Object.entries({ "new — word in no list": z.new || 0, "same word as a listed orbit (at another mass, or another orbit of a listed class)": z.listed || 0, "word in the databases of Hristov et al.": z.hristov || 0, "word in a free-fall list": z["listed-freefall"] || 0, "exact multiple of a listed word": z.multiple || 0, "satellite found within the run": z.satellite || 0, "not determined": z["?"] || 0 }).map(([k, v]) => `| ${k} | ${v} |`)]; })(), "",
   FA && WE ? `Calibration: our words reproduce ${WE.gleichBisAufDrehung} of the ${WE.verglichen} published words of Li, Jing & Liao (2018) letter for letter, up to cyclic shift; ${abweichlerText(WE)}. Of our Euler-plane orbits that match a listed orbit by position or T*, ${FA.eichungWortlisten.findenIhrWort} of ${FA.eichungWortlisten.gelisteteFunde} also find their word in the lists${FA.freierFall && FA.freierFall.eichung ? `, and ${FA.freierFall.eichung.treffer} of ${FA.freierFall.eichung.n} in free fall` : ""}.` : "",
   "", "## Caveats", "",
-  "- **Unequal masses:** the only list for these masses is Li, Jing & Liao (2018), one orbit per family, from the square 0 < a, b < 1. \"Not in the list\" says little there; the column `family` says more.",
+  `- **Unequal masses:** the only list for these masses is Li, Jing & Liao (2018), one orbit per family; ${imQuadrat === ungleichListe.length ? "all" : `all but ${ungleichListe.length - imQuadrat}`} of its ${ungleichListe.length} orbits lie in the square 0 < a, b < 1. "Not in the list" says little there; the column \`family\` says more.`,
   "- **Satellites:** some orbits run k times almost along a listed orbit before closing (word and T* are k-fold). They are orbits of their own, but not unexplained ones; the column `sat` names the base orbit.",
   "- Only symmetric orbits are found by the half-period search, and only within the search windows and period limits of each run.",
   "- The comparison covers the lists above. Lists we do not know of are not covered.",

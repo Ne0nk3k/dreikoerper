@@ -515,8 +515,9 @@ die Bahn in der Masse fort (`werkzeug/familien-abgleich.mjs`).
 
 Felix' Ziel: eine Familie, die nirgends gelistet ist; effizient, über die
 blinden Flecken der Listen. **Lücken** (`werkzeug/luecken.mjs`): vom gebundenen
-Bereich hat niemand abgesucht bei 1/1/2 43 %, 1/1/5 83 %, 1/1/8 90 %,
-1/1/10 93 % — überall jenseits von v = 1. Abgesucht (`werkzeug/kette-luecken.sh`,
+Bereich lag weder eine Listenbahn noch eines unserer Fenster bei 1/1/2 43 %,
+1/1/5 83 %, 1/1/8 90 %, 1/1/10 93 % — überall jenseits von v = 1. (Gemessen
+ist, wie weit die Listenbahnen reichen, nicht wo andere gesucht haben.) Abgesucht (`werkzeug/kette-luecken.sh`,
 je zwei Fenster wie bei 1/1/4, Raster 1024², T bis 40): 1/1/2 644 + 19 Bahnen,
 1/1/5 722 + 38.
 
@@ -575,7 +576,8 @@ Stabilitätsfenster ist nicht bestimmt. Fortsetzung 4,42 bis 5,81.
 
 **Was „nirgends gelistet“ hier heißt:** in keiner Liste, die wir kennen und
 geprüft haben. Sofia deckt nur gleiche Massen ab und nur T* < 211; Li, Jing &
-Liao führen je Klasse eine Bahn, im Quadrat [0, 1]²; der Atlas führt für 1/1/5
+Liao führen je Klasse eine Bahn, bei 1/1/5 alle 35 im Quadrat 0 < a, b < 1
+(über alle sieben Massen alle bis auf 3 von 1349); der Atlas führt für 1/1/5
 nur deren 35 Bahnen (sein Feld `syz` ist keine Folge und taugt nicht zum
 Wortvergleich); die Listen mit Drehimpuls ≠ 0 sind eine andere Aufgabe; die
 Literatursuche vom 21.10.2026 fand keine neuere Liste dieser Art, die vom
