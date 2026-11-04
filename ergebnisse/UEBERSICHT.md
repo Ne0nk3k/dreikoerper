@@ -1,6 +1,6 @@
 # Übersicht der Suchläufe
 
-Erzeugt von `uebersicht.mjs` am 2026-10-21 aus den Berichten in diesem Ordner.
+Erzeugt von `uebersicht.mjs` am 2026-11-03 aus den Berichten in diesem Ordner.
 
 | Lauf | Ebene | Massen | Suche | Raster | Perioden | Bahnen | bestätigt | über Umkehrpunkt | sicher stabil | in einer Liste | in keiner Liste | davon auf 30 Stellen belegt |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -15,6 +15,10 @@ Erzeugt von `uebersicht.mjs` am 2026-10-21 aus den Berichten in diesem Ordner.
 | [euler-m3-4](euler-m3-4.md) | Euler-Ebene | 1 / 1 / 4 | Umkehrpunkte | 512² | bis 40 | 94 Orte, 93 Bahnen | 16 | 52 | 0 | 17 | 77 Orte, 76 Bahnen | 9 von 9 geprüften |
 | [euler-m3-4-v2gross](euler-m3-4-v2gross.md) | Euler-Ebene | 1 / 1 / 4 | Umkehrpunkte | 1024² | bis 40 | 931 Orte, 899 Bahnen | 73 | 616 | 2 | 5 | 926 Orte, 894 Bahnen | 13 von 13 geprüften |
 | [euler-m3-4-v1gross](euler-m3-4-v1gross.md) | Euler-Ebene | 1 / 1 / 4 | Umkehrpunkte | 1024² | bis 40 | 59 Orte, 58 Bahnen | 12 | 36 | 1 | 9 | 50 Orte, 49 Bahnen | 10 von 10 geprüften |
+| [euler-m3-2-v2gross](euler-m3-2-v2gross.md) | Euler-Ebene | 1 / 1 / 2 | Umkehrpunkte | 1024² | bis 40 | 663 Orte, 644 Bahnen | 44 | 468 | 1 | 6 | 657 Orte, 639 Bahnen | 0 von 0 geprüften |
+| [euler-m3-2-v1gross](euler-m3-2-v1gross.md) | Euler-Ebene | 1 / 1 / 2 | Umkehrpunkte | 1024² | bis 40 | 20 Orte, 19 Bahnen | 2 | 14 | 0 | 1 | 19 Orte, 18 Bahnen | 0 von 0 geprüften |
+| [euler-m3-5-v2gross](euler-m3-5-v2gross.md) | Euler-Ebene | 1 / 1 / 5 | Umkehrpunkte | 1024² | bis 40 | 743 Orte, 722 Bahnen | 59 | 496 | 2 | 0 | 743 Orte, 722 Bahnen | 27 von 27 geprüften |
+| [euler-m3-5-v1gross](euler-m3-5-v1gross.md) | Euler-Ebene | 1 / 1 / 5 | Umkehrpunkte | 1024² | bis 40 | 38 | 4 | 25 | 0 | 1 | 37 | 12 von 12 geprüften |
 
 **bestätigt**: der volle Umlauf schließt sich in doppelter Genauigkeit, mit zwei unabhängigen Verfahren (Rest unter 1e-10, Gegenprobe unter 1e-8).
 **über Umkehrpunkt**: nach der halben Periode steht die Bahn auf 1e-11 in einer Fixmenge der umkehrenden Symmetrien; der volle Umlauf ist für double zu empfindlich.

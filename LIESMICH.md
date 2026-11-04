@@ -498,13 +498,94 @@ double einen Index 2,06, bei 4,005 wieder 0,06):
 
 Das stabile Fenster um die Bahn reicht also etwa von **m₃ ≈ 3,74 bis 4,18**
 (Grenzen zwischen 3,725 und 3,75 und zwischen 4,175 und 4,1875). Bei
-m₃ = 4,11 erreicht ein Index −1,998: ein sehr schmaler instabiler Streifen
-dort ist mit diesen Stützstellen nicht ausgeschlossen. Wie schon bei den
+m₃ = 4,11 erreicht ein Index −1,998. Einen schmalen instabilen Streifen dort
+hielten wir bis 04.11.2026 für nicht ausgeschlossen; er ist es: die Bahn hat
+eine Halbperioden-Symmetrie (x(T/2) ist das Spiegelbild von x(0)), also ist
+die Monodromie ein Quadrat, M = N², und s = σ² − 2 bleibt ≥ −2, solange die
+beiden Indizes reell und verschieden sind (`halbperiode.mjs`, an 22 von 23
+Stützstellen bestätigt; bei I.A-5 selbst nur die Symmetrie, die Monodromie
+in double ist bei Begegnungen bis 6·10⁻⁵ zu grob). Wie schon bei den
 Funden liegt ein Index über lange Strecken fast genau bei 2 (m₃ 3,0 bis 3,8).
 
 *Lehre:* „In keiner Liste dieser Massen“ heißt nicht „unbekannte Familie“.
 Wer eine Familie neu nennen will, vergleicht Wörter über alle Massen und setzt
 die Bahn in der Masse fort (`werkzeug/familien-abgleich.mjs`).
+
+### Zwei Familien, deren Wort in keiner Liste steht — 21.10.2026, abends
+
+Felix' Ziel: eine Familie, die nirgends gelistet ist; effizient, über die
+blinden Flecken der Listen. **Lücken** (`werkzeug/luecken.mjs`): vom gebundenen
+Bereich hat niemand abgesucht bei 1/1/2 43 %, 1/1/5 83 %, 1/1/8 90 %,
+1/1/10 93 % — überall jenseits von v = 1. Abgesucht (`werkzeug/kette-luecken.sh`,
+je zwei Fenster wie bei 1/1/4, Raster 1024², T bis 40): 1/1/2 644 + 19 Bahnen,
+1/1/5 722 + 38.
+
+**Maßstab „nirgends gelistet“** (`werkzeug/familien-abgleich.mjs`): das
+massenfreie Wort (alle Vertauschungen der Körper, Drehung, Zeitumkehr) steht
+in keiner Liste bei keiner Masse — Li & Liao 2017, Li, Jing & Liao 2018 (alle
+sieben Massen), Šuvakov 2013, und die 441 956 Bahnen aus Sofia
+(`werkzeug/woerter-hristov.mjs`, 308 333 Wörter). Geeicht: 2047 von 2048
+Listenkennungen nachgerechnet, 1408 von 1408 schon als gelistet erkannten
+Funden finden ihr Wort in den Listen (am 21.10. waren es 1174 von 1174; seit
+04.11. zählen auch die Läufe `probe-*` und Funde ohne gespeicherte Folge).
+Unsere Schreibweise trifft 1346 der 1349 Wörter von Li, Jing & Liao Buchstabe
+für Buchstabe; zwei der drei übrigen stehen dort ungekürzt, in einem fehlt
+dort ein Buchstabe (`werkzeug/woerter-eichen.mjs`). Kein Fast-Vielfaches eines anderen
+Worts (`werkzeug/fast-vielfach.mjs`, direkter Test: 215 von 215 bekannten
+Satelliten liegen bei ≤ 4 abweichenden Buchstaben). **Freifall-Listen:** der
+Wortvergleich über die Ebenen taugt nicht (`werkzeug/fall-eichen.mjs`: auch
+nach T* gepaart nur 51 von 737 gleich — Freifall-Bahnen laufen hin und zurück);
+entscheidend ist statt dessen `werkzeug/stillstand.mjs`: in einer Freifall-Liste
+steht nur, was einmal ganz zur Ruhe kommt (Gegenprobe: drei Bahnen von
+Li & Liao 2019, kleinste Bewegungsenergie ≈ 10⁻¹²).
+
+Ergebnis: 7 Familien mit neuem Wort und einem auf 30 Stellen stabilen
+Mitglied; zwei davon deutlich stabil:
+
+**Familie B** (Kennung `1ckw2su4jtc`, freies Wort `ABABABAbabababaB`,
+16 Buchstaben). Bei 1/1/5:
+
+    a = 0.79623821011254661853007106578327
+    b = 1.77433055827060488061484304997624
+    T = 19.25669842976743050033657405267752     T* = 228,6626
+
+- Stabilitätsindizes 1,479156 / 1,439114 (30 Stellen, zweimal unabhängig:
+  `nachpruefen.mjs` und `bahn-pruefen.mjs`, Rückkehr 1,95·10⁻³⁰ bei 320 und
+  448 Bit).
+- **Stabil für m₃ von 4,21 bis 5,034** — auf 30 Stellen an 24 Stützstellen
+  dazwischen, instabil bei 4,10 – 4,205 (komplexes Paar) und ab 5,035
+  (s₁ = 2,0024). Bei m₃ ≈ 4,5468717648 berührt s₂ die −2 (Rand 1,9·10⁻²⁴ an der
+  nächsten Stützstelle, 4,0·10⁻¹⁶ in 4,8·10⁻⁹ Abstand, Krümmung 17,7), kreuzt
+  sie aber nicht: Halbperioden-Symmetrie, M = N², s = σ² − 2 (`halbperiode.mjs`,
+  an allen 32 Stützstellen bestätigt; 04.11.2026).
+- Fortsetzung (`werkzeug/massen-fortsetzung.mjs`) von m₃ = 3,95 bis 10, Kennung
+  unverändert, bei 4, 8 und 10 in keiner Liste; bei m₃ = 4 trifft sie unseren
+  Fund mit T* 182,169.
+- Engste Begegnung 0,013 bis 0,017 im stabilen Fenster, 0,009 bis 0,026 über
+  die ganze Fortsetzung — zehnmal weiter als bei der 1/1/4-Bahn.
+  Kleinste Bewegungsenergie 20 % von |E|: nie in Ruhe, also in keiner
+  Freifall-Liste möglich.
+
+**Familie A** (Kennung `oajqcvm5vn`, 66 Buchstaben). Bei 1/1/5:
+a = 0.82018322961567751340828569691800, b = 1.75101514196027976882260233210670,
+T = 78.23894907327765606161703540397501, T* = 945,393; Indizes 0,846590 /
+−0,694408 (Rand 1,15; zweimal unabhängig, Rückkehr 6,0·10⁻³⁰). Engste
+Begegnung bis 1,5·10⁻⁴, double hier unbrauchbar (Indizes um 0,13 daneben); das
+Stabilitätsfenster ist nicht bestimmt. Fortsetzung 4,42 bis 5,81.
+
+**Was „nirgends gelistet“ hier heißt:** in keiner Liste, die wir kennen und
+geprüft haben. Sofia deckt nur gleiche Massen ab und nur T* < 211; Li, Jing &
+Liao führen je Klasse eine Bahn, im Quadrat [0, 1]²; der Atlas führt für 1/1/5
+nur deren 35 Bahnen (sein Feld `syz` ist keine Folge und taugt nicht zum
+Wortvergleich); die Listen mit Drehimpuls ≠ 0 sind eine andere Aufgabe; die
+Literatursuche vom 21.10.2026 fand keine neuere Liste dieser Art, die vom
+04.11.2026 auch nicht. Die 135 445 Bahnen von Li, Li & Liao (2021) haben Massen
+zwischen 0,7 und 1,2, also keine bei 1 : 1 : 5.
+
+**Veröffentlicht** am 04.11.2026 als eigenes Repository
+`dreikoerper-familie-b` (github.com/Ne0nk3k/dreikoerper-familie-b), gebaut von `werkzeug/familie-b-bauen.mjs` (Daten auf
+30 Stellen entlang der Familie, Diagramm, Prüfskripte; jede Zahl im Text aus
+den Ergebnisdateien).
 
 ## Bedienen
 
@@ -529,6 +610,12 @@ node werkzeug/grauzone.mjs mein-lauf                  Funde knapp neben einer Li
 node werkzeug/stoerprobe-lauf.mjs mein-lauf           stabile Bahnen anstoßen und 20 Umläufe zusehen
 node werkzeug/atlas-pruefen.mjs                       Gegenprobe gegen den Atlas threebodyorbits.com
 node werkzeug/nacht-tabelle.mjs                       alle Läufe ungleicher Massen in einer Tabelle
+
+node halbperiode.mjs --m 1,1,5 --a … --b … --T …      Halbperioden-Symmetrie, M = N² (englisch, double, Sekunden)
+node werkzeug/halbperiode-familie.mjs fortsetzung-1-1-4   dasselbe an allen 30-Stellen-Punkten einer Fortsetzung
+node werkzeug/woerter-eichen.mjs                      unsere Wortschreibung gegen die 1349 Wörter von Li, Jing & Liao
+node werkzeug/familien-abgleich.mjs                   Familienspalte: Wort jeder Bahn gegen alle Listen aller Massen
+node werkzeug/familie-b-bauen.mjs [--doi …] [<ziel>]  das Repository der Familie B (Vorgabe ..\dreikoerper-familie-b)
 ```
 
 `--kandidaten` ist geeicht: von 325 Bahnen, die in double offen waren mit

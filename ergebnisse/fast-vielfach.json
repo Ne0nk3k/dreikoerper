@@ -1,0 +1,30 @@
+{
+ "erzeugt": "2026-11-03T23:28:15.086Z",
+ "schwelle": 4,
+ "eichung": {
+  "satelliten": 215,
+  "getroffen": 215
+ },
+ "bahnen": [
+  {
+   "lauf": "euler-m3-5-v2gross",
+   "T": 19.2567,
+   "wort": "ABABABAbabababaB",
+   "buchstaben": 16,
+   "k": 2,
+   "basis": "ABABABAb",
+   "abweichung": 8,
+   "ableger": false
+  },
+  {
+   "lauf": "euler-m3-5-v2gross",
+   "T": 78.2389,
+   "wort": "ABABABABAbabababaBABABABAbabababaBABABABABababababABABABABabababab",
+   "buchstaben": 66,
+   "k": 3,
+   "basis": "ABAbabABAbaBABabaBABab",
+   "abweichung": 22,
+   "ableger": false
+  }
+ ]
+}

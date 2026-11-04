@@ -48,7 +48,11 @@ Stability along the family, computed at 30 digits at 23 sample masses (`werkzeug
 | **3.75 – 4.175** | **stable at all 14 samples** (at m3 = 4: margin 1.94) |
 | 4.1875 – 4.25 | unstable |
 
-The stability window around the orbit thus extends from about m3 ≈ 3.74 to 4.18. At m3 = 4.11 one index reaches −1.998, so a very narrow unstable sliver there is not excluded by these samples. Upwards, the branch becomes strongly unstable and the continuation stops near m3 ≈ 5.14; at m3 = 5 it is not in the list.
+The stability window around the orbit thus extends from about m3 ≈ 3.74 to 4.18. Upwards, the branch becomes strongly unstable and the continuation stops near m3 ≈ 5.14; at m3 = 5 it is not in the list.
+
+At m3 = 4.11 one index reaches −1.998. Version 1.0.0 said that a very narrow unstable sliver there was not excluded. It is excluded: the orbit has a half-period symmetry. After half a period its state is the mirror image of the initial state, x(T/2) = g x(0), with g a reflection of the plane combined with a rotation. So x(t + T/2) = g x(t) for all t, and the monodromy matrix is a square, M = N² with N = g · DΦ(T/2). Each nontrivial index is then s = σ² − 2, where σ is the index of N. While the two indices are real and distinct, as here, s ≥ −2: an index can touch −2 but cannot pass below it.
+
+`halbperiode.mjs` checks this in double precision (results in `ergebnisse/halbperiode-fortsetzung-1-1-4.json`). It confirms M = N² at 22 of the 23 sample masses: |N² − M| / |M| is at most 6.5e-6, against at least 2.0 for the other readings (without g, or with the second-best g). At m3 = 2 the symmetry holds as well (to 3.9e-9), but the bodies come within 5.9e-5 of each other, and the double-precision monodromy is too rough to confirm the square.
 
 Check it yourself. No downloads are needed:
 
@@ -60,15 +64,29 @@ It integrates the digits above over one period at 320 and at 448 bits and prints
 
 **Searching further at these masses.** The bound region at 1 : 1 : 4 reaches |v| = 2.38. We also searched the part of it with a > 1 or b > 1, in two windows. That search found 913 distinct orbits outside the list, but no second clearly stable one. Five more orbits are stable only by a hair: one index lies between 1.3e-4 and 4.2e-15 below 2. They are in `fundbericht/stable.txt` as S~.
 
+## Family B: a stable family whose topology is in no list
+
+The searches with a > 1 or b > 1 at masses 1 : 1 : 5 found a family of orbits whose free-group word, `ABABABAbabababaB`, occurs in none of the published lists at any mass. Continued in m3, it is linearly stable from m3 = 4.21 to 5.034 (30-digit samples). At m3 = 5:
+
+```
+a = 0.79623821011254661853007106578327
+b = 1.77433055827060488061484304997624
+T = 19.25669842976743050033657405267752
+```
+
+It has its own repository, with the data along the family, the novelty checks and their limits: [github.com/Ne0nk3k/dreikoerper-familie-b](https://github.com/Ne0nk3k/dreikoerper-familie-b).
+
 ## What else is here
 
 | Path | What |
 |---|---|
-| `fundbericht/` | The data package: all 686 orbits the searches found outside the lists and verified to 30 digits, with initial conditions, words and stability. Its README explains the method and the caveats. |
+| `fundbericht/` | The data package: 721 orbits outside the lists that passed the 30-digit verification, with initial conditions, words, stability, and a column `family` that says whether the word is listed at any mass. Its README says which orbits of which runs are included, and explains the method and the caveats. |
 | `ergebnisse/` | The raw reports of every search run (JSON, Markdown, map images; German field names). |
 | `kern.js` | The double-precision core: Taylor integrator, monodromy, free-group words. The same file runs in Node and in the lab. |
 | `genau.mjs` | Fixed-point arithmetic on BigInt: Taylor order 40 to 52, 320 to 448 bits. |
 | `suche.mjs`, `nachpruefen.mjs` | The search, and the 30-digit verification of a run's finds. |
+| `bahn-pruefen.mjs`, `halbperiode.mjs` | Re-check a single orbit at 30 digits; check its half-period symmetry and whether its monodromy is a square. |
+| `werkzeug/` | Continuation in m3 (`massen-fortsetzung.mjs`, `fortsetzung-genau.mjs`), the family comparison over all masses (`familien-abgleich.mjs`), the satellite test (`fast-vielfach.mjs`), the word calibration (`woerter-eichen.mjs`), the symmetry check along a family (`halbperiode-familie.mjs`), and the builder of the family-B repository (`familie-b-bauen.mjs`). The data package itself is built by `fundbericht.mjs`. |
 | `pruef-*.mjs` | Test batteries: against analytic cases, against the published lists, and against the 100-digit data of Hristov et al. |
 | `vorlage.html`, `bauen.mjs` | An interactive lab, built as a single offline HTML file. |
 | `daten-holen.mjs`, `quelle/HERKUNFT.json` | Download of the published lists from their authors. |
@@ -117,7 +135,9 @@ Felix Habl had the idea and directed the work. The code, the computations and th
 The repository is archived on Zenodo:
 
 - **All versions:** [10.5281/zenodo.23536576](https://doi.org/10.5281/zenodo.23536576). This DOI always resolves to the latest version.
-- **Version 1.0.0:** [10.5281/zenodo.23536577](https://doi.org/10.5281/zenodo.23536577).
+- **Single versions:** each release has its own DOI, listed on that page. Version 1.0.0: [10.5281/zenodo.23536577](https://doi.org/10.5281/zenodo.23536577).
+
+**Changes in version 1.1.0:** the data package now holds 721 orbits (including the runs at 1 : 1 : 5) and a column `family`; a table of search windows replaces a paragraph that no longer matched the runs; the word calibration and the half-period symmetry above were added; family B was published separately.
 
 GitHub also offers a citation under "Cite this repository" on the right of the repository page. The data are in `CITATION.cff`.
 

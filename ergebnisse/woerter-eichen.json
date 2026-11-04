@@ -1,0 +1,48 @@
+{
+ "erzeugt": "2026-11-03T23:49:24.723Z",
+ "veroeffentlicht": 1349,
+ "verglichen": 1349,
+ "gleichBisAufDrehung": 1346,
+ "mitZeitumkehr": 0,
+ "mitTausch": 0,
+ "nicht": 3,
+ "daneben": [
+  "I.B-33 (2): Liste BAbababABABAbababABABAbababABABAbababABABAbababABABAbababABABAbababABABababaBABABababaBABABababaBABABabaaBABABababaBABABababaBABABababaBA, unser ABABAbababABABAbababABABAbababABABAbababABABAbababABABAbababABABababaBABABababaBABABababaBABABababaBABABababaBABABababaBABABababaBABAbabab",
+  "II.D-1 (2): Liste BbaA, unser ",
+  "II.D-2 (2): Liste BAbBababAaBA, unser "
+ ],
+ "einordnung": {
+  "gekuerzt-gleich": [
+   "II.D-1",
+   "II.D-2"
+  ],
+  "ein-buchstabe-fehlt-in-der-liste": [
+   "I.B-33"
+  ],
+  "ein-buchstabe-zuviel-in-der-liste": [],
+  "unerklaert": []
+ },
+ "je": [
+  {
+   "name": "I.B-33",
+   "m3": 2,
+   "liste": "BAbababABABAbababABABAbababABABAbababABABAbababABABAbababABABAbababABABababaBABABababaBABABababaBABABabaaBABABababaBABABababaBABABababaBA",
+   "unser": "ABABAbababABABAbababABABAbababABABAbababABABAbababABABAbababABABababaBABABababaBABABababaBABABababaBABABababaBABABababaBABABababaBABAbabab",
+   "art": "ein-buchstabe-fehlt-in-der-liste"
+  },
+  {
+   "name": "II.D-1",
+   "m3": 2,
+   "liste": "BbaA",
+   "unser": "",
+   "art": "gekuerzt-gleich"
+  },
+  {
+   "name": "II.D-2",
+   "m3": 2,
+   "liste": "BAbBababAaBA",
+   "unser": "",
+   "art": "gekuerzt-gleich"
+  }
+ ]
+}

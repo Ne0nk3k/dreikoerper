@@ -1,10 +1,10 @@
 # Funde außerhalb der Listen
 
-Erzeugt von `uebersicht.mjs` am 2026-10-21.
+Erzeugt von `uebersicht.mjs` am 2026-11-03.
 
 **Gleiche Massen: 489 periodische Bahnen**, die in keiner der geprüften Listen stehen und in erhöhter Genauigkeit belegt sind. Geprüft gegen Li und Liao 2017–2019, Šuvakov und Dmitrašinović 2013 und die Datenbanken von Hristov u. a. (441 985 Anfangswerte in der Euler-Ebene, 29 442 im freien Fall; `quelle/hristov/LIESMICH.md`).
 
-**Ungleiche Massen: 197 Bahnen**, belegt — aber hier gibt es als Vergleich nur Li und Liao (für 1/1/2: 237 Bahnen; für 1/1/0.5: 565 Bahnen; für 1/1/4: 85 Bahnen; für 1/1/0.75: 401 Bahnen), und die führen je Klasse eine einzige Bahn. Der Atlas threebodyorbits.com und die beiden großen Dateien von Li/Liao (135 445 Bahnen von 2021, 65 045 von 2022) kennen für diese Massen nichts anderes (`quelle/WEITERE-LISTEN.md`, geprüft am 02.10.2026). „In keiner Liste“ heißt bei ungleichen Massen deshalb wenig; diese Zahl gehört nicht in dieselbe Summe wie die obere. **Nachgerechnet ist nicht alles:** bei 1/1/2 jeder Fund außerhalb der Liste, bei den übrigen Gewichten nur die Kandidaten für Stabilität (in double stabil, oder offen mit beiden Indizes unter 30). Auf 30 Stellen belegt von den Bahnen außerhalb der Liste — 1/1/2: 156 von 156; 1/1/0,5: 17 von 1976; 1/1/0,75: 3 von 857; 1/1/4: 21 von 76; 1/1/4: 21 von 894; 1/1/4: 21 von 49. Die übrigen sind gefunden und in double geprüft und stehen nur in den Laufberichten.
+**Ungleiche Massen: 232 Bahnen**, belegt — aber hier gibt es als Vergleich nur Li und Liao (für 1/1/2: 237 Bahnen; für 1/1/0.5: 565 Bahnen; für 1/1/4: 85 Bahnen; für 1/1/5: 35 Bahnen; für 1/1/0.75: 401 Bahnen), und die führen je Klasse eine einzige Bahn. Der Atlas threebodyorbits.com und die beiden großen Dateien von Li/Liao (135 445 Bahnen von 2021, 65 045 von 2022) kennen für diese Massen nichts anderes (`quelle/WEITERE-LISTEN.md`, geprüft am 02.10.2026). „In keiner Liste“ heißt bei ungleichen Massen deshalb wenig; diese Zahl gehört nicht in dieselbe Summe wie die obere. **Nachgerechnet ist nicht alles:** bei 1/1/2 jeder Fund außerhalb der Liste, bei den übrigen Gewichten nur die Kandidaten für Stabilität (in double stabil, oder offen mit beiden Indizes unter 30). Auf 30 Stellen belegt von den Bahnen außerhalb der Liste — 1/1/2: 156 von 156; 1/1/0,5: 17 von 1976; 1/1/0,75: 3 von 857; 1/1/4: 21 von 76; 1/1/4: 21 von 894; 1/1/4: 21 von 49; 1/1/2: 156 von 639; 1/1/2: 156 von 18; 1/1/5: 35 von 722; 1/1/5: 35 von 37. Die übrigen sind gefunden und in double geprüft und stehen nur in den Laufberichten.
 
 Das ist keine Behauptung, sie seien neu. Verglichen wird der Ort in der Ebene (Schwelle 1e-6) und die skalierte Periode T* (acht Stellen).
 
@@ -12,7 +12,7 @@ Das ist keine Behauptung, sie seien neu. Verglichen wird der Ort in der Ebene (S
 
 Belegt heißt: Newton in 320-Bit-Festkomma bringt den Wiederkehrabstand unter 1e-30; eine zweite Rechnung mit 448 Bit und höherer Ordnung findet denselben Rest; die Korrektur gegenüber dem double-Wert liegt unter 1e-5.
 
-## Zuerst: stabil, um Haaresbreite stabil, oder ein Index exakt 2 (23)
+## Zuerst: stabil, um Haaresbreite stabil, oder ein Index exakt 2 (43)
 
 Die Bahnen außerhalb der Listen, die linear stabil sind oder bei denen es nicht entschieden ist. „Um Haaresbreite“: ein Index liegt weniger als 0,001 unter der Grenze 2. „Index exakt 2“: auf 26 Stellen — warum das so oft vorkommt, ist nicht geklärt (AUFGABEN, offen Punkt 6). Ein Satellit ist eine eigene Bahn, aber keine unerklärte: er läuft mehrmals fast den Weg der genannten Bahn.
 
@@ -41,6 +41,26 @@ Die Bahnen außerhalb der Listen, die linear stabil sind oder bei denen es nicht
 | Euler-Ebene | 1 / 1 / 4 | 0.9980882093181269 | 0.2742559786351288 | 51.02489462 | 923.39090 | Index exakt 2 (30 Stellen) | 2.000000 und 0.518556 | — | euler-m3-4 |
 | Euler-Ebene | 1 / 1 / 4 | 0.9726444333013057 | 0.9603543676764217 | 72.82270249 | 990.36657 | Index exakt 2 (30 Stellen) | 2.000000 und 0.812431 | — | euler-m3-4 |
 | Euler-Ebene | 1 / 1 / 4 | 0.9667235000657486 | 1.0203558579551021 | 91.86558479 | 1196.74983 | Index exakt 2 (30 Stellen) | 2.000000 und 1.781615 | — | euler-m3-4-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 0.7962382101125466 | 1.7743305582706048 | 19.25669843 | 228.66262 | stabil (30 Stellen) | 1.479156 und 1.439114 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1072414501795211 | 0.9923377223331286 | 20.32535503 | 409.56733 | stabil um Haaresbreite (30 Stellen) | 2.000000 und -1.980188 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0509805904557689 | 1.3179216106843695 | 21.01374972 | 349.99988 | stabil um Haaresbreite (30 Stellen) | 1.999927 und 0.404791 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 0.9044454620911723 | 1.0634557868544596 | 36.43871766 | 789.43558 | stabil (30 Stellen) | 1.908616 und -1.217365 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0678606608005651 | -1.244674765273272 | 41.76326331 | 729.90471 | stabil um Haaresbreite (30 Stellen) | 2.000000 und 1.849999 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0315288052830612 | 1.3869539165466359 | 42.19783880 | 670.00840 | stabil um Haaresbreite (30 Stellen) | 1.999996 und 0.711550 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 0.9567385592925486 | 1.0885873737214130 | 56.26030865 | 1169.33791 | stabil (30 Stellen) | 1.994987 und 1.880906 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 0.8598334101679613 | 1.7174031543111050 | 60.63819556 | 747.36566 | stabil (30 Stellen) | 1.946440 und 1.122093 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 0.9047242554753517 | 1.6415713250906934 | 61.30991364 | 808.43660 | stabil um Haaresbreite (30 Stellen) | 1.999539 und -1.555728 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 0.8201832296156775 | 1.7510151419602797 | 78.23894907 | 945.39342 | stabil (30 Stellen) | 0.846590 und -0.694408 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1358983463372995 | 0.4873648200275113 | 19.38031051 | 468.54946 | Index exakt 2 (30 Stellen) | 2.000000 und 0.236419 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1399680397526883 | 0.2312752241619375 | 38.28120012 | 966.43086 | Index exakt 2 (30 Stellen) | 2.000000 und 0.631984 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1307222374966781 | 0.6502746573827409 | 39.24347605 | 907.70637 | Index exakt 2 (30 Stellen) | 2.000000 und 1.485394 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1165175183528691 | 0.8925740725381106 | 40.19583161 | 848.72737 | Index exakt 2 (30 Stellen) | 2.000000 und -1.671047 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1192745897216289 | 0.8568221379233513 | 60.06015423 | 1287.86388 | Index exakt 2 (30 Stellen) | 2.000000 und -0.507140 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0939455858608552 | 1.1122045663297178 | 61.90366336 | 1169.34512 | Index exakt 2 (30 Stellen) | 2.000000 und 0.996261 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0729761650528768 | 1.2192260800396986 | 62.48775396 | 1109.78161 | Index exakt 2 (30 Stellen) | 2.000000 und 1.686404 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.1205920477770832 | 0.8383930295851283 | 79.92325181 | 1726.99465 | Index exakt 2 (30 Stellen) | 2.000000 und 0.921964 | — | euler-m3-5-v1gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0754259315922773 | 1.2062873250317129 | 83.20547548 | 1489.65167 | Index exakt 2 (30 Stellen) | 2.000000 und 0.060175 | — | euler-m3-5-v2gross |
+| Euler-Ebene | 1 / 1 / 5 | 1.0842727057164329 | 1.1329002214867232 | 102.89585428 | 1929.08220 | Index exakt 2 (30 Stellen) | 2.000000 und 1.245882 | — | euler-m3-5-v2gross |
 
 ## Freier Fall, Massen 1/1/1 (301)
 
@@ -556,6 +576,46 @@ Die Bahnen außerhalb der Listen, die linear stabil sind oder bei denen es nicht
 | 0.8468292886716816557354208159023 | 0.7080535814345258303353858818524 | 80.3137939730804965143189922605 | 1384.21805 | 1.1e-31 | instabil (genau) | 1.073 | 4.4e-4 | 120 | B3 | I.A-2, 5. Ordnung (T* × 4.99984) | — | euler-m3-4 |
 | 0.9469377902035552632976101175484 | 0.6085795185352241961142810562551 | 84.3966601867633577497647162410 | 1430.81306 | 1.2e-34 | stabil (genau) | 9.037 | 2.4e-5 | 124 | B3 | — | — | euler-m3-4-v1gross |
 | 0.9667235000657486977390375534394 | 1.0203558579551021289562404153153 | 91.8655847911152634998316228060 | 1196.74983 | 7.4e-32 | an der Grenze (genau) | 2.075 | 1.7e-4 | 104 | B3 | — | — | euler-m3-4-v1gross |
+
+## Euler-Ebene, Massen 1/1/5 (35)
+
+| v₁ | v₂ | T | T* | Rest | Stabilität | \|λ\| | engste Begegnung | Wortlänge | Umkehrpunkt | Satellit von | weitere Lage derselben Bahn | Lauf |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0.7962382101125466185300710657832 | 1.7743305582706048806148430499762 | 19.2566984297674305003365740526 | 228.66262 | 4.6e-37 | stabil (genau) | 1.000 | 0.01658 | 16 | B3 | — | — | euler-m3-5-v2gross |
+| 1.1358983463372995860400165357996 | 0.4873648200275113767509220541608 | 19.3803105137514685060890807972 | 468.54946 | 9.2e-31 | an der Grenze (genau) | 1.000 | 3.5e-4 | 32 | B3 | — | — | euler-m3-5-v1gross |
+| 1.1072414501795211144238495348849 | 0.9923377223331286060112141309580 | 20.3253550292048161163617353048 | 409.56733 | 1.6e-34 | stabil (genau) | 1.000 | 0.001718 | 28 | B3 | — | — | euler-m3-5-v1gross |
+| 1.0509805904557689729189770465483 | 1.3179216106843695682998721539695 | 21.0137497236434066115047754716 | 349.99988 | 7.5e-31 | stabil (genau) | 1.000 | 0.003884 | 24 | B3 | — | — | euler-m3-5-v2gross |
+| 0.8323669353443774119533180356771 | 1.3745528030085558885697075967836 | 35.4219207729587833661134084871 | 639.90642 | 1.0e-32 | instabil (genau) | 2.950 | 2.0e-4 | 44 | B3 | — | — | euler-m3-5-v2gross |
+| 0.9044454620911723317607422098376 | 1.0634557868544596508969169872651 | 36.4387176604009742283104340501 | 789.43558 | 5.9e-33 | stabil (genau) | 1.000 | 0.001165 | 54 | A3 | — | — | euler-m3-5-v2gross |
+| 1.1399680397526883736712641100261 | 0.2312752241619375947956270937929 | 38.2812001192473376136043335844 | 966.43086 | 9.1e-35 | an der Grenze (genau) | 2.648 | 1.9e-5 | 66 | A3 | — | — | euler-m3-5-v1gross |
+| 1.1307222374966781161516294610271 | 0.6502746573827409192849843523838 | 39.2434760511957237701339411798 | 907.70637 | 3.6e-31 | an der Grenze (genau) | 1.136 | 1.6e-4 | 62 | B3 | — | — | euler-m3-5-v1gross |
+| 1.1165175183528691671553144703640 | 0.8925740725381106063813163202826 | 40.1958316102862070103188689415 | 848.72737 | 6.8e-33 | an der Grenze (genau) | 1.059 | 3.3e-4 | 58 | A3 | — | — | euler-m3-5-v2gross |
+| 1.0966572208282811397686408176772 | 1.0832162354132637219393843948106 | 41.0895225020338835752719641237 | 789.46883 | 2.0e-32 | instabil (genau) | 1.030 | 5.4e-4 | 54 | A3 | — | — | euler-m3-5-v2gross |
+| 1.0678606608005651929671078722148 | -1.244674765273272907597240218431 | 41.7632633127481115973258252432 | 729.90471 | 1.6e-31 | stabil (genau) | 1.000 | 8.1e-4 | 50 | C | — | — | euler-m3-5-v1gross |
+| 1.0315288052830612471872544015492 | 1.3869539165466359019993927643416 | 42.1978388036087818346613805263 | 670.00840 | 3.6e-32 | stabil (genau) | 1.007 | 0.001171 | 46 | C | — | — | euler-m3-5-v2gross |
+| 0.9923104228325451003868629148266 | 1.5197751162572354756785214289091 | 42.6794931137654755208521528755 | 609.75281 | 9.9e-33 | instabil (genau) | 1.000 | 0.001751 | 42 | C | — | — | euler-m3-5-v2gross |
+| 1.3458158350020824785590654103051 | 1.1844988623012066993351034401013 | 53.7138354940686732599725471471 | 789.43664 | 2.0e-34 | instabil (genau) | 2.083 | 2.0e-5 | 54 | C | — | — | euler-m3-5-v2gross |
+| 0.9567385592925486283446234119340 | 1.0885873737214130140894470210306 | 56.2603086534037197869996141455 | 1169.33791 | 2.5e-31 | stabil (genau) | 1.076 | 4.7e-4 | 80 | B3 | — | — | euler-m3-5-v2gross |
+| 1.1192745897216289009475331100652 | 0.8568221379233513021298100886231 | 60.0601542310161358224074214013 | 1287.86388 | 1.9e-32 | an der Grenze (genau) | 1.000 | 1.3e-4 | 88 | B3 | — | — | euler-m3-5-v1gross |
+| 0.8598334101679613369577341665632 | 1.7174031543111050684730263079702 | 60.6381955625335311807928186749 | 747.36566 | 8.6e-31 | stabil (genau) | 1.000 | 0.001315 | 52 | B3 | — | — | euler-m3-5-v2gross |
+| 0.9047242554753517074412099073628 | 1.6415713250906934012632279992060 | 61.3099136440284724575978778209 | 808.43660 | 1.4e-34 | stabil (genau) | 1.000 | 0.001009 | 56 | B3 | — | — | euler-m3-5-v2gross |
+| 1.0939455858608552561700068383329 | 1.1122045663297178340411105143797 | 61.9036633619989361259263950507 | 1169.34512 | 2.4e-32 | an der Grenze (genau) | 1.257 | 2.6e-4 | 80 | B3 | — | — | euler-m3-5-v2gross |
+| 1.0729761650528768561998072233042 | 1.2192260800396986015482031463635 | 62.4877539602254711389264741966 | 1109.78161 | 4.7e-32 | an der Grenze (genau) | 1.278 | 3.4e-4 | 76 | B3 | — | — | euler-m3-5-v2gross |
+| 1.0257198352216026751197010589486 | 1.4097676552638507359062323732693 | 63.4408425530561074782404405677 | 989.98722 | 1.6e-31 | instabil (genau) | 1.069 | 5.5e-4 | 68 | B3 | — | — | euler-m3-5-v2gross |
+| 0.9978824568236445513192127269390 | 1.4970990297982418395338095274936 | 63.7682174234897755677372872430 | 929.73222 | 4.0e-33 | instabil (genau) | 1.035 | 7.2e-4 | 64 | B3 | — | — | euler-m3-5-v2gross |
+| 1.4265710868562167257385443942298 | 0.1765536219915220673996794154777 | 69.7871199522806855904368306747 | 1464.24471 | 1.5e-34 | instabil (genau) | 3.066 | 1.9e-5 | 100 | B3 | — | — | euler-m3-5-v1gross |
+| 1.2412239416868512643304818179189 | 1.1651395150613682710476875807009 | 71.5080194217426435545631638929 | 1169.33852 | 1.4e-34 | instabil (genau) | 2.977 | 6.9e-5 | 80 | B3 | — | — | euler-m3-5-v2gross |
+| 0.8754523431037354787473052930070 | 1.1808103358908121621443256081433 | 72.8852451244819369009074194797 | 1489.54804 | 5.6e-35 | instabil (genau) | 2.055 | 6.7e-5 | 102 | C | — | — | euler-m3-5-v2gross |
+| 0.8201832296156775134082856969180 | 1.7510151419602797688226023321067 | 78.2389490732776560616170354039 | 945.39342 | 8.5e-31 | stabil (genau) | 1.000 | 9.6e-4 | 66 | C | — | — | euler-m3-5-v2gross |
+| 1.0427866287936023525853155413641 | 1.1144860178871073987408469046465 | 79.5460513940712227848372863033 | 1549.21478 | 5.5e-32 | instabil (genau) | 2.024 | 1.9e-4 | 106 | C | — | — | euler-m3-5-v2gross |
+| 1.1205920477770832193829257469705 | 0.8383930295851283129626566309195 | 79.9232518081220761545097491905 | 1726.99465 | 1.8e-32 | an der Grenze (genau) | 2.584 | 7.1e-5 | 118 | C | — | — | euler-m3-5-v1gross |
+| 1.4327184516853954674857625422092 | 0.9516691191404309155542991651609 | 80.3216710882394969549406100366 | 1287.78803 | 7.2e-31 | instabil (genau) | 8.345 | 9.4e-5 | 88 | B3 | — | — | euler-m3-5-v1gross |
+| 0.8654418906387881126604175270398 | 1.7059996101360512486228735437483 | 80.7436847078741754792589801259 | 1006.68850 | 4.3e-33 | instabil (genau) | 1.000 | 7.0e-4 | 70 | C | — | — | euler-m3-5-v2gross |
+| 0.8991994427796220329345902826736 | -1.651017545799461953686259015339 | 81.6245408205487081187911931570 | 1067.75868 | 1.4e-33 | instabil (genau) | 1.350 | 5.7e-4 | 74 | C | — | — | euler-m3-5-v1gross |
+| 1.0754259315922773577031500658280 | 1.2062873250317129786806092422395 | 83.2054754786819249315663187733 | 1489.65167 | 1.4e-32 | an der Grenze (genau) | 1.000 | 1.8e-4 | 102 | C | — | — | euler-m3-5-v2gross |
+| 0.9943027812896302297883809924280 | 1.5626447236618436331808205184901 | 87.4526062353371445418340753443 | 1189.26035 | 1.9e-32 | instabil (genau) | 1.000 | 5.3e-4 | 82 | C | — | — | euler-m3-5-v1gross |
+| 0.8957849722424211522304586603413 | 1.6567280220016178693570612351802 | 101.939688253201566714098360813 | 1327.07714 | 5.0e-33 | instabil (genau) | 3.025 | 3.6e-4 | 92 | B3 | — | — | euler-m3-5-v2gross |
+| 1.0842727057164329513375735882162 | 1.1329002214867232851243301739194 | 102.895854279642796755943633673 | 1929.08220 | 7.1e-36 | an der Grenze (genau) | 2.421 | 1.0e-4 | 132 | B3 | — | — | euler-m3-5-v2gross |
 
 ## Euler-Ebene, Massen 1/1/1 (188)
 

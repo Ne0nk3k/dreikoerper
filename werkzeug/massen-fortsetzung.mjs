@@ -24,10 +24,14 @@ import { join } from "node:path";
 import { HIER, ladeKern, ladeKatalog, gleicheAb, ladeGross } from "../quellen.mjs";
 
 const K = ladeKern(), pruefe = K.macheFundpruefer(), KAT = ladeKatalog();
-const AUS = join(HIER, "ergebnisse", "fortsetzung-1-1-4.json");
-const START = { m3: 4, a: 0.80329455331149897894751545304123, b: 1.43593335078306727053457398659518, T: 53.25485430443248007068935995289679 };
+// Andere Bahnen (seit 21.10.2026, für die Kandidaten der Lückensuche):
+//   node werkzeug/massen-fortsetzung.mjs --start m3,a,b,T --name fortsetzung-1-1-5-b
+const argv = process.argv.slice(2), arg = n => (argv.includes(n) ? argv[argv.indexOf(n) + 1] : null);
+const AUS = join(HIER, "ergebnisse", (arg("--name") || "fortsetzung-1-1-4") + ".json");
+const START = arg("--start") ? (([m3, a, b, T]) => ({ m3: +m3, a: +a, b: +b, T: +T }))(arg("--start").split(","))
+  : { m3: 4, a: 0.80329455331149897894751545304123, b: 1.43593335078306727053457398659518, T: 53.25485430443248007068935995289679 };
 const GRENZEN = [0.5, 10], H0 = 0.01, HMIN = 1e-4, HMAX = 0.05, SCHRITTE_MAX = 4000;
-const LISTENMASSEN = [0.5, 0.75, 1, 2, 5, 8, 10];
+const LISTENMASSEN = [0.5, 0.75, 1, 2, 4, 5, 8, 10].filter(x => x !== START.m3);
 
 const bericht = { start: START, kalibrierung: {}, richtungen: {}, listen: [], grenzen: [], ereignisse: [] };
 const sichern = () => writeFileSync(AUS, JSON.stringify(bericht, null, 1));
@@ -42,15 +46,26 @@ function punkt(m3, a, b, T) {
 const stabilNach = q => q.stabil === true ? "stabil" : q.stabil === false ? "instabil" : "offen";
 
 /* ── 1 · Eichung ── */
-const p0 = punkt(4, START.a, START.b, START.T);
+const p0 = punkt(START.m3, START.a, START.b, START.T);
 if (!p0) throw new Error("Startpunkt nimmt Newton nicht an");
 bericht.kalibrierung.start = { da: p0.a - START.a, db: p0.b - START.b, dT: p0.T - START.T, s1: p0.s1, s2: p0.s2, sek: p0.sek };
-console.log(`Eichung m3=4: Δa ${p0.a - START.a}, Δb ${p0.b - START.b}, ΔT ${p0.T - START.T}, s ${p0.s1.toFixed(6)} / ${p0.s2.toFixed(6)}, ${p0.sek.toFixed(1)} s je Punkt`);
+console.log(`Eichung m3=${START.m3}: Δa ${p0.a - START.a}, Δb ${p0.b - START.b}, ΔT ${p0.T - START.T}, s ${p0.s1.toFixed(6)} / ${p0.s2.toFixed(6)}, ${p0.sek.toFixed(1)} s je Punkt`);
 {
   let q = p0;
-  for (const m3 of [4.02, 4.04, 4.06, 4.08, 4.1, 4.08, 4.06, 4.04, 4.02, 4]) { const r = punkt(m3, q.a, q.b, q.T); if (!r) { q = null; break; } q = r; }
+  // Hin und zurück in kleinen Schritten mit linearer Vorhersage (die erste
+  // Fassung ging ohne Vorhersage in 0,02-Schritten und brach dabei ab).
+  const wege = [], M = START.m3;
+  for (let k = 1; k <= 10; k++) wege.push(M + 0.01 * k);
+  for (let k = 9; k >= 0; k--) wege.push(M + 0.01 * k);
+  let v = null;
+  for (const m3 of wege) {
+    const f = v ? (m3 - q.m3) / (q.m3 - v.m3) : 0;
+    const r = punkt(m3, q.a + f * (q.a - (v ? v.a : q.a)), q.b + f * (q.b - (v ? v.b : q.b)), q.T + f * (q.T - (v ? v.T : q.T)));
+    if (!r) { q = null; break; }
+    v = q; q = r;
+  }
   bericht.kalibrierung.hinUndZurueck = q ? { da: q.a - p0.a, db: q.b - p0.b, dT: q.T - p0.T } : "abgebrochen";
-  console.log("hin und zurück 4 → 4,1 → 4:", JSON.stringify(bericht.kalibrierung.hinUndZurueck));
+  console.log(`hin und zurück ${M} → ${M + 0.1} → ${M}:`, JSON.stringify(bericht.kalibrierung.hinUndZurueck));
 }
 sichern();
 
@@ -74,7 +89,7 @@ function abgleich(q) {
 for (const richtung of [-1, 1]) {
   const pts = [p0];
   let h = H0, grund = "Grenze des Bereichs erreicht", schritte = 0;
-  const listenOffen = LISTENMASSEN.filter(x => (richtung < 0 ? x < 4 : x > 4)).sort((x, y) => richtung * (x - y));
+  const listenOffen = LISTENMASSEN.filter(x => (richtung < 0 ? x < START.m3 : x > START.m3)).sort((x, y) => richtung * (x - y));
   while (schritte++ < SCHRITTE_MAX) {
     const l = pts[pts.length - 1], v = pts.length > 1 ? pts[pts.length - 2] : null;
     let m3 = l.m3 + richtung * h;

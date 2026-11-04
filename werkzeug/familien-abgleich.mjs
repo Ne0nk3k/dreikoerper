@@ -78,9 +78,21 @@ for (const n of readdirSync(join(HIER, "ergebnisse")).filter(n => /-genau\.json$
   for (const r of G.geprueft || []) if (r.stabilGenau) genauUrteil.set(G.lauf + ":" + r.i, { urteil: r.stabilGenau.urteil, rand: r.stabilGenau.rand, belegt: r.urteil });
     else if (r.urteil) genauUrteil.set(G.lauf + ":" + r.i, { urteil: null, belegt: r.urteil });
 }
-const laeufe = readdirSync(join(HIER, "ergebnisse")).filter(n => /^euler-.*\.json$/.test(n) && !/genau|grauzone/.test(n));
+// Jeder Lauf der Euler-Ebene, gleich wie er heißt (die erste Fassung nahm nur
+// euler-*.json und übersah probe-halb-256, dessen Bahnen im Fundbericht stehen)
+const istLauf = (n, ebene) => { if (!/\.json$/.test(n) || /genau|grauzone|fortsetzung|familien|woerter|vielfach|funde|katalogabgleich/.test(n)) return false;
+  try { const B = JSON.parse(readFileSync(join(HIER, "ergebnisse", n), "utf8")); return !!(B.parameter && B.funde && B.parameter.ebene === ebene); } catch { return false; } };
+const laeufe = readdirSync(join(HIER, "ergebnisse")).filter(n => istLauf(n, "euler"));
+const u0e = new Float64Array(12);
+// Fehlt die gespeicherte Folge, wird sie aus den Anfangswerten gerechnet (wie im Fundprüfer)
+const folgeVon = (f, m) => { if (f.folge) return zahlen(f.folge); K.EBENEN.euler.anfang(f.a, f.b, m, u0e); const dg = K.durchgaenge(u0e, m, f.T, 1e-11); return dg.folge && dg.folge.length ? K.kuerzeFolge(dg.folge, dg.richtung).folge : null; };
 const familien = new Map();                          // massenfreie Kennung → Mitglieder (Funde außerhalb der Listen mit neuem Wort)
 const eichListe = { n: 0, treffer: 0, daneben: [] };
+// Ergebnis je Bahn, für den Fundbericht (seit 04.11.2026). Schlüssel über
+// Ebene, Massen, Kennung und T* — so findet fundbericht.mjs die Bahn aus
+// ergebnisse/funde.json wieder, ohne selbst zu rechnen.
+const jeBahn = {};
+const bahnSchluessel = (ebene, m, kennung, Ts) => `${ebene}|${m.join("/")}|${kennung}|${(+Ts).toFixed(5)}`;
 const zaehl = {};
 let geeichtF = 0, mitFolge = 0;
 for (const n of laeufe) {
@@ -97,17 +109,19 @@ for (const n of laeufe) {
       if (f.folge) { const mf = massenfrei(zahlen(f.folge)); eichListe.n++; if (ref.has(mf) || (hristov && hristov.woerter[K.streu(mf)])) eichListe.treffer++; else if (eichListe.daneben.length < 5) eichListe.daneben.push(lauf + ":" + i); }
       return;
     }
-    if (!f.folge) { z.ohneFolge++; return; }
-    const folge = zahlen(f.folge);
+    const folge = folgeVon(f, m);
+    if (!folge) { z.ohneFolge++; return; }
+    if (!f.folge) z.folgeNachgerechnet = (z.folgeNachgerechnet || 0) + 1;
     mitFolge++;
     if (K.streu(K.kennung(folge, m)) === f.kennung) geeichtF++;
-    const mf = massenfrei(folge);
-    if (ref.has(mf)) { z.wortGelistet++; return; }
-    if (hristov && hristov.woerter[K.streu(mf)]) { z.wortSofia++; return; }
+    const mf = massenfrei(folge), schluessel = bahnSchluessel("euler", m, f.kennung, f.Ts);
+    if (ref.has(mf)) { z.wortGelistet++; const e = ref.get(mf).find(x => x.m[2] !== m[2]) || ref.get(mf)[0]; jeBahn[schluessel] = { familie: "listed", name: e.name, m: e.m.join("/") }; return; }
+    if (hristov && hristov.woerter[K.streu(mf)]) { z.wortSofia++; jeBahn[schluessel] = { familie: "hristov" }; return; }
     const v = vielfachesVon(K.kuerzeFolge(folge).folge);
-    if (v) { z.vielfaches++; return; }
-    if (f.satellit) { z.satellitImLauf++; return; }
+    if (v) { z.vielfaches++; jeBahn[schluessel] = { familie: "multiple", k: v.k, name: v.liste.name, m: v.liste.m.join("/") }; return; }
+    if (f.satellit) { z.satellitImLauf++; jeBahn[schluessel] = { familie: "satellite" }; return; }
     z.neuesWort++;
+    jeBahn[schluessel] = { familie: "new", kennung: K.streu(mf) };
     const g = genauUrteil.get(lauf + ":" + i);
     if (!familien.has(mf)) familien.set(mf, []);
     familien.get(mf).push({ lauf, i, m3: m[2], a: f.a, b: f.b, T: f.T, Ts: f.Ts, laenge: folge.length, lambda: f.lambda, rMin: f.rMin,
@@ -116,6 +130,36 @@ for (const n of laeufe) {
 }
 console.log(`Eichung der Funde: ${geeichtF} von ${mitFolge} gespeicherten Folgen geben die gespeicherte Kennung`);
 console.log(`Eichung der Wortlisten: ${eichListe.treffer} von ${eichListe.n} schon als gelistet erkannten Funden finden ihr Wort in den Listen${eichListe.daneben.length ? " (daneben z. B. " + eichListe.daneben.join(", ") + ")" : ""}`);
+
+/* ── 2b · freier Fall, in seiner eigenen Ebene ── */
+// Ein Wortvergleich ÜBER die Ebenen taugt nicht (werkzeug/fall-eichen.mjs: 51
+// von 737). Innerhalb der Freifall-Ebene schon, wenn beide Seiten gleich
+// gerechnet sind: volle Periode, zyklisches Wort, alle Vertauschungen — so
+// rechnet werkzeug/woerter-fall.mjs die Listen (Sofia 29 442, Li & Liao 2019
+// 316). Eichung: die schon als gelistet erkannten Freifall-Funde müssen ihr
+// Wort dort finden; sonst wird für den freien Fall nichts behauptet.
+const WF = join(HIER, "woerter-fall.json");
+const fallWoerter = existsSync(WF) ? JSON.parse(readFileSync(WF, "utf8")).woerter : null;
+const eichFall = { n: 0, treffer: 0 }, zaehlFall = {};
+if (fallWoerter) {
+  const u0 = new Float64Array(12);
+  for (const n of readdirSync(join(HIER, "ergebnisse")).filter(n => istLauf(n, "fall"))) {
+    const B = JSON.parse(readFileSync(join(HIER, "ergebnisse", n), "utf8")), lauf = n.replace(/\.json$/, ""), m = B.parameter.m;
+    const z = zaehlFall[lauf] = { funde: B.funde.length, bekannt: 0, wortGelistet: 0, neuesWort: 0, ohneFolge: 0 };
+    for (const f of B.funde) {
+      K.EBENEN.fall.anfang(f.a, f.b, m, u0);
+      const dg = K.durchgaenge(u0, m, f.T, 1e-11);
+      if (!dg.folge || !dg.folge.length) { z.ohneFolge++; continue; }
+      const w = K.streu(K.kennung(dg.folge, null));
+      if (f.bekannt) { z.bekannt++; eichFall.n++; if (fallWoerter[w]) eichFall.treffer++; continue; }
+      const schluessel = bahnSchluessel("fall", m, f.kennung, f.Ts);
+      if (fallWoerter[w]) { z.wortGelistet++; jeBahn[schluessel] = { familie: "listed-freefall" }; }
+      else { z.neuesWort++; jeBahn[schluessel] = { familie: "new", kennung: "f" + w }; }
+    }
+  }
+  console.log(`Freier Fall: Eichung ${eichFall.treffer} von ${eichFall.n} schon als gelistet erkannten Funden finden ihr Wort in den Freifall-Listen`);
+  for (const [l, z] of Object.entries(zaehlFall)) console.log(`  ${l.padEnd(22)} ${String(z.funde).padStart(5)} Funde: bekannt ${z.bekannt}, Wort in einer Freifall-Liste ${z.wortGelistet}, NEUES WORT ${z.neuesWort}, ohne Folge ${z.ohneFolge}`);
+}
 
 /* ── 3 · Bericht ── */
 const liste = [...familien.entries()].map(([mf, mitglieder]) => {
@@ -129,8 +173,11 @@ const liste = [...familien.entries()].map(([mf, mitglieder]) => {
 }).sort((x, y) => (y.stabil30 - x.stabil30) || (y.stabilDouble - x.stabilDouble) || (x.minLambda - y.minLambda));
 const aus = { erzeugt: new Date().toISOString(), referenz: { bahnen: gerechnet, eichung: geeicht, woerter: ref.size,
   sofia: hristov ? { bahnen: hristov.gerechnet, woerter: Object.keys(hristov.woerter).length } : "nicht abgeglichen" },
-  eichungFunde: { mitFolge, treffen: geeichtF }, laeufe: zaehl, familien: liste };
+  eichungFunde: { mitFolge, treffen: geeichtF }, eichungWortlisten: { gelisteteFunde: eichListe.n, findenIhrWort: eichListe.treffer },
+  freierFall: fallWoerter ? { eichung: eichFall, laeufe: zaehlFall } : "nicht abgeglichen",
+  laeufe: zaehl, familien: liste };
 writeFileSync(join(HIER, "ergebnisse", "familien-abgleich.json"), JSON.stringify(aus, null, 1));
+writeFileSync(join(HIER, "ergebnisse", "familien-je-bahn.json"), JSON.stringify({ erzeugt: aus.erzeugt, schluessel: "ebene|m1/m2/m3|kennung|T* auf 5 Stellen", bahnen: jeBahn }));
 for (const [l, z] of Object.entries(zaehl)) console.log(`  ${l.padEnd(22)} ${String(z.funde).padStart(5)} Funde: bekannt ${z.bekannt}, Wort gelistet ${z.wortGelistet}, Wort in Sofia ${z.wortSofia}, Vielfaches ${z.vielfaches}, Satellit (Lauf) ${z.satellitImLauf}, NEUES WORT ${z.neuesWort}, ohne Folge ${z.ohneFolge}`);
 console.log(`Familien mit einem Wort in keiner Liste: ${liste.length}; davon mit einem auf 30 Stellen stabilen Mitglied: ${liste.filter(x => x.stabil30).length}, mit einem in double stabilen: ${liste.filter(x => x.stabilDouble).length}`);
 console.log(`(${((Date.now() - t0) / 1000).toFixed(0)} s)`);

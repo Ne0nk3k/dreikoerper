@@ -24,13 +24,17 @@ import { verfeinereGenau, stabilitaetGenau } from "../genau.mjs";
 // Niedrigste Priorität wie im Schwarm — die erste Fassung vergaß das, ihre
 // sechs Rechenprozesse liefen am 21.10.2026 in normaler Priorität.
 try { setPriority(constants.priority.PRIORITY_LOW); } catch { /* ohne Recht bleibt es bei sechs Prozessen */ }
-const AUS = join(HIER, "ergebnisse", "fortsetzung-1-1-4-genau.json");
-const argv = process.argv.slice(2);
+// --name <fortsetzung> wählt die Fortsetzung (Vorgabe fortsetzung-1-1-4), seit
+// es mehrere gibt (21.10.2026, Kandidatinnen der Lückensuche).
+const argvAlle = process.argv.slice(2), nIdx = argvAlle.indexOf("--name");
+const NAME = nIdx >= 0 ? argvAlle[nIdx + 1] : "fortsetzung-1-1-4";
+const argv = nIdx >= 0 ? argvAlle.filter((_, i) => i !== nIdx && i !== nIdx + 1) : argvAlle;
+const AUS = join(HIER, "ergebnisse", NAME + "-genau.json");
 
 if (argv[0] === "--punkt") {
   const m3 = +argv[1], K = ladeKern(), pruefe = K.macheFundpruefer();
-  const R = JSON.parse(readFileSync(join(HIER, "ergebnisse", "fortsetzung-1-1-4.json"), "utf8"));
-  const pts = [...R.richtungen.abwaerts.punkte, { m3: 4, a: R.start.a, b: R.start.b, T: R.start.T }, ...R.richtungen.aufwaerts.punkte].sort((x, y) => x.m3 - y.m3);
+  const R = JSON.parse(readFileSync(join(HIER, "ergebnisse", NAME + ".json"), "utf8"));
+  const pts = [...R.richtungen.abwaerts.punkte, { m3: R.start.m3 ?? 4, a: R.start.a, b: R.start.b, T: R.start.T }, ...R.richtungen.aufwaerts.punkte].sort((x, y) => x.m3 - y.m3);
   let i = pts.findIndex(p => p.m3 >= m3); if (i <= 0) i = 1; if (i < 0) i = pts.length - 1;
   const p = pts[i - 1], q = pts[i], f = (m3 - p.m3) / (q.m3 - p.m3 || 1);
   const t0 = Date.now(), d = pruefe("euler", [1, 1, m3], p.a + f * (q.a - p.a), p.b + f * (q.b - p.b), p.T + f * (q.T - p.T), { ohneStabil: true });
@@ -61,7 +65,7 @@ function starte() {
   if (naechster >= offen.length) return Promise.resolve();
   const m3 = offen[naechster++];
   return new Promise(fertigP => {
-    const c = spawn(process.execPath, [selbst, "--punkt", String(m3)], { stdio: ["ignore", "pipe", "inherit"] });
+    const c = spawn(process.execPath, [selbst, "--punkt", String(m3), "--name", NAME], { stdio: ["ignore", "pipe", "inherit"] });
     let s = ""; c.stdout.on("data", d => (s += d));
     c.on("close", () => {
       let e; try { e = JSON.parse(s.trim().split("\n").pop()); } catch { e = { m3, ok: false, grund: "keine Ausgabe" }; }

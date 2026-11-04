@@ -1,0 +1,66 @@
+{
+ "erzeugt": "2026-11-04T00:19:47.966Z",
+ "fortsetzung": "fortsetzung-1-1-5-a",
+ "punkte": 4,
+ "bestaetigt": 4,
+ "nurSymmetrie": 0,
+ "keine": 0,
+ "je": [
+  {
+   "m3": 4.9,
+   "code": 0,
+   "d": 1.1e-9,
+   "dAnders": 1.83,
+   "quadrat": 0.000131,
+   "ohneG": 19.8,
+   "anderesG": 30,
+   "tausch": true,
+   "rMin": 0.000848,
+   "urteil30": "stabil",
+   "s1": 1.6689009673788566,
+   "s2": -1.931688555848764
+  },
+  {
+   "m3": 4.95,
+   "code": 0,
+   "d": 1.47e-9,
+   "dAnders": 1.81,
+   "quadrat": 0.000159,
+   "ohneG": 15.9,
+   "anderesG": 23.8,
+   "tausch": true,
+   "rMin": 0.000884,
+   "urteil30": "stabil",
+   "s1": 1.4328479567308607,
+   "s2": -1.6869547492755155
+  },
+  {
+   "m3": 5.05,
+   "code": 0,
+   "d": 1.29e-10,
+   "dAnders": 1.76,
+   "quadrat": 0.0000413,
+   "ohneG": 4.24,
+   "anderesG": 5.82,
+   "tausch": true,
+   "rMin": 0.00112,
+   "urteil30": "stabil",
+   "s1": 0.2104598230790919,
+   "s2": -0.634303288981432
+  },
+  {
+   "m3": 5.1,
+   "code": 0,
+   "d": 2.69e-10,
+   "dAnders": 1.73,
+   "quadrat": 0.0000472,
+   "ohneG": 9.21,
+   "anderesG": 23.3,
+   "tausch": true,
+   "rMin": 0.00132,
+   "urteil30": "stabil",
+   "s1": 1.3744537221565702,
+   "s2": -1.7515500746954873
+  }
+ ]
+}

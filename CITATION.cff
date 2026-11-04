@@ -6,7 +6,7 @@ authors:
   - family-names: Habl
     given-names: Felix
 repository-code: "https://github.com/Ne0nk3k/dreikoerper"
-version: "1.0.0"
+version: "1.1.0"
 doi: "10.5281/zenodo.23536576"
 identifiers:
   - type: doi
@@ -18,7 +18,7 @@ identifiers:
 license:
   - MIT
   - CC-BY-4.0
-date-released: "2026-10-21"
+date-released: "2026-11-04"
 keywords:
   - three-body problem
   - periodic orbits
@@ -32,7 +32,8 @@ abstract: >-
   a linearly stable orbit at masses 1 : 1 : 4 (T = 53.2548543044, stability
   indices 0.0501 and -0.0599); it is the continuation in m3 of the orbit
   I.A-5 listed at masses 1 : 1 : 2, stable for m3 from about 3.74 to 4.18.
-  Includes the search engine, the
-  30-digit verification and test batteries against published
-  high-precision data. Code and computations were written with Claude,
-  an AI model by Anthropic.
+  The data package holds 721 orbits outside the lists, each with a column
+  that says whether its topology is listed at any mass. Includes the
+  search engine, the 30-digit verification and test batteries against
+  published high-precision data. Code and computations were written with
+  Claude, an AI model by Anthropic.

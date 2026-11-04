@@ -1,23 +1,34 @@
 # Periodic orbits of the planar three-body problem outside the published lists
 
-Data package, generated 2026-10-21 by `fundbericht.mjs`. Authors: Felix Habl (idea and direction) and Claude, an AI model by Anthropic (code and computations). Contact: the issue tracker of the repository this package is published in.
+Data package, generated 2026-11-04 by `fundbericht.mjs`. Authors: Felix Habl (idea and direction) and Claude, an AI model by Anthropic (code and computations). Contact: the issue tracker of the repository this package is published in.
 
-**These orbits are not claimed to be new.** The claim is narrower: each one was compared with the lists named below and is in none of them, and each one is verified to 30 digits.
+**These orbits are not claimed to be new.** The claim is narrower: each one was compared with the lists named below and is in none of them, and each one is verified to 30 digits. Being outside the list *for the same masses* does not make an orbit a new family: the column `family` says whether its topology (free-group word) is listed at any mass.
 
 ## Contents
 
-| File | Configuration | Masses | Orbits | stable / boundary / unstable / undecided | satellites of listed orbits | T from … to | orbits in the reference list for these masses |
-|---|---|---|---|---|---|---|---|
-| `orbits-freefall-1-1-1.txt` | free fall | 1/1/1 | 301 | 0 / 0 / 301 / 0 | 0 | 4.8 … 27.5 | 30 (Li, Liao et al.) |
-| `orbits-euler-1-1-2.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/2 | 156 | 3 / 3 / 150 / 0 | 4 | 7.8 … 91.8 | 237 (Li, Liao et al.) |
-| `orbits-euler-1-1-0.5.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/0.5 | 17 | 4 / 2 / 11 / 0 | 3 | 9.6 … 80.5 | 565 (Li, Liao et al.) |
-| `orbits-euler-1-1-4.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/4 | 21 | 7 / 3 / 11 / 0 | 3 | 14.0 … 91.9 | 85 (Li, Liao et al.) |
-| `orbits-euler-1-1-1.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/1 | 188 | 0 / 0 / 188 / 0 | 10 | 21.4 … 92.7 | 699 (Li, Liao et al.) |
-| `orbits-euler-1-1-0.75.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/0.75 | 3 | 1 / 0 / 2 / 0 | 0 | 22.1 … 71.2 | 401 (Li, Liao et al.) |
+| File | Configuration | Masses | Orbits | stable / boundary / unstable / undecided | satellites of listed orbits | word in no list (of them stable) | T from … to | orbits in the reference list for these masses |
+|---|---|---|---|---|---|---|---|---|
+| `orbits-euler-1-1-0.5.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/0.5 | 17 | 4 / 2 / 11 / 0 | 3 | 7 (0) | 9.6 … 80.5 | 565 (Li, Liao et al.) |
+| `orbits-euler-1-1-0.75.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/0.75 | 3 | 1 / 0 / 2 / 0 | 0 | 0 (0) | 22.1 … 71.2 | 401 (Li, Liao et al.) |
+| `orbits-euler-1-1-1.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/1 | 188 | 0 / 0 / 188 / 0 | 10 | 121 (0) | 21.4 … 92.7 | 699 (Li, Liao et al.) |
+| `orbits-euler-1-1-2.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/2 | 156 | 3 / 3 / 150 / 0 | 4 | 98 (0) | 7.8 … 91.8 | 237 (Li, Liao et al.) |
+| `orbits-euler-1-1-4.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/4 | 21 | 7 / 3 / 11 / 0 | 3 | 13 (3) | 14.0 … 91.9 | 85 (Li, Liao et al.) |
+| `orbits-euler-1-1-5.txt` | isosceles collinear (Euler), zero angular momentum | 1/1/5 | 35 | 10 / 10 / 15 / 0 | 0 | 16 (5) | 19.3 … 102.9 | 35 (Li, Liao et al.) |
+| `orbits-freefall-1-1-1.txt` | free fall | 1/1/1 | 301 | 0 / 0 / 301 / 0 | 0 | 1 (0) | 4.8 … 27.5 | 30 (Li, Liao et al.) |
 
-Equal masses: 489 orbits. Unequal masses: 197 orbits. `stable.txt` lists the 23 orbits that are stable (S, S~), have an index equal to 2 (B), or are undecided.
+Equal masses: 489 orbits. Unequal masses: 232 orbits. `stable.txt` lists the 43 orbits that are stable (S, S~), have an index equal to 2 (B), or are undecided.
 
-**Which orbits are in these files.** For equal masses and for masses 1/1/2, every orbit the search found outside the lists was verified to 30 digits. For masses 1/1/0.5, 1/1/0.75 and 1/1/4 only the candidates for stability were: orbits that double precision calls stable, or undecided with both stability indices below 30 in absolute value (calibrated on 325 orbits outside that range, none of which turned out stable at 30 digits). Those runs found many more orbits outside the list (1976, 857 and 943; at 1/1/4 from three search windows in (a, b): 0.6…1.05 × 0…1.05, 0…2.4 × 1…2.4 and 1…2.4 × 0…1, distinct by T*); they are in the run reports, verified in double precision only, and not in this package.
+**Which orbits are in these files.** The package contains the orbits that passed the 30-digit verification. From the equal-mass runs and the first run at 1/1/2, every orbit outside the lists was submitted to it. For the other runs only the candidates for stability were: orbits that double precision calls stable, or undecided with both stability indices below 30 in absolute value (calibrated on 325 orbits outside that range, none of which turned out stable at 30 digits). The other orbits these runs found outside the lists are in the run reports (`ergebnisse/`), verified in double precision only:
+
+| Masses | search windows in (a, b) | orbits outside the lists (distinct T*, double precision) | in this package (30 digits) |
+|---|---|---|---|
+| 1/1/0.5 | 0…0.4 × 0…0.4 | 1975 | 17 |
+| 1/1/0.75 | 0…0.6 × 0…0.6 | 857 | 3 |
+| 1/1/1 | 0…0.75 × 0…0.75 | 191 | 188 |
+| 1/1/2 | 1…1.5 × 0…1; 0…1.5 × 1…1.5; 0…0.75 × 0…0.75 | 793 | 156 |
+| 1/1/4 | 1…2.4 × 0…1; 0…2.4 × 1…2.4; 0.6…1.05 × 0…1.05 | 943 | 21 |
+| 1/1/5 | 1…2.75 × 0…1; 0…2.75 × 1…2.75 | 732 | 35 |
+| 1/1/1 (free fall) | 0…0.5 × 0…0.88 | 300 | 300 (301 entries; 1 orbit met at two points) |
 
 ## Initial conditions
 
@@ -44,9 +55,25 @@ G = 1 throughout.
 
 An orbit counts as listed if its initial point agrees with a listed one to 1e-6, or if its T* agrees to 2e-8 (the same orbit met at another point of the plane). Agreement of T* to five or six digits is *not* enough: we found pairs of distinct orbits of the same class with nearly equal T* and different stability.
 
+## Families across all masses (column `family`)
+
+A family continued in m3 keeps its free-group word as long as no close encounter becomes a collision. So an orbit outside the list for its own masses can still belong to a listed family — our stable orbit at 1/1/4 is the continuation of I.A-5 at 1/1/2. The word of every orbit was therefore compared, up to relabelling of all three bodies, cyclic shift and time reversal, with the words of all listed orbits at all masses and with the databases of Hristov et al. Free-fall orbits are compared within the free-fall plane (full period), because a word comparison across the two planes does not calibrate.
+
+| family | orbits |
+|---|---|
+| new — word in no list | 256 |
+| same word as a listed orbit (at another mass, or another orbit of a listed class) | 77 |
+| word in the databases of Hristov et al. | 76 |
+| word in a free-fall list | 300 |
+| exact multiple of a listed word | 10 |
+| satellite found within the run | 2 |
+| not determined | 0 |
+
+Calibration: our words reproduce 1346 of the 1349 published words of Li, Jing & Liao (2018) letter for letter, up to cyclic shift; of the other three, two (II.D-1, II.D-2) are written without free reduction in the list and reduce to the word we compute; in one (I.B-33) the list word lacks one letter of ours. Of our Euler-plane orbits that match a listed orbit by position or T*, 1408 of 1408 also find their word in the lists, and 221 of 222 in free fall.
+
 ## Caveats
 
-- **Unequal masses:** the only reference is Li, Jing & Liao (2018), one orbit per family. "Not in the list" says little there.
+- **Unequal masses:** the only list for these masses is Li, Jing & Liao (2018), one orbit per family, from the square 0 < a, b < 1. "Not in the list" says little there; the column `family` says more.
 - **Satellites:** some orbits run k times almost along a listed orbit before closing (word and T* are k-fold). They are orbits of their own, but not unexplained ones; the column `sat` names the base orbit.
 - Only symmetric orbits are found by the half-period search, and only within the search windows and period limits of each run.
 - The comparison covers the lists above. Lists we do not know of are not covered.
