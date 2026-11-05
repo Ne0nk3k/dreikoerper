@@ -585,7 +585,8 @@ Literatursuche vom 21.10.2026 fand keine neuere Liste dieser Art, die vom
 zwischen 0,7 und 1,2, also keine bei 1 : 1 : 5.
 
 **Veröffentlicht** am 04.11.2026 als eigenes Repository
-`dreikoerper-familie-b` (github.com/Ne0nk3k/dreikoerper-familie-b), gebaut von `werkzeug/familie-b-bauen.mjs` (Daten auf
+`dreikoerper-familie-b` (github.com/Ne0nk3k/dreikoerper-familie-b; Zenodo,
+DOI 10.5281/zenodo.23987401, Version 1.0.0: 10.5281/zenodo.23987402), gebaut von `werkzeug/familie-b-bauen.mjs` (Daten auf
 30 Stellen entlang der Familie, Diagramm, Prüfskripte; jede Zahl im Text aus
 den Ergebnisdateien).
 

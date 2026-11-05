@@ -8,7 +8,7 @@
       "name": "Habl, Felix"
     }
   ],
-  "description": "<p>A search engine for periodic orbits of the planar three-body problem with zero angular momentum (G = 1), the orbits it found that are in none of the published lists, and a 30-digit verification of each one, with linear stability from the monodromy matrix.</p><p>Main result: a linearly stable orbit at masses 1 : 1 : 4 in the isosceles collinear (Euler) configuration, a = 0.80329455331149897894751545304123, b = 1.43593335078306727053457398659518, T = 53.25485430443248007068935995289679, stability indices 0.0501 and &minus;0.0599. It is not in Li, Jing &amp; Liao (2018) and not a k-fold satellite of any orbit in that list. It is the continuation in m<sub>3</sub> of the orbit I.A-5 that this list gives at masses 1 : 1 : 2, so it is a new, stable member of a listed family; along the family it is stable for m<sub>3</sub> from about 3.74 to 4.18 (30-digit samples). The orbit has a half-period symmetry, so its monodromy matrix is a square and, while the two stability indices are real and distinct, an index can touch &minus;2 but not cross it. The data package (fundbericht/) holds 721 orbits outside the lists that passed the 30-digit verification, with a column that says whether the topology (free-group word) is listed at any mass. The script bahn-pruefen.mjs re-checks the stable orbit without any downloads.</p><p>Version 1.1.0 adds the runs at masses 1 : 1 : 5, the family column, a word calibration against Li, Jing &amp; Liao (2018), the half-period symmetry check (halbperiode.mjs), and a table of search windows. A family whose topology is in no list, found by these searches, is published separately (dreikoerper-familie-b).</p><p>The published lists of other authors are not included; daten-holen.mjs fetches them from their sources and checks each file by SHA-256.</p>",
+  "description": "<p>A search engine for periodic orbits of the planar three-body problem with zero angular momentum (G = 1), the orbits it found that are in none of the published lists, and a 30-digit verification of each one, with linear stability from the monodromy matrix.</p><p>Main result: a linearly stable orbit at masses 1 : 1 : 4 in the isosceles collinear (Euler) configuration, a = 0.80329455331149897894751545304123, b = 1.43593335078306727053457398659518, T = 53.25485430443248007068935995289679, stability indices 0.0501 and &minus;0.0599. It is not in Li, Jing &amp; Liao (2018) and not a k-fold satellite of any orbit in that list. It is the continuation in m<sub>3</sub> of the orbit I.A-5 that this list gives at masses 1 : 1 : 2, so it is a new, stable member of a listed family; along the family it is stable for m<sub>3</sub> from about 3.74 to 4.18 (30-digit samples). The orbit has a half-period symmetry, so its monodromy matrix is a square and, while the two stability indices are real and distinct, an index can touch &minus;2 but not cross it. The data package (fundbericht/) holds 721 orbits outside the lists that passed the 30-digit verification, with a column that says whether the topology (free-group word) is listed at any mass. The script bahn-pruefen.mjs re-checks the stable orbit without any downloads.</p><p>Version 1.1.0 adds the runs at masses 1 : 1 : 5, the family column, a word calibration against Li, Jing &amp; Liao (2018), the half-period symmetry check (halbperiode.mjs), and a table of search windows. A family whose topology is in no list, found by these searches, is published separately (dreikoerper-familie-b, doi:10.5281/zenodo.23987401).</p><p>The published lists of other authors are not included; daten-holen.mjs fetches them from their sources and checks each file by SHA-256.</p>",
   "keywords": [
     "three-body problem",
     "periodic orbits",
@@ -17,12 +17,21 @@
     "high-precision numerics"
   ],
   "license": "mit",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23987401",
+      "relation": "isSupplementedBy",
+      "scheme": "doi",
+      "resource_type": "dataset"
+    }
+  ],
   "notes": "Code: MIT. Results and data package (ergebnisse/, fundbericht/): CC BY 4.0. Felix Habl had the idea and directed the work; the code, the computations and the documentation were written by Claude, an AI model by Anthropic, in conversation with him. Every number comes from a computation in this code.",
   "references": [
     "Li X, Liao S (2017). More than six hundred new families of Newtonian periodic planar collisionless three-body orbits. Science China Physics, Mechanics & Astronomy 60, 129511. doi:10.1007/s11433-017-9078-5",
     "Li X, Jing Y, Liao S (2018). Over a thousand new periodic orbits of a planar three-body system with unequal masses. Publications of the Astronomical Society of Japan. doi:10.1093/pasj/psy057",
     "Li X, Liao S (2019). Collisionless periodic orbits in the free-fall three-body problem. New Astronomy 70, 22-26. doi:10.1016/j.newast.2019.01.003",
     "Šuvakov M, Dmitrašinović V (2013). Three classes of Newtonian three-body planar periodic orbits. Physical Review Letters 110, 114301. arXiv:1303.0181",
-    "Hristov I, Hristova R, et al. Databases of periodic three-body orbits, db2.fmi.uni-sofia.bg; arXiv:2404.16526, arXiv:2308.16159, arXiv:2510.22802"
+    "Hristov I, Hristova R, et al. Databases of periodic three-body orbits, db2.fmi.uni-sofia.bg; arXiv:2404.16526, arXiv:2308.16159, arXiv:2510.22802",
+    "Habl F (2026). Family B: a linearly stable family of planar periodic three-body orbits whose topology is not in the published lists. Zenodo. doi:10.5281/zenodo.23987401"
   ]
 }

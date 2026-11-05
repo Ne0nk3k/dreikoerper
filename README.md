@@ -74,7 +74,7 @@ b = 1.77433055827060488061484304997624
 T = 19.25669842976743050033657405267752
 ```
 
-It has its own repository, with the data along the family, the novelty checks and their limits: [github.com/Ne0nk3k/dreikoerper-familie-b](https://github.com/Ne0nk3k/dreikoerper-familie-b).
+It has its own repository, with the data along the family, the novelty checks and their limits: [github.com/Ne0nk3k/dreikoerper-familie-b](https://github.com/Ne0nk3k/dreikoerper-familie-b), archived on Zenodo as [doi:10.5281/zenodo.23987401](https://doi.org/10.5281/zenodo.23987401).
 
 ## What else is here
 
