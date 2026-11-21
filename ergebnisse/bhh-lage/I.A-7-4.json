@@ -1,0 +1,46 @@
+{
+ "datei": "I.A-7-4",
+ "abtastung": 200000,
+ "erzeugt": "2026-11-20T22:35:38.211Z",
+ "proben": [
+  {
+   "m3": 3.967243,
+   "stueck": [
+    3.967243,
+    4
+   ],
+   "r1": {
+    "syzygien": 182,
+    "mitte": 86,
+    "minAnteil": 0.6489353595016736
+   },
+   "r2": {
+    "syzygien": 182,
+    "mitte": 86,
+    "minAnteil": 0.6489353595016734
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  },
+  {
+   "m3": 4,
+   "stueck": [
+    3.967243,
+    4
+   ],
+   "r1": {
+    "syzygien": 182,
+    "mitte": 86,
+    "minAnteil": 0.6165971957738966
+   },
+   "r2": {
+    "syzygien": 182,
+    "mitte": 86,
+    "minAnteil": 0.6165971957738966
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}

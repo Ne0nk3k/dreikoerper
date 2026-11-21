@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "dreikoerper: a search engine for periodic orbits of the planar three-body problem, and its finds",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "eng",
   "creators": [
     {

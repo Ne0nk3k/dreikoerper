@@ -1,0 +1,46 @@
+{
+ "datei": "I.A-34-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T22:49:45.194Z",
+ "proben": [
+  {
+   "m3": 1.9321366882324218,
+   "stueck": [
+    1.9321366882324218,
+    2.018657
+   ],
+   "r1": {
+    "syzygien": 282,
+    "mitte": 130,
+    "minAnteil": 0.9861175004743871
+   },
+   "r2": {
+    "syzygien": 290,
+    "mitte": 134,
+    "minAnteil": 0.9861175004732156
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 33
+  },
+  {
+   "m3": 2.018657,
+   "stueck": [
+    1.9321366882324218,
+    2.018657
+   ],
+   "r1": {
+    "syzygien": 290,
+    "mitte": 134,
+    "minAnteil": 0.9145724820170034
+   },
+   "r2": {
+    "syzygien": 290,
+    "mitte": 134,
+    "minAnteil": 0.9145724820170034
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 32
+  }
+ ],
+ "urteil": "unklar"
+}

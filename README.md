@@ -76,6 +76,10 @@ T = 19.25669842976743050033657405267752
 
 It has its own repository, with the data along the family, the novelty checks and their limits: [github.com/Ne0nk3k/dreikoerper-familie-b](https://github.com/Ne0nk3k/dreikoerper-familie-b), archived on Zenodo as [doi:10.5281/zenodo.23987401](https://doi.org/10.5281/zenodo.23987401).
 
+## A stability map of the unequal-mass list orbits
+
+From version 1.2.0 on, `werkzeug/` also holds the tools that continued every orbit of Li, Jing & Liao (2018) in m3 between 0.5 and 10 and decided its linear stability at 30 digits along the way. The result is a separate dataset, with its figure, its limits, an independent review and code that recomputes every number from the tables: [github.com/Ne0nk3k/dreikoerper-stability-map](https://github.com/Ne0nk3k/dreikoerper-stability-map). At its own probes the map confirms the stability window of I.A-5 above; the stable piece at m3 ≈ 3.4–3.5 it does not see, because none of its probes lies there. That is an example of the blind spot the dataset measures.
+
 ## What else is here
 
 | Path | What |
@@ -87,6 +91,8 @@ It has its own repository, with the data along the family, the novelty checks an
 | `suche.mjs`, `nachpruefen.mjs` | The search, and the 30-digit verification of a run's finds. |
 | `bahn-pruefen.mjs`, `halbperiode.mjs` | Re-check a single orbit at 30 digits; check its half-period symmetry and whether its monodromy is a square. |
 | `werkzeug/` | Continuation in m3 (`massen-fortsetzung.mjs`, `fortsetzung-genau.mjs`), the family comparison over all masses (`familien-abgleich.mjs`), the satellite test (`fast-vielfach.mjs`), the word calibration (`woerter-eichen.mjs`), the symmetry check along a family (`halbperiode-familie.mjs`), and the builder of the family-B repository (`familie-b-bauen.mjs`). The data package itself is built by `fundbericht.mjs`. |
+| `werkzeug/` (stability map) | Continuation of every list orbit (`liste-fortsetzen.mjs`), 30-digit probes (`liste-genau.mjs`, `fortsetzung-genau.mjs`), window edges (`fenster-genau.mjs`), the final chain (`stufe6-kette.mjs`, `stufe6-nach.mjs`), the blind-spot sample (`blinder-fleck.mjs`), the BHH start configuration (`bhh-alle.mjs`), evaluation and acceptance check (`liste-auswerten.mjs`, `pruefe-alles.mjs`) with its self-test on built-in faults (`pruefe-pruefer.mjs`), and the builder of the dataset (`karte-bauen.mjs`, `karte-bild.mjs`, `karte-texte.mjs`). The continuation files themselves start from the listed values and are not included; the dataset carries the results without them. |
+| `karte/` | `zahlen.mjs` and `probe-pruefen.mjs`, as shipped with the stability map. |
 | `pruef-*.mjs` | Test batteries: against analytic cases, against the published lists, and against the 100-digit data of Hristov et al. |
 | `vorlage.html`, `bauen.mjs` | An interactive lab, built as a single offline HTML file. |
 | `daten-holen.mjs`, `quelle/HERKUNFT.json` | Download of the published lists from their authors. |
@@ -138,6 +144,8 @@ The repository is archived on Zenodo:
 - **Single versions:** each release has its own DOI, listed on that page. Version 1.0.0: [10.5281/zenodo.23536577](https://doi.org/10.5281/zenodo.23536577).
 
 **Changes in version 1.1.0:** the data package now holds 721 orbits (including the runs at 1 : 1 : 5) and a column `family`; a table of search windows replaces a paragraph that no longer matched the runs; the word calibration and the half-period symmetry above were added; family B was published separately.
+
+**Changes in version 1.2.0:** the tools of the stability map and the inputs they need (`ergebnisse/bekannte-funde.json`, `ergebnisse/eigene-funde.json`, the blind-spot sample, the BHH check, the stage lists); the map itself was published separately. The three files `ergebnisse/katalogabgleich-*.json` are no longer included: besides our recomputation of every listed orbit they repeated the periods, scaled periods and free-group words of the published lists, against our own rule (see "Data from others"). `pruef-katalog.mjs` rebuilds them from the downloaded lists. Versions 1.0.0 and 1.1.0 on Zenodo still contain them. Nothing else above changed.
 
 GitHub also offers a citation under "Cite this repository" on the right of the repository page. The data are in `CITATION.cff`.
 

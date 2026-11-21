@@ -22,6 +22,7 @@
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { HIER, ladeKern, ladeKatalog, gleicheAb, ladeGross } from "../quellen.mjs";
+import { schreibeSicher } from "./sicher.mjs";
 
 const K = ladeKern(), pruefe = K.macheFundpruefer(), KAT = ladeKatalog();
 // Andere Bahnen (seit 21.10.2026, für die Kandidaten der Lückensuche):
@@ -30,11 +31,15 @@ const argv = process.argv.slice(2), arg = n => (argv.includes(n) ? argv[argv.ind
 const AUS = join(HIER, "ergebnisse", (arg("--name") || "fortsetzung-1-1-4") + ".json");
 const START = arg("--start") ? (([m3, a, b, T]) => ({ m3: +m3, a: +a, b: +b, T: +T }))(arg("--start").split(","))
   : { m3: 4, a: 0.80329455331149897894751545304123, b: 1.43593335078306727053457398659518, T: 53.25485430443248007068935995289679 };
-const GRENZEN = [0.5, 10], H0 = 0.01, HMIN = 1e-4, HMAX = 0.05, SCHRITTE_MAX = 4000;
+// --h0, --hmin, --schritteMax (seit 11.11.2026, Stufe 6): bei Begegnungen unter 1e-4 ist der
+// Einzugsbereich des Newton in double nur 1e-6 … 1e-7 breit (gemessen an II.C-254@0.5 und
+// I.B-44@2); mit dem kleinsten Schritt 1e-4 kam die Fortsetzung bei 246 Familien keinen
+// Schritt weit. Ohne Angabe gelten die alten Werte, frühere Stufen bleiben nachrechenbar.
+const GRENZEN = [0.5, 10], H0 = +(arg("--h0") || 0.01), HMIN = +(arg("--hmin") || 1e-4), HMAX = 0.05, SCHRITTE_MAX = +(arg("--schritteMax") || 4000);
 const LISTENMASSEN = [0.5, 0.75, 1, 2, 4, 5, 8, 10].filter(x => x !== START.m3);
 
 const bericht = { start: START, kalibrierung: {}, richtungen: {}, listen: [], grenzen: [], ereignisse: [] };
-const sichern = () => writeFileSync(AUS, JSON.stringify(bericht, null, 1));
+const sichern = () => schreibeSicher(AUS, JSON.stringify(bericht, null, 1));
 
 function punkt(m3, a, b, T) {
   const t0 = Date.now(), p = pruefe("euler", [1, 1, m3], a, b, T, {});

@@ -1,0 +1,65 @@
+{
+ "datei": "I.B-45-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:11:10.081Z",
+ "proben": [
+  {
+   "m3": 1.930418701171875,
+   "stueck": [
+    1.930418701171875,
+    2.057617
+   ],
+   "r1": {
+    "syzygien": 308,
+    "mitte": 142,
+    "minAnteil": 0.9863712475409226
+   },
+   "r2": {
+    "syzygien": 316,
+    "mitte": 146,
+    "minAnteil": 0.9863712475397142
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 2.057617,
+   "stueck": [
+    1.930418701171875,
+    2.057617
+   ],
+   "r1": {
+    "syzygien": 308,
+    "mitte": 142,
+    "minAnteil": 0.90376777478569
+   },
+   "r2": {
+    "syzygien": 316,
+    "mitte": 146,
+    "minAnteil": 0.9037677747982218
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 2.048125,
+   "stueck": [
+    1.930418701171875,
+    2.057617
+   ],
+   "r1": {
+    "syzygien": 308,
+    "mitte": 142,
+    "minAnteil": 0.9069816702720939
+   },
+   "r2": {
+    "syzygien": 316,
+    "mitte": 146,
+    "minAnteil": 0.9069816702657678
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 28
+  }
+ ],
+ "urteil": "unklar"
+}

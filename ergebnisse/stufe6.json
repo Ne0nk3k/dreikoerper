@@ -1,0 +1,4341 @@
+{
+ "teil": "6a",
+ "parameter": {
+  "h0": 0.000001,
+  "hmin": 1e-8,
+  "schritteMax": 800
+ },
+ "je": {
+  "II.B-1-4": {
+   "status": "fortgesetzt",
+   "sekunden": 61,
+   "rMin": 0.000010149364272974295,
+   "punkte": 5,
+   "stabilDouble": 0,
+   "von": 3.9999997812499997,
+   "bis": 4.000000236328124,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-1-5": {
+   "status": "fortgesetzt",
+   "sekunden": 400,
+   "rMin": 0.000007822585854907663,
+   "punkte": 78,
+   "stabilDouble": 0,
+   "von": 4.99996088385724,
+   "bis": 5.000048746833692,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-46-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 13,
+   "rMin": 0.0000022265384898480434,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-21-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 84,
+   "rMin": 0.0000025676395800080724,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-41-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 62,
+   "rMin": 0.000006193678708310368,
+   "punkte": 8,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500002779624939,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-85-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 42,
+   "rMin": 0.000007629235329684259,
+   "punkte": 4,
+   "stabilDouble": 0,
+   "von": 0.7499998779296875,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-86-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 37,
+   "rMin": 0.0000024977847935830825,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-34-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 48,
+   "rMin": 0.000005243555339507046,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-2-10": {
+   "status": "fortgesetzt",
+   "sekunden": 151,
+   "rMin": 0.0000062930284413729205,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 9.99999997265625,
+   "bis": 10,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Grenze des Bereichs erreicht"
+   ]
+  },
+  "II.C-35-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 92,
+   "rMin": 0.000003994457256135214,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-25-2": {
+   "status": "fortgesetzt",
+   "sekunden": 334,
+   "rMin": 0.0000062077013980528244,
+   "punkte": 72,
+   "stabilDouble": 0,
+   "von": 1.9999885722990027,
+   "bis": 2.0000512367772187,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-5-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 91,
+   "rMin": 0.000005209451785230619,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-101-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 37,
+   "rMin": 0.000010934415364661568,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-40-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 233,
+   "rMin": 0.000002112042478582655,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-42-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 340,
+   "rMin": 0.000002689629405263062,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.A-2-2": {
+   "status": "fortgesetzt",
+   "sekunden": 41,
+   "rMin": 0.000011392173322123564,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 1.99999996875,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-2-8": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 436,
+   "rMin": 0.000003408107377565169,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 8,
+   "bis": 8,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-72-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 98,
+   "rMin": 0.00000588838802653498,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-4-5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 71,
+   "rMin": 0.000006688100922575375,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 5,
+   "bis": 5,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-62-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 124,
+   "rMin": 0.00000557128776607922,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 0.749999984375,
+   "bis": 0.7500000273437499,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-74-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 48,
+   "rMin": 0.000010655615893540192,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-84-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 499,
+   "rMin": 0.000004492115706657351,
+   "punkte": 22,
+   "stabilDouble": 0,
+   "von": 0.7499942934366169,
+   "bis": 0.750000015625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-3-10": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 123,
+   "rMin": 0.000007469870630418338,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 10,
+   "bis": 10,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Grenze des Bereichs erreicht"
+   ]
+  },
+  "II.C-148-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 529,
+   "rMin": 0.00001311272986310311,
+   "punkte": 52,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5010115826363578,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-87-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 64,
+   "rMin": 0.000001386197894965186,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-69-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 78,
+   "rMin": 0.0000039627108326362375,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-30-2": {
+   "status": "fortgesetzt",
+   "sekunden": 197,
+   "rMin": 0.00001137205927789517,
+   "punkte": 39,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2.000199937909791,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-49-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 228,
+   "rMin": 0.000004124183379346338,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-134-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 392,
+   "rMin": 0.000008866937257982076,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-142-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 340,
+   "rMin": 0.000011280259137966977,
+   "punkte": 28,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5018422365840243,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-64-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 101,
+   "rMin": 0.000006161024272621612,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-60-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 20,
+   "rMin": 0.000007283676548392409,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-79-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 47,
+   "rMin": 0.000019212141426107836,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.50000004296875,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.A-3-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 48,
+   "rMin": 0.000010490224206925508,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-14-4": {
+   "status": "fortgesetzt",
+   "sekunden": 293,
+   "rMin": 0.00001067752822451918,
+   "punkte": 18,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4.000086101265571,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-182-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 175,
+   "rMin": 0.000002767415505683863,
+   "punkte": 4,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000001748046876,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-53-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 146,
+   "rMin": 0.0000038042709066883204,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-78-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 137,
+   "rMin": 0.000008812862746190005,
+   "punkte": 14,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000072551988811,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-50-2": {
+   "status": "fortgesetzt",
+   "sekunden": 111,
+   "rMin": 0.000005126141659765061,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 1.9999999453125001,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-12-4": {
+   "status": "fortgesetzt",
+   "sekunden": 135,
+   "rMin": 0.00004152981886684545,
+   "punkte": 10,
+   "stabilDouble": 0,
+   "von": 3.999999422363281,
+   "bis": 4.000000873901368,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-41-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 76,
+   "rMin": 0.000012571666820882115,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-94-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 934,
+   "rMin": 0.00005243971133950106,
+   "punkte": 86,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5054770889303691,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-6-5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 130,
+   "rMin": 0.000005789518404897979,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 5,
+   "bis": 5,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-95-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 138,
+   "rMin": 0.000009413367233800502,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-100-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 164,
+   "rMin": 0.000017833881448454218,
+   "punkte": 23,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5002358389328574,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-145-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 177,
+   "rMin": 0.000007280054014328483,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-55-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 111,
+   "rMin": 0.000004380786269009316,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-33-2": {
+   "status": "fortgesetzt",
+   "sekunden": 397,
+   "rMin": 0.000009068767387284458,
+   "punkte": 65,
+   "stabilDouble": 0,
+   "von": 1.999838844407079,
+   "bis": 2.0000718491810936,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-139-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 366,
+   "rMin": 0.0000015047141363564156,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-67-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 127,
+   "rMin": 0.000009087234637121969,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.749999984375,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-9-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 74,
+   "rMin": 0.0000031858042528461434,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-25-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 70,
+   "rMin": 0.000029304402240518765,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-164-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 91,
+   "rMin": 0.000007462555803258614,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-62-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 426,
+   "rMin": 0.000004249498206594376,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.C-1-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 99,
+   "rMin": 0.00001997628674811004,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-36-2": {
+   "status": "fortgesetzt",
+   "sekunden": 501,
+   "rMin": 0.000013042448718423597,
+   "punkte": 49,
+   "stabilDouble": 0,
+   "von": 1.9998775525195804,
+   "bis": 2.000857863801564,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.A-6-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 44,
+   "rMin": 0.000004782844085384095,
+   "punkte": 4,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000004091796876,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-72-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 644,
+   "rMin": 0.000012720715721225953,
+   "punkte": 79,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5005624343810331,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-81-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 126,
+   "rMin": 0.000009481129891058444,
+   "punkte": 5,
+   "stabilDouble": 0,
+   "von": 0.7499996503906251,
+   "bis": 0.75000003125,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-10-4": {
+   "status": "fortgesetzt",
+   "sekunden": 120,
+   "rMin": 0.000010153217469385267,
+   "punkte": 4,
+   "stabilDouble": 0,
+   "von": 3.99999995703125,
+   "bis": 4.00000004296875,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-19-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 630,
+   "rMin": 0.000002679116364982351,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-38-2": {
+   "status": "fortgesetzt",
+   "sekunden": 158,
+   "rMin": 0.000013603777952980205,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 1.999999984375,
+   "bis": 2.000000015625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-125-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 190,
+   "rMin": 0.0000027384931732923782,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-18-4": {
+   "status": "fortgesetzt",
+   "sekunden": 140,
+   "rMin": 0.000008328613871776337,
+   "punkte": 6,
+   "stabilDouble": 0,
+   "von": 3.999999984375,
+   "bis": 4.000000200439453,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-106-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 282,
+   "rMin": 0.000008261975562989456,
+   "punkte": 10,
+   "stabilDouble": 0,
+   "von": 0.7499997973632813,
+   "bis": 0.7500001200561525,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-91-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 66,
+   "rMin": 0.00001347350248720089,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500000015625,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-46-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 222,
+   "rMin": 0.0000015894563288839987,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-63-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 452,
+   "rMin": 0.0000014382222448846989,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-82-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 418,
+   "rMin": 0.000001751445025006818,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-87-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 132,
+   "rMin": 0.000009935460537239546,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-132-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 2393,
+   "rMin": 0.00008330067021772238,
+   "punkte": 182,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5513869379245788,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-52-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 40,
+   "rMin": 0.000012044061893158527,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-217-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 211,
+   "rMin": 0.000013931900960149689,
+   "punkte": 20,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000645495975619,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-108-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 186,
+   "rMin": 0.000003712197832303058,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-70-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 207,
+   "rMin": 0.000005097083407537952,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-105-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 52,
+   "rMin": 0.000007375572488578439,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-85-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1387,
+   "rMin": 0.000009700078942845535,
+   "punkte": 130,
+   "stabilDouble": 0,
+   "von": 0.7496261413683228,
+   "bis": 0.7705156387683626,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-96-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1414,
+   "rMin": 0.000014406430920301795,
+   "punkte": 118,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.7655144411926537,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-47-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 52,
+   "rMin": 0.0000044785762783165925,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-135-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 118,
+   "rMin": 0.0000027165718682151523,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-40-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 123,
+   "rMin": 0.000011920706553335168,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-66-2": {
+   "status": "fortgesetzt",
+   "sekunden": 1774,
+   "rMin": 0.000010070664862056076,
+   "punkte": 193,
+   "stabilDouble": 0,
+   "von": 1.99784529126136,
+   "bis": 2.000586238506276,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-187-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 178,
+   "rMin": 0.0000019743356277040593,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-124-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 368,
+   "rMin": 0.00004794779491243525,
+   "punkte": 25,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5038207194836094,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-77-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1353,
+   "rMin": 0.00003617167122223369,
+   "punkte": 177,
+   "stabilDouble": 0,
+   "von": 0.7488349495725293,
+   "bis": 0.9995751357703888,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-110-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 308,
+   "rMin": 0.000008967895771859902,
+   "punkte": 30,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000308271533329,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-79-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 120,
+   "rMin": 0.000021934819490084126,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 0.7499999375,
+   "bis": 0.7500000546875001,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-195-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 752,
+   "rMin": 0.000020145754786629354,
+   "punkte": 54,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5295793050060242,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-68-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 534,
+   "rMin": 8.700180665933766e-7,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-69-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 186,
+   "rMin": 0.00000785912870222689,
+   "punkte": 23,
+   "stabilDouble": 0,
+   "von": 0.7499885072235577,
+   "bis": 0.7500078833007814,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-149-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 97,
+   "rMin": 0.000006487184096574192,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-22-4": {
+   "status": "fortgesetzt",
+   "sekunden": 156,
+   "rMin": 0.000010673644768423781,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 3.99999997265625,
+   "bis": 4.000000015625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-75-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 120,
+   "rMin": 0.000007197943994759943,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-97-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1074,
+   "rMin": 0.000027638047049221295,
+   "punkte": 180,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.6990693490243123,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-102-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 44,
+   "rMin": 0.000004685682857830543,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-44-2": {
+   "status": "fortgesetzt",
+   "sekunden": 155,
+   "rMin": 0.0000168653765231854,
+   "punkte": 9,
+   "stabilDouble": 0,
+   "von": 1.9999988970336913,
+   "bis": 2.0000004726562497,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-105-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 339,
+   "rMin": 0.000003591379990378083,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-234-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 602,
+   "rMin": 0.000029058348420774127,
+   "punkte": 72,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5001257237090556,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-188-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 177,
+   "rMin": 5.523790581351032e-7,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-222-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 69,
+   "rMin": 0.000005178376772408582,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-51-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 198,
+   "rMin": 0.0000033978313850490344,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-240-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 276,
+   "rMin": 0.000024205071889600734,
+   "punkte": 26,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5018508915086638,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-114-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 792,
+   "rMin": 0.000020426657458081267,
+   "punkte": 94,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5194042419476779,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-199-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 50,
+   "rMin": 0.000005390142098261588,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-118-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 70,
+   "rMin": 0.000009964317822107587,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-140-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 49,
+   "rMin": 0.000009067212631406915,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500000015625,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-65-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 76,
+   "rMin": 0.000012112884423589671,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-16-4": {
+   "status": "fortgesetzt",
+   "sekunden": 174,
+   "rMin": 0.000051834806803057596,
+   "punkte": 17,
+   "stabilDouble": 0,
+   "von": 3.999998940899319,
+   "bis": 4.0000004140625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-236-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 317,
+   "rMin": 0.00008734940884686295,
+   "punkte": 26,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5024920574764646,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-103-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 84,
+   "rMin": 0.000026166986555208352,
+   "punkte": 5,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000006596679687,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-109-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 62,
+   "rMin": 0.000014911858487604218,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-15-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 318,
+   "rMin": 0.000001504345939647816,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-113-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 71,
+   "rMin": 0.0000060878813195798655,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-159-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 409,
+   "rMin": 0.000002694038799235291,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-172-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 75,
+   "rMin": 0.000008861791340750939,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-5-2": {
+   "status": "fortgesetzt",
+   "sekunden": 304,
+   "rMin": 0.00002038776708584017,
+   "punkte": 52,
+   "stabilDouble": 0,
+   "von": 1.9999222747969476,
+   "bis": 2.0000260393845575,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-52-2": {
+   "status": "fortgesetzt",
+   "sekunden": 2350,
+   "rMin": 0.00001687108336219297,
+   "punkte": 166,
+   "stabilDouble": 0,
+   "von": 1.9705715242221256,
+   "bis": 2.102375260309173,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-100-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 2295,
+   "rMin": 0.000015281647063172423,
+   "punkte": 151,
+   "stabilDouble": 0,
+   "von": 0.743056481909025,
+   "bis": 0.7501011809774816,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-24-4": {
+   "status": "fortgesetzt",
+   "sekunden": 150,
+   "rMin": 0.000008345496381320356,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4.000000056640625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-209-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 492,
+   "rMin": 0.000015266701094292297,
+   "punkte": 45,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5030673710630171,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-71-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 81,
+   "rMin": 0.000008421669360382298,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-82-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 239,
+   "rMin": 0.000006239370568860079,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-62-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 199,
+   "rMin": 0.000009960309699833344,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-124-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 138,
+   "rMin": 0.000010548893172245838,
+   "punkte": 11,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000024360735416,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-91-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1340,
+   "rMin": 0.00005022768386674644,
+   "punkte": 143,
+   "stabilDouble": 0,
+   "von": 0.6848150770532816,
+   "bis": 0.8161365298844278,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-94-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1753,
+   "rMin": 0.0000277496879568103,
+   "punkte": 158,
+   "stabilDouble": 0,
+   "von": 0.7062247381256691,
+   "bis": 0.759388819218491,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-102-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 103,
+   "rMin": 0.000009066797472991164,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-41-2": {
+   "status": "fortgesetzt",
+   "sekunden": 105,
+   "rMin": 0.000021164853269344516,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 1.99999996875,
+   "bis": 2.00000003125,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-60-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 315,
+   "rMin": 0.000005061718575468638,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-78-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 803,
+   "rMin": 0.00006774347416800978,
+   "punkte": 122,
+   "stabilDouble": 0,
+   "von": 0.7417322100404566,
+   "bis": 0.786566451675332,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-101-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 138,
+   "rMin": 0.000021751605885474522,
+   "punkte": 5,
+   "stabilDouble": 0,
+   "von": 0.74999927734375,
+   "bis": 0.7500005234375,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-137-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 188,
+   "rMin": 0.000015584831309225002,
+   "punkte": 10,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000042926235199,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-42-2": {
+   "status": "fortgesetzt",
+   "sekunden": 212,
+   "rMin": 0.000028029510542268295,
+   "punkte": 24,
+   "stabilDouble": 0,
+   "von": 1.9999951176147461,
+   "bis": 2.0000046446249615,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-140-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 118,
+   "rMin": 0.000012298923684504177,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-61-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 89,
+   "rMin": 0.00003826150283950736,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-142-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 110,
+   "rMin": 0.000007623201857292232,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-25-4": {
+   "status": "fortgesetzt",
+   "sekunden": 1128,
+   "rMin": 0.000017610389849505535,
+   "punkte": 95,
+   "stabilDouble": 0,
+   "von": 3.9999840554206183,
+   "bis": 4.069000896459873,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-138-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 641,
+   "rMin": 0.000033724203206544444,
+   "punkte": 52,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.50684080353141,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-85-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 278,
+   "rMin": 0.000016722001820872117,
+   "punkte": 25,
+   "stabilDouble": 0,
+   "von": 0.7499863946380615,
+   "bis": 0.7500014971728548,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-204-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 308,
+   "rMin": 0.00005335136098005808,
+   "punkte": 37,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5064101407656252,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-89-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 544,
+   "rMin": 0.000002150470366722222,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-3-4": {
+   "status": "fortgesetzt",
+   "sekunden": 461,
+   "rMin": 0.000009940671545834167,
+   "punkte": 21,
+   "stabilDouble": 0,
+   "von": 3.9999826893745056,
+   "bis": 4.0000135026702885,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-144-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 510,
+   "rMin": 0.00006477953877564195,
+   "punkte": 40,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5051398876579677,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-130-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1073,
+   "rMin": 0.00001085034880374723,
+   "punkte": 91,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5396832879203964,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-23-4": {
+   "status": "fortgesetzt",
+   "sekunden": 154,
+   "rMin": 0.000024751622847441822,
+   "punkte": 10,
+   "stabilDouble": 0,
+   "von": 3.999999792297363,
+   "bis": 4.000000252929687,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-80-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 112,
+   "rMin": 0.0000073973155434442625,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-48-2": {
+   "status": "fortgesetzt",
+   "sekunden": 81,
+   "rMin": 0.000046110230335574714,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2.000000015625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-5-5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 531,
+   "rMin": 0.0000029357991738846524,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 5,
+   "bis": 5,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-170-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 108,
+   "rMin": 0.000008288933632278975,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-107-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 402,
+   "rMin": 0.00008137456724220032,
+   "punkte": 57,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.622910358850741,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-54-2": {
+   "status": "fortgesetzt",
+   "sekunden": 236,
+   "rMin": 0.000011988269067442827,
+   "punkte": 14,
+   "stabilDouble": 0,
+   "von": 1.99999984375,
+   "bis": 2.000038319549561,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-16-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 357,
+   "rMin": 0.0000032172883806235927,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-20-4": {
+   "status": "fortgesetzt",
+   "sekunden": 98,
+   "rMin": 0.00004061118674332473,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 3.99999995703125,
+   "bis": 4.00000003125,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-79-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 85,
+   "rMin": 0.000010865043168627717,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-117-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 488,
+   "rMin": 0.000023458861887306718,
+   "punkte": 53,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5208744342236614,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-121-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 86,
+   "rMin": 0.000007664900292151482,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-193-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 371,
+   "rMin": 0.000019923039926152647,
+   "punkte": 47,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500566977321217,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-61-2": {
+   "status": "fortgesetzt",
+   "sekunden": 2301,
+   "rMin": 0.00001296929398760689,
+   "punkte": 153,
+   "stabilDouble": 0,
+   "von": 1.999951746709841,
+   "bis": 2.008577028584049,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-50-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 81,
+   "rMin": 0.000014769062228287087,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-229-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 83,
+   "rMin": 0.000005102096758043253,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500000015625,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-165-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 254,
+   "rMin": 0.0000051859048190982655,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-25-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 96,
+   "rMin": 0.00002239506299264029,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-49-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 95,
+   "rMin": 0.000013543855182027171,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-131-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 182,
+   "rMin": 0.00002951856232574964,
+   "punkte": 20,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000052097913126,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-205-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 554,
+   "rMin": 0.00004257912523541742,
+   "punkte": 70,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.501508697856286,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-43-2": {
+   "status": "fortgesetzt",
+   "sekunden": 104,
+   "rMin": 0.000057407109818852994,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 1.99999992578125,
+   "bis": 2.00000003125,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-78-2": {
+   "status": "fortgesetzt",
+   "sekunden": 183,
+   "rMin": 0.000011263537881207978,
+   "punkte": 6,
+   "stabilDouble": 0,
+   "von": 1.9999983305664064,
+   "bis": 2.0000006875,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-91-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1389,
+   "rMin": 0.000014789790471399214,
+   "punkte": 136,
+   "stabilDouble": 0,
+   "von": 0.7499807510529549,
+   "bis": 0.7582398714145576,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-93-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 131,
+   "rMin": 0.000008289560703472885,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-243-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 773,
+   "rMin": 0.00005812457064256872,
+   "punkte": 46,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5020754373003775,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-254-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 493,
+   "rMin": 0.00009227292329579518,
+   "punkte": 33,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5038711792522896,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-147-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 64,
+   "rMin": 0.000004597202486805702,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-192-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 42,
+   "rMin": 0.000019898010124449586,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500000015625,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-167-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 275,
+   "rMin": 0.000004037213210313869,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-63-2": {
+   "status": "fortgesetzt",
+   "sekunden": 730,
+   "rMin": 0.000011695162241923357,
+   "punkte": 29,
+   "stabilDouble": 0,
+   "von": 1.9999935255171521,
+   "bis": 2.00003042175293,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-127-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 131,
+   "rMin": 0.000014146643938570733,
+   "punkte": 9,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000003094120027,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-27-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 294,
+   "rMin": 0.000006567798206102556,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-147-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 119,
+   "rMin": 0.000006233597809794659,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-1-8": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 411,
+   "rMin": 0.000004233501129868979,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 8,
+   "bis": 8,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-48-2": {
+   "status": "fortgesetzt",
+   "sekunden": 127,
+   "rMin": 0.000025859727034831482,
+   "punkte": 4,
+   "stabilDouble": 0,
+   "von": 1.99999978125,
+   "bis": 2.0000000859375,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-92-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 129,
+   "rMin": 0.000008316242093226274,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-99-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1835,
+   "rMin": 0.000023614813087876902,
+   "punkte": 126,
+   "stabilDouble": 0,
+   "von": 0.745465013747286,
+   "bis": 0.7507462420213953,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-123-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 187,
+   "rMin": 0.00006387504532556517,
+   "punkte": 24,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000035206156824,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-112-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 149,
+   "rMin": 0.000013948529272936753,
+   "punkte": 8,
+   "stabilDouble": 0,
+   "von": 0.7499991960449218,
+   "bis": 0.7500008281249999,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-26-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 121,
+   "rMin": 0.00001578819825457313,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-151-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 113,
+   "rMin": 0.00001605541563741896,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-163-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 182,
+   "rMin": 0.000005540526013096574,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-250-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 114,
+   "rMin": 0.0000071438229200903295,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-58-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 172,
+   "rMin": 0.000010045440624165116,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-74-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 296,
+   "rMin": 0.000004108936894668122,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-168-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 224,
+   "rMin": 0.000016752956402127492,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-148-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 861,
+   "rMin": 0.000053743831085526316,
+   "punkte": 67,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5038061715305087,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.A-4-2": {
+   "status": "fortgesetzt",
+   "sekunden": 85,
+   "rMin": 0.000044089870665008,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 1.999999984375,
+   "bis": 2.000000015625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-223-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 420,
+   "rMin": 0.000027488524130865034,
+   "punkte": 46,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5080392213548122,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-98-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 105,
+   "rMin": 0.000007753940108521636,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-203-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 161,
+   "rMin": 0.000018592413149363805,
+   "punkte": 20,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000522104922261,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-87-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 151,
+   "rMin": 0.000007473905774949199,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-133-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 61,
+   "rMin": 0.00005644040264271353,
+   "punkte": 4,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000003740234376,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-19-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 553,
+   "rMin": 0.0000035008500148582273,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-216-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 52,
+   "rMin": 0.000025480644541198937,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-145-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 186,
+   "rMin": 0.000015845844000065012,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-245-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 72,
+   "rMin": 0.000009073547218195639,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-27-4": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 103,
+   "rMin": 0.000018977976604802064,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 4,
+   "bis": 4,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-118-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 483,
+   "rMin": 0.000004831656128796284,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-201-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 112,
+   "rMin": 0.000007520966491403238,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-57-2": {
+   "status": "fortgesetzt",
+   "sekunden": 156,
+   "rMin": 0.000008950939089178111,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 1.999999984375,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-89-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 280,
+   "rMin": 0.000004742803730163822,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-29-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 73,
+   "rMin": 0.00003523194820694932,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-108-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 572,
+   "rMin": 0.000012846468082797627,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5001227343175223,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-53-2": {
+   "status": "fortgesetzt",
+   "sekunden": 149,
+   "rMin": 0.00002671393772853291,
+   "punkte": 8,
+   "stabilDouble": 0,
+   "von": 1.99999959765625,
+   "bis": 2.000000073730469,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-241-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 192,
+   "rMin": 0.00004869965337726348,
+   "punkte": 19,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000053503274877,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-235-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 370,
+   "rMin": 0.0000678945526628743,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5003301364006684,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-93-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 665,
+   "rMin": 0.000001184277478837658,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-134-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 78,
+   "rMin": 0.000020079638479342214,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.50000025,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-118-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 86,
+   "rMin": 0.000014239557998993205,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-133-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 107,
+   "rMin": 0.000039782644166854345,
+   "punkte": 6,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000020658569337,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-248-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 930,
+   "rMin": 0.00003726207606368489,
+   "punkte": 57,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5037183506554146,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-208-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 120,
+   "rMin": 0.000010406545900011906,
+   "punkte": 9,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000091986389159,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-238-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 75,
+   "rMin": 0.0000035627741485064853,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500000015625,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-56-2": {
+   "status": "fortgesetzt",
+   "sekunden": 4928,
+   "rMin": 0.00004598609711908013,
+   "punkte": 352,
+   "stabilDouble": 0,
+   "von": 1.9911798085994925,
+   "bis": 2.0050367899771877,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-51-2": {
+   "status": "fortgesetzt",
+   "sekunden": 81,
+   "rMin": 0.00005102394184428186,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 1.999999984375,
+   "bis": 2.000000015625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-166-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 220,
+   "rMin": 0.000007819413987111623,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-4-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 39,
+   "rMin": 0.000019599622855294396,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-59-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 134,
+   "rMin": 0.000012529910287008889,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-95-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 380,
+   "rMin": 0.000033345720981457973,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.7499935065261139,
+   "bis": 0.7500136197678496,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-49-2": {
+   "status": "fortgesetzt",
+   "sekunden": 132,
+   "rMin": 0.00004248238683119243,
+   "punkte": 8,
+   "stabilDouble": 0,
+   "von": 1.9999973330078125,
+   "bis": 2.0000004404296874,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-141-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 86,
+   "rMin": 0.000025305776552018353,
+   "punkte": 2,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5000000859375,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-31-4": {
+   "status": "fortgesetzt",
+   "sekunden": 196,
+   "rMin": 0.000012201098138730209,
+   "punkte": 7,
+   "stabilDouble": 0,
+   "von": 3.99999928125,
+   "bis": 4.000001873046875,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-48-2": {
+   "status": "fortgesetzt",
+   "sekunden": 107,
+   "rMin": 0.00004473513740599399,
+   "punkte": 5,
+   "stabilDouble": 0,
+   "von": 1.999999375,
+   "bis": 2.00000178515625,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-227-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 70,
+   "rMin": 0.000028423599814008533,
+   "punkte": 1,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.500000015625,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-156-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1963,
+   "rMin": 0.000025669541114208265,
+   "punkte": 216,
+   "stabilDouble": 0,
+   "von": 0.7489172185272481,
+   "bis": 0.7510180940102481,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-57-2": {
+   "status": "fortgesetzt",
+   "sekunden": 157,
+   "rMin": 0.000007846185451696618,
+   "punkte": 3,
+   "stabilDouble": 0,
+   "von": 1.99999997265625,
+   "bis": 2.00000003125,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-255-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 833,
+   "rMin": 0.000014506578656616953,
+   "punkte": 49,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5070943393774943,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-169-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 299,
+   "rMin": 0.0000021346579686211903,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-85-2": {
+   "status": "fortgesetzt",
+   "sekunden": 245,
+   "rMin": 0.000002521277497278999,
+   "punkte": 6,
+   "stabilDouble": 0,
+   "von": 1.9999997636718752,
+   "bis": 2.0000001484375,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-141-0.5": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 87,
+   "rMin": 0.000008380768071741146,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-64-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 255,
+   "rMin": 0.0000031455514975153926,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-67-2": {
+   "status": "fortgesetzt",
+   "sekunden": 163,
+   "rMin": 0.000012041645463997245,
+   "punkte": 12,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2.0000006347090604,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-28-4": {
+   "status": "fortgesetzt",
+   "sekunden": 376,
+   "rMin": 0.000023000242977031236,
+   "punkte": 33,
+   "stabilDouble": 0,
+   "von": 3.999992011977049,
+   "bis": 4.00000221899414,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-117-0.75": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 117,
+   "rMin": 0.0000157418062951391,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 0.75,
+   "bis": 0.75,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-60-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 115,
+   "rMin": 0.00001173986009662329,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-95-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 221,
+   "rMin": 0.000006839111157641927,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-26-4": {
+   "status": "fortgesetzt",
+   "sekunden": 802,
+   "rMin": 0.00002684058556477985,
+   "punkte": 83,
+   "stabilDouble": 0,
+   "von": 3.999163579547587,
+   "bis": 4.000017426968695,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-41-2": {
+   "status": "fortgesetzt",
+   "sekunden": 1492,
+   "rMin": 0.00002580214012770437,
+   "punkte": 197,
+   "stabilDouble": 0,
+   "von": 1.9979288616580215,
+   "bis": 2.0075729933772055,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-94-2": {
+   "status": "wieder 0 Punkte",
+   "sekunden": 191,
+   "rMin": 0.00000895231441792196,
+   "punkte": 0,
+   "stabilDouble": 0,
+   "von": 2,
+   "bis": 2,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-91-2": {
+   "status": "fortgesetzt",
+   "sekunden": 1925,
+   "rMin": 0.00001482066538862584,
+   "punkte": 164,
+   "stabilDouble": 0,
+   "von": 1.9586918829574582,
+   "bis": 2.007357438682746,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-7-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 326,
+   "rMin": 0.003555095149925883,
+   "punkte": 130,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5599569920764311,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-27-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 242,
+   "rMin": 0.0001306355423497498,
+   "punkte": 107,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5270160080602567,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-31-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 863,
+   "rMin": 0.002719044047018457,
+   "punkte": 252,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5207783311287472,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-52-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 306,
+   "rMin": 0.0021197676554049706,
+   "punkte": 54,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5117464936584161,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-13-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 2079,
+   "rMin": 0.0067802802794231405,
+   "punkte": 505,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5509725362480375,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Grenze des Bereichs erreicht"
+   ]
+  },
+  "II.C-55-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 910,
+   "rMin": 0.00220243894082719,
+   "punkte": 116,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5294445197506946,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.A-2-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 43,
+   "rMin": 0.019379115141153185,
+   "punkte": 37,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5635770080657371,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-8-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 16,
+   "rMin": 0.26744857182535525,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.7350182129963845,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-13-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 66,
+   "rMin": 0.002285654334047582,
+   "punkte": 72,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.7104926230138979,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-13-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 692,
+   "rMin": 0.03275269110392435,
+   "punkte": 729,
+   "stabilDouble": 0,
+   "von": 0.63051254663558,
+   "bis": 0.8293181984824929,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-41-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 706,
+   "rMin": 0.0005767088332685026,
+   "punkte": 101,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5169072634986849,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-65-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 220,
+   "rMin": 0.003055226016274169,
+   "punkte": 36,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5056028132060151,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-34-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 227,
+   "rMin": 0.00032691770389444563,
+   "punkte": 72,
+   "stabilDouble": 0,
+   "von": 0.7480601986991515,
+   "bis": 0.7544327521507702,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-56-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1155,
+   "rMin": 0.0042688463248585105,
+   "punkte": 186,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5286057210110283,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-71-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 258,
+   "rMin": 0.00039616127065026063,
+   "punkte": 50,
+   "stabilDouble": 0,
+   "von": 0.7449310723745245,
+   "bis": 0.7529396345978618,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-47-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 759,
+   "rMin": 0.00036053134971695324,
+   "punkte": 100,
+   "stabilDouble": 0,
+   "von": 0.6721301848063778,
+   "bis": 0.7767947679647127,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-33-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1522,
+   "rMin": 0.016600421934282093,
+   "punkte": 564,
+   "stabilDouble": 0,
+   "von": 0.68917189943212,
+   "bis": 0.7810604065637929,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-90-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 325,
+   "rMin": 0.00013498828049791906,
+   "punkte": 45,
+   "stabilDouble": 0,
+   "von": 0.7452534150276016,
+   "bis": 0.7519095094628931,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-44-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 157,
+   "rMin": 0.000258418134994421,
+   "punkte": 32,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5165701798028703,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-95-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 812,
+   "rMin": 0.00043223415322285377,
+   "punkte": 49,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5194625512846537,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-73-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1315,
+   "rMin": 0.000662839048052701,
+   "punkte": 180,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5120988634626237,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-54-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 655,
+   "rMin": 0.00020149956953789726,
+   "punkte": 100,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.6584717247066841,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-53-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 898,
+   "rMin": 0.00016080995686203761,
+   "punkte": 94,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5221208661389627,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-92-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1033,
+   "rMin": 0.0021254381470946896,
+   "punkte": 142,
+   "stabilDouble": 0,
+   "von": 0.7486434683671354,
+   "bis": 0.7609775585042255,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-80-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1124,
+   "rMin": 0.0007069046778878696,
+   "punkte": 73,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5241496277324663,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-154-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 435,
+   "rMin": 0.00024013489849906936,
+   "punkte": 30,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5020234285370608,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-48-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1025,
+   "rMin": 0.011205881710879854,
+   "punkte": 344,
+   "stabilDouble": 0,
+   "von": 0.7302304846736232,
+   "bis": 0.7531305472701503,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-93-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 236,
+   "rMin": 0.003515629797109113,
+   "punkte": 41,
+   "stabilDouble": 0,
+   "von": 0.7477466189590524,
+   "bis": 0.750055372717172,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-108-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 2371,
+   "rMin": 0.0002635519141381633,
+   "punkte": 206,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5169808579904753,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-108-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 463,
+   "rMin": 0.000577225993915011,
+   "punkte": 49,
+   "stabilDouble": 0,
+   "von": 0.7499009082954601,
+   "bis": 0.7521818444237369,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-117-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 474,
+   "rMin": 0.00013282823346954942,
+   "punkte": 75,
+   "stabilDouble": 0,
+   "von": 0.7495049263729817,
+   "bis": 0.7501642022994757,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-111-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 918,
+   "rMin": 0.000317263270609555,
+   "punkte": 44,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5118114528632546,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-152-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 915,
+   "rMin": 0.00034625070287790826,
+   "punkte": 44,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5093558902760659,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-105-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 894,
+   "rMin": 0.0003475017452521348,
+   "punkte": 65,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5148916502409275,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-80-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1200,
+   "rMin": 0.0016215327660677702,
+   "punkte": 239,
+   "stabilDouble": 0,
+   "von": 0.7015717777384034,
+   "bis": 0.7522278722058359,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-109-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1534,
+   "rMin": 0.0003031209890380341,
+   "punkte": 185,
+   "stabilDouble": 0,
+   "von": 0.7472509507583021,
+   "bis": 0.7582403598617218,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-98-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 2991,
+   "rMin": 0.00033329455978999695,
+   "punkte": 154,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.511444162031539,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-3-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 667,
+   "rMin": 0.00012554222311155977,
+   "punkte": 32,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5015884919610702,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-127-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 884,
+   "rMin": 0.00045692638397687565,
+   "punkte": 40,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5149215616069304,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-72-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1159,
+   "rMin": 0.0008247513723371011,
+   "punkte": 80,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5060629085535862,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-160-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 781,
+   "rMin": 0.0005057378207633032,
+   "punkte": 45,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5100928821678071,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-110-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 335,
+   "rMin": 0.0007197548740890534,
+   "punkte": 45,
+   "stabilDouble": 0,
+   "von": 0.7499019179791808,
+   "bis": 0.7523327605345529,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-127-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 802,
+   "rMin": 0.0004295081613867136,
+   "punkte": 57,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5103842453220656,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-28-2": {
+   "status": "fortgesetzt",
+   "sekunden": 84,
+   "rMin": 0.00010900700443694623,
+   "punkte": 10,
+   "stabilDouble": 0,
+   "von": 1.9999944900894164,
+   "bis": 2.0000011875,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-49-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 2159,
+   "rMin": 0.014719010880123838,
+   "punkte": 535,
+   "stabilDouble": 0,
+   "von": 0.5218083162390071,
+   "bis": 0.7584864073095695,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-58-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 926,
+   "rMin": 0.02110167824551563,
+   "punkte": 264,
+   "stabilDouble": 0,
+   "von": 0.6273517899650852,
+   "bis": 0.7669076103070844,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-116-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1373,
+   "rMin": 0.0006006695032463761,
+   "punkte": 63,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5055982985558453,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-59-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1096,
+   "rMin": 0.0023296659319945257,
+   "punkte": 107,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5065317024964106,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-74-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 2268,
+   "rMin": 0.008449328745350834,
+   "punkte": 526,
+   "stabilDouble": 0,
+   "von": 0.6316189676429751,
+   "bis": 0.7501452764490527,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-131-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 390,
+   "rMin": 0.0001501930653606698,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.7495914141727363,
+   "bis": 0.7502518121737206,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-113-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 802,
+   "rMin": 0.0005311275809744726,
+   "punkte": 118,
+   "stabilDouble": 0,
+   "von": 0.7021396554362349,
+   "bis": 0.771589358332116,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-8-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 456,
+   "rMin": 0.000216588413391897,
+   "punkte": 69,
+   "stabilDouble": 0,
+   "von": 0.7490311956992024,
+   "bis": 0.7502924640565827,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-83-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 2441,
+   "rMin": 0.005063960472297348,
+   "punkte": 494,
+   "stabilDouble": 0,
+   "von": 0.6723686820793422,
+   "bis": 0.7513301671706886,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-112-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 688,
+   "rMin": 0.0012574474296376632,
+   "punkte": 70,
+   "stabilDouble": 0,
+   "von": 0.7498454889044462,
+   "bis": 0.7564246004727017,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-139-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 223,
+   "rMin": 0.00015398687679474344,
+   "punkte": 26,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5048850410839968,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-52-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1388,
+   "rMin": 0.0012250650990711512,
+   "punkte": 216,
+   "stabilDouble": 0,
+   "von": 0.7202313868529392,
+   "bis": 0.8629743187641911,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-165-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 712,
+   "rMin": 0.0003041350723751164,
+   "punkte": 57,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.503146652640752,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-90-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 3142,
+   "rMin": 0.0013510010657279403,
+   "punkte": 212,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5258216195343254,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-128-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 908,
+   "rMin": 0.00033738403101715746,
+   "punkte": 60,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5242252007229549,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-75-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1165,
+   "rMin": 0.0010440120300897347,
+   "punkte": 99,
+   "stabilDouble": 0,
+   "von": 0.7359289939257857,
+   "bis": 0.8002767864981467,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-49-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 1397,
+   "rMin": 0.0022015425883986557,
+   "punkte": 176,
+   "stabilDouble": 0,
+   "von": 0.7261176175308547,
+   "bis": 0.8211807171681642,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-136-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 558,
+   "rMin": 0.0017358211921944973,
+   "punkte": 77,
+   "stabilDouble": 0,
+   "von": 0.7447449664945285,
+   "bis": 0.7519366857514435,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-102-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 411,
+   "rMin": 0.00023977054624848076,
+   "punkte": 47,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5023630078736321,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-88-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 5158,
+   "rMin": 0.00029184910823319563,
+   "punkte": 320,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5282232919280366,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-150-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1042,
+   "rMin": 0.0005223766698050776,
+   "punkte": 66,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5026345601380835,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-213-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 676,
+   "rMin": 0.00036455853323824486,
+   "punkte": 31,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5025071198923698,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-251-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 632,
+   "rMin": 0.00019309094333955386,
+   "punkte": 50,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.503664997412405,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-231-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1458,
+   "rMin": 0.0002011501764753361,
+   "punkte": 54,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5116228868441426,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-135-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 137,
+   "rMin": 0.003960897518339341,
+   "punkte": 24,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5012691943429022,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-175-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 323,
+   "rMin": 0.00010546015949589495,
+   "punkte": 40,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5005978039834859,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-211-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 681,
+   "rMin": 0.00010365872433755768,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5112543431107449,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-233-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 424,
+   "rMin": 0.00029263369334942056,
+   "punkte": 34,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5028008612332641,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-101-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 634,
+   "rMin": 0.0004039997969136039,
+   "punkte": 129,
+   "stabilDouble": 0,
+   "von": 0.7181119271442288,
+   "bis": 0.7607926056923908,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-149-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 466,
+   "rMin": 0.0002401694026053956,
+   "punkte": 35,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5012517515233734,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-104-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 357,
+   "rMin": 0.00031452671440918966,
+   "punkte": 42,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5103716996573304,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-242-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 958,
+   "rMin": 0.00011114872988982264,
+   "punkte": 36,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5052978061037313,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-123-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 704,
+   "rMin": 0.00035768732507794826,
+   "punkte": 53,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5337995935921376,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.B-6-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 656,
+   "rMin": 0.0007885251143439659,
+   "punkte": 71,
+   "stabilDouble": 0,
+   "von": 0.7499949698486328,
+   "bis": 0.7567570532886868,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-140-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 4118,
+   "rMin": 0.0003330566414874263,
+   "punkte": 164,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5273106221044903,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-139-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 5036,
+   "rMin": 0.0007824863512753328,
+   "punkte": 226,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.530450397150707,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.A-139-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1412,
+   "rMin": 0.00021336556568062005,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5100216839102942,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-119-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 713,
+   "rMin": 0.003935951234877718,
+   "punkte": 49,
+   "stabilDouble": 0,
+   "von": 0.7486816790137197,
+   "bis": 0.751114137747188,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-198-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 368,
+   "rMin": 0.00046194287578935517,
+   "punkte": 46,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5080486485044247,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "I.B-116-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 2307,
+   "rMin": 0.0013981713660440483,
+   "punkte": 144,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5111185815577799,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-221-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 987,
+   "rMin": 0.00011062360450712478,
+   "punkte": 48,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5198494316766425,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-121-0.75": {
+   "status": "fortgesetzt",
+   "sekunden": 640,
+   "rMin": 0.006666328821731231,
+   "punkte": 61,
+   "stabilDouble": 0,
+   "von": 0.7499260916838856,
+   "bis": 0.7517803209591503,
+   "gruende": [
+    "Newton nimmt nicht an",
+    "Newton nimmt nicht an"
+   ]
+  },
+  "II.C-247-0.5": {
+   "status": "fortgesetzt",
+   "sekunden": 1029,
+   "rMin": 0.00022026590507475283,
+   "punkte": 43,
+   "stabilDouble": 0,
+   "von": 0.5,
+   "bis": 0.5059326509133227,
+   "gruende": [
+    "Grenze des Bereichs erreicht",
+    "Newton nimmt nicht an"
+   ]
+  }
+ },
+ "soll": 333,
+ "erzeugt": "2026-11-16T04:01:00.394Z"
+}

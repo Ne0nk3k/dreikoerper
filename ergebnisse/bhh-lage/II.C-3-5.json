@@ -1,0 +1,46 @@
+{
+ "datei": "II.C-3-5",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:13:29.767Z",
+ "proben": [
+  {
+   "m3": 4.975694808959961,
+   "stueck": [
+    4.975694808959961,
+    5.074972566969343
+   ],
+   "r1": {
+    "syzygien": 266,
+    "mitte": 128,
+    "minAnteil": 0.7299659402631564
+   },
+   "r2": {
+    "syzygien": 270,
+    "mitte": 130,
+    "minAnteil": 0.7299659402631564
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 28
+  },
+  {
+   "m3": 5.074972566969343,
+   "stueck": [
+    4.975694808959961,
+    5.074972566969343
+   ],
+   "r1": {
+    "syzygien": 270,
+    "mitte": 130,
+    "minAnteil": 0.693934758555377
+   },
+   "r2": {
+    "syzygien": 270,
+    "mitte": 130,
+    "minAnteil": 0.693934758555377
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 28
+  }
+ ],
+ "urteil": "unklar"
+}

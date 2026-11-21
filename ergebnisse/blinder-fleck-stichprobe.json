@@ -1,0 +1,4587 @@
+{
+ "zweck": "Messung des blinden Flecks: Stellen, gleich verteilt über die Länge in m3 der Fortsetzungsstrecken, an denen double nicht stabil sagt, auf 30 Stellen geprobt",
+ "verfahren": "werkzeug/blinder-fleck.mjs; Zufall mulberry32",
+ "saat": 20261113,
+ "n": 300,
+ "familien": 1306,
+ "strecken": 57097,
+ "laenge": 278.46906146791747,
+ "gezogen": "2026-11-19T15:48:41.024Z",
+ "punkte": [
+  {
+   "datei": "II.C-16-0.5",
+   "m3": 0.6121278894985182,
+   "strecke": [
+    0.6119614733297398,
+    0.6125479733763666
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-9-4",
+   "m3": 3.668154342410031,
+   "strecke": [
+    3.6884179687500005,
+    3.6462304687500007
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 3.049146448298533,
+   "strecke": [
+    3.0412499999999962,
+    3.091249999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0574999999999997,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-69-0.75",
+   "m3": 0.7425382011080219,
+   "strecke": [
+    0.7426371765136719,
+    0.741886329650879
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-30-0.75",
+   "m3": 0.7945721754667017,
+   "strecke": [
+    0.7924536132812499,
+    0.7977929687499998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-18-0.5",
+   "m3": 0.5378636899508198,
+   "strecke": [
+    0.5354687499999999,
+    0.548125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 4.95831164408033,
+   "strecke": [
+    4.949999999999997,
+    4.9999999999999964
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-12-0.5",
+   "m3": 0.6200149363303604,
+   "strecke": [
+    0.6074969482421877,
+    0.625517272949219
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-1-2",
+   "m3": 4.123739169184574,
+   "strecke": [
+    4.1,
+    4.1499999999999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-37-0.75",
+   "m3": 0.6814146280342404,
+   "strecke": [
+    0.68183837890625,
+    0.6658203125
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 3.7029117973102186,
+   "strecke": [
+    3.693678278036586,
+    3.707393382561643
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-4",
+   "m3": 8.443056536908564,
+   "strecke": [
+    8.436132812500004,
+    8.486132812500005
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-145-0.5",
+   "m3": 0.5093703349922791,
+   "strecke": [
+    0.5071874999999999,
+    0.51140625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-9-4",
+   "m3": 4.2795222550451975,
+   "strecke": [
+    4.232431640625002,
+    4.280485839843752
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 3.6865896762417654,
+   "strecke": [
+    3.666249999999995,
+    3.691249999999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0574999999999997,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-3-2",
+   "m3": 1.7270448421932423,
+   "strecke": [
+    1.7487500000000005,
+    1.6987500000000004
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-6-2",
+   "m3": 2.6861334166050086,
+   "strecke": [
+    2.675564069747925,
+    2.694569880962372
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-9-4",
+   "m3": 5.7668176459114235,
+   "strecke": [
+    5.765927798980435,
+    5.768213649734611
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-2",
+   "m3": 7.196829335119151,
+   "strecke": [
+    7.153662109374992,
+    7.203662109374992
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-13-2",
+   "m3": 1.8135201314219493,
+   "strecke": [
+    1.8473437499999998,
+    1.8093749999999997
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-13-2",
+   "m3": 1.9594695340960395,
+   "strecke": [
+    1.95953125,
+    1.9591796875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-8-0.5",
+   "m3": 0.6067167437121019,
+   "strecke": [
+    0.6010026731761697,
+    0.617836785372198
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-2",
+   "m3": 5.906879872382366,
+   "strecke": [
+    5.874999999999997,
+    5.924999999999997
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-2",
+   "m3": 2.193930322927614,
+   "strecke": [
+    2.15890625,
+    2.2089062499999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-35-0.5",
+   "m3": 0.5954650656994718,
+   "strecke": [
+    0.5937402343749999,
+    0.5955200195312499
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 4.437870066213103,
+   "strecke": [
+    4.399999999999999,
+    4.449999999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-4",
+   "m3": 8.677740248811729,
+   "strecke": [
+    8.636132812500007,
+    8.686132812500007
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-12-2",
+   "m3": 3.3674052363237252,
+   "strecke": [
+    3.3549999999999955,
+    3.4049999999999954
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 9.220523708800325,
+   "strecke": [
+    9.200000000000017,
+    9.250000000000018
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 6.582577046264745,
+   "strecke": [
+    6.5536621093749945,
+    6.603662109374994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 9.68423717350249,
+   "strecke": [
+    9.675000000000022,
+    9.725000000000023
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-70-0.75",
+   "m3": 0.9984100207517235,
+   "strecke": [
+    0.994518679380417,
+    1
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-14-2",
+   "m3": 2.535484216818054,
+   "strecke": [
+    2.5344438384293984,
+    2.5398621513281863
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-6-2",
+   "m3": 6.145217048594069,
+   "strecke": [
+    6.1249999999999964,
+    6.174999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-6-0.75",
+   "m3": 0.7505825956946964,
+   "strecke": [
+    0.75,
+    0.750625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-8-4",
+   "m3": 3.61962287881894,
+   "strecke": [
+    3.6362542724609366,
+    3.6151605224609367
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 3.818786621093749,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-4-2",
+   "m3": 5.26015425714568,
+   "strecke": [
+    5.259276916552492,
+    5.26023521951698
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-8",
+   "m3": 8.467647444714762,
+   "strecke": [
+    8.466536950400798,
+    8.472632552411934
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 8,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-5",
+   "m3": 5.1163084069382965,
+   "strecke": [
+    5.10890625,
+    5.15890625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 5.113594,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 5.118281,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-4-5",
+   "m3": 4.976800045549465,
+   "strecke": [
+    4.982265625000001,
+    4.972773437500001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 5,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-12-2",
+   "m3": 2.987203053065287,
+   "strecke": [
+    2.942499999999997,
+    2.9924999999999966
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-21-0.5",
+   "m3": 0.5520465893871217,
+   "strecke": [
+    0.5512499999999999,
+    0.5624999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-30-0.75",
+   "m3": 0.7758237952949636,
+   "strecke": [
+    0.77,
+    0.78
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.77,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 0.78,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-11-0.75",
+   "m3": 0.8650734151463344,
+   "strecke": [
+    0.84125,
+    0.875
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-70-0.75",
+   "m3": 0.8264043801809071,
+   "strecke": [
+    0.8127587890624999,
+    0.8287768554687499
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-22-0.75",
+   "m3": 0.8563862394134377,
+   "strecke": [
+    0.8329296875,
+    0.8614062499999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-2",
+   "m3": 8.554429836536963,
+   "strecke": [
+    8.550000000000008,
+    8.600000000000009
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-5",
+   "m3": 6.16394253108876,
+   "strecke": [
+    6.158033916282264,
+    6.164813309920189
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 5.25875,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 4.671381661566951,
+   "strecke": [
+    4.670540456585565,
+    4.67606720650199
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-3-4",
+   "m3": 4.180016102840613,
+   "strecke": [
+    4.141249999999999,
+    4.191249999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.141249999999999,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 4.241249999999999,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 1.949178351503607,
+   "strecke": [
+    1.965,
+    1.9425000000000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-13-0.75",
+   "m3": 0.6569427686605517,
+   "strecke": [
+    0.6712500000000002,
+    0.6543750000000003
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 2.8681802178013944,
+   "strecke": [
+    2.841249999999997,
+    2.8912499999999968
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 7.874482727147008,
+   "strecke": [
+    7.85366210937499,
+    7.90366210937499
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-9-0.75",
+   "m3": 0.7554553882475311,
+   "strecke": [
+    0.75,
+    0.76
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 0.8875,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 3.8654428662241953,
+   "strecke": [
+    3.8428124999999946,
+    3.8678124999999945
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0574999999999997,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-83-0.75",
+   "m3": 0.7187826313672554,
+   "strecke": [
+    0.729267578125,
+    0.7185888671875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 8.085899016138608,
+   "strecke": [
+    8.05,
+    8.100000000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-5-2",
+   "m3": 4.241034894861931,
+   "strecke": [
+    4.199999999999999,
+    4.249999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.199999999999999,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-4",
+   "m3": 4.120170433545419,
+   "strecke": [
+    4.10890625,
+    4.15890625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": {
+     "m3": 4.348151,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-42-0.75",
+   "m3": 0.7914312681432345,
+   "strecke": [
+    0.7854687499999999,
+    0.7949609375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-9-4",
+   "m3": 5.638678110405471,
+   "strecke": [
+    5.6140625,
+    5.6390625000000005
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 6.057303680445114,
+   "strecke": [
+    6.050973701477047,
+    6.100973701477047
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-30-0.75",
+   "m3": 0.7870044618740958,
+   "strecke": [
+    0.78,
+    0.79
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.78,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-5-8",
+   "m3": 8.100377403023046,
+   "strecke": [
+    8.093085937500001,
+    8.107324218750001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 8,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-35-0.75",
+   "m3": 0.7159100831597128,
+   "strecke": [
+    0.7271875000000001,
+    0.7145312500000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 1.7984100304754438,
+   "strecke": [
+    1.79935546875,
+    1.7618554687499999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2368554687499997,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 8.263639218251512,
+   "strecke": [
+    8.250000000000004,
+    8.300000000000004
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-28-2",
+   "m3": 1.9420487530903694,
+   "strecke": [
+    1.9437671615183352,
+    1.9405599308758972
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-25-0.5",
+   "m3": 0.6127048793501039,
+   "strecke": [
+    0.6074969482421876,
+    0.6165071105957032
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-6-2",
+   "m3": 6.051622722277684,
+   "strecke": [
+    6.024999999999997,
+    6.074999999999997
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-0.75",
+   "m3": 0.9608812373066815,
+   "strecke": [
+    0.96015625,
+    0.9643750000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.8912499999999998,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 5.762033921781961,
+   "strecke": [
+    5.718572998046874,
+    5.768572998046873
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 8.285046883458152,
+   "strecke": [
+    8.284014472000894,
+    8.287486779946688
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 3.6666376992054985,
+   "strecke": [
+    3.649999999999994,
+    3.699999999999994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-58-0.5",
+   "m3": 0.5206595678568998,
+   "strecke": [
+    0.51361328125,
+    0.520732421875
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-6-5",
+   "m3": 4.944993855492433,
+   "strecke": [
+    4.959785156250001,
+    4.938427734375001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 5,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-24-2",
+   "m3": 1.942059431307404,
+   "strecke": [
+    1.9425000000000001,
+    1.9200000000000002
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-17-0.5",
+   "m3": 0.5511436146153279,
+   "strecke": [
+    0.5474999999999999,
+    0.5643749999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 3.8863330258658597,
+   "strecke": [
+    3.8412499999999934,
+    3.891249999999993
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-4",
+   "m3": 8.247127001299344,
+   "strecke": [
+    8.236132812500001,
+    8.286132812500002
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 3.145857431793341,
+   "strecke": [
+    3.141249999999996,
+    3.1912499999999957
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-8",
+   "m3": 8.095765766109613,
+   "strecke": [
+    8.088593750000001,
+    8.0980859375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 8.050625000000002,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-45-2",
+   "m3": 2.037276658049075,
+   "strecke": [
+    2.03546875,
+    2.048125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.03546875,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 2.048125,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-5-2",
+   "m3": 5.038092098672919,
+   "strecke": [
+    5.036433879880556,
+    5.039695341732461
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.199999999999999,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 2.88316402246879,
+   "strecke": [
+    2.872912597656249,
+    2.901037597656249
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.D-1-2",
+   "m3": 3.878167295552546,
+   "strecke": [
+    3.8353124999999983,
+    3.885312499999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-3-2",
+   "m3": 3.0679493915526237,
+   "strecke": [
+    3.0662499999999966,
+    3.0912499999999965
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-2",
+   "m3": 3.143806665550567,
+   "strecke": [
+    3.1408298385450313,
+    3.1488723895320483
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-4",
+   "m3": 3.740512577640358,
+   "strecke": [
+    3.758750000000001,
+    3.708750000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 3.68375,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 3.758750000000001,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-23-0.75",
+   "m3": 0.7148279021927081,
+   "strecke": [
+    0.7212500000000001,
+    0.7128125000000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 8.422377333675735,
+   "strecke": [
+    8.400000000000006,
+    8.450000000000006
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-36-0.75",
+   "m3": 1.0273053705816406,
+   "strecke": [
+    1.027030487060547,
+    1.0405457305908203
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-2",
+   "m3": 4.785008572524604,
+   "strecke": [
+    4.783306604838952,
+    4.787863823365962
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-2",
+   "m3": 5.958075147232173,
+   "strecke": [
+    5.953662109374997,
+    6.0036621093749964
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-17-2",
+   "m3": 2.250685577914646,
+   "strecke": [
+    2.2377709960937495,
+    2.2617980957031247
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-27-2",
+   "m3": 2.0510237621039944,
+   "strecke": [
+    2.0462109375,
+    2.055703125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 9.402296355754615,
+   "strecke": [
+    9.40000000000002,
+    9.45000000000002
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 4.190808449817139,
+   "strecke": [
+    4.1499999999999995,
+    4.199999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 2.055179977561826,
+   "strecke": [
+    2.054453125,
+    2.0829296875
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-52-2",
+   "m3": 2.0745637819201868,
+   "strecke": [
+    2.073196785506209,
+    2.080884158917354
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-20-4",
+   "m3": 4.029208257242734,
+   "strecke": [
+    4.0228125000000015,
+    4.0354687500000015
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 4.976553468473442,
+   "strecke": [
+    4.949999999999997,
+    4.9999999999999964
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-4-2",
+   "m3": 1.8524540494446269,
+   "strecke": [
+    1.8554041876643894,
+    1.8517960531916466
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-2-4",
+   "m3": 9.277702047911609,
+   "strecke": [
+    9.250000000000018,
+    9.300000000000018
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 6.217932128906243,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-1-5",
+   "m3": 4.821607800237147,
+   "strecke": [
+    4.824355468749999,
+    4.77435546875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 5,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-162-0.75",
+   "m3": 0.7740421539747161,
+   "strecke": [
+    0.7736616516113282,
+    0.7744124984741211
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 4.4990931648842984,
+   "strecke": [
+    4.449999999999998,
+    4.499999999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 6.185906885491946,
+   "strecke": [
+    6.149999999999996,
+    6.199999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-7-4",
+   "m3": 4.094451538963126,
+   "strecke": [
+    4.0709375,
+    4.10890625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-8-2",
+   "m3": 2.985054163606827,
+   "strecke": [
+    2.984302139058708,
+    2.990234756246208
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-75-0.75",
+   "m3": 0.7772303288309841,
+   "strecke": [
+    0.7765167236328125,
+    0.7825234985351563
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-36-0.75",
+   "m3": 0.690854362515874,
+   "strecke": [
+    0.695546875,
+    0.6860546875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-13-2",
+   "m3": 1.540515413414866,
+   "strecke": [
+    1.543593749999999,
+    1.5056249999999989
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-4",
+   "m3": 3.2006836181588723,
+   "strecke": [
+    3.208750000000003,
+    3.183750000000003
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 4,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-14-2",
+   "m3": 2.4718671349304557,
+   "strecke": [
+    2.471508127786219,
+    2.47752168524079
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-20-2",
+   "m3": 1.910785962595934,
+   "strecke": [
+    1.9211596679687502,
+    1.9051416015625002
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-3-4",
+   "m3": 3.1538190877824,
+   "strecke": [
+    3.158750000000003,
+    3.133750000000003
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 3.9425000000000003,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 8.16848714575271,
+   "strecke": [
+    8.167505760519289,
+    8.169972588929168
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 1.8993915867046998,
+   "strecke": [
+    1.9087500000000002,
+    1.8587500000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.8587500000000001,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 1.9087500000000002,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-5-2",
+   "m3": 2.418687238452276,
+   "strecke": [
+    2.4102343750000004,
+    2.4197265625
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 3.706225585937498,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 6.089505494272259,
+   "strecke": [
+    6.051562499999997,
+    6.1015624999999964
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-52-0.75",
+   "m3": 0.7477988163047393,
+   "strecke": [
+    0.748031477493286,
+    0.7470462162399291
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.D-1-2",
+   "m3": 3.552789896153647,
+   "strecke": [
+    3.5353124999999994,
+    3.5853124999999992
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 4.5734767092452655,
+   "strecke": [
+    4.549999999999998,
+    4.599999999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 3.207491241275302,
+   "strecke": [
+    3.1912499999999957,
+    3.2412499999999955
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 5.0748088533865525,
+   "strecke": [
+    5.0671855926513665,
+    5.10097370147705
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-2-4",
+   "m3": 6.533852552311589,
+   "strecke": [
+    6.503084564208977,
+    6.553084564208977
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 6.217932128906243,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-28-0.75",
+   "m3": 0.8382058775459187,
+   "strecke": [
+    0.8209374999999999,
+    0.8462499999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 4.093705775625985,
+   "strecke": [
+    4.05,
+    4.1
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-8-4",
+   "m3": 4.066018517130653,
+   "strecke": [
+    4.0625,
+    4.0709375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.0625,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 4.0839440920948995,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-1-8",
+   "m3": 7.666864461959318,
+   "strecke": [
+    7.672499999999998,
+    7.638749999999997
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 8,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-5-2",
+   "m3": 4.790578159350333,
+   "strecke": [
+    4.788472074986238,
+    4.7976154780029425
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.199999999999999,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-9-4",
+   "m3": 4.005600689312167,
+   "strecke": [
+    4.005000000000001,
+    4.008750000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-16-0.5",
+   "m3": 0.5408644881949902,
+   "strecke": [
+    0.540673828125,
+    0.5442333984375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-28-0.75",
+   "m3": 0.7561938150224288,
+   "strecke": [
+    0.7543749999999999,
+    0.7571874999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 3.700910947617674,
+   "strecke": [
+    3.6756445312499944,
+    3.725644531249994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-11-0.75",
+   "m3": 0.7953399426464889,
+   "strecke": [
+    0.787890625,
+    0.7973828125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-36-0.75",
+   "m3": 1.0981897398643756,
+   "strecke": [
+    1.097985515594482,
+    1.1013643264770503
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-6-5",
+   "m3": 4.771821412784025,
+   "strecke": [
+    4.774242553710937,
+    4.765232391357421
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 5,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 5.044730296454449,
+   "strecke": [
+    5,
+    5.05
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-2",
+   "m3": 2.1463159546306905,
+   "strecke": [
+    2.13421875,
+    2.153203125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-6-0.75",
+   "m3": 0.7708232748575303,
+   "strecke": [
+    0.767734375,
+    0.7772265625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-2",
+   "m3": 2.066645310032949,
+   "strecke": [
+    2.0574999999999997,
+    2.0912499999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-2",
+   "m3": 3.1632795420336692,
+   "strecke": [
+    3.155312499999998,
+    3.1928124999999983
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 6.883799378483176,
+   "strecke": [
+    6.850973701477044,
+    6.900973701477044
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 2.6231839147539113,
+   "strecke": [
+    2.591249999999998,
+    2.6412499999999977
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-115-0.5",
+   "m3": 0.5014882248338917,
+   "strecke": [
+    0.50125,
+    0.5021875
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-2",
+   "m3": 2.196546460806162,
+   "strecke": [
+    2.15890625,
+    2.2089062499999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 2.420996530293835,
+   "strecke": [
+    2.3912499999999985,
+    2.4412499999999984
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 8.157117410319467,
+   "strecke": [
+    8.150000000000002,
+    8.200000000000003
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-4-2",
+   "m3": 2.7705277053465927,
+   "strecke": [
+    2.7487499999999976,
+    2.7987499999999974
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-2-4",
+   "m3": 9.074968219717418,
+   "strecke": [
+    9.050000000000015,
+    9.100000000000016
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 6.217932128906243,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-6-2",
+   "m3": 6.119286551270304,
+   "strecke": [
+    6.074999999999997,
+    6.1249999999999964
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-4",
+   "m3": 5.894485357619795,
+   "strecke": [
+    5.874999999999999,
+    5.8999999999999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-70-0.75",
+   "m3": 0.7371164873906125,
+   "strecke": [
+    0.7411328125,
+    0.73638671875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 8.297974979948343,
+   "strecke": [
+    8.250000000000004,
+    8.300000000000004
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 9.231132730887326,
+   "strecke": [
+    9.200000000000017,
+    9.250000000000018
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-0.75",
+   "m3": 0.7505137535695217,
+   "strecke": [
+    0.75,
+    0.75125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 0.8009570312500001,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 3.8610647223191275,
+   "strecke": [
+    3.8499999999999934,
+    3.8999999999999932
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 9.84059361484788,
+   "strecke": [
+    9.800000000000026,
+    9.850000000000026
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 4.298661706453673,
+   "strecke": [
+    4.249999999999999,
+    4.299999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-6-2",
+   "m3": 2.0107051403686937,
+   "strecke": [
+    2.01,
+    2.0199999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.01,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 2.0349999999999997,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-5-2",
+   "m3": 4.95098773937925,
+   "strecke": [
+    4.949014648434471,
+    4.951836209816469
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.199999999999999,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 2.943302390745941,
+   "strecke": [
+    2.9412499999999966,
+    2.9912499999999964
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-44-0.75",
+   "m3": 0.7848526686725921,
+   "strecke": [
+    0.7728124999999999,
+    0.7854687499999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-45-0.75",
+   "m3": 0.6946522174621799,
+   "strecke": [
+    0.69712890625,
+    0.690009765625
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-59-0.75",
+   "m3": 0.7650900913251072,
+   "strecke": [
+    0.76140625,
+    0.767734375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-77-0.5",
+   "m3": 0.5823136168047308,
+   "strecke": [
+    0.5694540405273437,
+    0.5829692840576172
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 2.3107282265550033,
+   "strecke": [
+    2.291249999999999,
+    2.3412499999999987
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 6.588071156395499,
+   "strecke": [
+    6.551562499999995,
+    6.601562499999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-35-2",
+   "m3": 1.9156391868722689,
+   "strecke": [
+    1.9223437499999998,
+    1.9096874999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.906524,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 1.916016,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 8.494337426403057,
+   "strecke": [
+    8.450000000000006,
+    8.500000000000007
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-2",
+   "m3": 7.821153213741613,
+   "strecke": [
+    7.774999999999991,
+    7.82499999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-20-2",
+   "m3": 1.9621399792544256,
+   "strecke": [
+    1.9625000000000006,
+    1.9550000000000005
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-31-0.75",
+   "m3": 0.6153357793056685,
+   "strecke": [
+    0.645712890625,
+    0.6136767578125
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-65-2",
+   "m3": 1.9999117586124007,
+   "strecke": [
+    2,
+    1.999375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.9942968749999996,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 2,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 7.971717074543518,
+   "strecke": [
+    7.970654104786733,
+    7.973017719365382
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-0.75",
+   "m3": 0.6433238855185969,
+   "strecke": [
+    0.6549999999999999,
+    0.6399999999999999
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-4-0.5",
+   "m3": 0.6489319711881975,
+   "strecke": [
+    0.6466129794716836,
+    0.6594419020414354
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 0.7692433838546276,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-4",
+   "m3": 4.793854237498741,
+   "strecke": [
+    4.7537499999999975,
+    4.803749999999997
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 8.065655261915012,
+   "strecke": [
+    8.05,
+    8.100000000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 3.0557040200702086,
+   "strecke": [
+    3.0499999999999963,
+    3.099999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.2362499999999996,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.D-1-2",
+   "m3": 3.479714130485357,
+   "strecke": [
+    3.4353124999999998,
+    3.4853124999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 6.481675812852602,
+   "strecke": [
+    6.468572998046871,
+    6.518572998046871
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 3.542412873093053,
+   "strecke": [
+    3.5383492307038957,
+    3.551879734976681
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-13-4",
+   "m3": 4.130908410476316,
+   "strecke": [
+    4.12564453125,
+    4.1576806640625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 5.437501466839877,
+   "strecke": [
+    5.418572998046875,
+    5.4685729980468745
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-2-4",
+   "m3": 4.1174073292901765,
+   "strecke": [
+    4.117357407736125,
+    4.118372195556584
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-1-2",
+   "m3": 2.2290628725460917,
+   "strecke": [
+    2.2089062499999996,
+    2.2589062499999994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-8-2",
+   "m3": 2.2572067602559898,
+   "strecke": [
+    2.2228125000000003,
+    2.2607812500000004
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.10890625,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-34-0.75",
+   "m3": 0.7684323008636856,
+   "strecke": [
+    0.7643749999999999,
+    0.7728124999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 3.3712016287241937,
+   "strecke": [
+    3.341249999999995,
+    3.391249999999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-14-5",
+   "m3": 5.032226629940765,
+   "strecke": [
+    5.0259765624999995,
+    5.040214843749999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-2-4",
+   "m3": 3.545907711896466,
+   "strecke": [
+    3.5587500000000016,
+    3.5337500000000017
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 4,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-50-2",
+   "m3": 1.8825298006810591,
+   "strecke": [
+    1.8854951477050774,
+    1.8787375259399408
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-66-0.75",
+   "m3": 0.8437398755824872,
+   "strecke": [
+    0.8417291641235352,
+    0.8484867858886719
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-1-2",
+   "m3": 4.77636961241088,
+   "strecke": [
+    4.749999999999997,
+    4.799999999999997
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-12-2",
+   "m3": 2.481484539317704,
+   "strecke": [
+    2.4424999999999986,
+    2.4924999999999984
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-18-0.75",
+   "m3": 0.8763613389981545,
+   "strecke": [
+    0.8677343750000002,
+    0.8867187500000002
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 1.0569531250000002,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-62-2",
+   "m3": 2.055545517856508,
+   "strecke": [
+    2.0450244140625005,
+    2.0610424804687506
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0343457031250005,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-4-2",
+   "m3": 5.642627153888179,
+   "strecke": [
+    5.600973701477049,
+    5.6509737014770485
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-4",
+   "m3": 6.570270468901084,
+   "strecke": [
+    6.55,
+    6.575
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-3-4",
+   "m3": 4.199339863269993,
+   "strecke": [
+    4.191249999999999,
+    4.241249999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.141249999999999,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 4.241249999999999,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-76-2",
+   "m3": 1.9990468729411852,
+   "strecke": [
+    1.999375,
+    1.9987499999999998
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-6-2",
+   "m3": 2.9567049642947785,
+   "strecke": [
+    2.950997302845054,
+    2.972670554440206
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-36-0.5",
+   "m3": 0.5944951804565013,
+   "strecke": [
+    0.5819681549072265,
+    0.6022410202026367
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-35-0.5",
+   "m3": 0.5435737277428897,
+   "strecke": [
+    0.5396874999999999,
+    0.5481249999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-2",
+   "m3": 4.855078917137449,
+   "strecke": [
+    4.812499999999997,
+    4.862499999999997
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-5-8",
+   "m3": 8.113899431958297,
+   "strecke": [
+    8.107324218750001,
+    8.118002929687501
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 8,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 4.6372818207363675,
+   "strecke": [
+    4.599999999999998,
+    4.649999999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 7.7124651414126095,
+   "strecke": [
+    7.668572998046867,
+    7.7185729980468665
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-39-0.75",
+   "m3": 0.8228205129686302,
+   "strecke": [
+    0.8199414062500001,
+    0.8412988281250001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 4.092557089526441,
+   "strecke": [
+    4.071875,
+    4.092968750000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0574999999999997,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-60-0.5",
+   "m3": 0.5374276511010546,
+   "strecke": [
+    0.5337258911132814,
+    0.5382309722900392
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-117-0.5",
+   "m3": 0.6336283620403518,
+   "strecke": [
+    0.6280801738798618,
+    0.6569452496618032
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-25-2",
+   "m3": 2.981571175443089,
+   "strecke": [
+    2.974969711303709,
+    3.012469711303709
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-5-4",
+   "m3": 4.293403071602224,
+   "strecke": [
+    4.25890625,
+    4.30890625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-3-4",
+   "m3": 3.17740251717047,
+   "strecke": [
+    3.183750000000003,
+    3.158750000000003
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 3.9425000000000003,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.B-4-5",
+   "m3": 4.838662530982385,
+   "strecke": [
+    4.874355468749999,
+    4.8316406249999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.78892578125,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 4.874355468749999,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "II.B-3-2",
+   "m3": 2.1834097742638208,
+   "strecke": [
+    2.1809262512640557,
+    2.1855550990412627
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-11-2",
+   "m3": 4.025919726613328,
+   "strecke": [
+    4.025775251248948,
+    4.02773025140437
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.921249999999997,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-32-2",
+   "m3": 1.9669352661815693,
+   "strecke": [
+    1.970859375,
+    1.9613671875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 6.808356349493107,
+   "strecke": [
+    6.807132365119545,
+    6.80878887209714
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-2-5",
+   "m3": 5.115125925584417,
+   "strecke": [
+    5.10890625,
+    5.15890625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 5.113594,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 5.118281,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-4",
+   "m3": 5.853875571261799,
+   "strecke": [
+    5.849999999999999,
+    5.874999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-27-0.5",
+   "m3": 0.6460016692684328,
+   "strecke": [
+    0.63454345703125,
+    0.6465570068359375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.63454345703125,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-16-2",
+   "m3": 1.7389768171583746,
+   "strecke": [
+    1.7512500000000004,
+    1.7259375000000003
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 1.965,
+     "urteil": "an der Grenze"
+    }
+   }
+  },
+  {
+   "datei": "I.A-2-4",
+   "m3": 4.603360307636624,
+   "strecke": [
+    4.591249999999998,
+    4.641249999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.3125,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 4.625,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "II.B-2-0.5",
+   "m3": 0.5103518052210041,
+   "strecke": [
+    0.5102251434326173,
+    0.5106005668640138
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-1-0.75",
+   "m3": 0.8561929733094035,
+   "strecke": [
+    0.84125,
+    0.875
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 0.9424999999999999,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-7-2",
+   "m3": 2.755558352039625,
+   "strecke": [
+    2.742358529896291,
+    2.7559020245298846
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-6-2",
+   "m3": 2.104962480958859,
+   "strecke": [
+    2.0912499999999996,
+    2.1249999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0912499999999996,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 2.1249999999999996,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-1-4",
+   "m3": 8.044941621935765,
+   "strecke": [
+    8.0359375,
+    8.05703125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-12-2",
+   "m3": 2.7520217816805297,
+   "strecke": [
+    2.720621948242185,
+    2.770621948242185
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-7-2",
+   "m3": 1.6808032743266177,
+   "strecke": [
+    1.6841949462890635,
+    1.6781881713867197
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 1.9500000000000002,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-1-8",
+   "m3": 7.7189837665646115,
+   "strecke": [
+    7.720605163574218,
+    7.718352622985839
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 7.8784374999999995,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 2.236445467322745,
+   "strecke": [
+    2.19166259765625,
+    2.2416625976562496
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-62-0.5",
+   "m3": 0.5970801103720502,
+   "strecke": [
+    0.5962499999999998,
+    0.6089062499999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-26-2",
+   "m3": 2.0146273748102543,
+   "strecke": [
+    2.01,
+    2.0174999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-32-0.75",
+   "m3": 0.7741024326687475,
+   "strecke": [
+    0.7728124999999999,
+    0.7854687499999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-2",
+   "m3": 3.0717572558331563,
+   "strecke": [
+    3.0669445741993107,
+    3.072234108342494
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-5-0.5",
+   "m3": 0.701606084381632,
+   "strecke": [
+    0.6975985717773442,
+    0.7156188964843755
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-10-2",
+   "m3": 1.7221930305792177,
+   "strecke": [
+    1.7222613525390622,
+    1.721760787963867
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-98-0.75",
+   "m3": 0.8081265660684656,
+   "strecke": [
+    0.8057031250000001,
+    0.8092626953125001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-31-0.75",
+   "m3": 0.9668885746261509,
+   "strecke": [
+    0.9409667968750002,
+    0.9730029296875002
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-7-2",
+   "m3": 2.828234909727779,
+   "strecke": [
+    2.8104687499999983,
+    2.835468749999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-23-2",
+   "m3": 1.8391292163364548,
+   "strecke": [
+    1.85708740234375,
+    1.809033203125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.83306,
+     "urteil": "instabil"
+    },
+    "rechts": {
+     "m3": 1.845073,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-45-0.5",
+   "m3": 0.5733524401665772,
+   "strecke": [
+    0.5732150268554688,
+    0.5739658737182617
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-46-0.75",
+   "m3": 0.7871429857917903,
+   "strecke": [
+    0.7772265625,
+    0.79146484375
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 1.754144980894589,
+   "strecke": [
+    1.75875,
+    1.70875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-64-2",
+   "m3": 2.0796024625005884,
+   "strecke": [
+    2.0794055093593617,
+    2.0804891719391194
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 3.62872119404592,
+   "strecke": [
+    3.5912499999999943,
+    3.641249999999994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-0.75",
+   "m3": 0.7340750816038221,
+   "strecke": [
+    0.734375,
+    0.7340234375
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.73578125,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-9-2",
+   "m3": 2.975191094504649,
+   "strecke": [
+    2.9738964421832224,
+    2.975202499996354
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-4",
+   "m3": 5.565944803106752,
+   "strecke": [
+    5.549999999999998,
+    5.599999999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-12-2",
+   "m3": 2.7119056646362854,
+   "strecke": [
+    2.6924999999999977,
+    2.7424999999999975
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-10-4",
+   "m3": 4.084783182793044,
+   "strecke": [
+    4.0818212890625,
+    4.08716064453125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.05875,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-4",
+   "m3": 4.766254798531605,
+   "strecke": [
+    4.741249999999997,
+    4.791249999999997
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-65-0.75",
+   "m3": 0.8035576776973061,
+   "strecke": [
+    0.79742919921875,
+    0.821456298828125
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-8",
+   "m3": 7.9670813579242,
+   "strecke": [
+    7.98,
+    7.965000000000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 8,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "II.C-2-2",
+   "m3": 8.697877010832848,
+   "strecke": [
+    8.65000000000001,
+    8.70000000000001
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-5",
+   "m3": 4.979736355897737,
+   "strecke": [
+    4.985624999999999,
+    4.9771874999999985
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4.9645312499999985,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 4.994999999999999,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-13-2",
+   "m3": 1.7497368745310704,
+   "strecke": [
+    1.7714062499999996,
+    1.7334374999999995
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-39-0.5",
+   "m3": 0.5086350520972835,
+   "strecke": [
+    0.5049999999999999,
+    0.5087499999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-1-2",
+   "m3": 3.5353680097216444,
+   "strecke": [
+    3.508906249999995,
+    3.558906249999995
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 1.5403012795275692,
+   "strecke": [
+    1.5587499999999999,
+    1.5087499999999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 1.520176,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 1.60875,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-17-0.75",
+   "m3": 0.6024098457668836,
+   "strecke": [
+    0.6031250000000001,
+    0.5841406250000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 4.344613546835329,
+   "strecke": [
+    4.299999999999999,
+    4.349999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-15-2",
+   "m3": 1.9848190895270796,
+   "strecke": [
+    1.9900000000000002,
+    1.9825000000000002
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 7.4022750269578665,
+   "strecke": [
+    7.353662109374992,
+    7.4036621093749915
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-98-0.75",
+   "m3": 0.8344347338542237,
+   "strecke": [
+    0.8324972343444825,
+    0.8350313425064088
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-2-4",
+   "m3": 3.925025640539213,
+   "strecke": [
+    3.9425000000000003,
+    3.9087500000000004
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 4,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-11-5",
+   "m3": 5.245779361844143,
+   "strecke": [
+    5.2342343473434445,
+    5.268444807529449
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-37-0.5",
+   "m3": 0.5982914009138331,
+   "strecke": [
+    0.5834698486328125,
+    0.6014901733398438
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-4-2",
+   "m3": 3.944428559833918,
+   "strecke": [
+    3.941744970126365,
+    3.9457080674292357
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.B-1-2",
+   "m3": 3.7706443886965775,
+   "strecke": [
+    3.758906249999994,
+    3.808906249999994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-18-2",
+   "m3": 3.751960792584879,
+   "strecke": [
+    3.7422460937499937,
+    3.779746093749994
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-14-2",
+   "m3": 1.367628720474182,
+   "strecke": [
+    1.391143798828125,
+    1.36711669921875
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 2,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-1-2",
+   "m3": 3.0396372802996066,
+   "strecke": [
+    2.9912499999999964,
+    3.0412499999999962
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-3-2",
+   "m3": 2.740196492426899,
+   "strecke": [
+    2.7287499999999985,
+    2.7662499999999985
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-58-0.5",
+   "m3": 0.5387509231116574,
+   "strecke": [
+    0.5314111328125,
+    0.54742919921875
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-3-2",
+   "m3": 8.210928747314718,
+   "strecke": [
+    8.210268152269814,
+    8.211158217132215
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-118-0.75",
+   "m3": 0.745676734250803,
+   "strecke": [
+    0.7475,
+    0.7456250000000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-5-4",
+   "m3": 4.563632098173152,
+   "strecke": [
+    4.561166992187503,
+    4.611166992187503
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-23-2",
+   "m3": 2.0367551348526876,
+   "strecke": [
+    2.0272265625000006,
+    2.0414648437500005
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0272265625000006,
+     "urteil": "stabil"
+    },
+    "rechts": {
+     "m3": 2.0414648437500005,
+     "urteil": "stabil"
+    }
+   }
+  },
+  {
+   "datei": "I.B-5-2",
+   "m3": 4.363209487871305,
+   "strecke": [
+    4.348280045285356,
+    4.368575801694534
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.0574999999999997,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-6-0.75",
+   "m3": 0.8315664901985137,
+   "strecke": [
+    0.8235009765624999,
+    0.8341796874999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-11-2",
+   "m3": 2.3041043302472115,
+   "strecke": [
+    2.2989628982543966,
+    2.314167547225954
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-117-0.5",
+   "m3": 0.6246936838689371,
+   "strecke": [
+    0.6088367900252342,
+    0.6280801738798618
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-98-0.75",
+   "m3": 0.757649734861907,
+   "strecke": [
+    0.755,
+    0.76
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-21-0.75",
+   "m3": 0.6729686691733567,
+   "strecke": [
+    0.6875000000000001,
+    0.6706250000000001
+   ],
+   "nachbarn": {
+    "links": null,
+    "rechts": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    }
+   }
+  },
+  {
+   "datei": "I.A-52-0.75",
+   "m3": 0.8227092975236796,
+   "strecke": [
+    0.8221707446611984,
+    0.8252077316878238
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.75,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-137-0.5",
+   "m3": 0.5000330043088176,
+   "strecke": [
+    0.5,
+    0.50015625
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "II.C-1-2",
+   "m3": 9.985761002258275,
+   "strecke": [
+    9.950000000000028,
+    10
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-12-2",
+   "m3": 3.253196521557854,
+   "strecke": [
+    3.217499999999996,
+    3.254999999999996
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-1-2",
+   "m3": 4.383701953383647,
+   "strecke": [
+    4.349999999999999,
+    4.399999999999999
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 2.1412499999999994,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-117-0.5",
+   "m3": 0.5656360732089475,
+   "strecke": [
+    0.5644371032714843,
+    0.5678159141540526
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.B-76-0.5",
+   "m3": 0.5331508095863832,
+   "strecke": [
+    0.5329406356811524,
+    0.5363194465637207
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 0.5,
+     "urteil": "instabil"
+    },
+    "rechts": null
+   }
+  },
+  {
+   "datei": "I.A-4-4",
+   "m3": 4.6334294278110315,
+   "strecke": [
+    4.6021874999999985,
+    4.652187499999998
+   ],
+   "nachbarn": {
+    "links": {
+     "m3": 4,
+     "urteil": "an der Grenze"
+    },
+    "rechts": null
+   }
+  }
+ ]
+}

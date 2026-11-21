@@ -1,0 +1,46 @@
+{
+ "datei": "II.C-67-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:14:22.696Z",
+ "proben": [
+  {
+   "m3": 2,
+   "stueck": [
+    2,
+    2.0000006347090604
+   ],
+   "r1": {
+    "syzygien": 324,
+    "mitte": 146,
+    "minAnteil": 0.7644482236801846
+   },
+   "r2": {
+    "syzygien": 332,
+    "mitte": 150,
+    "minAnteil": 0.7644482235736798
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 2.0000006347090604,
+   "stueck": [
+    2,
+    2.0000006347090604
+   ],
+   "r1": {
+    "syzygien": 324,
+    "mitte": 146,
+    "minAnteil": 0.7644487561622441
+   },
+   "r2": {
+    "syzygien": 332,
+    "mitte": 150,
+    "minAnteil": 0.764448756249892
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  }
+ ],
+ "urteil": "unklar"
+}

@@ -1,0 +1,14 @@
+{
+ "zweck": "Kosten und Trefferquote der 30-Stellen-Probe an der Listenmasse bei Begegnung < 1e-4 messen, bevor Felix über alle entscheidet",
+ "gezogen": "11.11.2026, geschichtet nach Begegnung (3 aus 3e-5…1e-4, 3 aus 1e-5…3e-5, 2 aus < 1e-5), Saat 20261111, aus den 294 Familien von Stufe 5 ohne stabilen Punkt in double",
+ "familien": [
+  "I.A-62-0.75",
+  "II.C-162-0.75",
+  "I.B-21-0.5",
+  "II.C-141-0.5",
+  "II.C-45-2",
+  "I.C-2-2",
+  "II.C-98-0.75",
+  "II.C-8-5"
+ ]
+}

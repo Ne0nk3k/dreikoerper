@@ -19,6 +19,7 @@ import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { setPriority, constants } from "node:os";
 import { HIER, ladeKern } from "../quellen.mjs";
+import { schreibeSicher } from "./sicher.mjs";
 import { verfeinereGenau, stabilitaetGenau } from "../genau.mjs";
 
 // Niedrigste Priorität wie im Schwarm — die erste Fassung vergaß das, ihre
@@ -35,8 +36,11 @@ if (argv[0] === "--punkt") {
   const m3 = +argv[1], K = ladeKern(), pruefe = K.macheFundpruefer();
   const R = JSON.parse(readFileSync(join(HIER, "ergebnisse", NAME + ".json"), "utf8"));
   const pts = [...R.richtungen.abwaerts.punkte, { m3: R.start.m3 ?? 4, a: R.start.a, b: R.start.b, T: R.start.T }, ...R.richtungen.aufwaerts.punkte].sort((x, y) => x.m3 - y.m3);
-  let i = pts.findIndex(p => p.m3 >= m3); if (i <= 0) i = 1; if (i < 0) i = pts.length - 1;
-  const p = pts[i - 1], q = pts[i], f = (m3 - p.m3) / (q.m3 - p.m3 || 1);
+  // über dem obersten Punkt: von den beiden obersten aus (13.11.2026; vorher setzte die erste Bedingung
+  // i = 1, bevor die zweite griff — Startwert aus den beiden untersten; trat bei keiner Probe auf)
+  let i = pts.findIndex(p => p.m3 >= m3); if (i < 0) i = pts.length - 1; if (i < 1) i = 1;
+  // pts[i] || p: eine Familie ohne Fortsetzungspunkt (nur der Start) brach hier vorher ab (12.11.2026)
+  const p = pts[i - 1] || pts[0], q = pts[i] || p, f = (m3 - p.m3) / (q.m3 - p.m3 || 1);
   const t0 = Date.now(), d = pruefe("euler", [1, 1, m3], p.a + f * (q.a - p.a), p.b + f * (q.b - p.b), p.T + f * (q.T - p.T), { ohneStabil: true });
   const aus = { m3, ok: false };
   if (d.ok) {
@@ -70,7 +74,7 @@ function starte() {
     c.on("close", () => {
       let e; try { e = JSON.parse(s.trim().split("\n").pop()); } catch { e = { m3, ok: false, grund: "keine Ausgabe" }; }
       fertig.punkte = fertig.punkte.filter(p => Math.abs(p.m3 - m3) > 1e-12).concat([e]).sort((x, y) => x.m3 - y.m3);
-      writeFileSync(AUS, JSON.stringify(fertig, null, 1));
+      schreibeSicher(AUS, JSON.stringify(fertig, null, 1));
       console.log(`  m3 ${m3}: ${e.ok ? `${e.urteil}, s ${e.komplex ? e.s1.toFixed(6) + " ± " + e.sIm.toExponential(2) + "i" : e.s1.toFixed(6) + " / " + e.s2.toFixed(6)}, Rand ${e.rand.toExponential(2)}, Rest ${e.rest.toExponential(1)}` : "FEHL " + e.grund} (${e.sekunden?.toFixed(0)} s)`);
       fertigP(starte());
     });

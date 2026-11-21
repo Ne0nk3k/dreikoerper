@@ -1,0 +1,65 @@
+{
+ "datei": "I.B-21-4",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:05:28.280Z",
+ "proben": [
+  {
+   "m3": 3.9249684953689576,
+   "stueck": [
+    3.9249684953689576,
+    4.002539
+   ],
+   "r1": {
+    "syzygien": 388,
+    "mitte": 186,
+    "minAnteil": 0.9207427477665243
+   },
+   "r2": {
+    "syzygien": 388,
+    "mitte": 186,
+    "minAnteil": 0.9207427477665243
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 29
+  },
+  {
+   "m3": 4.002539,
+   "stueck": [
+    3.9249684953689576,
+    4.002539
+   ],
+   "r1": {
+    "syzygien": 372,
+    "mitte": 178,
+    "minAnteil": 0.8806782622797377
+   },
+   "r2": {
+    "syzygien": 380,
+    "mitte": 182,
+    "minAnteil": 0.8806782622774364
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 3.995,
+   "stueck": [
+    3.9249684953689576,
+    4.002539
+   ],
+   "r1": {
+    "syzygien": 388,
+    "mitte": 186,
+    "minAnteil": 0.8844899748974432
+   },
+   "r2": {
+    "syzygien": 388,
+    "mitte": 186,
+    "minAnteil": 0.8844899748974433
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 28
+  }
+ ],
+ "urteil": "unklar"
+}

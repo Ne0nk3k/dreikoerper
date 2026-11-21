@@ -1,0 +1,46 @@
+{
+ "datei": "I.B-33-0.5",
+ "abtastung": 200000,
+ "erzeugt": "2026-11-20T22:39:59.084Z",
+ "proben": [
+  {
+   "m3": 0.636323,
+   "stueck": [
+    0.636323,
+    0.642552
+   ],
+   "r1": {
+    "syzygien": 92,
+    "mitte": 30,
+    "minAnteil": 0.9059562745967329
+   },
+   "r2": {
+    "syzygien": 92,
+    "mitte": 30,
+    "minAnteil": 0.9059562745959976
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  },
+  {
+   "m3": 0.642552,
+   "stueck": [
+    0.636323,
+    0.642552
+   ],
+   "r1": {
+    "syzygien": 92,
+    "mitte": 30,
+    "minAnteil": 0.9034425783106583
+   },
+   "r2": {
+    "syzygien": 92,
+    "mitte": 30,
+    "minAnteil": 0.9034425783090458
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}

@@ -1,0 +1,13 @@
+{
+ "zweck": "Was wir selbst schon veröffentlicht haben — damit kein Kandidat als neu zählt, der es nicht ist (12.11.2026: I.A-5 bei m3 = 4 war am 11.11. als Fund gemeldet worden). Einträge mit „datei“ treffen diesen Listeneintrag; Einträge mit „wort“ jedes stabile Stück mit diesem Bahnwort (Kennung wie im Kern; der Weg vom Wort zur Kennung ist an allen 1347 Wörtern der Liste von 2018 geeicht).",
+ "funde": [
+  {
+   "datei": "I.A-5-2",
+   "wo": "dreikoerper v1.0.0 (21.10.2026): die stabile Bahn bei 1 : 1 : 4; als Fortsetzung von I.A-5 seit v1.1.0"
+  },
+  {
+   "wort": "ABABABAbabababaB",
+   "wo": "Familie B (05.11.2026, doi:10.5281/zenodo.23987401): stabil für m3 von 4,21 bis 5,034"
+  }
+ ]
+}

@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Familie B</title>
+<style>
+  :root {
+    --grund: #08131c; --karte: rgba(12, 26, 38, 0.78); --rand: rgba(140, 180, 210, 0.16);
+    --text: #dbe7f0; --leise: #8ea4b5; --blau: #5ab0e8; --orange: #eda43a; --rosa: #e07fb8;
+    --gruen: #4fd18b; --rot: #ef6b6b; --gelb: #d9d36a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--grund); color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; overflow: hidden; }
+  canvas#bahn { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+  .karte { position: fixed; background: var(--karte); border: 1px solid var(--rand); border-radius: 14px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 10px 40px rgba(0,0,0,0.35); }
+  #steuer { left: 22px; top: 22px; width: 340px; padding: 18px 20px 16px; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 4px; letter-spacing: 0.3px; }
+  .unter { color: var(--leise); font-size: 13.5px; line-height: 1.45; margin: 0 0 14px; }
+  label { font-size: 12.5px; color: var(--leise); display: flex; justify-content: space-between; }
+  label b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; margin: 8px 0 4px; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px;
+    background: rgba(140, 180, 210, 0.25); outline: none; cursor: pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #dbe7f0; border: 2px solid var(--blau); }
+  input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #dbe7f0; border: 2px solid var(--blau); }
+  input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(90, 176, 232, 0.35); }
+  .skala { display: flex; justify-content: space-between; font-size: 11px; color: var(--leise); margin-bottom: 12px; }
+  .skala .fenster { color: var(--gruen); }
+  #tempo { margin-bottom: 12px; }
+  .zustand { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .stabil { background: rgba(79, 209, 139, 0.16); color: var(--gruen); }
+  .instabil { background: rgba(239, 107, 107, 0.16); color: var(--rot); }
+  .grenze { background: rgba(217, 211, 106, 0.16); color: var(--gelb); }
+  table.werte { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; margin-bottom: 12px; }
+  table.werte td { padding: 2px 0; }
+  table.werte td:first-child { color: var(--leise); width: 40%; }
+  .knoepfe { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { background: rgba(90, 176, 232, 0.14); color: var(--text); border: 1px solid rgba(90, 176, 232, 0.35);
+    border-radius: 9px; padding: 7px 12px; font-size: 13px; cursor: pointer; font-family: inherit; }
+  button:hover { background: rgba(90, 176, 232, 0.26); }
+  button.an { background: rgba(90, 176, 232, 0.38); }
+  #hinweis { font-size: 12.5px; color: var(--leise); line-height: 1.45; margin-top: 12px; min-height: 36px; }
+  #hinweis b { color: var(--text); }
+  #diagrammKarte, #probeKarte { left: 22px; bottom: 44px; width: 340px; padding: 12px 14px 8px; }
+  #diagrammKarte .titel, #probeKarte .titel { font-size: 12.5px; color: var(--leise); margin-bottom: 4px; line-height: 1.35; }
+  canvas#diagramm { width: 100%; height: 170px; display: block; cursor: crosshair; }
+  #probeKarte { display: none; }
+  canvas#probe { width: 100%; height: 130px; display: block; }
+  #probeText { font-size: 12.5px; color: var(--leise); margin-top: 6px; line-height: 1.4; min-height: 34px; }
+  #fuss { position: fixed; left: 24px; bottom: 16px; font-size: 12px; color: var(--leise); }
+  #fuss a { color: var(--leise); }
+  .legende span { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 4px 0 10px; vertical-align: -1px; }
+  @media (max-height: 820px) and (min-width: 901px) { canvas#diagramm { height: 120px; } canvas#probe { height: 100px; } .unter { display: none; } }
+  @media (max-width: 900px) {
+    #steuer { width: calc(100vw - 32px); left: 16px; top: 16px; padding: 14px 16px 12px; }
+    .unter { display: none; }
+    #diagrammKarte, #probeKarte { width: calc(100vw - 32px); left: 16px; bottom: 34px; }
+    canvas#diagramm { height: 130px; } canvas#probe { height: 100px; }
+    #fuss { bottom: 10px; left: 16px; } .legende { display: none; }
+  }
+</style>
+</head>
+<body>
+<canvas id="bahn"></canvas>
+
+<div id="steuer" class="karte">
+  <h1>Familie B</h1>
+  <p class="unter">Drei Körper, periodisch und linear stabil, und eine Form, die in keiner veröffentlichten Liste steht. Zwei Körper der Masse 1, einer der Masse m₃.</p>
+  <label>Masse des dritten Körpers m₃ <b id="mWert">5.000</b></label>
+  <input id="m" type="range" min="3.95" max="5.3" step="0.001" value="5" aria-label="Masse m₃">
+  <div class="skala"><span>3,95</span><span class="fenster" id="fensterText">grün: stabil</span><span>5,30</span></div>
+  <label>Tempo <b id="tempoWert">1×</b></label>
+  <input id="tempo" type="range" min="-2" max="2" step="0.01" value="0" aria-label="Tempo">
+  <div id="zustand" class="zustand stabil">linear stabil</div>
+  <table class="werte">
+    <tr><td>Periode T</td><td id="wT">–</td></tr>
+    <tr><td>Zeit</td><td id="wZeit">–</td></tr>
+    <tr><td>Anfang a, b</td><td id="wAB">–</td></tr>
+    <tr><td>Stabilität s₁, s₂</td><td id="wS">–</td></tr>
+    <tr><td>engste Begegnung</td><td id="wR">–</td></tr>
+  </table>
+  <div class="knoepfe">
+    <button id="rundgang" title="Die Masse fährt einmal durch die ganze Familie">Rundgang</button>
+    <button id="anstossen" title="Zwanzig Kopien, jede winzig versetzt">Anstoßen</button>
+    <button id="spiegel" title="Die zweite Hälfte der Bahn auf die erste falten">Spiegelprobe</button>
+    <button id="pause">Anhalten</button>
+  </div>
+  <div id="hinweis"></div>
+</div>
+
+<div id="probeKarte" class="karte">
+  <div class="titel">Abstand der zwanzig Kopien zur Bahn, je Umlauf (logarithmisch)</div>
+  <canvas id="probe"></canvas>
+  <div id="probeText"></div>
+</div>
+
+<div id="diagrammKarte" class="karte">
+  <div class="titel">Stabilitätsindizes entlang der Familie · grün: linear stabil · <span style="color:var(--blau)">s₁</span> <span style="color:var(--orange)">s₂</span> · klicken zum Wählen</div>
+  <canvas id="diagramm"></canvas>
+</div>
+
+<div id="fuss">Felix Habl, gerechnet mit Claude · <a href="https://doi.org/10.5281/zenodo.23987401">doi:10.5281/zenodo.23987401</a><span class="legende"> · <span style="background:var(--blau)"></span>Masse 1<span style="background:var(--orange)"></span>Masse 1<span style="background:var(--rosa)"></span>Masse m₃</span></div>
+
+<script>
+/*KERN*/
+</script>
+<script>
+"use strict";
+const DATEN = /*DATEN*/;
+const K = Kern;
+
+/* ── Zustand ── */
+const S = {
+  m3: 5, a: 0, b: 0, T: 0, punkte: null, N: 1600, s1: NaN, s2: NaN, komplex: false, sIm: 0, rMin: NaN,
+  t: 0, laeuft: true, umlaufSek: 8, skala: 1, skalaZiel: 1, mitte: [0, 0],
+  probe: null, spiegel: null, rechnetGerade: false, warteM3: null
+};
+const verfeinere = K.macheVerfeinerer(), variation = K.macheVariation();
+const FARBE = ["#5ab0e8", "#eda43a", "#e07fb8"];
+const RADIUS = m => 4.5 * Math.cbrt(m);
+
+/* ── Bahn zu einer Masse: Startwert aus der Fortsetzung, Newton, Abtastung, Stabilität ── */
+const FORT = DATEN.fortsetzung;
+function startwert(m3) {
+  let i = FORT.findIndex(p => p.m3 >= m3); if (i <= 0) i = 1; if (i < 0) i = FORT.length - 1;
+  const p = FORT[i - 1], q = FORT[i], f = (m3 - p.m3) / (q.m3 - p.m3);
+  return { a: p.a + f * (q.a - p.a), b: p.b + f * (q.b - p.b), T: p.T + f * (q.T - p.T) };
+}
+function rechne(m3) {
+  const t0 = performance.now(), m = [1, 1, m3], s = startwert(m3);
+  const v = verfeinere("euler", m, s.a, s.b, s.T, { ziel: 1e-13 });
+  if (!v.ok) return { ok: false };
+  const u0 = K.EBENEN.euler.anfang(v.a, v.b, m, new Float64Array(12));
+  const ab = K.abtasten(u0, m, v.T, 1e-13, S.N);
+  const Y = variation(u0, m, v.T, 1e-16, 1e7);
+  const st = K.stabilitaet(Y.y);
+  const dg = K.durchgaenge(u0, m, v.T, 1e-11);
+  return { ok: true, m3, a: v.a, b: v.b, T: v.T, rest: v.rest, punkte: ab.punkte, s1: st.s1, s2: st.s2, komplex: st.komplex, sIm: st.sIm,
+    rMin: dg.rMin, ms: performance.now() - t0 };
+}
+function setzeBahn(r) {
+  Object.assign(S, { m3: r.m3, a: r.a, b: r.b, T: r.T, punkte: r.punkte, s1: r.s1, s2: r.s2, komplex: r.komplex, sIm: r.sIm, rMin: r.rMin });
+  // Maßstab: die ganze Bahn mit Rand ins Fenster
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (let k = 0; k <= S.N; k++) for (let j = 0; j < 3; j++) {
+    const x = r.punkte[k * 12 + 2 * j], y = r.punkte[k * 12 + 2 * j + 1];
+    if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+  }
+  S.mitte = [(x0 + x1) / 2, (y0 + y1) / 2]; S.ausdehnung = Math.max(x1 - x0, y1 - y0);
+  S.vorschau = !!r.vorschau;
+  if (!r.vorschau) { S.spiegel = null; if (S.probe) beendeProbe(); document.getElementById("spiegel").classList.remove("an"); document.getElementById("hinweis").textContent = ""; }
+  zeigeWerte(); zeichneDiagramm();
+}
+// Vorschau beim Ziehen: Startwert aus der Fortsetzung abgetastet, ohne Newton und Monodromie
+// (Rechnung ganz: 200 bis 250 ms je Masse, gemessen; das ruckelte den Regler)
+function vorschau(m3) {
+  const m = [1, 1, m3], s = startwert(m3), u0 = K.EBENEN.euler.anfang(s.a, s.b, m, new Float64Array(12));
+  const ab = K.abtasten(u0, m, s.T, 1e-10, S.N);
+  let i = FORT.findIndex(p => p.m3 >= m3); if (i <= 0) i = 1;
+  const p = FORT[i - 1], q = FORT[i], w = (m3 - p.m3) / (q.m3 - p.m3);
+  return { ok: true, vorschau: true, m3, a: s.a, b: s.b, T: s.T, punkte: ab.punkte, s1: p.s1 + w * (q.s1 - p.s1), s2: p.s2 + w * (q.s2 - p.s2), komplex: !!(p.k || q.k), sIm: 0, rMin: NaN };
+}
+
+/* ── Urteil: wie im Datenpaket; ein Index knapp unter −2 heißt hier „berührt“, weil die
+   Halbperioden-Symmetrie s = σ² − 2 ≥ −2 erzwingt (double liegt dort bis 1e-7 daneben) ── */
+function urteil() {
+  if (S.komplex) return { k: "instabil", t: "instabil (komplexes Paar)" };
+  const r = 2 - Math.max(Math.abs(S.s1), Math.abs(S.s2)), unten = Math.min(S.s1, S.s2);
+  if (r > 1e-4) return { k: "stabil", t: "linear stabil" };
+  if (Math.abs(unten + 2) < 1e-4 && Math.max(S.s1, S.s2) < 2 - 1e-4) return { k: "grenze", t: "stabil, ein Index berührt −2" };
+  return { k: "instabil", t: "instabil" };
+}
+const f = (x, n) => (Number.isFinite(x) ? x.toFixed(n) : "–");
+function zeigeWerte() {
+  const u = urteil(), z = document.getElementById("zustand");
+  z.className = "zustand " + u.k; z.textContent = u.t;
+  document.getElementById("mWert").textContent = S.m3.toFixed(3);
+  document.getElementById("wT").textContent = f(S.T, 6);
+  document.getElementById("wAB").textContent = f(S.a, 6) + ", " + f(S.b, 6);
+  const ca = S.vorschau ? "≈ " : "";
+  document.getElementById("wS").textContent = ca + (S.komplex ? (S.vorschau ? "komplexes Paar" : f(S.s1, 4) + " ± " + f(S.sIm, 4) + " i") : f(S.s1, 4) + ", " + f(S.s2, 4));
+  document.getElementById("wR").textContent = S.vorschau ? "…" : f(S.rMin, 4);
+}
+
+/* ── Zeichnen ── */
+const cv = document.getElementById("bahn"), cx = cv.getContext("2d");
+let B = 0, H = 0, dpr = 1;
+function groesse() {
+  dpr = Math.min(2, window.devicePixelRatio || 1); B = innerWidth; H = innerHeight;
+  cv.width = B * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  zeichneDiagramm();
+}
+addEventListener("resize", groesse);
+function abbild() {
+  // freie Fläche: breit rechts neben der linken Spalte, schmal zwischen den Karten (aus den Karten selbst gemessen)
+  const st = document.getElementById("steuer").getBoundingClientRect();
+  const unten = (S.probe ? document.getElementById("probeKarte") : document.getElementById("diagrammKarte")).getBoundingClientRect();
+  let l = 0, o = 0, r = B, u = H;
+  if (B > 900) { l = st.right + 16; o = 16; r = B - 16; u = H - 16; } else { o = st.bottom + 6; u = unten.top - 6; }
+  const w = Math.max(50, r - l), h = Math.max(50, u - o), s = 0.9 * Math.min(w, h) / (S.ausdehnung || 1);
+  return { s, cx0: l + w / 2, cy0: o + h / 2 };
+}
+function bild(x, y, A) { return [A.cx0 + (x - S.mitte[0]) * A.s, A.cy0 - (y - S.mitte[1]) * A.s]; }
+function lage(t) {   // Orte der drei Körper zur Zeit t, linear zwischen den Abtastpunkten
+  const p = S.punkte, ph = ((t / S.T) % 1 + 1) % 1 * S.N, k = Math.floor(ph), w = ph - k, out = [];
+  for (let j = 0; j < 3; j++) out.push([p[k * 12 + 2 * j] * (1 - w) + p[(k + 1) * 12 + 2 * j] * w, p[k * 12 + 2 * j + 1] * (1 - w) + p[(k + 1) * 12 + 2 * j + 1] * w]);
+  return out;
+}
+function pfad(j, von, bis, A, trafo) {
+  const p = S.punkte; cx.beginPath();
+  for (let k = von; k <= bis; k++) {
+    let x = p[k * 12 + 2 * j], y = p[k * 12 + 2 * j + 1];
+    if (trafo) [x, y] = trafo(x, y);
+    const [X, Y] = bild(x, y, A); k === von ? cx.moveTo(X, Y) : cx.lineTo(X, Y);
+  }
+}
+// Hintergrund mit leisem Sternenhimmel: einmal je Fenstergröße vorgezeichnet, dann nur kopiert
+let himmel = null;
+function himmelZeichnen() {
+  himmel = document.createElement("canvas"); himmel.width = B * dpr; himmel.height = H * dpr;
+  const h = himmel.getContext("2d"); h.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const g = h.createRadialGradient(B * 0.6, H * 0.45, 0, B * 0.6, H * 0.45, Math.max(B, H) * 0.75);
+  g.addColorStop(0, "#0f2433"); g.addColorStop(1, "#060f16");
+  h.fillStyle = g; h.fillRect(0, 0, B, H);
+  let s = 20260505; const zufallFest = () => ((s = (s * 1103515245 + 12345) % 2147483648) / 2147483648);   // fest: jedes Mal derselbe Himmel
+  for (let i = 0, n = Math.round(B * H / 5200); i < n; i++) {
+    const x = zufallFest() * B, y = zufallFest() * H, r = 0.3 + zufallFest() ** 3 * 1.1, a = 0.08 + zufallFest() * 0.32;
+    h.fillStyle = `rgba(205, 225, 240, ${a.toFixed(3)})`; h.beginPath(); h.arc(x, y, r, 0, 7); h.fill();
+  }
+}
+function hintergrund() {
+  if (!himmel || himmel.width !== B * dpr || himmel.height !== H * dpr) himmelZeichnen();
+  cx.setTransform(1, 0, 0, 1, 0, 0); cx.drawImage(himmel, 0, 0); cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+function zeichne() {
+  hintergrund();
+  if (!S.punkte) return;
+  const A = abbild();
+  cx.lineJoin = "round"; cx.lineCap = "round";
+  if (S.spiegel) return zeichneSpiegel(A);
+  // die ganze Bahn, leise, mit Schein
+  cx.globalCompositeOperation = "lighter";
+  for (let j = 0; j < 3; j++) {
+    pfad(j, 0, S.N, A);
+    cx.strokeStyle = FARBE[j] + "22"; cx.lineWidth = 7; cx.stroke();
+    cx.strokeStyle = FARBE[j] + "70"; cx.lineWidth = 1.4; cx.stroke();
+  }
+  // Schweif: das letzte Achtel des Umlaufs, heller werdend
+  const k1 = Math.floor(((S.t / S.T) % 1) * S.N), lang = Math.floor(S.N / 8), stuecke = 24;
+  for (let j = 0; j < 3; j++) for (let q = 0; q < stuecke; q++) {
+    const a0 = k1 - lang + Math.floor(q * lang / stuecke), a1 = k1 - lang + Math.floor((q + 1) * lang / stuecke);
+    cx.beginPath();
+    for (let k = a0; k <= a1; k++) {
+      const kk = ((k % S.N) + S.N) % S.N, [X, Y] = bild(S.punkte[kk * 12 + 2 * j], S.punkte[kk * 12 + 2 * j + 1], A);
+      k === a0 ? cx.moveTo(X, Y) : cx.lineTo(X, Y);
+    }
+    const w = (q + 1) / stuecke;
+    cx.strokeStyle = FARBE[j]; cx.globalAlpha = 0.15 + 0.85 * w * w; cx.lineWidth = 1 + 2.6 * w; cx.stroke();
+  }
+  cx.globalAlpha = 1;
+  // Kopien der Stabilitätsprobe
+  if (S.probe) for (const c of S.probe.kopien) for (let j = 0; j < 3; j++) {
+    const [X, Y] = bild(c.z[2 * j], c.z[2 * j + 1], A);
+    cx.fillStyle = FARBE[j]; cx.globalAlpha = 0.75; cx.beginPath(); cx.arc(X, Y, 2.2, 0, 7); cx.fill();
+  }
+  cx.globalAlpha = 1;
+  // die Körper
+  const L = S.probe ? S.probe.ref : lage(S.t), m = [1, 1, S.m3];
+  for (let j = 0; j < 3; j++) {
+    const [X, Y] = bild(L[j][0], L[j][1], A), r = RADIUS(m[j]);
+    const g = cx.createRadialGradient(X, Y, 0, X, Y, r * 4);
+    g.addColorStop(0, FARBE[j] + "cc"); g.addColorStop(1, FARBE[j] + "00");
+    cx.fillStyle = g; cx.beginPath(); cx.arc(X, Y, r * 4, 0, 7); cx.fill();
+    cx.globalCompositeOperation = "source-over";
+    cx.fillStyle = "#ffffff"; cx.beginPath(); cx.arc(X, Y, r * 0.55, 0, 7); cx.fill();
+    cx.fillStyle = FARBE[j]; cx.beginPath(); cx.arc(X, Y, r * 0.55, 0, 7); cx.globalAlpha = 0.55; cx.fill(); cx.globalAlpha = 1;
+    cx.globalCompositeOperation = "lighter";
+  }
+  cx.globalCompositeOperation = "source-over";
+}
+
+/* ── Spiegelprobe: x(t + T/2) = g x(t), g = Spiegelung mit Drehung, vielleicht mit Tausch 1 ↔ 2 ── */
+function sucheG() {
+  const p = S.punkte, h = S.N / 2; let best = null;
+  for (const tausch of [false, true]) for (const spiegeln of [true, false]) {
+    let sd = 0, sc = 0;
+    for (let k = 0; k <= h; k++) for (let j = 0; j < 3; j++) {
+      const jj = tausch && j < 2 ? 1 - j : j;
+      const x = p[k * 12 + 2 * jj], y = (spiegeln ? -1 : 1) * p[k * 12 + 2 * jj + 1];
+      const X = p[(k + h) * 12 + 2 * j], Y = p[(k + h) * 12 + 2 * j + 1];
+      sd += x * X + y * Y; sc += x * Y - y * X;
+    }
+    const th = Math.atan2(sc, sd), c = Math.cos(th), s = Math.sin(th);
+    let fehl = 0;
+    for (let k = 0; k <= h; k++) for (let j = 0; j < 3; j++) {
+      const jj = tausch && j < 2 ? 1 - j : j;
+      const x = p[k * 12 + 2 * jj], y = (spiegeln ? -1 : 1) * p[k * 12 + 2 * jj + 1];
+      fehl = Math.max(fehl, Math.hypot(c * x - s * y - p[(k + h) * 12 + 2 * j], s * x + c * y - p[(k + h) * 12 + 2 * j + 1]));
+    }
+    if (!best || fehl < best.fehl) best = { tausch, spiegeln, th, fehl };
+  }
+  return best;
+}
+function zeichneSpiegel(A) {
+  const g = S.spiegel, h = S.N / 2, w = Math.min(1, (performance.now() - g.start) / 2200), e = w < 0.5 ? 2 * w * w : 1 - Math.pow(-2 * w + 2, 2) / 2;
+  // zweite Hälfte zurückfalten: erst um −θ drehen, dann die Spiegelachse umklappen
+  const th = -g.th * e, c = Math.cos(th), s = Math.sin(th), sy = g.spiegeln ? Math.cos(Math.PI * e) : 1;
+  const trafo = (x, y) => { const X = c * x - s * y, Y = s * x + c * y; return [X, sy * Y]; };
+  cx.globalCompositeOperation = "lighter";
+  for (let j = 0; j < 3; j++) {
+    pfad(j, 0, h, A); cx.strokeStyle = FARBE[j] + "30"; cx.lineWidth = 8; cx.stroke();
+    cx.strokeStyle = FARBE[j]; cx.lineWidth = 2; cx.stroke();
+  }
+  cx.globalCompositeOperation = "source-over";
+  cx.setLineDash([5, 6]);
+  for (let j = 0; j < 3; j++) {
+    const jj = g.tausch && j < 2 ? 1 - j : j;
+    pfad(jj, h, S.N, A, trafo); cx.strokeStyle = "rgba(255,255,255,0.85)"; cx.lineWidth = 1.3; cx.stroke();
+  }
+  cx.setLineDash([]);
+  if (w >= 1 && !g.fertig) { g.fertig = true; hinweisSpiegel(); }
+}
+function hinweisSpiegel() {
+  const g = S.spiegel;
+  document.getElementById("hinweis").innerHTML = `Farbig die erste Hälfte des Umlaufs, gestrichelt die zweite, zurückgefaltet: ${g.spiegeln ? "gespiegelt" : "nur gedreht"} und um ${(g.th * 180 / Math.PI).toFixed(2)}° gedreht${g.tausch ? ", die beiden Körper der Masse 1 vertauscht" : ""}. Sie liegen bis auf <b>${g.fehl.toExponential(1)}</b> aufeinander. Darum ist die Monodromie ein Quadrat, s = σ² − 2, und ein Index kann −2 nur berühren, nie unterschreiten.`;
+}
+
+/* ── Stabilitätsprobe: zwanzig angestoßene Kopien, Abstand zur Bahn je Umlauf ── */
+function zufall(n) { let s = 0; for (let i = 0; i < 6; i++) s += Math.random(); return (s - 3) / Math.sqrt(0.5) * n; }
+// Angestoßen wird auf derselben Energie und ohne Drehimpuls. Sonst liefen die Kopien mit
+// leicht anderer Periode der Bahn davon, und bei den engen Begegnungen (Geschwindigkeit um 17)
+// sähe das wie Instabilität aus (erste Fassung, 05.11.2026: 0,21 nach 40 Umläufen bei m3 = 5).
+function starteProbe() {
+  const m = [1, 1, S.m3], u0 = K.EBENEN.euler.anfang(S.a, S.b, m, new Float64Array(12));
+  const z0 = K.zuOrten(u0, m, new Float64Array(12)), M = m[0] + m[1] + m[2], d = 1e-7, kopien = [], E0 = K.energie(u0, m);
+  for (let i = 0; i < 20; i++) {
+    const z = z0.slice();
+    for (let q = 0; q < 12; q++) z[q] += zufall(d);
+    // Schwerpunkt und Gesamtimpuls wieder auf null
+    for (const o of [0, 6]) for (const ach of [0, 1]) {
+      let s = 0; for (let j = 0; j < 3; j++) s += m[j] * z[o + 2 * j + ach];
+      for (let j = 0; j < 3; j++) z[o + 2 * j + ach] -= s / M;
+    }
+    // Drehimpuls auf null: starre Drehung abziehen
+    let L = 0, I = 0;
+    for (let j = 0; j < 3; j++) { const x = z[2 * j], y = z[2 * j + 1]; L += m[j] * (x * z[7 + 2 * j] - y * z[6 + 2 * j]); I += m[j] * (x * x + y * y); }
+    for (let j = 0; j < 3; j++) { z[6 + 2 * j] += (L / I) * z[2 * j + 1]; z[7 + 2 * j] -= (L / I) * z[2 * j]; }
+    // Energie zurück auf E0: Geschwindigkeiten strecken (Impuls und Drehimpuls bleiben null)
+    let Tk = 0; for (let j = 0; j < 3; j++) Tk += 0.5 * m[j] * (z[6 + 2 * j] ** 2 + z[7 + 2 * j] ** 2);
+    const V = K.energie(K.zuRelativ(z, new Float64Array(12)), m) - Tk, k = Math.sqrt((E0 - V) / Tk);
+    for (let q = 6; q < 12; q++) z[q] *= k;
+    kopien.push({ u: K.zuRelativ(z, new Float64Array(12)), z: z.slice() });
+  }
+  S.probe = { m, u: u0.slice(), ref: null, kopien, t: 0, verlauf: [], start0: d, schluss: null };
+  S.probe.ref = [[z0[0], z0[1]], [z0[2], z0[3]], [z0[4], z0[5]]];
+  document.getElementById("probeKarte").style.display = "block"; document.getElementById("diagrammKarte").style.display = "none";
+  document.getElementById("probeText").textContent = "";
+  const lam = S.komplex ? K.lambdaBetrag(S.s1, S.sIm) : Math.max(K.lambdaBetrag(S.s1, 0), K.lambdaBetrag(S.s2, 0));
+  S.probe.lambda = lam;
+  document.getElementById("hinweis").innerHTML = `Zwanzig Kopien, jede um <b>10⁻⁷</b> versetzt (gleiche Energie, kein Drehimpuls), laufen mit. ${urteil().k === "instabil" ? `Außerhalb des Fensters wächst der Abstand je Umlauf um etwa den Faktor <b>${lam.toFixed(2)}</b> (aus s₁, s₂).` : "Im stabilen Fenster bleiben sie beisammen."}`;
+}
+function beendeProbe() {
+  S.probe = null; document.getElementById("anstossen").classList.remove("an");
+  document.getElementById("probeKarte").style.display = "none"; document.getElementById("diagrammKarte").style.display = "block";
+  zeichneDiagramm();
+}
+const zk = new Float64Array(12), zr = new Float64Array(12);
+function schritteProbe(dt) {
+  const P = S.probe; if (!P || P.schluss) return;
+  K.taylor(P.u, P.m, dt, 1e-15, 1e6); K.zuOrten(P.u, P.m, zr);
+  P.ref = [[zr[0], zr[1]], [zr[2], zr[3]], [zr[4], zr[5]]];
+  let gross = 0;
+  for (const c of P.kopien) {
+    const e = K.taylor(c.u, P.m, dt, 1e-15, 1e6); K.zuOrten(c.u, P.m, zk); c.z.set(zk);
+    if (e.art !== 0) { gross = Infinity; continue; }
+    let d = 0; for (let q = 0; q < 6; q++) d = Math.max(d, Math.abs(zk[q] - zr[q]));
+    if (d > gross) gross = d;
+  }
+  P.t += dt;
+  P.verlauf.push([P.t / S.T, gross]);
+  if (gross > 0.3 * S.ausdehnung || !Number.isFinite(gross)) P.schluss = { n: P.t / S.T, grund: "auseinander" };
+  else if (P.t / S.T >= 40) P.schluss = { n: 40, grund: "beisammen", gross };
+  if (P.schluss) zeigeProbeErgebnis();
+}
+// größter Abstand je vollem Umlauf (die Hüllkurve; innerhalb eines Umlaufs schwankt er stark)
+function maximaJeUmlauf(v) { const mx = []; for (const [n, d] of v) { const i = Math.floor(n); mx[i] = Math.max(mx[i] || 0, d); } return mx; }
+function zeigeProbeErgebnis() {
+  const P = S.probe, s = P.schluss, el = document.getElementById("probeText");
+  const mx = maximaJeUmlauf(P.verlauf).slice(0, Math.floor(s.n));   // nur volle Umläufe
+  // Wachstum je Umlauf: geometrisches Mittel der Quotienten, ohne den ersten Umlauf (Einschwingen)
+  const q = []; for (let i = 2; i < mx.length; i++) if (mx[i - 1] > 0) q.push(mx[i] / mx[i - 1]);
+  const g = q.length ? Math.exp(q.reduce((a, x) => a + Math.log(x), 0) / q.length) : NaN;
+  el.innerHTML = s.grund === "beisammen"
+    ? `In 40 Umläufen höchstens <b>${Math.max(...mx).toExponential(1)}</b> von der Bahn entfernt, im fünften Umlauf ${mx[4] ? mx[4].toExponential(1) : "–"}, im vierzigsten ${mx.length ? mx[mx.length - 1].toExponential(1) : "–"}: der Abstand wächst nicht.`
+    : `Nach <b>${s.n.toFixed(1)}</b> Umläufen auseinandergeflogen. Gemessenes Wachstum je Umlauf ×${f(g, 2)}, erwartet aus den Indizes ×${f(P.lambda, 2)}.`;
+  S.probe.wachstum = g;
+}
+function zeichneProbe() {
+  const P = S.probe, c = document.getElementById("probe"); if (!P) return;
+  const w = c.clientWidth, h = c.clientHeight; c.width = w * dpr; c.height = h * dpr;
+  const g = c.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+  const l = 34, r = 6, o = 6, u = 18, X = n => l + n / 40 * (w - l - r), Y = e => o + (0 - e) / 8 * (h - o - u);   // 10⁰ … 10⁻⁸
+  g.strokeStyle = "rgba(140,180,210,0.18)"; g.fillStyle = "#8ea4b5"; g.font = "10.5px Segoe UI, sans-serif";
+  for (let e = 0; e >= -8; e -= 1) { g.beginPath(); g.moveTo(l, Y(e)); g.lineTo(w - r, Y(e)); g.stroke(); if (e % 2 === 0) g.fillText("10" + (e === 0 ? "⁰" : "⁻" + "⁰¹²³⁴⁵⁶⁷⁸"[-e]), 4, Y(e) + 3); }
+  for (const n of [0, 10, 20, 30, 40]) g.fillText(String(n), X(n) - 4, h - 4);
+  // je Bildpunkt der Kurve nur das größte: 40 Umläufe sind über 20 000 Messwerte, die Hüllkurve reicht
+  g.beginPath(); let erst = true, px = -1, best = 0;
+  const strich = (x, d) => { const y = Y(Math.max(-8, Math.min(0, Math.log10(d)))); if (erst) { g.moveTo(x, y); erst = false; } else g.lineTo(x, y); };
+  for (const [n, d] of P.verlauf) { const x = Math.round(X(n)); if (x !== px && px >= 0) { strich(px, best); best = 0; } px = x; if (d > best) best = d; }
+  if (px >= 0) strich(px, best);
+  g.strokeStyle = urteil().k === "instabil" ? "#ef6b6b" : "#4fd18b"; g.lineWidth = 1.6; g.stroke();
+}
+
+/* ── Diagramm der Indizes ── */
+const dc = document.getElementById("diagramm");
+const DX = [3.95, 5.3], DY = [-2.6, 2.6];
+function diaMasse() { const w = dc.clientWidth, h = dc.clientHeight; return { w, h, l: 28, r: 8, o: 6, u: 20 }; }
+function zeichneDiagramm() {
+  const { w, h, l, r, o, u } = diaMasse(); if (!w) return;
+  dc.width = w * dpr; dc.height = h * dpr; const g = dc.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const X = m => l + (m - DX[0]) / (DX[1] - DX[0]) * (w - l - r), Y = s => o + (DY[1] - Math.max(DY[0], Math.min(DY[1], s))) / (DY[1] - DY[0]) * (h - o - u);
+  g.clearRect(0, 0, w, h);
+  g.fillStyle = "rgba(79,209,139,0.13)"; g.fillRect(X(DATEN.fenster[0]), o, X(DATEN.fenster[1]) - X(DATEN.fenster[0]), h - o - u);
+  g.strokeStyle = "rgba(140,180,210,0.35)"; g.setLineDash([3, 4]);
+  for (const s of [-2, 2]) { g.beginPath(); g.moveTo(l, Y(s)); g.lineTo(w - r, Y(s)); g.stroke(); }
+  g.setLineDash([]); g.fillStyle = "#8ea4b5"; g.font = "10.5px Segoe UI, sans-serif";
+  for (const s of [-2, 0, 2]) g.fillText(String(s), 6, Y(s) + 3);
+  for (let m = 4; m <= 5.3; m += 0.2) g.fillText(m.toFixed(1), X(m) - 8, h - 5);
+  const linie = (sel, farbe) => { g.beginPath(); FORT.forEach((p, i) => { const y = Y(sel(p)); i ? g.lineTo(X(p.m3), y) : g.moveTo(X(p.m3), y); }); g.strokeStyle = farbe; g.lineWidth = 1.6; g.stroke(); };
+  linie(p => p.s1, "#5ab0e8"); linie(p => p.s2, "#eda43a");
+  for (const p of DATEN.genau) for (const s of p.k ? [p.s1] : [p.s1, p.s2]) {
+    g.beginPath(); g.arc(X(p.m3), Y(s), 2.6, 0, 7);
+    g.fillStyle = p.u === "instabil" ? "#08131c" : "#4fd18b"; g.fill(); g.strokeStyle = "#4fd18b"; g.lineWidth = 1; g.stroke();
+  }
+  g.strokeStyle = "#ffffff"; g.lineWidth = 1.2; g.beginPath(); g.moveTo(X(S.m3), o); g.lineTo(X(S.m3), h - u); g.stroke();
+}
+function masseAusDiagramm(ev) {
+  const { w, l, r } = diaMasse(), b = dc.getBoundingClientRect(), x = ev.clientX - b.left;
+  return Math.max(DX[0], Math.min(DX[1], DX[0] + (x - l) / (w - l - r) * (DX[1] - DX[0])));
+}
+let ziehen = false;
+dc.addEventListener("pointerdown", e => { ziehen = true; waehle(masseAusDiagramm(e)); });
+addEventListener("pointermove", e => { if (ziehen) waehle(masseAusDiagramm(e)); });
+addEventListener("pointerup", () => { ziehen = false; });
+
+/* ── Bedienung ── */
+const regler = document.getElementById("m");
+// das stabile Fenster der 30-Stellen-Proben grün im Regler
+{
+  const p = v => ((v - +regler.min) / (+regler.max - +regler.min) * 100).toFixed(2), [f0, f1] = DATEN.fenster, grau = "rgba(140,180,210,0.25)", gruen = "rgba(79,209,139,0.62)";
+  regler.style.background = `linear-gradient(to right, ${grau} 0 ${p(f0)}%, ${gruen} ${p(f0)}% ${p(f1)}%, ${grau} ${p(f1)}% 100%)`;
+  document.getElementById("fensterText").textContent = `grün: stabil, ${String(f0).replace(".", ",")} bis ${String(f1).replace(".", ",")}`;
+}
+function waehle(m3, vomRundgang) {
+  if (S.tour && !vomRundgang) beendeRundgang(false);
+  m3 = Math.round(m3 * 1000) / 1000; regler.value = m3; document.getElementById("mWert").textContent = m3.toFixed(3);
+  if (vomRundgang) return;
+  S.warteM3 = m3; S.letzteEingabe = performance.now();
+}
+regler.addEventListener("input", () => waehle(+regler.value));
+// Tempo: 2^x, von einem Viertel bis zum Vierfachen
+const tempoRegler = document.getElementById("tempo"); S.tempo = 1;
+tempoRegler.addEventListener("input", () => { S.tempo = Math.pow(2, +tempoRegler.value); document.getElementById("tempoWert").textContent = (S.tempo < 1 ? S.tempo.toFixed(2) : S.tempo.toFixed(1)).replace(".", ",") + "×"; });
+// Tasten: ← → wählen die Masse (mit Umschalt in Hundertsteln), Leertaste hält an
+addEventListener("keydown", e => {
+  if (e.target && e.target.tagName === "INPUT") return;   // der Regler selbst kann das schon
+  // vom Reglerwert aus, nicht von S.m3: der hinkt bis zur nächsten Rechnung hinterher (zwei schnelle Drücke gaben sonst 5,010 statt 5,011)
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); waehle(Math.min(+regler.max, Math.max(+regler.min, +regler.value + (e.key === "ArrowRight" ? 1 : -1) * (e.shiftKey ? 0.01 : 0.001)))); }
+  else if (e.key === " ") { e.preventDefault(); document.getElementById("pause").click(); }
+});
+// Rundgang: die Masse fährt in 26 s einmal durch die Familie (sanft an- und auslaufend), dann zurück auf 5
+function starteRundgang() {
+  if (S.probe) beendeProbe();
+  S.spiegel = null; document.getElementById("spiegel").classList.remove("an");
+  S.tour = { start: performance.now(), dauer: 26000, letzte: null }; document.getElementById("rundgang").classList.add("an");
+  document.getElementById("hinweis").textContent = "Rundgang durch die Familie: links instabil (komplexes Paar), im grünen Fenster stabil, rechts kreuzt s₁ die +2.";
+}
+function beendeRundgang(zurueck) {
+  S.tour = null; document.getElementById("rundgang").classList.remove("an");
+  if (zurueck) { waehle(5); document.getElementById("hinweis").textContent = ""; }
+}
+function schritteRundgang(jetzt) {
+  const R = S.tour, w = (jetzt - R.start) / R.dauer;
+  if (w >= 1) return beendeRundgang(true);
+  const m3 = +regler.min + (+regler.max - +regler.min) * (0.5 - 0.5 * Math.cos(Math.PI * w));
+  if (R.letzte === null || Math.abs(m3 - R.letzte) >= 0.004) { setzeBahn(vorschau(m3)); R.letzte = m3; waehle(m3, true); }
+}
+document.getElementById("rundgang").addEventListener("click", () => (S.tour ? beendeRundgang(true) : starteRundgang()));
+document.getElementById("pause").addEventListener("click", e => { S.laeuft = !S.laeuft; e.target.textContent = S.laeuft ? "Anhalten" : "Weiter"; });
+document.getElementById("spiegel").addEventListener("click", e => {
+  if (S.vorschau) return;
+  if (S.spiegel) { S.spiegel = null; e.target.classList.remove("an"); document.getElementById("hinweis").textContent = ""; return; }
+  if (S.probe) beendeProbe();
+  S.spiegel = { ...sucheG(), start: performance.now() }; e.target.classList.add("an");
+  document.getElementById("hinweis").textContent = "Die zweite Hälfte des Umlaufs wird auf die erste gefaltet …";
+});
+document.getElementById("anstossen").addEventListener("click", e => {
+  if (S.vorschau) return;
+  if (S.probe) { beendeProbe(); document.getElementById("hinweis").textContent = ""; return; }
+  S.spiegel = null; document.getElementById("spiegel").classList.remove("an");
+  starteProbe(); e.target.classList.add("an");
+});
+
+/* ── Takt ── */
+let zuletzt = performance.now(), bilder = 0;
+function takt(jetzt) {
+  const dt = Math.min(0.05, (jetzt - zuletzt) / 1000); zuletzt = jetzt; bilder++;
+  // beim Ziehen die Vorschau, sobald der Regler 250 ms ruht die ganze Rechnung
+  if (S.warteM3 !== null) {
+    const m3 = S.warteM3;
+    if (jetzt - S.letzteEingabe < 250) { if (m3 !== S.vorschauM3) { const r = vorschau(m3); setzeBahn(r); S.vorschauM3 = m3; } }
+    else { S.warteM3 = null; S.vorschauM3 = null; const r = rechne(m3); if (r.ok) { setzeBahn(r); S.letzteRechnung = r.ms; } }
+  }
+  if (S.tour) schritteRundgang(jetzt);
+  if (S.laeuft && S.punkte) {
+    if (S.probe) { const n = 6; for (let i = 0; i < n; i++) schritteProbe(S.T * dt * S.tempo / 1.6 / n); S.t = S.probe.t; }
+    else S.t += S.T * dt * S.tempo / S.umlaufSek;
+  }
+  if (bilder % 6 === 0 && S.T) document.getElementById("wZeit").textContent = (S.t / S.T).toFixed(2).replace(".", ",") + " Umläufe";
+  zeichne(); if (S.probe) zeichneProbe();
+  requestAnimationFrame(takt);
+}
+window.__familieB = { S, rechne, bilder: () => bilder };
+groesse();
+const r0 = rechne(5); if (r0.ok) { setzeBahn(r0); S.letzteRechnung = r0.ms; }
+requestAnimationFrame(takt);
+</script>
+</body>
+</html>

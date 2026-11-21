@@ -1,0 +1,46 @@
+{
+ "datei": "II.C-58-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:13:25.326Z",
+ "proben": [
+  {
+   "m3": 2,
+   "stueck": [
+    2,
+    2.0213104248046885
+   ],
+   "r1": {
+    "syzygien": 284,
+    "mitte": 128,
+    "minAnteil": 0.7586945963028836
+   },
+   "r2": {
+    "syzygien": 292,
+    "mitte": 132,
+    "minAnteil": 0.7586945962532274
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 2.0213104248046885,
+   "stueck": [
+    2,
+    2.0213104248046885
+   ],
+   "r1": {
+    "syzygien": 296,
+    "mitte": 134,
+    "minAnteil": 0.7708746775114047
+   },
+   "r2": {
+    "syzygien": 296,
+    "mitte": 134,
+    "minAnteil": 0.7708746776075862
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 29
+  }
+ ],
+ "urteil": "unklar"
+}

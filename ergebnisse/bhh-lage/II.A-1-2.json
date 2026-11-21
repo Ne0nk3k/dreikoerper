@@ -1,0 +1,27 @@
+{
+ "datei": "II.A-1-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:13:32.626Z",
+ "proben": [
+  {
+   "m3": 2.03546875,
+   "stueck": [
+    2.03546875,
+    2.03546875
+   ],
+   "r1": {
+    "syzygien": 50,
+    "mitte": 22,
+    "minAnteil": 0.6658370544809028
+   },
+   "r2": {
+    "syzygien": 50,
+    "mitte": 22,
+    "minAnteil": 0.6658370544809028
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 28
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}

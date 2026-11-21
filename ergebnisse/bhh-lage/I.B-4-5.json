@@ -1,0 +1,46 @@
+{
+ "datei": "I.B-4-5",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:09:44.306Z",
+ "proben": [
+  {
+   "m3": 4.743053730726242,
+   "stueck": [
+    4.743053730726242,
+    5.101617
+   ],
+   "r1": {
+    "syzygien": 328,
+    "mitte": 158,
+    "minAnteil": 0.892636018876506
+   },
+   "r2": {
+    "syzygien": 344,
+    "mitte": 166,
+    "minAnteil": 0.8926360188900521
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 5.101617,
+   "stueck": [
+    4.743053730726242,
+    5.101617
+   ],
+   "r1": {
+    "syzygien": 336,
+    "mitte": 162,
+    "minAnteil": 0.7448139362721281
+   },
+   "r2": {
+    "syzygien": 344,
+    "mitte": 166,
+    "minAnteil": 0.7448139362776997
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 28
+  }
+ ],
+ "urteil": "unklar"
+}

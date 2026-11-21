@@ -1,0 +1,46 @@
+{
+ "datei": "I.A-62-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T22:56:24.289Z",
+ "proben": [
+  {
+   "m3": 1.961072280628723,
+   "stueck": [
+    1.961072280628723,
+    2.030786
+   ],
+   "r1": {
+    "syzygien": 482,
+    "mitte": 222,
+    "minAnteil": 0.976887510133925
+   },
+   "r2": {
+    "syzygien": 498,
+    "mitte": 230,
+    "minAnteil": 0.976887510133925
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 2.030786,
+   "stueck": [
+    1.961072280628723,
+    2.030786
+   ],
+   "r1": {
+    "syzygien": 490,
+    "mitte": 226,
+    "minAnteil": 0.9191803775949599
+   },
+   "r2": {
+    "syzygien": 506,
+    "mitte": 234,
+    "minAnteil": 0.9191803775949599
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  }
+ ],
+ "urteil": "unklar"
+}

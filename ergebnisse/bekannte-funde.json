@@ -1,0 +1,26 @@
+{
+ "zweck": "Was fremde Veröffentlichungen über unsere Kandidaten schon sagen — zwei Arten (17.11.2026). (1) Ohne „art“: ein veröffentlichtes stabiles STÜCK (Bereich von … bis). Ein Eintrag gilt für alle Listeneinträge derselben Familie und für jedes stabile Stück, das den Bereich berührt; solche Stücke zählen nicht als neu, eine Familie gilt nur als bekannt, wenn alle ihre stabilen Stücke bekannt sind (16.11.2026: Literaturprüfung durch die Sitzung desktop-e5, an unseren Daten nachgeprüft). (2) „art: urteil“: ein fremdes Stabilitätsurteil an EINER Listenmasse (datei, m3, urteil). Es wirkt wie das Urteil S von Li, Jing & Liao 2018 nur auf die Klasse (b wird a: neu bleibt das Fenster, nicht die Entscheidung dort), nie auf die Eichung an ihren eigenen Urteilen. (3) „art: offen“ (21.11.2026): die Familie ist gegenüber einer Quelle nicht prüfbar, deren Daten nicht vorliegen; sie zählt nicht als neu, sondern gesondert („gegenüber der Literatur nicht prüfbar“).",
+ "stand": "21.11.2026",
+ "funde": [
+  {
+   "datei": "I.B-1-0.75",
+   "wo": "Li, Li & Liao (2021), Sci China PMA 64, 219511 (arXiv 2007.10184): Familie „Moth IVa.2.A“ bei ungleichen Massen, laut threebodyorbits.com stabil für 0,96 … 1,03. Ihre Keimbahn (gleiche Massen) hat T* = 24,20555041207757, unsere I.B-1-0.75 bei m3 = 1 hat 24,205550412077432 (relativ 5,8·10⁻¹⁵). Ihr Bahnwort bABabaBAbabABabaBAba ist das Quadrat unseres (zyklisch verschoben) — daher griff der frühere Ausschluss über die Wortlänge nicht. Bekannt ist damit das Fenster um m3 = 1 (bei uns 0,9594 … 1,0306); die Stücke bei 0,555 … 0,588 liegen außerhalb ihres Katalogs (m1 von 0,8 bis 1,1) und bleiben neu; das Stück bei 1,194 … 1,231 könnte auf ihrer Diagonale m1 = m2 liegen (unser m3 von 0,91 bis 1,25) — offen, braucht ihre Zusatzdaten.",
+   "von": 0.95,
+   "bis": 1.04
+  },
+  {
+   "art": "urteil",
+   "datei": "I.A-68-0.5",
+   "m3": 0.5,
+   "urteil": "S",
+   "kurz": "Portegies Zwart u. a. 2026",
+   "wo": "Portegies Zwart, Doelman & Sein (2026), A&A, doi:10.1051/0004-6361/202558230 (frei; arXiv 2601.09843): Bahn „I.A.68 i.c.(0.5)“ mit Anfangswerten aus Li, Jing & Liao 2018; ihre Periode 83,85, unsere 83,847. Zusammenfassung und Text nennen sie „linear stabil“, Tab. 3 „marginal stabil“ (t_stable etwa 9·10⁴, „strictly speaking does not make it linearly stable“). Ihr Verfahren: Störung 10⁻⁵ und Ljapunow-Zeit, keine Multiplikatoren. Li, Jing & Liao 2018: marginal (M). Unsere Rechnung auf 30 Stellen: stabil um Haaresbreite (Rand 1,1·10⁻⁹ bei 0,5), stabiles Stück 0,5 … 0,5063 — Klasse a: neu ist nur das Fenster. Gefunden am 17.11.2026 (bis dahin fälschlich als „nicht lesbar“ geführt)."
+  },
+  {
+   "art": "offen",
+   "datei": "I.B-3-2",
+   "kurz": "BHH-Katalog 2020 nicht prüfbar",
+   "wo": "Li & Liao (2020), arXiv 2008.13550, BHH-Bahnen und -Satelliten, m3 = 1, m1, m2 in [0,1; 1). I.B-3-2 ist stabil für m3 = 1,387 … 1,621, in deren Normierung m1 = m2 = 0,617 … 0,721 — im Bereich des Katalogs — und erreicht die BHH-Startlage (kleinster Längsanteil 6,9·10⁻¹⁴). Drehimpuls 0 schließt die Katalogbahnen nicht aus (die Startlage erzwingt L ≠ 0 nicht; Abb. 3 dort zeigt keine Bahn mit m1 = m2 < 1). Die Zusatzdaten sind nicht öffentlich; Anfrage an Xiaoming Li am 21.11.2026 abgeschickt. Bis zu einer Antwort: nicht als neu gezählt."
+  }
+ ]
+}

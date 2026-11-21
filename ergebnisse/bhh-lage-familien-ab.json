@@ -1,0 +1,293 @@
+{
+ "zweck": "BHH-Startlage der Familien A und B (dreikoerper-familie-b): kommen ihre stabilen Proben je in die Startlage der BHH-Kataloge?",
+ "regel": "werkzeug/bhh-alle.mjs (lage, urteilProbe), Abtastung 200000",
+ "erzeugt": "2026-11-21T03:24:25.957Z",
+ "familien": {
+  "B": {
+   "proben": [
+    {
+     "m3": 4.21,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.5097118300437312
+    },
+    {
+     "m3": 4.215,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.5089700662223094
+    },
+    {
+     "m3": 4.22,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.5082301593237951
+    },
+    {
+     "m3": 4.25,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.5038285706226624
+    },
+    {
+     "m3": 4.5,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4693136202964537
+    },
+    {
+     "m3": 4.5466,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4632544312987567
+    },
+    {
+     "m3": 4.5468,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.46322865729222623
+    },
+    {
+     "m3": 4.54685,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.46322221409570136
+    },
+    {
+     "m3": 4.54686,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4632209254710899
+    },
+    {
+     "m3": 4.546872,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4632193791279383
+    },
+    {
+     "m3": 4.54688,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.46321834823640856
+    },
+    {
+     "m3": 4.5469,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.46321577102125117
+    },
+    {
+     "m3": 4.5471,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.46318999994330057
+    },
+    {
+     "m3": 4.75,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.43800815701472817
+    },
+    {
+     "m3": 4.9,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4205499216162491
+    },
+    {
+     "m3": 4.95,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4149352313341196
+    },
+    {
+     "m3": 5,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.4094192242053538
+    },
+    {
+     "m3": 5.01,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.40832768498090205
+    },
+    {
+     "m3": 5.02,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.40723999618506584
+    },
+    {
+     "m3": 5.03,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.40615614227752095
+    },
+    {
+     "m3": 5.033,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.40583173160300484
+    },
+    {
+     "m3": 5.034,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      30,
+      30
+     ],
+     "mitte": 14,
+     "minAnteil": 0.40572367102966717
+    }
+   ],
+   "stabil": 22,
+   "nie": 22,
+   "kleinsterAnteil": 0.40572367102966717,
+   "groessterAnteil": 0.5097118300437312
+  },
+  "A": {
+   "proben": [
+    {
+     "m3": 4.9,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      124,
+      124
+     ],
+     "mitte": 58,
+     "minAnteil": 0.4252096017882283
+    },
+    {
+     "m3": 4.95,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      124,
+      124
+     ],
+     "mitte": 58,
+     "minAnteil": 0.4173308298259071
+    },
+    {
+     "m3": 5,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      116,
+      116
+     ],
+     "mitte": 54,
+     "minAnteil": 0.4069629629232318
+    },
+    {
+     "m3": 5.05,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      116,
+      116
+     ],
+     "mitte": 54,
+     "minAnteil": 0.3926796676826828
+    },
+    {
+     "m3": 5.1,
+     "urteil": "nie in BHH-Startlage",
+     "syzygien": [
+      116,
+      116
+     ],
+     "mitte": 54,
+     "minAnteil": 0.3786764341897433
+    }
+   ],
+   "stabil": 5,
+   "nie": 5,
+   "kleinsterAnteil": 0.3786764341897433,
+   "groessterAnteil": 0.4252096017882283
+  }
+ }
+}

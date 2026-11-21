@@ -1,0 +1,65 @@
+{
+ "datei": "I.B-25-0.5",
+ "abtastung": 200000,
+ "erzeugt": "2026-11-20T22:39:00.961Z",
+ "proben": [
+  {
+   "m3": 0.504236,
+   "stueck": [
+    0.504236,
+    0.5442134702205653
+   ],
+   "r1": {
+    "syzygien": 72,
+    "mitte": 22,
+    "minAnteil": 0.9492510555556669
+   },
+   "r2": {
+    "syzygien": 72,
+    "mitte": 22,
+    "minAnteil": 0.9492510555552789
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  },
+  {
+   "m3": 0.5442134702205653,
+   "stueck": [
+    0.504236,
+    0.5442134702205653
+   ],
+   "r1": {
+    "syzygien": 64,
+    "mitte": 18,
+    "minAnteil": 0.9004160421150574
+   },
+   "r2": {
+    "syzygien": 64,
+    "mitte": 18,
+    "minAnteil": 0.9004160421167157
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  },
+  {
+   "m3": 0.5362597656249997,
+   "stueck": [
+    0.504236,
+    0.5442134702205653
+   ],
+   "r1": {
+    "syzygien": 72,
+    "mitte": 22,
+    "minAnteil": 0.9207877228479329
+   },
+   "r2": {
+    "syzygien": 72,
+    "mitte": 22,
+    "minAnteil": 0.9207877228479329
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}

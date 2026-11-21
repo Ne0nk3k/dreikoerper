@@ -1,0 +1,46 @@
+{
+ "datei": "II.C-4-8",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:20:40.648Z",
+ "proben": [
+  {
+   "m3": 7.999140625,
+   "stueck": [
+    7.999140625,
+    8.006450828313827
+   ],
+   "r1": {
+    "syzygien": 290,
+    "mitte": 142,
+    "minAnteil": 0.8487922921567366
+   },
+   "r2": {
+    "syzygien": 294,
+    "mitte": 144,
+    "minAnteil": 0.8487922921567366
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 20
+  },
+  {
+   "m3": 8.006450828313827,
+   "stueck": [
+    7.999140625,
+    8.006450828313827
+   ],
+   "r1": {
+    "syzygien": 290,
+    "mitte": 142,
+    "minAnteil": 0.8441566497799162
+   },
+   "r2": {
+    "syzygien": 294,
+    "mitte": 144,
+    "minAnteil": 0.8441566497799164
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 20
+  }
+ ],
+ "urteil": "unklar"
+}

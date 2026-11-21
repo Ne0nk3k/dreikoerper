@@ -1,0 +1,65 @@
+{
+ "datei": "II.C-34-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:19:59.726Z",
+ "proben": [
+  {
+   "m3": 1.955606,
+   "stueck": [
+    1.955606,
+    2.002539
+   ],
+   "r1": {
+    "syzygien": 204,
+    "mitte": 92,
+    "minAnteil": 0.6954613574248177
+   },
+   "r2": {
+    "syzygien": 204,
+    "mitte": 92,
+    "minAnteil": 0.6954613574330998
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 20
+  },
+  {
+   "m3": 2.002539,
+   "stueck": [
+    1.955606,
+    2.002539
+   ],
+   "r1": {
+    "syzygien": 204,
+    "mitte": 92,
+    "minAnteil": 0.7133830548123723
+   },
+   "r2": {
+    "syzygien": 204,
+    "mitte": 92,
+    "minAnteil": 0.7133830547968573
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 20
+  },
+  {
+   "m3": 1.9727734375,
+   "stueck": [
+    1.955606,
+    2.002539
+   ],
+   "r1": {
+    "syzygien": 204,
+    "mitte": 92,
+    "minAnteil": 0.7012366990112953
+   },
+   "r2": {
+    "syzygien": 204,
+    "mitte": 92,
+    "minAnteil": 0.7012366990034508
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 20
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}

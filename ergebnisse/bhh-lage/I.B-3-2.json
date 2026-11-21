@@ -1,0 +1,65 @@
+{
+ "datei": "I.B-3-2",
+ "abtastung": 200000,
+ "erzeugt": "2026-11-20T22:39:50.931Z",
+ "proben": [
+  {
+   "m3": 1.3870544433593746,
+   "stueck": [
+    1.3870544433593746,
+    1.620837
+   ],
+   "r1": {
+    "syzygien": 8,
+    "mitte": 8,
+    "minAnteil": 3.159666266958949e-11
+   },
+   "r2": {
+    "syzygien": 8,
+    "mitte": 8,
+    "minAnteil": 3.536805976145445e-11
+   },
+   "urteil": "BHH-Startlage möglich",
+   "sekunden": 3
+  },
+  {
+   "m3": 1.620837,
+   "stueck": [
+    1.3870544433593746,
+    1.620837
+   ],
+   "r1": {
+    "syzygien": 24,
+    "mitte": 8,
+    "minAnteil": 6.864592113042538e-14
+   },
+   "r2": {
+    "syzygien": 24,
+    "mitte": 8,
+    "minAnteil": 2.783513103233564e-13
+   },
+   "urteil": "BHH-Startlage möglich",
+   "sekunden": 4
+  },
+  {
+   "m3": 1.6083374023437496,
+   "stueck": [
+    1.3870544433593746,
+    1.620837
+   ],
+   "r1": {
+    "syzygien": 24,
+    "mitte": 8,
+    "minAnteil": 1.9369904077862845e-13
+   },
+   "r2": {
+    "syzygien": 24,
+    "mitte": 8,
+    "minAnteil": 1.836344188499193e-13
+   },
+   "urteil": "BHH-Startlage möglich",
+   "sekunden": 4
+  }
+ ],
+ "urteil": "BHH-Startlage möglich"
+}

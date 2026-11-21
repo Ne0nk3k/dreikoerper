@@ -1,6 +1,6 @@
 {
  "zweck": "Fremde Listen, die dieses Projekt liest, aber nicht weitergibt. daten-holen.mjs lädt sie von hier und prüft jede Datei gegen sha256.",
- "stand": "Kopien vom 01.10.–02.10.2026; Atlas vom 27.09.2026",
+ "stand": "Kopien vom 01.10.–02.10.2026; Atlas vom 27.09.2026; Zusatzdaten 2018 vom 12.11.2026",
  "dateien": [
   {
    "datei": "quelle/readme.md",
@@ -317,6 +317,23 @@
    "bytes": 76627,
    "sha256": "ccc21bd57438ced8b7f55ae5c89976e67dd7726623d8febe6070bbd2843c0869",
    "wozu": "katalog-gross-bauen.mjs"
+  },
+  {
+   "datei": "quelle/liliao-2018-zusatz.pdf",
+   "bezug": "Li, Jing & Liao (2018), PASJ 70, 64, doi:10.1093/pasj/psy057 — auf der Artikelseite unter „Supplementary data“ die Datei pasj_70_4_64_s5.pdf. Von Hand holen: der Verlag signiert jeden Download-Link einzeln, ein solcher Link läuft ab und steht deshalb nicht hier.",
+   "wozu": "werkzeug/eichung-liliao.mjs, werkzeug/pruefe-alles.mjs (Eichung an den Stabilitätsurteilen von 2018)",
+   "bytes": 314515,
+   "sha256": "0e800304e84b0915c43ce8a3716a5d7fa6d71f5f8f93487e3e5b83affa35d191"
+  },
+  {
+   "datei": "quelle/liliao-2018-zusatz.txt",
+   "abgeleitet": {
+    "von": "quelle/liliao-2018-zusatz.pdf",
+    "werkzeug": "werkzeug/pdf-text.mjs"
+   },
+   "wozu": "werkzeug/eichung-liliao.mjs, werkzeug/pruefe-alles.mjs",
+   "bytes": 342974,
+   "sha256": "9da6e9f92c83e5cec86eb1b9a708b780407c6be5744236a0099ff3ffcf3b9ff9"
   }
  ]
 }

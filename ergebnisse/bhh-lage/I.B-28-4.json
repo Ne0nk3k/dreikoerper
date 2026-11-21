@@ -1,0 +1,46 @@
+{
+ "datei": "I.B-28-4",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:03:27.627Z",
+ "proben": [
+  {
+   "m3": 3.951004,
+   "stueck": [
+    3.951004,
+    4.02437
+   ],
+   "r1": {
+    "syzygien": 548,
+    "mitte": 262,
+    "minAnteil": 0.8814822667071734
+   },
+   "r2": {
+    "syzygien": 564,
+    "mitte": 270,
+    "minAnteil": 0.8814822667071734
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  },
+  {
+   "m3": 4.02437,
+   "stueck": [
+    3.951004,
+    4.02437
+   ],
+   "r1": {
+    "syzygien": 540,
+    "mitte": 258,
+    "minAnteil": 0.8448720017537653
+   },
+   "r2": {
+    "syzygien": 564,
+    "mitte": 270,
+    "minAnteil": 0.8448720017537654
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 29
+  }
+ ],
+ "urteil": "unklar"
+}

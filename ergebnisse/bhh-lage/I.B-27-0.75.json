@@ -1,0 +1,27 @@
+{
+ "datei": "I.B-27-0.75",
+ "abtastung": 200000,
+ "erzeugt": "2026-11-20T22:39:10.857Z",
+ "proben": [
+  {
+   "m3": 0.74875,
+   "stueck": [
+    0.74875,
+    0.74875
+   ],
+   "r1": {
+    "syzygien": 96,
+    "mitte": 34,
+    "minAnteil": 0.7716442663375664
+   },
+   "r2": {
+    "syzygien": 96,
+    "mitte": 34,
+    "minAnteil": 0.7716442663492301
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 3
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}

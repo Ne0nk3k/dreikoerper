@@ -1,0 +1,65 @@
+{
+ "datei": "II.C-7-4",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T23:23:24.225Z",
+ "proben": [
+  {
+   "m3": 3.9381644153594975,
+   "stueck": [
+    3.9381644153594975,
+    4.034999999999999
+   ],
+   "r1": {
+    "syzygien": 298,
+    "mitte": 142,
+    "minAnteil": 0.7548298912176331
+   },
+   "r2": {
+    "syzygien": 298,
+    "mitte": 142,
+    "minAnteil": 0.7548298912176331
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 20
+  },
+  {
+   "m3": 4.034999999999999,
+   "stueck": [
+    3.9381644153594975,
+    4.034999999999999
+   ],
+   "r1": {
+    "syzygien": 290,
+    "mitte": 138,
+    "minAnteil": 0.7023903958867057
+   },
+   "r2": {
+    "syzygien": 298,
+    "mitte": 142,
+    "minAnteil": 0.7023903958867057
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 21
+  },
+  {
+   "m3": 4.01,
+   "stueck": [
+    3.9381644153594975,
+    4.034999999999999
+   ],
+   "r1": {
+    "syzygien": 298,
+    "mitte": 142,
+    "minAnteil": 0.7148252574397725
+   },
+   "r2": {
+    "syzygien": 302,
+    "mitte": 144,
+    "minAnteil": 0.7148252574397725
+   },
+   "urteil": "unklar (Abtastung)",
+   "sekunden": 20
+  }
+ ],
+ "urteil": "unklar"
+}

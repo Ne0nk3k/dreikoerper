@@ -1,0 +1,103 @@
+{
+ "datei": "I.A-12-2",
+ "abtastung": 2000000,
+ "erzeugt": "2026-11-20T22:50:16.562Z",
+ "proben": [
+  {
+   "m3": 2.451392,
+   "stueck": [
+    2.451392,
+    2.639899
+   ],
+   "r1": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.7579713432908249
+   },
+   "r2": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.7579713432908249
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 35
+  },
+  {
+   "m3": 2.639899,
+   "stueck": [
+    2.451392,
+    2.639899
+   ],
+   "r1": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.711484382922895
+   },
+   "r2": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.711484382922895
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 34
+  },
+  {
+   "m3": 3.020453,
+   "stueck": [
+    3.020453,
+    3.525312499999995
+   ],
+   "r1": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.6284898067433042
+   },
+   "r2": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.6284898067433042
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 33
+  },
+  {
+   "m3": 3.525312499999995,
+   "stueck": [
+    3.020453,
+    3.525312499999995
+   ],
+   "r1": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.5334039665153443
+   },
+   "r2": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.5334039665153443
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 32
+  },
+  {
+   "m3": 3.504999999999995,
+   "stueck": [
+    3.020453,
+    3.525312499999995
+   ],
+   "r1": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.5377813808870407
+   },
+   "r2": {
+    "syzygien": 126,
+    "mitte": 58,
+    "minAnteil": 0.5377813808870407
+   },
+   "urteil": "nie in BHH-Startlage",
+   "sekunden": 32
+  }
+ ],
+ "urteil": "nie in BHH-Startlage"
+}
