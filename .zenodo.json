@@ -23,6 +23,12 @@
       "relation": "isSupplementedBy",
       "scheme": "doi",
       "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.5281/zenodo.24424894",
+      "relation": "isSupplementedBy",
+      "scheme": "doi",
+      "resource_type": "dataset"
     }
   ],
   "notes": "Code: MIT. Results and data package (ergebnisse/, fundbericht/): CC BY 4.0. Felix Habl had the idea and directed the work; the code, the computations and the documentation were written by Claude, an AI model by Anthropic, in conversation with him. Every number comes from a computation in this code.",
@@ -32,6 +38,7 @@
     "Li X, Liao S (2019). Collisionless periodic orbits in the free-fall three-body problem. New Astronomy 70, 22-26. doi:10.1016/j.newast.2019.01.003",
     "Šuvakov M, Dmitrašinović V (2013). Three classes of Newtonian three-body planar periodic orbits. Physical Review Letters 110, 114301. arXiv:1303.0181",
     "Hristov I, Hristova R, et al. Databases of periodic three-body orbits, db2.fmi.uni-sofia.bg; arXiv:2404.16526, arXiv:2308.16159, arXiv:2510.22802",
-    "Habl F (2026). Family B: a linearly stable family of planar periodic three-body orbits whose topology is not in the published lists. Zenodo. doi:10.5281/zenodo.23987401"
+    "Habl F (2026). Family B: a linearly stable family of planar periodic three-body orbits whose topology is not in the published lists. Zenodo. doi:10.5281/zenodo.23987401",
+    "Habl F (2026). A 30-digit linear stability map of the unequal-mass three-body orbits of Li, Jing & Liao (2018), continued in m3 from 0.5 to 10. Zenodo. doi:10.5281/zenodo.24424894"
   ]
 }

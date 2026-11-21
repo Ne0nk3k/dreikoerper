@@ -78,7 +78,7 @@ It has its own repository, with the data along the family, the novelty checks an
 
 ## A stability map of the unequal-mass list orbits
 
-From version 1.2.0 on, `werkzeug/` also holds the tools that continued every orbit of Li, Jing & Liao (2018) in m3 between 0.5 and 10 and decided its linear stability at 30 digits along the way. The result is a separate dataset, with its figure, its limits, an independent review and code that recomputes every number from the tables: [github.com/Ne0nk3k/dreikoerper-stability-map](https://github.com/Ne0nk3k/dreikoerper-stability-map). At its own probes the map confirms the stability window of I.A-5 above; the stable piece at m3 ≈ 3.4–3.5 it does not see, because none of its probes lies there. That is an example of the blind spot the dataset measures.
+From version 1.2.0 on, `werkzeug/` also holds the tools that continued every orbit of Li, Jing & Liao (2018) in m3 between 0.5 and 10 and decided its linear stability at 30 digits along the way. The result is a separate dataset, with its figure, its limits, an independent review and code that recomputes every number from the tables: [github.com/Ne0nk3k/dreikoerper-stability-map](https://github.com/Ne0nk3k/dreikoerper-stability-map), archived on Zenodo as [doi:10.5281/zenodo.24424894](https://doi.org/10.5281/zenodo.24424894). At its own probes the map confirms the stability window of I.A-5 above; the stable piece at m3 ≈ 3.4–3.5 it does not see, because none of its probes lies there. That is an example of the blind spot the dataset measures.
 
 ## What else is here
 
